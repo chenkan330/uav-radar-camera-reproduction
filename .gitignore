@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+tmp/
+.mplconfig/
+.vs/
+*.pyproj.user
+data/
+*.bag
+*.mcap
+*.db3
+*.pcd
+/*.pdf
+output/*/
+!output/step1/

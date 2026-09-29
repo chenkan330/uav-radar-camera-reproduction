@@ -1,1 +1,212 @@
-# uav-radar-camera-reproduction
+# 第1步：手写纯 3D Kalman，使用模拟 Radar / Camera 数据
+
+参考论文：[Data Fusion Approach for Unmodified UAV Tracking with Vision and mmWave Radar](https://doi.org/10.1109/ICUAS65942.2025.11007835)，ICUAS 2025。
+本项目是依据论文逐步编写的独立实现，**不是作者官方源码**。论文 PDF 不随代码发布。
+当前只完成你指定的**第1步**：验证 `Prediction → Radar Update → Camera Update`。
+**不需要提供真实数据。当前结果是合成数据实验，不代表论文实测精度。**
+
+## 先看效果，再运行
+
+- `output/step1/overview.png`：三维轨迹、XY 平面轨迹、位置误差与 RMSE 对比。
+- `output/step1/prediction_update.png`：放大 5–7.5 秒，逐轴查看预测、Radar 更新、Camera 更新。
+- 深色线是真值，青色线是融合估计；散点为人工加噪声的观测。
+- 曲线图中的青色阴影是滤波器模型给出的 `±2σ`，不是实际误差的保证范围。
+
+![第 1 步：合成观测、真实轨迹与融合结果](output/step1/overview.png)
+
+![每个时刻的一次预测和两次更新](output/step1/prediction_update.png)
+
+当前项目的 `.venv` 已安装运行依赖，在本文件夹的 PowerShell 中执行：
+
+```powershell
+.\.venv\Scripts\python.exe demo_step1.py
+```
+
+默认生成 20 秒、间隔 0.1 秒的 201 个样本，固定随机种子 `42`。
+运行结束会打印误差和前三次预测/更新结果，并重建 `output/step1/` 中的文件。
+程序保存图片，不依赖弹出图形窗口。
+
+```powershell
+# 运行数学测试
+.\.venv\Scripts\python.exe -m unittest discover -s tests -v
+
+# 更符合常速度模型的直线轨迹，结果单独保存
+.\.venv\Scripts\python.exe demo_step1.py --trajectory line --output output/step1_line
+
+# 换随机种子，检验不同噪声实现，结果单独保存
+.\.venv\Scripts\python.exe demo_step1.py --seed 7 --output output/step1_seed7
+
+# 只跑数值计算和保存数据，不绘图；只需要 NumPy
+python demo_step1.py --no-plots --output output/step1_numeric
+```
+
+若首次下载项目，在 Python 3.10+ 环境创建虚拟环境（以下为 Windows PowerShell）：
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe demo_step1.py
+```
+
+原始示例绘图环境为 Python 3.13、NumPy 2.5.3、Matplotlib 3.11.2；依赖范围见 `requirements.txt`。
+没有调用 FilterPy、OpenCV Kalman 或其他现成滤波器。
+
+## 这次保留与简化了论文中的哪些部分
+
+对应论文第 3–4 页（印刷页 803–804），IV-A / IV-B，公式 (1)–(15)。
+
+| 部分 | 第1步的处理 |
+|---|---|
+| 状态与运动模型 | 按论文保留 `[x,vx,y,vy,z,vz]` 与常速度模型 |
+| Prediction / Update | 手写矩阵计算，状态与协方差都递推 |
+| Radar | 合成 `[x,y,z]`；论文还含 `vx`，本阶段暂不使用速度观测 |
+| Camera | **人为构造独立的 `[x,y,z]` 观测**，不是 `(u,v)`，不是单目重建结果 |
+| 坐标系 | 假设已经对齐；`x` 为深度方向，单位米 |
+| 时间 | 两传感器同步、固定 `dt=0.1 s`；论文滤波输出为 100 Hz，这里用 10 Hz 便于逐步检查 |
+| 初始化 | 首个 Radar 位置初始化、速度初值为 0；未实现论文连续两帧最强点的速度筛选 |
+| 数据关联 | 已知单目标，每帧只有一个位置；没有点云、门控、Closest |
+| 噪声参数 | 论文未给出 `Q/R/P0` 具体数值，以下均为本实验的显式设定 |
+
+真实单目 Camera 没有独立深度。论文后续反投影使用预测深度，该深度与已有状态相关。
+不能把本实验的“独立三维 Camera 观测”直接当作真实相机模型。
+
+## 手写滤波器的数学形式
+
+状态和位置观测为：
+
+```text
+X = [x, vx, y, vy, z, vz]^T       # m, m/s 交替
+z = [x_measured, y_measured, z_measured]^T
+
+F = block_diag(A, A, A),   A = [[1, dt],
+                               [0,  1]]
+
+H = [[1, 0, 0, 0, 0, 0],
+     [0, 0, 1, 0, 0, 0],
+     [0, 0, 0, 0, 1, 0]]
+```
+
+每个时间段只执行一次预测：
+
+```text
+X_prior = F @ X_previous
+P_prior = F @ P_previous @ F.T + Q
+```
+
+每收到当前时刻的一条观测，执行一次更新：
+
+```text
+innovation = z - H @ X_prior
+S = H @ P_prior @ H.T + R
+K = P_prior @ H.T @ inverse(S)
+X_post = X_prior + K @ innovation
+P_post = (I-KH) @ P_prior @ (I-KH).T + K @ R @ K.T
+```
+
+上面 `inverse(S)` 只表示数学公式；实际代码用 `np.linalg.solve`，没有显式求逆。
+协方差采用 Joseph 形式，与论文公式 (8) 代数等价，数值上更容易维持对称与半正定。
+论文没有单列预测协方差公式，这里按标准线性 Kalman 模型补齐。
+
+同一时刻 Radar 更新后的 `X_post/P_post`，直接作为 Camera 更新的输入：
+
+```python
+kf.predict(dt)
+kf.update(radar_xyz, R_radar)
+kf.update(camera_xyz, R_camera)
+```
+
+两个 `update()` 之间没有 `predict()`。位置观测仍然可以通过位置/速度的交叉协方差修正速度。
+如果某一步没有观测，直接只执行 `predict()` 即可；测试中覆盖了这种情形。
+
+## 参数与模拟数据
+
+两路传感器的误差互相独立、各轴独立、跨时间独立，均为零均值高斯噪声。
+
+| 参数 | 数值 | 含义 |
+|---|---|---|
+| Radar 标准差 | `[0.20, 0.35, 0.35] m` | 模拟深度较准、横向较差 |
+| Camera 标准差 | `[0.75, 0.12, 0.12] m` | 模拟深度较差、横向较准，仅为占位假设 |
+| 初始速度 | `[0,0,0] m/s` | 不读取真值速度 |
+| 初始速度标准差 | `2.0 m/s` | 给速度估计留出收敛空间 |
+| 过程加速度标准差 | `0.8 m/s²` | 每一步独立、步内恒定的随机加速度模型 |
+
+`R = diag(std_x², std_y², std_z²)`，注意放入的是**方差**。
+初始位置协方差为第一帧 Radar 的 `R_radar`；该观测只使用一次，不再重复更新。
+在 `t=0` 仅补上一次 Camera 更新。单传感器基线分别使用各自第一帧初始化。
+
+每轴过程噪声为：
+
+```text
+G_axis = [dt²/2, dt]^T
+Q_axis = sigma_a² * [[dt⁴/4, dt³/2],
+                    [dt³/2, dt²]]
+Q = block_diag(Q_axis, Q_axis, Q_axis)
+```
+
+这是离散随机加速度模型，`sigma_a` 的单位是 `m/s²`，不是连续白噪声谱密度。
+更改 `dt` 会同时改变这一离散噪声模型的统计含义，不能把 10 Hz 与 100 Hz 结果直接视为同一过程噪声设置。
+
+默认真值轨迹为缓慢转弯的三维曲线：
+
+```text
+x(t) = 4.0 + 1.2 sin(0.25t)
+y(t) = 1.3 sin(0.40t)
+z(t) = 1.8 + 0.65 sin(0.30t)
+```
+
+曲线含加速度，用于观察常速度滤波器在模型不完全匹配时的表现。
+`--trajectory line` 使用严格匀速直线。
+真值仅用于生成带噪观测和事后评价，从不输入滤波器。
+
+## 默认实验结果
+
+三维位置 RMSE 定义为 `sqrt(mean((x-x_true)² + (y-y_true)² + (z-z_true)²))`。
+统计全部 201 帧，**包含初始化与启动阶段**，没有裁掉收敛前的误差。
+
+| 输入/方法 | 3D 位置 RMSE |
+|---|---:|
+| 原始 Radar | 0.5142 m |
+| 原始模拟 Camera | 0.8047 m |
+| 仅 Radar 的 Kalman | 0.2023 m |
+| 仅模拟 Camera 的 Kalman | 0.2785 m |
+| Radar + 模拟 Camera 融合 Kalman | **0.1103 m** |
+
+本实验中融合能利用两个模拟传感器各自较准的方向，结果比两个单传感器滤波器更好。
+一次 Update 并不保证该帧一定更靠近真值；Kalman 在所设统计模型下进行估计。
+这些误差是本仿真结果，不能与论文真实硬件实验精度直接比较。
+
+额外用种子 `0–9` 分别运行直线与曲线，共 20 次：融合 RMSE 均低于两个单传感器基线。
+曲线的平均融合 RMSE 为 `0.1234 m`，直线为 `0.1217 m`。
+这项检查说明默认种子并非唯一有效案例，但仍只验证上述已知噪声的合成场景。
+
+## 文件说明与验证
+
+| 文件 | 用途 |
+|---|---|
+| `kalman3d.py` | 手写滤波器；建议先读 `predict()` 与 `update()` |
+| `demo_step1.py` | 构造观测、运行融合和单传感器基线、保存结果与绘图 |
+| `tests/test_kalman3d.py` | 8 项独立数学测试 |
+| `output/step1/overview.png` | 总览图 |
+| `output/step1/prediction_update.png` | 三轴预测/更新局部过程图 |
+| `output/step1/simulation.csv` | 每帧真值、原始观测、各阶段状态及单传感器基线 |
+| `output/step1/simulation.npz` | 完整数组，额外包含每帧预测/更新协方差 |
+| `output/step1/metrics.json` | 参数、各轴及三维 RMSE、协方差检查结果 |
+| `output/step1/step_trace.json` | 前三次循环完整 `F/Q/H/R/P/K/S/innovation` 数值，便于手算核对 |
+
+`predicted[0]` 只是初始化占位，不是一次 Prediction；预测 RMSE 单独排除第 0 帧。
+NPZ 中 6 维状态始终按 `[x,vx,y,vy,z,vz]` 排列。
+
+测试覆盖：含交叉协方差的手算例子、双传感器顺序/逆序与联合更新等价、只预测的行为、
+长期迭代协方差对称和半正定、观测更新降低协方差、初始化不重复计数、输入检查。
+
+## 下一步需要什么数据
+
+当前到这里停止，尚未开始第2–5步。
+继续第2步时，需要你提供**一小段真实 Radar 点云及字段说明**：
+
+- 每帧的 `x,y,z`，单位、坐标轴方向；最好同时有速度和 intensity/SNR 字段及其定义。
+- 帧号、时间戳及单位，或至少已知的固定帧率；第2步只需知道相邻帧间隔，异步对齐仍留到第5步。
+- 雷达型号/导出格式，例如 CSV、NPY 或 ROS bag；若文件没有目标标注，需要指出无人机的大致初始位置或对应片段。
+- 若希望评价真实定位 RMSE，还需同时间的参考真值；只有点云也能做关联与轨迹展示。
+
+相机图像/检测框、内参、外参和两路时间戳将在第3–5步分别需要，目前不必先准备齐。

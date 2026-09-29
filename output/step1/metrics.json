@@ -1,0 +1,66 @@
+{
+  "scope": "STEP 1 SYNTHETIC ONLY: independent XYZ observations; no pixels, point clouds or timing alignment",
+  "seed": 42,
+  "trajectory": "curve",
+  "samples": 201,
+  "dt_s": 0.1,
+  "duration_s": 20.0,
+  "acceleration_std_m_s2": 0.8,
+  "radar_std_xyz_m": [
+    0.2,
+    0.35,
+    0.35
+  ],
+  "camera_std_xyz_m": [
+    0.75,
+    0.12,
+    0.12
+  ],
+  "initial_velocity_std_m_s": 2.0,
+  "rmse_definition": "sqrt(mean(||estimated_position - true_position||^2)), all samples including initialization",
+  "rmse": {
+    "radar_raw": {
+      "xyz_m": [
+        0.20112505185865803,
+        0.3400916513362125,
+        0.32901068978977266
+      ],
+      "position_3d_m": 0.5141611146223349
+    },
+    "camera_raw": {
+      "xyz_m": [
+        0.7877496825496958,
+        0.11555697574320165,
+        0.11653172311517064
+      ],
+      "position_3d_m": 0.8046630471770478
+    },
+    "radar_only": {
+      "xyz_m": [
+        0.08105424259663792,
+        0.14263034675924338,
+        0.11844788542166855
+      ],
+      "position_3d_m": 0.20234403282637559
+    },
+    "camera_only": {
+      "xyz_m": [
+        0.26585533946881673,
+        0.061840311633030665,
+        0.05538203269351855
+      ],
+      "position_3d_m": 0.2785147306916029
+    },
+    "fused": {
+      "xyz_m": [
+        0.07769253256941419,
+        0.058535398810976615,
+        0.051955008806200735
+      ],
+      "position_3d_m": 0.11028075748317094
+    }
+  },
+  "prediction_rmse_3d_m_excluding_initialization": 0.12957192541601512,
+  "min_posterior_covariance_eigenvalue": 0.0020718324964213285,
+  "max_posterior_covariance_asymmetry": 0.0
+}
