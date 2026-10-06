@@ -1,0 +1,2360 @@
+[
+  {
+    "timestamp_s": 0.16,
+    "sensor": "camera",
+    "event_id": "camera:c00002",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.000539878251419
+    }
+  },
+  {
+    "timestamp_s": 0.2,
+    "sensor": "radar",
+    "event_id": "radar:r00002",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 0.24,
+    "sensor": "camera",
+    "event_id": "camera:c00003",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.0211711936116545
+    }
+  },
+  {
+    "timestamp_s": 0.30000000000000004,
+    "sensor": "radar",
+    "event_id": "radar:r00003",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 0.32,
+    "sensor": "camera",
+    "event_id": "camera:c00004",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.981913684847593
+    }
+  },
+  {
+    "timestamp_s": 0.4,
+    "sensor": "radar",
+    "event_id": "radar:r00004",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 0.4,
+    "sensor": "camera",
+    "event_id": "camera:c00005",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.9721228574046883
+    }
+  },
+  {
+    "timestamp_s": 0.48,
+    "sensor": "camera",
+    "event_id": "camera:c00006",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.9670223620899936
+    }
+  },
+  {
+    "timestamp_s": 0.5,
+    "sensor": "radar",
+    "event_id": "radar:r00005",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 0.56,
+    "sensor": "camera",
+    "event_id": "camera:c00007",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.975391788954171
+    }
+  },
+  {
+    "timestamp_s": 0.6000000000000001,
+    "sensor": "radar",
+    "event_id": "radar:r00006",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 1
+    }
+  },
+  {
+    "timestamp_s": 0.64,
+    "sensor": "camera",
+    "event_id": "camera:c00008",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.978829336522134
+    }
+  },
+  {
+    "timestamp_s": 0.7000000000000001,
+    "sensor": "radar",
+    "event_id": "radar:r00007",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 0.72,
+    "sensor": "camera",
+    "event_id": "camera:c00009",
+    "diagnostics": {
+      "accepted": false,
+      "reason": "confidence"
+    }
+  },
+  {
+    "timestamp_s": 0.8,
+    "sensor": "radar",
+    "event_id": "radar:r00008",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 0.8,
+    "sensor": "camera",
+    "event_id": "camera:c00010",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.02095715946614
+    }
+  },
+  {
+    "timestamp_s": 0.88,
+    "sensor": "camera",
+    "event_id": "camera:c00011",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.0330157354922385
+    }
+  },
+  {
+    "timestamp_s": 0.9,
+    "sensor": "radar",
+    "event_id": "radar:r00009",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 4
+    }
+  },
+  {
+    "timestamp_s": 0.96,
+    "sensor": "camera",
+    "event_id": "camera:c00012",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.077522074292007
+    }
+  },
+  {
+    "timestamp_s": 1.0,
+    "sensor": "radar",
+    "event_id": "radar:r00010",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 1.04,
+    "sensor": "camera",
+    "event_id": "camera:c00013",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.080143565655805
+    }
+  },
+  {
+    "timestamp_s": 1.1,
+    "sensor": "radar",
+    "event_id": "radar:r00011",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 1.12,
+    "sensor": "camera",
+    "event_id": "camera:c00014",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.0995259098236865
+    }
+  },
+  {
+    "timestamp_s": 1.2,
+    "sensor": "camera",
+    "event_id": "camera:c00015",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.113952397254553
+    }
+  },
+  {
+    "timestamp_s": 1.2000000000000002,
+    "sensor": "radar",
+    "event_id": "radar:r00012",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 1.28,
+    "sensor": "camera",
+    "event_id": "camera:c00016",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.138211917815363
+    }
+  },
+  {
+    "timestamp_s": 1.3,
+    "sensor": "radar",
+    "event_id": "radar:r00013",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 1.36,
+    "sensor": "camera",
+    "event_id": "camera:c00017",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.145732955085418
+    }
+  },
+  {
+    "timestamp_s": 1.4000000000000001,
+    "sensor": "radar",
+    "event_id": "radar:r00014",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 1.44,
+    "sensor": "camera",
+    "event_id": "camera:c00018",
+    "diagnostics": {
+      "accepted": false,
+      "reason": "confidence"
+    }
+  },
+  {
+    "timestamp_s": 1.5,
+    "sensor": "radar",
+    "event_id": "radar:r00015",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 1.52,
+    "sensor": "camera",
+    "event_id": "camera:c00019",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.218965624186501
+    }
+  },
+  {
+    "timestamp_s": 1.6,
+    "sensor": "radar",
+    "event_id": "radar:r00016",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 1.6,
+    "sensor": "camera",
+    "event_id": "camera:c00020",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.236295518499803
+    }
+  },
+  {
+    "timestamp_s": 1.68,
+    "sensor": "camera",
+    "event_id": "camera:c00021",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.257252296047399
+    }
+  },
+  {
+    "timestamp_s": 1.7000000000000002,
+    "sensor": "radar",
+    "event_id": "radar:r00017",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 1.76,
+    "sensor": "camera",
+    "event_id": "camera:c00022",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.263916738683083
+    }
+  },
+  {
+    "timestamp_s": 1.8,
+    "sensor": "radar",
+    "event_id": "radar:r00018",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 4
+    }
+  },
+  {
+    "timestamp_s": 1.84,
+    "sensor": "camera",
+    "event_id": "camera:c00023",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.284344279485794
+    }
+  },
+  {
+    "timestamp_s": 1.9000000000000001,
+    "sensor": "radar",
+    "event_id": "radar:r00019",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 1.92,
+    "sensor": "camera",
+    "event_id": "camera:c00024",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.313610565558401
+    }
+  },
+  {
+    "timestamp_s": 2.0,
+    "sensor": "radar",
+    "event_id": "radar:r00020",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 2.0,
+    "sensor": "camera",
+    "event_id": "camera:c00025",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.328986644704268
+    }
+  },
+  {
+    "timestamp_s": 2.08,
+    "sensor": "camera",
+    "event_id": "camera:c00026",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.350253920071984
+    }
+  },
+  {
+    "timestamp_s": 2.1,
+    "sensor": "radar",
+    "event_id": "radar:r00021",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 2.16,
+    "sensor": "camera",
+    "event_id": "camera:c00027",
+    "diagnostics": {
+      "accepted": false,
+      "reason": "confidence"
+    }
+  },
+  {
+    "timestamp_s": 2.2,
+    "sensor": "radar",
+    "event_id": "radar:r00022",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 2.24,
+    "sensor": "camera",
+    "event_id": "camera:c00028",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.398197220747481
+    }
+  },
+  {
+    "timestamp_s": 2.3000000000000003,
+    "sensor": "radar",
+    "event_id": "radar:r00023",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 2.32,
+    "sensor": "camera",
+    "event_id": "camera:c00029",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.422391757051383
+    }
+  },
+  {
+    "timestamp_s": 2.4,
+    "sensor": "camera",
+    "event_id": "camera:c00030",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.440647784772131
+    }
+  },
+  {
+    "timestamp_s": 2.4000000000000004,
+    "sensor": "radar",
+    "event_id": "radar:r00024",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 2.48,
+    "sensor": "camera",
+    "event_id": "camera:c00031",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.475950807537124
+    }
+  },
+  {
+    "timestamp_s": 2.5,
+    "sensor": "radar",
+    "event_id": "radar:r00025",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 2.56,
+    "sensor": "camera",
+    "event_id": "camera:c00032",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.49480385001174
+    }
+  },
+  {
+    "timestamp_s": 2.6,
+    "sensor": "radar",
+    "event_id": "radar:r00026",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 2.64,
+    "sensor": "camera",
+    "event_id": "camera:c00033",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.491757880677604
+    }
+  },
+  {
+    "timestamp_s": 2.7,
+    "sensor": "radar",
+    "event_id": "radar:r00027",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 4
+    }
+  },
+  {
+    "timestamp_s": 2.72,
+    "sensor": "camera",
+    "event_id": "camera:c00034",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.514927399889033
+    }
+  },
+  {
+    "timestamp_s": 2.8000000000000003,
+    "sensor": "radar",
+    "event_id": "radar:r00028",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 2.8000000000000003,
+    "sensor": "camera",
+    "event_id": "camera:c00035",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.523017070285374
+    }
+  },
+  {
+    "timestamp_s": 2.88,
+    "sensor": "camera",
+    "event_id": "camera:c00036",
+    "diagnostics": {
+      "accepted": false,
+      "reason": "confidence"
+    }
+  },
+  {
+    "timestamp_s": 2.9000000000000004,
+    "sensor": "radar",
+    "event_id": "radar:r00029",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 2.96,
+    "sensor": "camera",
+    "event_id": "camera:c00037",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.5564560419642435
+    }
+  },
+  {
+    "timestamp_s": 3.0,
+    "sensor": "radar",
+    "event_id": "radar:r00030",
+    "diagnostics": {
+      "accepted": false,
+      "gated_count": 0
+    }
+  },
+  {
+    "timestamp_s": 3.04,
+    "sensor": "camera",
+    "event_id": "camera:c00038",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.571840112156779
+    }
+  },
+  {
+    "timestamp_s": 3.1,
+    "sensor": "radar",
+    "event_id": "radar:r00031",
+    "diagnostics": {
+      "accepted": false,
+      "gated_count": 0
+    }
+  },
+  {
+    "timestamp_s": 3.12,
+    "sensor": "camera",
+    "event_id": "camera:c00039",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.585486151423671
+    }
+  },
+  {
+    "timestamp_s": 3.2,
+    "sensor": "radar",
+    "event_id": "radar:r00032",
+    "diagnostics": {
+      "accepted": false,
+      "gated_count": 0
+    }
+  },
+  {
+    "timestamp_s": 3.2,
+    "sensor": "camera",
+    "event_id": "camera:c00040",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.599168050119401
+    }
+  },
+  {
+    "timestamp_s": 3.2800000000000002,
+    "sensor": "camera",
+    "event_id": "camera:c00041",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.614128963066754
+    }
+  },
+  {
+    "timestamp_s": 3.3000000000000003,
+    "sensor": "radar",
+    "event_id": "radar:r00033",
+    "diagnostics": {
+      "accepted": false,
+      "gated_count": 0
+    }
+  },
+  {
+    "timestamp_s": 3.36,
+    "sensor": "camera",
+    "event_id": "camera:c00042",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.6299728558324444
+    }
+  },
+  {
+    "timestamp_s": 3.4000000000000004,
+    "sensor": "radar",
+    "event_id": "radar:r00034",
+    "diagnostics": {
+      "accepted": false,
+      "gated_count": 0
+    }
+  },
+  {
+    "timestamp_s": 3.44,
+    "sensor": "camera",
+    "event_id": "camera:c00043",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.6461622182405105
+    }
+  },
+  {
+    "timestamp_s": 3.5,
+    "sensor": "radar",
+    "event_id": "radar:r00035",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 3.52,
+    "sensor": "camera",
+    "event_id": "camera:c00044",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.652087087312233
+    }
+  },
+  {
+    "timestamp_s": 3.6,
+    "sensor": "radar",
+    "event_id": "radar:r00036",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 4
+    }
+  },
+  {
+    "timestamp_s": 3.6,
+    "sensor": "camera",
+    "event_id": "camera:c00045",
+    "diagnostics": {
+      "accepted": false,
+      "reason": "confidence"
+    }
+  },
+  {
+    "timestamp_s": 3.68,
+    "sensor": "camera",
+    "event_id": "camera:c00046",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.66478746409761
+    }
+  },
+  {
+    "timestamp_s": 3.7,
+    "sensor": "radar",
+    "event_id": "radar:r00037",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 3.7600000000000002,
+    "sensor": "camera",
+    "event_id": "camera:c00047",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.6643400698975075
+    }
+  },
+  {
+    "timestamp_s": 3.8000000000000003,
+    "sensor": "radar",
+    "event_id": "radar:r00038",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 3.84,
+    "sensor": "camera",
+    "event_id": "camera:c00048",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.684490177247577
+    }
+  },
+  {
+    "timestamp_s": 3.9000000000000004,
+    "sensor": "radar",
+    "event_id": "radar:r00039",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 3.92,
+    "sensor": "camera",
+    "event_id": "camera:c00049",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.680267666823758
+    }
+  },
+  {
+    "timestamp_s": 4.0,
+    "sensor": "radar",
+    "event_id": "radar:r00040",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 4.1000000000000005,
+    "sensor": "radar",
+    "event_id": "radar:r00041",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 4.2,
+    "sensor": "radar",
+    "event_id": "radar:r00042",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 4
+    }
+  },
+  {
+    "timestamp_s": 4.3,
+    "sensor": "radar",
+    "event_id": "radar:r00043",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 4.4,
+    "sensor": "radar",
+    "event_id": "radar:r00044",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 4.48,
+    "sensor": "camera",
+    "event_id": "camera:c00056",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.722915460912989
+    }
+  },
+  {
+    "timestamp_s": 4.5,
+    "sensor": "radar",
+    "event_id": "radar:r00045",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 4
+    }
+  },
+  {
+    "timestamp_s": 4.5600000000000005,
+    "sensor": "camera",
+    "event_id": "camera:c00057",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.719372389394218
+    }
+  },
+  {
+    "timestamp_s": 4.6000000000000005,
+    "sensor": "radar",
+    "event_id": "radar:r00046",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 4.64,
+    "sensor": "camera",
+    "event_id": "camera:c00058",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.7311417591968254
+    }
+  },
+  {
+    "timestamp_s": 4.7,
+    "sensor": "radar",
+    "event_id": "radar:r00047",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 4.72,
+    "sensor": "camera",
+    "event_id": "camera:c00059",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.730883345303342
+    }
+  },
+  {
+    "timestamp_s": 4.8,
+    "sensor": "camera",
+    "event_id": "camera:c00060",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.731649613789338
+    }
+  },
+  {
+    "timestamp_s": 4.800000000000001,
+    "sensor": "radar",
+    "event_id": "radar:r00048",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 4.88,
+    "sensor": "camera",
+    "event_id": "camera:c00061",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.739007729374274
+    }
+  },
+  {
+    "timestamp_s": 4.9,
+    "sensor": "radar",
+    "event_id": "radar:r00049",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 4.96,
+    "sensor": "camera",
+    "event_id": "camera:c00062",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.752499853795224
+    }
+  },
+  {
+    "timestamp_s": 5.0,
+    "sensor": "radar",
+    "event_id": "radar:r00050",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 5.04,
+    "sensor": "camera",
+    "event_id": "camera:c00063",
+    "diagnostics": {
+      "accepted": false,
+      "reason": "confidence"
+    }
+  },
+  {
+    "timestamp_s": 5.1000000000000005,
+    "sensor": "radar",
+    "event_id": "radar:r00051",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 5.12,
+    "sensor": "camera",
+    "event_id": "camera:c00064",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.744213331906329
+    }
+  },
+  {
+    "timestamp_s": 5.2,
+    "sensor": "radar",
+    "event_id": "radar:r00052",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 5.2,
+    "sensor": "camera",
+    "event_id": "camera:c00065",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.742440344946628
+    }
+  },
+  {
+    "timestamp_s": 5.28,
+    "sensor": "camera",
+    "event_id": "camera:c00066",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.739870219519172
+    }
+  },
+  {
+    "timestamp_s": 5.300000000000001,
+    "sensor": "radar",
+    "event_id": "radar:r00053",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 5.36,
+    "sensor": "camera",
+    "event_id": "camera:c00067",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.7256554367081
+    }
+  },
+  {
+    "timestamp_s": 5.4,
+    "sensor": "radar",
+    "event_id": "radar:r00054",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 4
+    }
+  },
+  {
+    "timestamp_s": 5.44,
+    "sensor": "camera",
+    "event_id": "camera:c00068",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.729296770681097
+    }
+  },
+  {
+    "timestamp_s": 5.5,
+    "sensor": "radar",
+    "event_id": "radar:r00055",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 4
+    }
+  },
+  {
+    "timestamp_s": 5.5200000000000005,
+    "sensor": "camera",
+    "event_id": "camera:c00069",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.693849387928644
+    }
+  },
+  {
+    "timestamp_s": 5.6000000000000005,
+    "sensor": "radar",
+    "event_id": "radar:r00056",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 5.6000000000000005,
+    "sensor": "camera",
+    "event_id": "camera:c00070",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.671004945062524
+    }
+  },
+  {
+    "timestamp_s": 5.68,
+    "sensor": "camera",
+    "event_id": "camera:c00071",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.660424914784257
+    }
+  },
+  {
+    "timestamp_s": 5.7,
+    "sensor": "radar",
+    "event_id": "radar:r00057",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 5.76,
+    "sensor": "camera",
+    "event_id": "camera:c00072",
+    "diagnostics": {
+      "accepted": false,
+      "reason": "confidence"
+    }
+  },
+  {
+    "timestamp_s": 5.800000000000001,
+    "sensor": "radar",
+    "event_id": "radar:r00058",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 5.84,
+    "sensor": "camera",
+    "event_id": "camera:c00073",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.648107385614087
+    }
+  },
+  {
+    "timestamp_s": 5.9,
+    "sensor": "radar",
+    "event_id": "radar:r00059",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 5.92,
+    "sensor": "camera",
+    "event_id": "camera:c00074",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.628663968361725
+    }
+  },
+  {
+    "timestamp_s": 6.0,
+    "sensor": "radar",
+    "event_id": "radar:r00060",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 6.0,
+    "sensor": "camera",
+    "event_id": "camera:c00075",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.604462515286778
+    }
+  },
+  {
+    "timestamp_s": 6.08,
+    "sensor": "camera",
+    "event_id": "camera:c00076",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.589822004786318
+    }
+  },
+  {
+    "timestamp_s": 6.1000000000000005,
+    "sensor": "radar",
+    "event_id": "radar:r00061",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 6.16,
+    "sensor": "camera",
+    "event_id": "camera:c00077",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.5689825025326805
+    }
+  },
+  {
+    "timestamp_s": 6.2,
+    "sensor": "radar",
+    "event_id": "radar:r00062",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 6.24,
+    "sensor": "camera",
+    "event_id": "camera:c00078",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.554826124749214
+    }
+  },
+  {
+    "timestamp_s": 6.300000000000001,
+    "sensor": "radar",
+    "event_id": "radar:r00063",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 4
+    }
+  },
+  {
+    "timestamp_s": 6.32,
+    "sensor": "camera",
+    "event_id": "camera:c00079",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.533720157941567
+    }
+  },
+  {
+    "timestamp_s": 6.4,
+    "sensor": "radar",
+    "event_id": "radar:r00064",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 6.4,
+    "sensor": "camera",
+    "event_id": "camera:c00080",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.522001660271391
+    }
+  },
+  {
+    "timestamp_s": 6.48,
+    "sensor": "camera",
+    "event_id": "camera:c00081",
+    "diagnostics": {
+      "accepted": false,
+      "reason": "confidence"
+    }
+  },
+  {
+    "timestamp_s": 6.5,
+    "sensor": "radar",
+    "event_id": "radar:r00065",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 6.5600000000000005,
+    "sensor": "camera",
+    "event_id": "camera:c00082",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.49045718635617
+    }
+  },
+  {
+    "timestamp_s": 6.6000000000000005,
+    "sensor": "radar",
+    "event_id": "radar:r00066",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 6.640000000000001,
+    "sensor": "camera",
+    "event_id": "camera:c00083",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.46046395956924
+    }
+  },
+  {
+    "timestamp_s": 6.7,
+    "sensor": "radar",
+    "event_id": "radar:r00067",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 6.72,
+    "sensor": "camera",
+    "event_id": "camera:c00084",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.442432321343094
+    }
+  },
+  {
+    "timestamp_s": 6.8,
+    "sensor": "camera",
+    "event_id": "camera:c00085",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.424520767499323
+    }
+  },
+  {
+    "timestamp_s": 6.800000000000001,
+    "sensor": "radar",
+    "event_id": "radar:r00068",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 6.88,
+    "sensor": "camera",
+    "event_id": "camera:c00086",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.412430789302834
+    }
+  },
+  {
+    "timestamp_s": 6.9,
+    "sensor": "radar",
+    "event_id": "radar:r00069",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 6.96,
+    "sensor": "camera",
+    "event_id": "camera:c00087",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.384200519379298
+    }
+  },
+  {
+    "timestamp_s": 7.0,
+    "sensor": "radar",
+    "event_id": "radar:r00070",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 7.04,
+    "sensor": "camera",
+    "event_id": "camera:c00088",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.370267576919085
+    }
+  },
+  {
+    "timestamp_s": 7.1000000000000005,
+    "sensor": "radar",
+    "event_id": "radar:r00071",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 7.12,
+    "sensor": "camera",
+    "event_id": "camera:c00089",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.34513448358245
+    }
+  },
+  {
+    "timestamp_s": 7.2,
+    "sensor": "radar",
+    "event_id": "radar:r00072",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 4
+    }
+  },
+  {
+    "timestamp_s": 7.2,
+    "sensor": "camera",
+    "event_id": "camera:c00090",
+    "diagnostics": {
+      "accepted": false,
+      "reason": "confidence"
+    }
+  },
+  {
+    "timestamp_s": 7.28,
+    "sensor": "camera",
+    "event_id": "camera:c00091",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.314119079652299
+    }
+  },
+  {
+    "timestamp_s": 7.300000000000001,
+    "sensor": "radar",
+    "event_id": "radar:r00073",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 7.36,
+    "sensor": "camera",
+    "event_id": "camera:c00092",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.303676795710231
+    }
+  },
+  {
+    "timestamp_s": 7.4,
+    "sensor": "radar",
+    "event_id": "radar:r00074",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 7.44,
+    "sensor": "camera",
+    "event_id": "camera:c00093",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.284975213930623
+    }
+  },
+  {
+    "timestamp_s": 7.5,
+    "sensor": "radar",
+    "event_id": "radar:r00075",
+    "diagnostics": {
+      "accepted": false,
+      "gated_count": 0
+    }
+  },
+  {
+    "timestamp_s": 7.5200000000000005,
+    "sensor": "camera",
+    "event_id": "camera:c00094",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.263996100609558
+    }
+  },
+  {
+    "timestamp_s": 7.6000000000000005,
+    "sensor": "radar",
+    "event_id": "radar:r00076",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 7.6000000000000005,
+    "sensor": "camera",
+    "event_id": "camera:c00095",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.247692776104474
+    }
+  },
+  {
+    "timestamp_s": 7.68,
+    "sensor": "camera",
+    "event_id": "camera:c00096",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.227367805859526
+    }
+  },
+  {
+    "timestamp_s": 7.7,
+    "sensor": "radar",
+    "event_id": "radar:r00077",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 7.76,
+    "sensor": "camera",
+    "event_id": "camera:c00097",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.212731800760546
+    }
+  },
+  {
+    "timestamp_s": 7.800000000000001,
+    "sensor": "radar",
+    "event_id": "radar:r00078",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 7.84,
+    "sensor": "camera",
+    "event_id": "camera:c00098",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.178501689399827
+    }
+  },
+  {
+    "timestamp_s": 7.9,
+    "sensor": "radar",
+    "event_id": "radar:r00079",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 7.92,
+    "sensor": "camera",
+    "event_id": "camera:c00099",
+    "diagnostics": {
+      "accepted": false,
+      "reason": "confidence"
+    }
+  },
+  {
+    "timestamp_s": 8.0,
+    "sensor": "radar",
+    "event_id": "radar:r00080",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 8.0,
+    "sensor": "camera",
+    "event_id": "camera:c00100",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.1315365415198695
+    }
+  },
+  {
+    "timestamp_s": 8.08,
+    "sensor": "camera",
+    "event_id": "camera:c00101",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.111333485582792
+    }
+  },
+  {
+    "timestamp_s": 8.1,
+    "sensor": "radar",
+    "event_id": "radar:r00081",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 4
+    }
+  },
+  {
+    "timestamp_s": 8.16,
+    "sensor": "camera",
+    "event_id": "camera:c00102",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.0840224478604865
+    }
+  },
+  {
+    "timestamp_s": 8.200000000000001,
+    "sensor": "radar",
+    "event_id": "radar:r00082",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 8.24,
+    "sensor": "camera",
+    "event_id": "camera:c00103",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.049884860003157
+    }
+  },
+  {
+    "timestamp_s": 8.3,
+    "sensor": "radar",
+    "event_id": "radar:r00083",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 8.32,
+    "sensor": "camera",
+    "event_id": "camera:c00104",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 4.026955702766115
+    }
+  },
+  {
+    "timestamp_s": 8.4,
+    "sensor": "radar",
+    "event_id": "radar:r00084",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 8.4,
+    "sensor": "camera",
+    "event_id": "camera:c00105",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.995913375833141
+    }
+  },
+  {
+    "timestamp_s": 8.48,
+    "sensor": "camera",
+    "event_id": "camera:c00106",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.9714055593437796
+    }
+  },
+  {
+    "timestamp_s": 8.5,
+    "sensor": "radar",
+    "event_id": "radar:r00085",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 8.56,
+    "sensor": "camera",
+    "event_id": "camera:c00107",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.9408051028318805
+    }
+  },
+  {
+    "timestamp_s": 8.6,
+    "sensor": "radar",
+    "event_id": "radar:r00086",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 8.64,
+    "sensor": "camera",
+    "event_id": "camera:c00108",
+    "diagnostics": {
+      "accepted": false,
+      "reason": "confidence"
+    }
+  },
+  {
+    "timestamp_s": 8.700000000000001,
+    "sensor": "radar",
+    "event_id": "radar:r00087",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 8.72,
+    "sensor": "camera",
+    "event_id": "camera:c00109",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.8873632483395686
+    }
+  },
+  {
+    "timestamp_s": 8.8,
+    "sensor": "radar",
+    "event_id": "radar:r00088",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 8.8,
+    "sensor": "camera",
+    "event_id": "camera:c00110",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.861058785530702
+    }
+  },
+  {
+    "timestamp_s": 8.88,
+    "sensor": "camera",
+    "event_id": "camera:c00111",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.833846938947508
+    }
+  },
+  {
+    "timestamp_s": 8.9,
+    "sensor": "radar",
+    "event_id": "radar:r00089",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 8.96,
+    "sensor": "camera",
+    "event_id": "camera:c00112",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.8159613363089564
+    }
+  },
+  {
+    "timestamp_s": 9.0,
+    "sensor": "radar",
+    "event_id": "radar:r00090",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 4
+    }
+  },
+  {
+    "timestamp_s": 9.040000000000001,
+    "sensor": "camera",
+    "event_id": "camera:c00113",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.796835199751903
+    }
+  },
+  {
+    "timestamp_s": 9.1,
+    "sensor": "radar",
+    "event_id": "radar:r00091",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 9.120000000000001,
+    "sensor": "camera",
+    "event_id": "camera:c00114",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.7728607260286218
+    }
+  },
+  {
+    "timestamp_s": 9.200000000000001,
+    "sensor": "radar",
+    "event_id": "radar:r00092",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 9.200000000000001,
+    "sensor": "camera",
+    "event_id": "camera:c00115",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.7582145662352895
+    }
+  },
+  {
+    "timestamp_s": 9.28,
+    "sensor": "camera",
+    "event_id": "camera:c00116",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.733849870445342
+    }
+  },
+  {
+    "timestamp_s": 9.3,
+    "sensor": "radar",
+    "event_id": "radar:r00093",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 9.36,
+    "sensor": "camera",
+    "event_id": "camera:c00117",
+    "diagnostics": {
+      "accepted": false,
+      "reason": "confidence"
+    }
+  },
+  {
+    "timestamp_s": 9.4,
+    "sensor": "radar",
+    "event_id": "radar:r00094",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 9.44,
+    "sensor": "camera",
+    "event_id": "camera:c00118",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.6615087833765982
+    }
+  },
+  {
+    "timestamp_s": 9.5,
+    "sensor": "radar",
+    "event_id": "radar:r00095",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 9.52,
+    "sensor": "camera",
+    "event_id": "camera:c00119",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.639904358889041
+    }
+  },
+  {
+    "timestamp_s": 9.6,
+    "sensor": "camera",
+    "event_id": "camera:c00120",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.613682677700491
+    }
+  },
+  {
+    "timestamp_s": 9.600000000000001,
+    "sensor": "radar",
+    "event_id": "radar:r00096",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 9.68,
+    "sensor": "camera",
+    "event_id": "camera:c00121",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.601435559109231
+    }
+  },
+  {
+    "timestamp_s": 9.700000000000001,
+    "sensor": "radar",
+    "event_id": "radar:r00097",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 9.76,
+    "sensor": "camera",
+    "event_id": "camera:c00122",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.578635307786124
+    }
+  },
+  {
+    "timestamp_s": 9.8,
+    "sensor": "radar",
+    "event_id": "radar:r00098",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 9.84,
+    "sensor": "camera",
+    "event_id": "camera:c00123",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.5598474895223555
+    }
+  },
+  {
+    "timestamp_s": 9.9,
+    "sensor": "radar",
+    "event_id": "radar:r00099",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 4
+    }
+  },
+  {
+    "timestamp_s": 9.92,
+    "sensor": "camera",
+    "event_id": "camera:c00124",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.5365832920262488
+    }
+  },
+  {
+    "timestamp_s": 10.0,
+    "sensor": "radar",
+    "event_id": "radar:r00100",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 10.0,
+    "sensor": "camera",
+    "event_id": "camera:c00125",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.509746792004817
+    }
+  },
+  {
+    "timestamp_s": 10.08,
+    "sensor": "camera",
+    "event_id": "camera:c00126",
+    "diagnostics": {
+      "accepted": false,
+      "reason": "confidence"
+    }
+  },
+  {
+    "timestamp_s": 10.100000000000001,
+    "sensor": "radar",
+    "event_id": "radar:r00101",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 10.16,
+    "sensor": "camera",
+    "event_id": "camera:c00127",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.4597240559646587
+    }
+  },
+  {
+    "timestamp_s": 10.200000000000001,
+    "sensor": "radar",
+    "event_id": "radar:r00102",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 10.24,
+    "sensor": "camera",
+    "event_id": "camera:c00128",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.4371368573790746
+    }
+  },
+  {
+    "timestamp_s": 10.3,
+    "sensor": "radar",
+    "event_id": "radar:r00103",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 10.32,
+    "sensor": "camera",
+    "event_id": "camera:c00129",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.4135847672495956
+    }
+  },
+  {
+    "timestamp_s": 10.4,
+    "sensor": "radar",
+    "event_id": "radar:r00104",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 10.4,
+    "sensor": "camera",
+    "event_id": "camera:c00130",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.4006597252671718
+    }
+  },
+  {
+    "timestamp_s": 10.48,
+    "sensor": "camera",
+    "event_id": "camera:c00131",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.3750492173734217
+    }
+  },
+  {
+    "timestamp_s": 10.5,
+    "sensor": "radar",
+    "event_id": "radar:r00105",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 10.56,
+    "sensor": "camera",
+    "event_id": "camera:c00132",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.3461413692094704
+    }
+  },
+  {
+    "timestamp_s": 10.600000000000001,
+    "sensor": "radar",
+    "event_id": "radar:r00106",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 10.64,
+    "sensor": "camera",
+    "event_id": "camera:c00133",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.3205747659293
+    }
+  },
+  {
+    "timestamp_s": 10.700000000000001,
+    "sensor": "radar",
+    "event_id": "radar:r00107",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 10.72,
+    "sensor": "camera",
+    "event_id": "camera:c00134",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.3024418137477296
+    }
+  },
+  {
+    "timestamp_s": 10.8,
+    "sensor": "radar",
+    "event_id": "radar:r00108",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 4
+    }
+  },
+  {
+    "timestamp_s": 10.8,
+    "sensor": "camera",
+    "event_id": "camera:c00135",
+    "diagnostics": {
+      "accepted": false,
+      "reason": "confidence"
+    }
+  },
+  {
+    "timestamp_s": 10.88,
+    "sensor": "camera",
+    "event_id": "camera:c00136",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.2590515920415686
+    }
+  },
+  {
+    "timestamp_s": 10.9,
+    "sensor": "radar",
+    "event_id": "radar:r00109",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 10.96,
+    "sensor": "camera",
+    "event_id": "camera:c00137",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.2493691061127987
+    }
+  },
+  {
+    "timestamp_s": 11.0,
+    "sensor": "radar",
+    "event_id": "radar:r00110",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 11.040000000000001,
+    "sensor": "camera",
+    "event_id": "camera:c00138",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.2367566253943343
+    }
+  },
+  {
+    "timestamp_s": 11.100000000000001,
+    "sensor": "radar",
+    "event_id": "radar:r00111",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 11.120000000000001,
+    "sensor": "camera",
+    "event_id": "camera:c00139",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.2234571121663005
+    }
+  },
+  {
+    "timestamp_s": 11.200000000000001,
+    "sensor": "radar",
+    "event_id": "radar:r00112",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 11.200000000000001,
+    "sensor": "camera",
+    "event_id": "camera:c00140",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.2224478244313093
+    }
+  },
+  {
+    "timestamp_s": 11.28,
+    "sensor": "camera",
+    "event_id": "camera:c00141",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.206090036270484
+    }
+  },
+  {
+    "timestamp_s": 11.3,
+    "sensor": "radar",
+    "event_id": "radar:r00113",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 11.36,
+    "sensor": "camera",
+    "event_id": "camera:c00142",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.2080811883005635
+    }
+  },
+  {
+    "timestamp_s": 11.4,
+    "sensor": "radar",
+    "event_id": "radar:r00114",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 11.44,
+    "sensor": "camera",
+    "event_id": "camera:c00143",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.195246303689426
+    }
+  },
+  {
+    "timestamp_s": 11.5,
+    "sensor": "radar",
+    "event_id": "radar:r00115",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 11.52,
+    "sensor": "camera",
+    "event_id": "camera:c00144",
+    "diagnostics": {
+      "accepted": false,
+      "reason": "confidence"
+    }
+  },
+  {
+    "timestamp_s": 11.6,
+    "sensor": "camera",
+    "event_id": "camera:c00145",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.171110934450034
+    }
+  },
+  {
+    "timestamp_s": 11.600000000000001,
+    "sensor": "radar",
+    "event_id": "radar:r00116",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 11.68,
+    "sensor": "camera",
+    "event_id": "camera:c00146",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.1571617329932997
+    }
+  },
+  {
+    "timestamp_s": 11.700000000000001,
+    "sensor": "radar",
+    "event_id": "radar:r00117",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 4
+    }
+  },
+  {
+    "timestamp_s": 11.76,
+    "sensor": "camera",
+    "event_id": "camera:c00147",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.1524469331681026
+    }
+  },
+  {
+    "timestamp_s": 11.8,
+    "sensor": "radar",
+    "event_id": "radar:r00118",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 11.84,
+    "sensor": "camera",
+    "event_id": "camera:c00148",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.152338458809056
+    }
+  },
+  {
+    "timestamp_s": 11.9,
+    "sensor": "radar",
+    "event_id": "radar:r00119",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 11.92,
+    "sensor": "camera",
+    "event_id": "camera:c00149",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.1696888197423676
+    }
+  },
+  {
+    "timestamp_s": 12.0,
+    "sensor": "radar",
+    "event_id": "radar:r00120",
+    "diagnostics": {
+      "accepted": true,
+      "gated_count": 3
+    }
+  },
+  {
+    "timestamp_s": 12.0,
+    "sensor": "camera",
+    "event_id": "camera:c00150",
+    "diagnostics": {
+      "accepted": true,
+      "depth_m": 3.1628877553278616
+    }
+  }
+]

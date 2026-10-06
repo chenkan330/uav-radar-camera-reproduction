@@ -2,7 +2,7 @@
 
 参考论文：[Data Fusion Approach for Unmodified UAV Tracking with Vision and mmWave Radar](https://doi.org/10.1109/ICUAS65942.2025.11007835)，ICUAS 2025。
 本项目是依据论文逐步编写的独立实现，**不是作者官方源码**。论文 PDF 不随代码发布。
-已完成第1步 Kalman 基线、第2步雷达点云处理和第3步相机观测模型，每步保存代码、测试、示例结果和说明。
+已完成第1–4步：Kalman基线、雷达点云、相机模型、异步回放；每步保存代码、测试、示例结果和说明。
 **当前结果是合成数据验证，不代表论文实测精度。**
 
 | 步骤 | 本步做了什么 | 运行和说明 |
@@ -10,6 +10,7 @@
 | 1 | 手写同步三维 Kalman，验证预测和更新 | `python demo_step1.py`，[说明](docs/step1.md) |
 | 2 | 两帧初始化、四维雷达门控、五种关联 | `python demo_step2.py`，[说明](docs/step2.md) |
 | 3 | 检测框中心、像素回投影、相机坐标与 bearing 模式 | `python demo_step3.py`，[说明](docs/step3.md) |
+| 4 | 100Hz预测、异步观测、迟到数据回滚与原始观测重放 | `python demo_step4.py`，[说明](docs/step4.md) |
 
 下面保留第1步的教学说明，后续各步的参数假设和验证见对应文档。
 

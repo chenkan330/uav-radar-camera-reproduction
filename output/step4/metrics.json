@@ -1,0 +1,58 @@
+{
+  "step": 4,
+  "seed": 42,
+  "data_kind": "controlled_synthetic",
+  "camera_mode": "paper_xyz",
+  "prediction_hz": 100.0,
+  "ticks": 1199,
+  "replay_vs_ordered_max_state_difference": 0.0,
+  "replay_vs_ordered_max_covariance_difference": 0.0,
+  "minimum_covariance_eigenvalue": 4.2074004783613864e-05,
+  "maximum_covariance_asymmetry": 0.0,
+  "diagnostics": {
+    "initialized": true,
+    "initialization_time_s": 0.1,
+    "late_events": 153,
+    "replayed_items": 2612,
+    "ignored_before_initialization": 4,
+    "accepted_radar": 113,
+    "accepted_camera": 128,
+    "history_kind": "retrospectively corrected 100 Hz ticks; not causal published history"
+  },
+  "assumptions": {
+    "radar_hz": 10.0,
+    "camera_hz": 12.5,
+    "pixel_std_px": 2.0,
+    "radar_R": [
+      [
+        0.04000000000000001,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.12249999999999998,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.12249999999999998,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0144
+      ]
+    ],
+    "gate": 3.0,
+    "beta0": 0.1,
+    "acceleration_std_m_s2": 0.8,
+    "pseudo_depth_std_m": 0.5
+  },
+  "caveat": "Synthetic boxes, no trained detector or field accuracy. History is retrospectively corrected. paper_xyz uses correlated state depth; bearing is an EKF extension."
+}
