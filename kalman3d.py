@@ -88,11 +88,22 @@ class Kalman3D:
 
     def update(self, position, R):
         """Correct at the CURRENT time with one independent 3D observation."""
-        z = np.asarray(position, dtype=float)
-        if z.shape != (3,) or not np.all(np.isfinite(z)):
-            raise ValueError("position must contain 3 finite values")
-        R = _covariance(R, 3, "R", positive_definite=True)
-        H = H_POSITION
+        return self.update_linear(position, R, H_POSITION)
+
+    def update_linear(self, observation, R, H):
+        """Correct with a finite m-dimensional linear model z = H x + noise.
+
+        An EKF caller can pass its linearized equivalent z; linearization and
+        source-dependent covariance belong to the sensor model, not this class.
+        Validate all inputs before changing the state.
+        """
+        z = np.asarray(observation, dtype=float)
+        H = np.asarray(H, dtype=float)
+        if z.ndim != 1 or len(z) == 0 or not np.all(np.isfinite(z)):
+            raise ValueError("observation must be a nonempty finite vector")
+        if H.shape != (len(z), 6) or not np.all(np.isfinite(H)):
+            raise ValueError("H must be a finite observation-size x 6 matrix")
+        R = _covariance(R, len(z), "R", positive_definite=True)
         innovation = z - H @ self.x
         S = H @ self.P @ H.T + R
         # K = P H^T S^-1, calculated without an explicit matrix inverse.

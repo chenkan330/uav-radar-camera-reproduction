@@ -1,0 +1,128 @@
+{
+  "data_kind": "controlled_synthetic_radar_point_clouds",
+  "paper_hardware_reproduction": false,
+  "seed": 42,
+  "frames": 121,
+  "empty_frames": 6,
+  "state_order": [
+    "x",
+    "vx",
+    "y",
+    "vy",
+    "z",
+    "vz"
+  ],
+  "cloud_order": [
+    "x",
+    "y",
+    "z",
+    "vx",
+    "linear_intensity"
+  ],
+  "assumptions": {
+    "gate_mahalanobis_distance": 3,
+    "beta0": 0.1,
+    "R": [
+      [
+        0.04000000000000001,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.12249999999999998,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.12249999999999998,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0144
+      ]
+    ],
+    "acceleration_std_m_s2": 0.8,
+    "initial_velocity_y_z": 0,
+    "initial_velocity_std_m_s": 2,
+    "centroid_R_policy": "same as one return, no independence claim"
+  },
+  "methods": {
+    "strongest": {
+      "position_rmse_m": 0.1539176247102671,
+      "axis_rmse_m": [
+        0.03901705721598483,
+        0.1110779667971164,
+        0.0991463046960092
+      ],
+      "initialized_at_s": 0.1,
+      "accepted_updates": 113,
+      "prediction_only_frames": 6,
+      "minimum_covariance_eigenvalue": 0.0020828324681006604,
+      "maximum_covariance_asymmetry": 0.0,
+      "gated_return_count": 353
+    },
+    "closest": {
+      "position_rmse_m": 0.18849994184847105,
+      "axis_rmse_m": [
+        0.05804806632128045,
+        0.11873713360201273,
+        0.1344029135741297
+      ],
+      "initialized_at_s": 0.1,
+      "accepted_updates": 113,
+      "prediction_only_frames": 6,
+      "minimum_covariance_eigenvalue": 0.0020828324681006604,
+      "maximum_covariance_asymmetry": 0.0,
+      "gated_return_count": 352
+    },
+    "average": {
+      "position_rmse_m": 0.08625730655957889,
+      "axis_rmse_m": [
+        0.017282444116676444,
+        0.05986406108028002,
+        0.0596484220348169
+      ],
+      "initialized_at_s": 0.1,
+      "accepted_updates": 113,
+      "prediction_only_frames": 6,
+      "minimum_covariance_eigenvalue": 0.0020828324681006604,
+      "maximum_covariance_asymmetry": 0.0,
+      "gated_return_count": 354
+    },
+    "kmeans": {
+      "position_rmse_m": 0.08625730655957889,
+      "axis_rmse_m": [
+        0.017282444116676444,
+        0.05986406108028002,
+        0.0596484220348169
+      ],
+      "initialized_at_s": 0.1,
+      "accepted_updates": 113,
+      "prediction_only_frames": 6,
+      "minimum_covariance_eigenvalue": 0.0020828324681006604,
+      "maximum_covariance_asymmetry": 0.0,
+      "gated_return_count": 354
+    },
+    "weighted": {
+      "position_rmse_m": 0.09028521967603807,
+      "axis_rmse_m": [
+        0.01802495509139283,
+        0.06262620704369048,
+        0.06248583901352799
+      ],
+      "initialized_at_s": 0.1,
+      "accepted_updates": 113,
+      "prediction_only_frames": 6,
+      "minimum_covariance_eigenvalue": 0.003379327505342359,
+      "maximum_covariance_asymmetry": 0.0,
+      "gated_return_count": 354
+    }
+  }
+}
