@@ -1,0 +1,1939 @@
+{
+  "step": 5,
+  "data_kind": "synthetic",
+  "config": {
+    "data_kind": "synthetic",
+    "source": "controlled fixture, not author flight logs",
+    "coordinate_frame": "global",
+    "radar_velocity": "cartesian_vx",
+    "intensity_scale": "linear_nonnegative",
+    "timestamps": "seconds_shared_clock",
+    "camera": {
+      "intrinsics": {
+        "fu": 420.0,
+        "fv": 420.0,
+        "u0": 320.0,
+        "v0": 240.0
+      },
+      "rotation": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          -1,
+          0
+        ]
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ]
+    },
+    "fusion": {
+      "prediction_hz": 100.0,
+      "gate": 3.0,
+      "beta0": 0.1,
+      "acceleration_std": 0.8,
+      "velocity_std": 2.0,
+      "initialization_speed": 0.3,
+      "pixel_std": 2.0,
+      "depth_std": 0.5,
+      "confidence_threshold": 0.7,
+      "camera_mode": "paper_xyz",
+      "radar_R": [
+        [
+          0.04000000000000001,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.12249999999999998,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.12249999999999998,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0144
+        ]
+      ]
+    },
+    "evaluation": {
+      "max_interpolation_gap_s": 0.2
+    }
+  },
+  "runs": [
+    {
+      "dataset": "synthetic_seed42",
+      "camera_mode": "none",
+      "method": "radar_only",
+      "metrics": {
+        "status": "evaluated",
+        "estimate_count": 1195,
+        "matched_count": 1190,
+        "unmatched_count": 5,
+        "coverage_fraction": 0.99581589958159,
+        "estimate_time_span_s": [
+          0.11,
+          12.05
+        ],
+        "truth_time_span_s": [
+          0.0,
+          12.0
+        ],
+        "matched_time_span_s": [
+          0.11,
+          12.0
+        ],
+        "max_interpolation_gap_s": 0.2,
+        "signed_mean_xyz_m": [
+          -0.0066845500893359,
+          -0.0006512794953651742,
+          0.009373919769545581
+        ],
+        "mean_euclidean_m": 0.11760939619902895,
+        "median_euclidean_m": 0.125757047402765,
+        "std_euclidean_m": 0.04491252978716064,
+        "p95_euclidean_m": 0.1797961846207066,
+        "rmse3d_m": 0.125893230184084,
+        "axis_rmse_m": [
+          0.020468731241712335,
+          0.10922490797419425,
+          0.05916127048640944
+        ]
+      },
+      "camera_input_count": 0,
+      "diagnostics": {
+        "initialized": true,
+        "initialization_time_s": 0.1,
+        "late_events": 10,
+        "replayed_items": 1470,
+        "ignored_before_initialization": 2,
+        "accepted_radar": 113,
+        "accepted_camera": 0,
+        "history_kind": "retrospectively corrected 100 Hz ticks; not causal published history"
+      },
+      "minimum_covariance_eigenvalue": 0.0014410241983214885,
+      "maximum_covariance_asymmetry": 0.0
+    },
+    {
+      "dataset": "synthetic_seed42",
+      "camera_mode": "paper_xyz",
+      "method": "strongest",
+      "metrics": {
+        "status": "evaluated",
+        "estimate_count": 1195,
+        "matched_count": 1190,
+        "unmatched_count": 5,
+        "coverage_fraction": 0.99581589958159,
+        "estimate_time_span_s": [
+          0.11,
+          12.05
+        ],
+        "truth_time_span_s": [
+          0.0,
+          12.0
+        ],
+        "matched_time_span_s": [
+          0.11,
+          12.0
+        ],
+        "max_interpolation_gap_s": 0.2,
+        "signed_mean_xyz_m": [
+          0.019381818065473545,
+          -2.431679648196726e-05,
+          0.009395509333684
+        ],
+        "mean_euclidean_m": 0.046186071027146385,
+        "median_euclidean_m": 0.047548349026343376,
+        "std_euclidean_m": 0.01968989606862272,
+        "p95_euclidean_m": 0.07579444016379057,
+        "rmse3d_m": 0.05020801892245675,
+        "axis_rmse_m": [
+          0.0426186142815305,
+          0.019787698467114798,
+          0.017690276148620194
+        ]
+      },
+      "camera_input_count": 145,
+      "diagnostics": {
+        "initialized": true,
+        "initialization_time_s": 0.1,
+        "late_events": 153,
+        "replayed_items": 2608,
+        "ignored_before_initialization": 4,
+        "accepted_radar": 113,
+        "accepted_camera": 128,
+        "history_kind": "retrospectively corrected 100 Hz ticks; not causal published history"
+      },
+      "minimum_covariance_eigenvalue": 4.2748738155153075e-05,
+      "maximum_covariance_asymmetry": 0.0
+    },
+    {
+      "dataset": "synthetic_seed42",
+      "camera_mode": "paper_xyz",
+      "method": "closest",
+      "metrics": {
+        "status": "evaluated",
+        "estimate_count": 1195,
+        "matched_count": 1190,
+        "unmatched_count": 5,
+        "coverage_fraction": 0.99581589958159,
+        "estimate_time_span_s": [
+          0.11,
+          12.05
+        ],
+        "truth_time_span_s": [
+          0.0,
+          12.0
+        ],
+        "matched_time_span_s": [
+          0.11,
+          12.0
+        ],
+        "max_interpolation_gap_s": 0.2,
+        "signed_mean_xyz_m": [
+          -0.055307733846842295,
+          -0.0014492115492319997,
+          -0.019437731791228333
+        ],
+        "mean_euclidean_m": 0.06279748279912903,
+        "median_euclidean_m": 0.06657765029683205,
+        "std_euclidean_m": 0.026510051041037392,
+        "p95_euclidean_m": 0.09970832730782403,
+        "rmse3d_m": 0.06816382216473275,
+        "axis_rmse_m": [
+          0.06214927117453022,
+          0.01604703427997594,
+          0.02294051951018757
+        ]
+      },
+      "camera_input_count": 145,
+      "diagnostics": {
+        "initialized": true,
+        "initialization_time_s": 0.1,
+        "late_events": 153,
+        "replayed_items": 2608,
+        "ignored_before_initialization": 4,
+        "accepted_radar": 113,
+        "accepted_camera": 128,
+        "history_kind": "retrospectively corrected 100 Hz ticks; not causal published history"
+      },
+      "minimum_covariance_eigenvalue": 4.2074004783613864e-05,
+      "maximum_covariance_asymmetry": 0.0
+    },
+    {
+      "dataset": "synthetic_seed42",
+      "camera_mode": "paper_xyz",
+      "method": "average",
+      "metrics": {
+        "status": "evaluated",
+        "estimate_count": 1195,
+        "matched_count": 1190,
+        "unmatched_count": 5,
+        "coverage_fraction": 0.99581589958159,
+        "estimate_time_span_s": [
+          0.11,
+          12.05
+        ],
+        "truth_time_span_s": [
+          0.0,
+          12.0
+        ],
+        "matched_time_span_s": [
+          0.11,
+          12.0
+        ],
+        "max_interpolation_gap_s": 0.2,
+        "signed_mean_xyz_m": [
+          -0.02257174960089615,
+          -0.0008204778418313773,
+          -0.006790178669331189
+        ],
+        "mean_euclidean_m": 0.03507584198322769,
+        "median_euclidean_m": 0.03451338664996337,
+        "std_euclidean_m": 0.016903004860935402,
+        "p95_euclidean_m": 0.06342689708713689,
+        "rmse3d_m": 0.038936181941237685,
+        "axis_rmse_m": [
+          0.03226997388186095,
+          0.01723126158392827,
+          0.013332616924348097
+        ]
+      },
+      "camera_input_count": 145,
+      "diagnostics": {
+        "initialized": true,
+        "initialization_time_s": 0.1,
+        "late_events": 153,
+        "replayed_items": 2608,
+        "ignored_before_initialization": 4,
+        "accepted_radar": 113,
+        "accepted_camera": 128,
+        "history_kind": "retrospectively corrected 100 Hz ticks; not causal published history"
+      },
+      "minimum_covariance_eigenvalue": 4.248205093413046e-05,
+      "maximum_covariance_asymmetry": 0.0
+    },
+    {
+      "dataset": "synthetic_seed42",
+      "camera_mode": "paper_xyz",
+      "method": "kmeans",
+      "metrics": {
+        "status": "evaluated",
+        "estimate_count": 1195,
+        "matched_count": 1190,
+        "unmatched_count": 5,
+        "coverage_fraction": 0.99581589958159,
+        "estimate_time_span_s": [
+          0.11,
+          12.05
+        ],
+        "truth_time_span_s": [
+          0.0,
+          12.0
+        ],
+        "matched_time_span_s": [
+          0.11,
+          12.0
+        ],
+        "max_interpolation_gap_s": 0.2,
+        "signed_mean_xyz_m": [
+          -0.02257174960089615,
+          -0.0008204778418313773,
+          -0.006790178669331189
+        ],
+        "mean_euclidean_m": 0.03507584198322769,
+        "median_euclidean_m": 0.03451338664996337,
+        "std_euclidean_m": 0.016903004860935402,
+        "p95_euclidean_m": 0.06342689708713689,
+        "rmse3d_m": 0.038936181941237685,
+        "axis_rmse_m": [
+          0.03226997388186095,
+          0.01723126158392827,
+          0.013332616924348097
+        ]
+      },
+      "camera_input_count": 145,
+      "diagnostics": {
+        "initialized": true,
+        "initialization_time_s": 0.1,
+        "late_events": 153,
+        "replayed_items": 2608,
+        "ignored_before_initialization": 4,
+        "accepted_radar": 113,
+        "accepted_camera": 128,
+        "history_kind": "retrospectively corrected 100 Hz ticks; not causal published history"
+      },
+      "minimum_covariance_eigenvalue": 4.248205093413046e-05,
+      "maximum_covariance_asymmetry": 0.0
+    },
+    {
+      "dataset": "synthetic_seed42",
+      "camera_mode": "paper_xyz",
+      "method": "weighted",
+      "metrics": {
+        "status": "evaluated",
+        "estimate_count": 1195,
+        "matched_count": 1190,
+        "unmatched_count": 5,
+        "coverage_fraction": 0.99581589958159,
+        "estimate_time_span_s": [
+          0.11,
+          12.05
+        ],
+        "truth_time_span_s": [
+          0.0,
+          12.0
+        ],
+        "matched_time_span_s": [
+          0.11,
+          12.0
+        ],
+        "max_interpolation_gap_s": 0.2,
+        "signed_mean_xyz_m": [
+          -0.021758924523992907,
+          -0.0006205781066999764,
+          -0.006548442726735779
+        ],
+        "mean_euclidean_m": 0.03323019985973963,
+        "median_euclidean_m": 0.030917151269940667,
+        "std_euclidean_m": 0.016137085832458015,
+        "p95_euclidean_m": 0.062208847135820984,
+        "rmse3d_m": 0.03694119275121415,
+        "axis_rmse_m": [
+          0.02985590847568961,
+          0.01725561536440019,
+          0.013248403276224507
+        ]
+      },
+      "camera_input_count": 145,
+      "diagnostics": {
+        "initialized": true,
+        "initialization_time_s": 0.1,
+        "late_events": 153,
+        "replayed_items": 2608,
+        "ignored_before_initialization": 4,
+        "accepted_radar": 113,
+        "accepted_camera": 128,
+        "history_kind": "retrospectively corrected 100 Hz ticks; not causal published history"
+      },
+      "minimum_covariance_eigenvalue": 4.291804557672697e-05,
+      "maximum_covariance_asymmetry": 0.0
+    },
+    {
+      "dataset": "synthetic_seed42",
+      "camera_mode": "bearing",
+      "method": "strongest",
+      "metrics": {
+        "status": "evaluated",
+        "estimate_count": 1195,
+        "matched_count": 1190,
+        "unmatched_count": 5,
+        "coverage_fraction": 0.99581589958159,
+        "estimate_time_span_s": [
+          0.11,
+          12.05
+        ],
+        "truth_time_span_s": [
+          0.0,
+          12.0
+        ],
+        "matched_time_span_s": [
+          0.11,
+          12.0
+        ],
+        "max_interpolation_gap_s": 0.2,
+        "signed_mean_xyz_m": [
+          0.035880193551266766,
+          -0.0004021650404516966,
+          0.016018633225385055
+        ],
+        "mean_euclidean_m": 0.05394774513538557,
+        "median_euclidean_m": 0.05125522889848538,
+        "std_euclidean_m": 0.024781089197062643,
+        "p95_euclidean_m": 0.0956056534894659,
+        "rmse3d_m": 0.05936717600648774,
+        "axis_rmse_m": [
+          0.051294208695101845,
+          0.02079160065961789,
+          0.021472658972274707
+        ]
+      },
+      "camera_input_count": 145,
+      "diagnostics": {
+        "initialized": true,
+        "initialization_time_s": 0.1,
+        "late_events": 153,
+        "replayed_items": 2608,
+        "ignored_before_initialization": 4,
+        "accepted_radar": 113,
+        "accepted_camera": 128,
+        "history_kind": "retrospectively corrected 100 Hz ticks; not causal published history"
+      },
+      "minimum_covariance_eigenvalue": 4.380611671191769e-05,
+      "maximum_covariance_asymmetry": 0.0
+    },
+    {
+      "dataset": "synthetic_seed42",
+      "camera_mode": "bearing",
+      "method": "closest",
+      "metrics": {
+        "status": "evaluated",
+        "estimate_count": 1195,
+        "matched_count": 1190,
+        "unmatched_count": 5,
+        "coverage_fraction": 0.99581589958159,
+        "estimate_time_span_s": [
+          0.11,
+          12.05
+        ],
+        "truth_time_span_s": [
+          0.0,
+          12.0
+        ],
+        "matched_time_span_s": [
+          0.11,
+          12.0
+        ],
+        "max_interpolation_gap_s": 0.2,
+        "signed_mean_xyz_m": [
+          -0.038868406142810175,
+          -0.0018675569821337283,
+          -0.01283264668888291
+        ],
+        "mean_euclidean_m": 0.04799266441522386,
+        "median_euclidean_m": 0.04936192013641712,
+        "std_euclidean_m": 0.024773597197097458,
+        "p95_euclidean_m": 0.08629745825679078,
+        "rmse3d_m": 0.05400950801253729,
+        "axis_rmse_m": [
+          0.04832439448733063,
+          0.016553800327841064,
+          0.017542848910457782
+        ]
+      },
+      "camera_input_count": 145,
+      "diagnostics": {
+        "initialized": true,
+        "initialization_time_s": 0.1,
+        "late_events": 153,
+        "replayed_items": 2608,
+        "ignored_before_initialization": 4,
+        "accepted_radar": 113,
+        "accepted_camera": 128,
+        "history_kind": "retrospectively corrected 100 Hz ticks; not causal published history"
+      },
+      "minimum_covariance_eigenvalue": 4.264652146883809e-05,
+      "maximum_covariance_asymmetry": 0.0
+    },
+    {
+      "dataset": "synthetic_seed42",
+      "camera_mode": "bearing",
+      "method": "average",
+      "metrics": {
+        "status": "evaluated",
+        "estimate_count": 1195,
+        "matched_count": 1190,
+        "unmatched_count": 5,
+        "coverage_fraction": 0.99581589958159,
+        "estimate_time_span_s": [
+          0.11,
+          12.05
+        ],
+        "truth_time_span_s": [
+          0.0,
+          12.0
+        ],
+        "matched_time_span_s": [
+          0.11,
+          12.0
+        ],
+        "max_interpolation_gap_s": 0.2,
+        "signed_mean_xyz_m": [
+          -0.006100718819592388,
+          -0.0012017025748039113,
+          -0.00018648581719970465
+        ],
+        "mean_euclidean_m": 0.02881959531101421,
+        "median_euclidean_m": 0.028883357119356818,
+        "std_euclidean_m": 0.011805123616155386,
+        "p95_euclidean_m": 0.04884963800229079,
+        "rmse3d_m": 0.031143699482934616,
+        "axis_rmse_m": [
+          0.022961214525054962,
+          0.017957818046723677,
+          0.010964917510793737
+        ]
+      },
+      "camera_input_count": 145,
+      "diagnostics": {
+        "initialized": true,
+        "initialization_time_s": 0.1,
+        "late_events": 153,
+        "replayed_items": 2608,
+        "ignored_before_initialization": 4,
+        "accepted_radar": 113,
+        "accepted_camera": 128,
+        "history_kind": "retrospectively corrected 100 Hz ticks; not causal published history"
+      },
+      "minimum_covariance_eigenvalue": 4.305174845166676e-05,
+      "maximum_covariance_asymmetry": 0.0
+    },
+    {
+      "dataset": "synthetic_seed42",
+      "camera_mode": "bearing",
+      "method": "kmeans",
+      "metrics": {
+        "status": "evaluated",
+        "estimate_count": 1195,
+        "matched_count": 1190,
+        "unmatched_count": 5,
+        "coverage_fraction": 0.99581589958159,
+        "estimate_time_span_s": [
+          0.11,
+          12.05
+        ],
+        "truth_time_span_s": [
+          0.0,
+          12.0
+        ],
+        "matched_time_span_s": [
+          0.11,
+          12.0
+        ],
+        "max_interpolation_gap_s": 0.2,
+        "signed_mean_xyz_m": [
+          -0.006100718819592388,
+          -0.0012017025748039113,
+          -0.00018648581719970465
+        ],
+        "mean_euclidean_m": 0.02881959531101421,
+        "median_euclidean_m": 0.028883357119356818,
+        "std_euclidean_m": 0.011805123616155386,
+        "p95_euclidean_m": 0.04884963800229079,
+        "rmse3d_m": 0.031143699482934616,
+        "axis_rmse_m": [
+          0.022961214525054962,
+          0.017957818046723677,
+          0.010964917510793737
+        ]
+      },
+      "camera_input_count": 145,
+      "diagnostics": {
+        "initialized": true,
+        "initialization_time_s": 0.1,
+        "late_events": 153,
+        "replayed_items": 2608,
+        "ignored_before_initialization": 4,
+        "accepted_radar": 113,
+        "accepted_camera": 128,
+        "history_kind": "retrospectively corrected 100 Hz ticks; not causal published history"
+      },
+      "minimum_covariance_eigenvalue": 4.305174845166676e-05,
+      "maximum_covariance_asymmetry": 0.0
+    },
+    {
+      "dataset": "synthetic_seed42",
+      "camera_mode": "bearing",
+      "method": "weighted",
+      "metrics": {
+        "status": "evaluated",
+        "estimate_count": 1195,
+        "matched_count": 1190,
+        "unmatched_count": 5,
+        "coverage_fraction": 0.99581589958159,
+        "estimate_time_span_s": [
+          0.11,
+          12.05
+        ],
+        "truth_time_span_s": [
+          0.0,
+          12.0
+        ],
+        "matched_time_span_s": [
+          0.11,
+          12.0
+        ],
+        "max_interpolation_gap_s": 0.2,
+        "signed_mean_xyz_m": [
+          -0.002008992612502499,
+          -0.0011788660624541922,
+          0.0014069191613667945
+        ],
+        "mean_euclidean_m": 0.028329749918465756,
+        "median_euclidean_m": 0.02864570853639989,
+        "std_euclidean_m": 0.012054103957765006,
+        "p95_euclidean_m": 0.04826257369860218,
+        "rmse3d_m": 0.030787597383807274,
+        "axis_rmse_m": [
+          0.02199275619082406,
+          0.018153989604426407,
+          0.011602908654331685
+        ]
+      },
+      "camera_input_count": 145,
+      "diagnostics": {
+        "initialized": true,
+        "initialization_time_s": 0.1,
+        "late_events": 153,
+        "replayed_items": 2608,
+        "ignored_before_initialization": 4,
+        "accepted_radar": 113,
+        "accepted_camera": 128,
+        "history_kind": "retrospectively corrected 100 Hz ticks; not causal published history"
+      },
+      "minimum_covariance_eigenvalue": 4.3598916919800834e-05,
+      "maximum_covariance_asymmetry": 0.0
+    },
+    {
+      "dataset": "synthetic_seed43",
+      "camera_mode": "none",
+      "method": "radar_only",
+      "metrics": {
+        "status": "evaluated",
+        "estimate_count": 1195,
+        "matched_count": 1190,
+        "unmatched_count": 5,
+        "coverage_fraction": 0.99581589958159,
+        "estimate_time_span_s": [
+          0.11,
+          12.05
+        ],
+        "truth_time_span_s": [
+          0.0,
+          12.0
+        ],
+        "matched_time_span_s": [
+          0.11,
+          12.0
+        ],
+        "max_interpolation_gap_s": 0.2,
+        "signed_mean_xyz_m": [
+          0.021056916405224314,
+          -0.005859296550764771,
+          0.01604667192498876
+        ],
+        "mean_euclidean_m": 0.12967676981689527,
+        "median_euclidean_m": 0.13362291162152345,
+        "std_euclidean_m": 0.058695986491660614,
+        "p95_euclidean_m": 0.21979929988451502,
+        "rmse3d_m": 0.14234213522486322,
+        "axis_rmse_m": [
+          0.030331900745529064,
+          0.13022680549863275,
+          0.048808179510794074
+        ]
+      },
+      "camera_input_count": 0,
+      "diagnostics": {
+        "initialized": true,
+        "initialization_time_s": 0.1,
+        "late_events": 10,
+        "replayed_items": 1470,
+        "ignored_before_initialization": 2,
+        "accepted_radar": 113,
+        "accepted_camera": 0,
+        "history_kind": "retrospectively corrected 100 Hz ticks; not causal published history"
+      },
+      "minimum_covariance_eigenvalue": 0.0014410241983214885,
+      "maximum_covariance_asymmetry": 0.0
+    },
+    {
+      "dataset": "synthetic_seed43",
+      "camera_mode": "paper_xyz",
+      "method": "strongest",
+      "metrics": {
+        "status": "evaluated",
+        "estimate_count": 1195,
+        "matched_count": 1190,
+        "unmatched_count": 5,
+        "coverage_fraction": 0.99581589958159,
+        "estimate_time_span_s": [
+          0.11,
+          12.05
+        ],
+        "truth_time_span_s": [
+          0.0,
+          12.0
+        ],
+        "matched_time_span_s": [
+          0.11,
+          12.0
+        ],
+        "max_interpolation_gap_s": 0.2,
+        "signed_mean_xyz_m": [
+          0.018568615199606953,
+          0.0009647556870846547,
+          0.008187599441785631
+        ],
+        "mean_euclidean_m": 0.04402319240956532,
+        "median_euclidean_m": 0.03922311953391972,
+        "std_euclidean_m": 0.02377650911919268,
+        "p95_euclidean_m": 0.08431903144513908,
+        "rmse3d_m": 0.05003362725032698,
+        "axis_rmse_m": [
+          0.043220745142623244,
+          0.015796447147568043,
+          0.019641876250887133
+        ]
+      },
+      "camera_input_count": 145,
+      "diagnostics": {
+        "initialized": true,
+        "initialization_time_s": 0.1,
+        "late_events": 153,
+        "replayed_items": 2608,
+        "ignored_before_initialization": 4,
+        "accepted_radar": 113,
+        "accepted_camera": 128,
+        "history_kind": "retrospectively corrected 100 Hz ticks; not causal published history"
+      },
+      "minimum_covariance_eigenvalue": 4.3103519686271376e-05,
+      "maximum_covariance_asymmetry": 0.0
+    },
+    {
+      "dataset": "synthetic_seed43",
+      "camera_mode": "paper_xyz",
+      "method": "closest",
+      "metrics": {
+        "status": "evaluated",
+        "estimate_count": 1195,
+        "matched_count": 1190,
+        "unmatched_count": 5,
+        "coverage_fraction": 0.99581589958159,
+        "estimate_time_span_s": [
+          0.11,
+          12.05
+        ],
+        "truth_time_span_s": [
+          0.0,
+          12.0
+        ],
+        "matched_time_span_s": [
+          0.11,
+          12.0
+        ],
+        "max_interpolation_gap_s": 0.2,
+        "signed_mean_xyz_m": [
+          -0.03818137459142368,
+          0.0004235170732289645,
+          -0.014051240689659546
+        ],
+        "mean_euclidean_m": 0.04985129629727326,
+        "median_euclidean_m": 0.055336720787792545,
+        "std_euclidean_m": 0.02555898369984201,
+        "p95_euclidean_m": 0.08539719244817644,
+        "rmse3d_m": 0.05602154398342945,
+        "axis_rmse_m": [
+          0.05071889000092926,
+          0.012326792078233303,
+          0.020348409874507825
+        ]
+      },
+      "camera_input_count": 145,
+      "diagnostics": {
+        "initialized": true,
+        "initialization_time_s": 0.1,
+        "late_events": 153,
+        "replayed_items": 2608,
+        "ignored_before_initialization": 4,
+        "accepted_radar": 113,
+        "accepted_camera": 128,
+        "history_kind": "retrospectively corrected 100 Hz ticks; not causal published history"
+      },
+      "minimum_covariance_eigenvalue": 4.18128237502753e-05,
+      "maximum_covariance_asymmetry": 0.0
+    },
+    {
+      "dataset": "synthetic_seed43",
+      "camera_mode": "paper_xyz",
+      "method": "average",
+      "metrics": {
+        "status": "evaluated",
+        "estimate_count": 1195,
+        "matched_count": 1190,
+        "unmatched_count": 5,
+        "coverage_fraction": 0.99581589958159,
+        "estimate_time_span_s": [
+          0.11,
+          12.05
+        ],
+        "truth_time_span_s": [
+          0.0,
+          12.0
+        ],
+        "matched_time_span_s": [
+          0.11,
+          12.0
+        ],
+        "max_interpolation_gap_s": 0.2,
+        "signed_mean_xyz_m": [
+          0.004868957835555958,
+          0.0008569239743649228,
+          0.002673090797939517
+        ],
+        "mean_euclidean_m": 0.030437191974204098,
+        "median_euclidean_m": 0.02874995055382625,
+        "std_euclidean_m": 0.011949742119505162,
+        "p95_euclidean_m": 0.053542761523253685,
+        "rmse3d_m": 0.03269891423269632,
+        "axis_rmse_m": [
+          0.025581341303313108,
+          0.014822160121856255,
+          0.013968447961126212
+        ]
+      },
+      "camera_input_count": 145,
+      "diagnostics": {
+        "initialized": true,
+        "initialization_time_s": 0.1,
+        "late_events": 153,
+        "replayed_items": 2608,
+        "ignored_before_initialization": 4,
+        "accepted_radar": 113,
+        "accepted_camera": 128,
+        "history_kind": "retrospectively corrected 100 Hz ticks; not causal published history"
+      },
+      "minimum_covariance_eigenvalue": 4.2492381633853885e-05,
+      "maximum_covariance_asymmetry": 0.0
+    },
+    {
+      "dataset": "synthetic_seed43",
+      "camera_mode": "paper_xyz",
+      "method": "kmeans",
+      "metrics": {
+        "status": "evaluated",
+        "estimate_count": 1195,
+        "matched_count": 1190,
+        "unmatched_count": 5,
+        "coverage_fraction": 0.99581589958159,
+        "estimate_time_span_s": [
+          0.11,
+          12.05
+        ],
+        "truth_time_span_s": [
+          0.0,
+          12.0
+        ],
+        "matched_time_span_s": [
+          0.11,
+          12.0
+        ],
+        "max_interpolation_gap_s": 0.2,
+        "signed_mean_xyz_m": [
+          0.004868957835555958,
+          0.0008569239743649228,
+          0.002673090797939517
+        ],
+        "mean_euclidean_m": 0.030437191974204098,
+        "median_euclidean_m": 0.02874995055382625,
+        "std_euclidean_m": 0.011949742119505162,
+        "p95_euclidean_m": 0.053542761523253685,
+        "rmse3d_m": 0.03269891423269632,
+        "axis_rmse_m": [
+          0.025581341303313108,
+          0.014822160121856255,
+          0.013968447961126212
+        ]
+      },
+      "camera_input_count": 145,
+      "diagnostics": {
+        "initialized": true,
+        "initialization_time_s": 0.1,
+        "late_events": 153,
+        "replayed_items": 2608,
+        "ignored_before_initialization": 4,
+        "accepted_radar": 113,
+        "accepted_camera": 128,
+        "history_kind": "retrospectively corrected 100 Hz ticks; not causal published history"
+      },
+      "minimum_covariance_eigenvalue": 4.2492381633853885e-05,
+      "maximum_covariance_asymmetry": 0.0
+    },
+    {
+      "dataset": "synthetic_seed43",
+      "camera_mode": "paper_xyz",
+      "method": "weighted",
+      "metrics": {
+        "status": "evaluated",
+        "estimate_count": 1195,
+        "matched_count": 1190,
+        "unmatched_count": 5,
+        "coverage_fraction": 0.99581589958159,
+        "estimate_time_span_s": [
+          0.11,
+          12.05
+        ],
+        "truth_time_span_s": [
+          0.0,
+          12.0
+        ],
+        "matched_time_span_s": [
+          0.11,
+          12.0
+        ],
+        "max_interpolation_gap_s": 0.2,
+        "signed_mean_xyz_m": [
+          -0.0031684242784665788,
+          0.001011436244695984,
+          -0.0005236361667277974
+        ],
+        "mean_euclidean_m": 0.02824917698380378,
+        "median_euclidean_m": 0.02529560996821821,
+        "std_euclidean_m": 0.013229343019470902,
+        "p95_euclidean_m": 0.05297872099949301,
+        "rmse3d_m": 0.03119345311101502,
+        "axis_rmse_m": [
+          0.024253505656035266,
+          0.01443257370067682,
+          0.013285322606406282
+        ]
+      },
+      "camera_input_count": 145,
+      "diagnostics": {
+        "initialized": true,
+        "initialization_time_s": 0.1,
+        "late_events": 153,
+        "replayed_items": 2608,
+        "ignored_before_initialization": 4,
+        "accepted_radar": 113,
+        "accepted_camera": 128,
+        "history_kind": "retrospectively corrected 100 Hz ticks; not causal published history"
+      },
+      "minimum_covariance_eigenvalue": 4.2945681248517196e-05,
+      "maximum_covariance_asymmetry": 0.0
+    },
+    {
+      "dataset": "synthetic_seed43",
+      "camera_mode": "bearing",
+      "method": "strongest",
+      "metrics": {
+        "status": "evaluated",
+        "estimate_count": 1195,
+        "matched_count": 1190,
+        "unmatched_count": 5,
+        "coverage_fraction": 0.99581589958159,
+        "estimate_time_span_s": [
+          0.11,
+          12.05
+        ],
+        "truth_time_span_s": [
+          0.0,
+          12.0
+        ],
+        "matched_time_span_s": [
+          0.11,
+          12.0
+        ],
+        "max_interpolation_gap_s": 0.2,
+        "signed_mean_xyz_m": [
+          0.03765593733777344,
+          0.0009194934779521821,
+          0.015695274569321703
+        ],
+        "mean_euclidean_m": 0.05404446695041582,
+        "median_euclidean_m": 0.054478454302641297,
+        "std_euclidean_m": 0.027806083705630747,
+        "p95_euclidean_m": 0.09859039811979133,
+        "rmse3d_m": 0.06077814326712467,
+        "axis_rmse_m": [
+          0.05338173456404994,
+          0.0171422880539785,
+          0.023463057648287756
+        ]
+      },
+      "camera_input_count": 145,
+      "diagnostics": {
+        "initialized": true,
+        "initialization_time_s": 0.1,
+        "late_events": 153,
+        "replayed_items": 2608,
+        "ignored_before_initialization": 4,
+        "accepted_radar": 113,
+        "accepted_camera": 128,
+        "history_kind": "retrospectively corrected 100 Hz ticks; not causal published history"
+      },
+      "minimum_covariance_eigenvalue": 4.353630973885615e-05,
+      "maximum_covariance_asymmetry": 0.0
+    },
+    {
+      "dataset": "synthetic_seed43",
+      "camera_mode": "bearing",
+      "method": "closest",
+      "metrics": {
+        "status": "evaluated",
+        "estimate_count": 1195,
+        "matched_count": 1190,
+        "unmatched_count": 5,
+        "coverage_fraction": 0.99581589958159,
+        "estimate_time_span_s": [
+          0.11,
+          12.05
+        ],
+        "truth_time_span_s": [
+          0.0,
+          12.0
+        ],
+        "matched_time_span_s": [
+          0.11,
+          12.0
+        ],
+        "max_interpolation_gap_s": 0.2,
+        "signed_mean_xyz_m": [
+          -0.0026745513127607707,
+          0.0003472569741108557,
+          3.1237417320645474e-05
+        ],
+        "mean_euclidean_m": 0.03317175038149089,
+        "median_euclidean_m": 0.031363737547677725,
+        "std_euclidean_m": 0.016881799035672912,
+        "p95_euclidean_m": 0.06389468373748577,
+        "rmse3d_m": 0.03722042667746822,
+        "axis_rmse_m": [
+          0.03140117223238278,
+          0.014379259004835006,
+          0.013876723495007454
+        ]
+      },
+      "camera_input_count": 145,
+      "diagnostics": {
+        "initialized": true,
+        "initialization_time_s": 0.1,
+        "late_events": 153,
+        "replayed_items": 2608,
+        "ignored_before_initialization": 4,
+        "accepted_radar": 113,
+        "accepted_camera": 128,
+        "history_kind": "retrospectively corrected 100 Hz ticks; not causal published history"
+      },
+      "minimum_covariance_eigenvalue": 4.3147208644991596e-05,
+      "maximum_covariance_asymmetry": 0.0
+    },
+    {
+      "dataset": "synthetic_seed43",
+      "camera_mode": "bearing",
+      "method": "average",
+      "metrics": {
+        "status": "evaluated",
+        "estimate_count": 1195,
+        "matched_count": 1190,
+        "unmatched_count": 5,
+        "coverage_fraction": 0.99581589958159,
+        "estimate_time_span_s": [
+          0.11,
+          12.05
+        ],
+        "truth_time_span_s": [
+          0.0,
+          12.0
+        ],
+        "matched_time_span_s": [
+          0.11,
+          12.0
+        ],
+        "max_interpolation_gap_s": 0.2,
+        "signed_mean_xyz_m": [
+          0.023384913577386906,
+          0.0007625199612762448,
+          0.009963339435513552
+        ],
+        "mean_euclidean_m": 0.035599744395672914,
+        "median_euclidean_m": 0.033909490377653284,
+        "std_euclidean_m": 0.016958211147607385,
+        "p95_euclidean_m": 0.06740953357266904,
+        "rmse3d_m": 0.03943250849697595,
+        "axis_rmse_m": [
+          0.03217643740965062,
+          0.016079536626716868,
+          0.016156983129810676
+        ]
+      },
+      "camera_input_count": 145,
+      "diagnostics": {
+        "initialized": true,
+        "initialization_time_s": 0.1,
+        "late_events": 153,
+        "replayed_items": 2608,
+        "ignored_before_initialization": 4,
+        "accepted_radar": 113,
+        "accepted_camera": 128,
+        "history_kind": "retrospectively corrected 100 Hz ticks; not causal published history"
+      },
+      "minimum_covariance_eigenvalue": 4.30972681304691e-05,
+      "maximum_covariance_asymmetry": 0.0
+    },
+    {
+      "dataset": "synthetic_seed43",
+      "camera_mode": "bearing",
+      "method": "kmeans",
+      "metrics": {
+        "status": "evaluated",
+        "estimate_count": 1195,
+        "matched_count": 1190,
+        "unmatched_count": 5,
+        "coverage_fraction": 0.99581589958159,
+        "estimate_time_span_s": [
+          0.11,
+          12.05
+        ],
+        "truth_time_span_s": [
+          0.0,
+          12.0
+        ],
+        "matched_time_span_s": [
+          0.11,
+          12.0
+        ],
+        "max_interpolation_gap_s": 0.2,
+        "signed_mean_xyz_m": [
+          0.023384913577386906,
+          0.0007625199612762448,
+          0.009963339435513552
+        ],
+        "mean_euclidean_m": 0.035599744395672914,
+        "median_euclidean_m": 0.033909490377653284,
+        "std_euclidean_m": 0.016958211147607385,
+        "p95_euclidean_m": 0.06740953357266904,
+        "rmse3d_m": 0.03943250849697595,
+        "axis_rmse_m": [
+          0.03217643740965062,
+          0.016079536626716868,
+          0.016156983129810676
+        ]
+      },
+      "camera_input_count": 145,
+      "diagnostics": {
+        "initialized": true,
+        "initialization_time_s": 0.1,
+        "late_events": 153,
+        "replayed_items": 2608,
+        "ignored_before_initialization": 4,
+        "accepted_radar": 113,
+        "accepted_camera": 128,
+        "history_kind": "retrospectively corrected 100 Hz ticks; not causal published history"
+      },
+      "minimum_covariance_eigenvalue": 4.30972681304691e-05,
+      "maximum_covariance_asymmetry": 0.0
+    },
+    {
+      "dataset": "synthetic_seed43",
+      "camera_mode": "bearing",
+      "method": "weighted",
+      "metrics": {
+        "status": "evaluated",
+        "estimate_count": 1195,
+        "matched_count": 1190,
+        "unmatched_count": 5,
+        "coverage_fraction": 0.99581589958159,
+        "estimate_time_span_s": [
+          0.11,
+          12.05
+        ],
+        "truth_time_span_s": [
+          0.0,
+          12.0
+        ],
+        "matched_time_span_s": [
+          0.11,
+          12.0
+        ],
+        "max_interpolation_gap_s": 0.2,
+        "signed_mean_xyz_m": [
+          0.018917254129275717,
+          0.0007490962286129703,
+          0.008232799084584855
+        ],
+        "mean_euclidean_m": 0.03327073484075627,
+        "median_euclidean_m": 0.03010386420963084,
+        "std_euclidean_m": 0.01657800303730955,
+        "p95_euclidean_m": 0.06741401701559253,
+        "rmse3d_m": 0.037172193660705004,
+        "axis_rmse_m": [
+          0.029863977073456588,
+          0.015905216438259633,
+          0.015392821215005747
+        ]
+      },
+      "camera_input_count": 145,
+      "diagnostics": {
+        "initialized": true,
+        "initialization_time_s": 0.1,
+        "late_events": 153,
+        "replayed_items": 2608,
+        "ignored_before_initialization": 4,
+        "accepted_radar": 113,
+        "accepted_camera": 128,
+        "history_kind": "retrospectively corrected 100 Hz ticks; not causal published history"
+      },
+      "minimum_covariance_eigenvalue": 4.341719756704905e-05,
+      "maximum_covariance_asymmetry": 0.0
+    },
+    {
+      "dataset": "synthetic_seed44",
+      "camera_mode": "none",
+      "method": "radar_only",
+      "metrics": {
+        "status": "evaluated",
+        "estimate_count": 1195,
+        "matched_count": 1190,
+        "unmatched_count": 5,
+        "coverage_fraction": 0.99581589958159,
+        "estimate_time_span_s": [
+          0.11,
+          12.05
+        ],
+        "truth_time_span_s": [
+          0.0,
+          12.0
+        ],
+        "matched_time_span_s": [
+          0.11,
+          12.0
+        ],
+        "max_interpolation_gap_s": 0.2,
+        "signed_mean_xyz_m": [
+          0.016114402561477073,
+          0.018648939574157336,
+          0.036258827854075734
+        ],
+        "mean_euclidean_m": 0.091830860991113,
+        "median_euclidean_m": 0.09436013032171835,
+        "std_euclidean_m": 0.041735978841650666,
+        "p95_euclidean_m": 0.15517971487466384,
+        "rmse3d_m": 0.10087020848714368,
+        "axis_rmse_m": [
+          0.025399652957884915,
+          0.08370704957641208,
+          0.05022734754166232
+        ]
+      },
+      "camera_input_count": 0,
+      "diagnostics": {
+        "initialized": true,
+        "initialization_time_s": 0.1,
+        "late_events": 10,
+        "replayed_items": 1470,
+        "ignored_before_initialization": 2,
+        "accepted_radar": 113,
+        "accepted_camera": 0,
+        "history_kind": "retrospectively corrected 100 Hz ticks; not causal published history"
+      },
+      "minimum_covariance_eigenvalue": 0.0014410241983214885,
+      "maximum_covariance_asymmetry": 0.0
+    },
+    {
+      "dataset": "synthetic_seed44",
+      "camera_mode": "paper_xyz",
+      "method": "strongest",
+      "metrics": {
+        "status": "evaluated",
+        "estimate_count": 1195,
+        "matched_count": 1190,
+        "unmatched_count": 5,
+        "coverage_fraction": 0.99581589958159,
+        "estimate_time_span_s": [
+          0.11,
+          12.05
+        ],
+        "truth_time_span_s": [
+          0.0,
+          12.0
+        ],
+        "matched_time_span_s": [
+          0.11,
+          12.0
+        ],
+        "max_interpolation_gap_s": 0.2,
+        "signed_mean_xyz_m": [
+          0.0524074623881226,
+          0.00038943611072147534,
+          0.020469016195515194
+        ],
+        "mean_euclidean_m": 0.061443224965464276,
+        "median_euclidean_m": 0.05921635202431983,
+        "std_euclidean_m": 0.026163008782758977,
+        "p95_euclidean_m": 0.11017657476920369,
+        "rmse3d_m": 0.06678153129962934,
+        "axis_rmse_m": [
+          0.0593318503721606,
+          0.016776555069219556,
+          0.025652517501180416
+        ]
+      },
+      "camera_input_count": 145,
+      "diagnostics": {
+        "initialized": true,
+        "initialization_time_s": 0.1,
+        "late_events": 153,
+        "replayed_items": 2608,
+        "ignored_before_initialization": 4,
+        "accepted_radar": 113,
+        "accepted_camera": 128,
+        "history_kind": "retrospectively corrected 100 Hz ticks; not causal published history"
+      },
+      "minimum_covariance_eigenvalue": 4.3851247083690263e-05,
+      "maximum_covariance_asymmetry": 0.0
+    },
+    {
+      "dataset": "synthetic_seed44",
+      "camera_mode": "paper_xyz",
+      "method": "closest",
+      "metrics": {
+        "status": "evaluated",
+        "estimate_count": 1195,
+        "matched_count": 1190,
+        "unmatched_count": 5,
+        "coverage_fraction": 0.99581589958159,
+        "estimate_time_span_s": [
+          0.11,
+          12.05
+        ],
+        "truth_time_span_s": [
+          0.0,
+          12.0
+        ],
+        "matched_time_span_s": [
+          0.11,
+          12.0
+        ],
+        "max_interpolation_gap_s": 0.2,
+        "signed_mean_xyz_m": [
+          0.06649414455212144,
+          0.0012916807607225756,
+          0.025392884571987007
+        ],
+        "mean_euclidean_m": 0.07772604764002178,
+        "median_euclidean_m": 0.08247725045580281,
+        "std_euclidean_m": 0.03811390875507893,
+        "p95_euclidean_m": 0.13788927245031632,
+        "rmse3d_m": 0.08656794165468772,
+        "axis_rmse_m": [
+          0.07897457296691321,
+          0.017166626527956114,
+          0.031021480955505523
+        ]
+      },
+      "camera_input_count": 145,
+      "diagnostics": {
+        "initialized": true,
+        "initialization_time_s": 0.1,
+        "late_events": 153,
+        "replayed_items": 2608,
+        "ignored_before_initialization": 4,
+        "accepted_radar": 113,
+        "accepted_camera": 128,
+        "history_kind": "retrospectively corrected 100 Hz ticks; not causal published history"
+      },
+      "minimum_covariance_eigenvalue": 4.2734212225039274e-05,
+      "maximum_covariance_asymmetry": 0.0
+    },
+    {
+      "dataset": "synthetic_seed44",
+      "camera_mode": "paper_xyz",
+      "method": "average",
+      "metrics": {
+        "status": "evaluated",
+        "estimate_count": 1195,
+        "matched_count": 1190,
+        "unmatched_count": 5,
+        "coverage_fraction": 0.99581589958159,
+        "estimate_time_span_s": [
+          0.11,
+          12.05
+        ],
+        "truth_time_span_s": [
+          0.0,
+          12.0
+        ],
+        "matched_time_span_s": [
+          0.11,
+          12.0
+        ],
+        "max_interpolation_gap_s": 0.2,
+        "signed_mean_xyz_m": [
+          0.005232676585010798,
+          0.000776606034260348,
+          0.0018384824035713584
+        ],
+        "mean_euclidean_m": 0.02461226304748493,
+        "median_euclidean_m": 0.022923388106446604,
+        "std_euclidean_m": 0.011844066053892703,
+        "p95_euclidean_m": 0.05033337441669397,
+        "rmse3d_m": 0.027313831532898597,
+        "axis_rmse_m": [
+          0.01902788494130401,
+          0.014849774145992457,
+          0.012785507243792706
+        ]
+      },
+      "camera_input_count": 145,
+      "diagnostics": {
+        "initialized": true,
+        "initialization_time_s": 0.1,
+        "late_events": 153,
+        "replayed_items": 2608,
+        "ignored_before_initialization": 4,
+        "accepted_radar": 113,
+        "accepted_camera": 128,
+        "history_kind": "retrospectively corrected 100 Hz ticks; not causal published history"
+      },
+      "minimum_covariance_eigenvalue": 4.309411816638267e-05,
+      "maximum_covariance_asymmetry": 0.0
+    },
+    {
+      "dataset": "synthetic_seed44",
+      "camera_mode": "paper_xyz",
+      "method": "kmeans",
+      "metrics": {
+        "status": "evaluated",
+        "estimate_count": 1195,
+        "matched_count": 1190,
+        "unmatched_count": 5,
+        "coverage_fraction": 0.99581589958159,
+        "estimate_time_span_s": [
+          0.11,
+          12.05
+        ],
+        "truth_time_span_s": [
+          0.0,
+          12.0
+        ],
+        "matched_time_span_s": [
+          0.11,
+          12.0
+        ],
+        "max_interpolation_gap_s": 0.2,
+        "signed_mean_xyz_m": [
+          0.005232676585010798,
+          0.000776606034260348,
+          0.0018384824035713584
+        ],
+        "mean_euclidean_m": 0.02461226304748493,
+        "median_euclidean_m": 0.022923388106446604,
+        "std_euclidean_m": 0.011844066053892703,
+        "p95_euclidean_m": 0.05033337441669397,
+        "rmse3d_m": 0.027313831532898597,
+        "axis_rmse_m": [
+          0.01902788494130401,
+          0.014849774145992457,
+          0.012785507243792706
+        ]
+      },
+      "camera_input_count": 145,
+      "diagnostics": {
+        "initialized": true,
+        "initialization_time_s": 0.1,
+        "late_events": 153,
+        "replayed_items": 2608,
+        "ignored_before_initialization": 4,
+        "accepted_radar": 113,
+        "accepted_camera": 128,
+        "history_kind": "retrospectively corrected 100 Hz ticks; not causal published history"
+      },
+      "minimum_covariance_eigenvalue": 4.309411816638267e-05,
+      "maximum_covariance_asymmetry": 0.0
+    },
+    {
+      "dataset": "synthetic_seed44",
+      "camera_mode": "paper_xyz",
+      "method": "weighted",
+      "metrics": {
+        "status": "evaluated",
+        "estimate_count": 1195,
+        "matched_count": 1190,
+        "unmatched_count": 5,
+        "coverage_fraction": 0.99581589958159,
+        "estimate_time_span_s": [
+          0.11,
+          12.05
+        ],
+        "truth_time_span_s": [
+          0.0,
+          12.0
+        ],
+        "matched_time_span_s": [
+          0.11,
+          12.0
+        ],
+        "max_interpolation_gap_s": 0.2,
+        "signed_mean_xyz_m": [
+          0.0008568878441769311,
+          0.0006970096742256121,
+          0.00017255059344030882
+        ],
+        "mean_euclidean_m": 0.030665133007621907,
+        "median_euclidean_m": 0.029866510245005973,
+        "std_euclidean_m": 0.014673174543507252,
+        "p95_euclidean_m": 0.05708911585457266,
+        "rmse3d_m": 0.033994888344563975,
+        "axis_rmse_m": [
+          0.026383699879087077,
+          0.014936037120527056,
+          0.01537750335340137
+        ]
+      },
+      "camera_input_count": 145,
+      "diagnostics": {
+        "initialized": true,
+        "initialization_time_s": 0.1,
+        "late_events": 153,
+        "replayed_items": 2608,
+        "ignored_before_initialization": 4,
+        "accepted_radar": 113,
+        "accepted_camera": 128,
+        "history_kind": "retrospectively corrected 100 Hz ticks; not causal published history"
+      },
+      "minimum_covariance_eigenvalue": 4.3474194591749165e-05,
+      "maximum_covariance_asymmetry": 0.0
+    },
+    {
+      "dataset": "synthetic_seed44",
+      "camera_mode": "bearing",
+      "method": "strongest",
+      "metrics": {
+        "status": "evaluated",
+        "estimate_count": 1195,
+        "matched_count": 1190,
+        "unmatched_count": 5,
+        "coverage_fraction": 0.99581589958159,
+        "estimate_time_span_s": [
+          0.11,
+          12.05
+        ],
+        "truth_time_span_s": [
+          0.0,
+          12.0
+        ],
+        "matched_time_span_s": [
+          0.11,
+          12.0
+        ],
+        "max_interpolation_gap_s": 0.2,
+        "signed_mean_xyz_m": [
+          0.06603781910845508,
+          0.00022981623859913024,
+          0.025855217933308364
+        ],
+        "mean_euclidean_m": 0.07494377289495564,
+        "median_euclidean_m": 0.07348040517107587,
+        "std_euclidean_m": 0.027252881819608464,
+        "p95_euclidean_m": 0.12490238289663529,
+        "rmse3d_m": 0.07974514821106193,
+        "axis_rmse_m": [
+          0.07163959028030281,
+          0.01762217438693447,
+          0.030274027441869106
+        ]
+      },
+      "camera_input_count": 145,
+      "diagnostics": {
+        "initialized": true,
+        "initialization_time_s": 0.1,
+        "late_events": 153,
+        "replayed_items": 2608,
+        "ignored_before_initialization": 4,
+        "accepted_radar": 113,
+        "accepted_camera": 128,
+        "history_kind": "retrospectively corrected 100 Hz ticks; not causal published history"
+      },
+      "minimum_covariance_eigenvalue": 4.413566623217372e-05,
+      "maximum_covariance_asymmetry": 0.0
+    },
+    {
+      "dataset": "synthetic_seed44",
+      "camera_mode": "bearing",
+      "method": "closest",
+      "metrics": {
+        "status": "evaluated",
+        "estimate_count": 1195,
+        "matched_count": 1190,
+        "unmatched_count": 5,
+        "coverage_fraction": 0.99581589958159,
+        "estimate_time_span_s": [
+          0.11,
+          12.05
+        ],
+        "truth_time_span_s": [
+          0.0,
+          12.0
+        ],
+        "matched_time_span_s": [
+          0.11,
+          12.0
+        ],
+        "max_interpolation_gap_s": 0.2,
+        "signed_mean_xyz_m": [
+          0.09051228717621757,
+          0.0012103889142868738,
+          0.03488267954486367
+        ],
+        "mean_euclidean_m": 0.10015716927595789,
+        "median_euclidean_m": 0.10817977721986607,
+        "std_euclidean_m": 0.038130138041314286,
+        "p95_euclidean_m": 0.15495210962589454,
+        "rmse3d_m": 0.10716979977784115,
+        "axis_rmse_m": [
+          0.09815073074329236,
+          0.018964810516432645,
+          0.038628176258478635
+        ]
+      },
+      "camera_input_count": 145,
+      "diagnostics": {
+        "initialized": true,
+        "initialization_time_s": 0.1,
+        "late_events": 153,
+        "replayed_items": 2608,
+        "ignored_before_initialization": 4,
+        "accepted_radar": 113,
+        "accepted_camera": 128,
+        "history_kind": "retrospectively corrected 100 Hz ticks; not causal published history"
+      },
+      "minimum_covariance_eigenvalue": 4.346906466311197e-05,
+      "maximum_covariance_asymmetry": 0.0
+    },
+    {
+      "dataset": "synthetic_seed44",
+      "camera_mode": "bearing",
+      "method": "average",
+      "metrics": {
+        "status": "evaluated",
+        "estimate_count": 1195,
+        "matched_count": 1190,
+        "unmatched_count": 5,
+        "coverage_fraction": 0.99581589958159,
+        "estimate_time_span_s": [
+          0.11,
+          12.05
+        ],
+        "truth_time_span_s": [
+          0.0,
+          12.0
+        ],
+        "matched_time_span_s": [
+          0.11,
+          12.0
+        ],
+        "max_interpolation_gap_s": 0.2,
+        "signed_mean_xyz_m": [
+          0.019508956043058724,
+          0.0006081939428213412,
+          0.007490141671643024
+        ],
+        "mean_euclidean_m": 0.03051610800770706,
+        "median_euclidean_m": 0.0276200924155571,
+        "std_euclidean_m": 0.015905814528473745,
+        "p95_euclidean_m": 0.06456041506716531,
+        "rmse3d_m": 0.03441261082440926,
+        "axis_rmse_m": [
+          0.026843817607669206,
+          0.015505622232086612,
+          0.01494031188410266
+        ]
+      },
+      "camera_input_count": 145,
+      "diagnostics": {
+        "initialized": true,
+        "initialization_time_s": 0.1,
+        "late_events": 153,
+        "replayed_items": 2608,
+        "ignored_before_initialization": 4,
+        "accepted_radar": 113,
+        "accepted_camera": 128,
+        "history_kind": "retrospectively corrected 100 Hz ticks; not causal published history"
+      },
+      "minimum_covariance_eigenvalue": 4.3439317105639966e-05,
+      "maximum_covariance_asymmetry": 0.0
+    },
+    {
+      "dataset": "synthetic_seed44",
+      "camera_mode": "bearing",
+      "method": "kmeans",
+      "metrics": {
+        "status": "evaluated",
+        "estimate_count": 1195,
+        "matched_count": 1190,
+        "unmatched_count": 5,
+        "coverage_fraction": 0.99581589958159,
+        "estimate_time_span_s": [
+          0.11,
+          12.05
+        ],
+        "truth_time_span_s": [
+          0.0,
+          12.0
+        ],
+        "matched_time_span_s": [
+          0.11,
+          12.0
+        ],
+        "max_interpolation_gap_s": 0.2,
+        "signed_mean_xyz_m": [
+          0.019508956043058724,
+          0.0006081939428213412,
+          0.007490141671643024
+        ],
+        "mean_euclidean_m": 0.03051610800770706,
+        "median_euclidean_m": 0.0276200924155571,
+        "std_euclidean_m": 0.015905814528473745,
+        "p95_euclidean_m": 0.06456041506716531,
+        "rmse3d_m": 0.03441261082440926,
+        "axis_rmse_m": [
+          0.026843817607669206,
+          0.015505622232086612,
+          0.01494031188410266
+        ]
+      },
+      "camera_input_count": 145,
+      "diagnostics": {
+        "initialized": true,
+        "initialization_time_s": 0.1,
+        "late_events": 153,
+        "replayed_items": 2608,
+        "ignored_before_initialization": 4,
+        "accepted_radar": 113,
+        "accepted_camera": 128,
+        "history_kind": "retrospectively corrected 100 Hz ticks; not causal published history"
+      },
+      "minimum_covariance_eigenvalue": 4.3439317105639966e-05,
+      "maximum_covariance_asymmetry": 0.0
+    },
+    {
+      "dataset": "synthetic_seed44",
+      "camera_mode": "bearing",
+      "method": "weighted",
+      "metrics": {
+        "status": "evaluated",
+        "estimate_count": 1195,
+        "matched_count": 1190,
+        "unmatched_count": 5,
+        "coverage_fraction": 0.99581589958159,
+        "estimate_time_span_s": [
+          0.11,
+          12.05
+        ],
+        "truth_time_span_s": [
+          0.0,
+          12.0
+        ],
+        "matched_time_span_s": [
+          0.11,
+          12.0
+        ],
+        "max_interpolation_gap_s": 0.2,
+        "signed_mean_xyz_m": [
+          0.017324883759024867,
+          0.00031085281757270384,
+          0.006763720855817971
+        ],
+        "mean_euclidean_m": 0.03677265348650122,
+        "median_euclidean_m": 0.03259085240308984,
+        "std_euclidean_m": 0.017961199900030454,
+        "p95_euclidean_m": 0.07654378804691442,
+        "rmse3d_m": 0.04092472047903497,
+        "axis_rmse_m": [
+          0.03332878806059951,
+          0.015750248921651815,
+          0.01777510313907601
+        ]
+      },
+      "camera_input_count": 145,
+      "diagnostics": {
+        "initialized": true,
+        "initialization_time_s": 0.1,
+        "late_events": 153,
+        "replayed_items": 2608,
+        "ignored_before_initialization": 4,
+        "accepted_radar": 113,
+        "accepted_camera": 128,
+        "history_kind": "retrospectively corrected 100 Hz ticks; not causal published history"
+      },
+      "minimum_covariance_eigenvalue": 4.3865202559315235e-05,
+      "maximum_covariance_asymmetry": 0.0
+    }
+  ],
+  "aggregates": [
+    {
+      "camera_mode": "bearing",
+      "method": "average",
+      "datasets": 3,
+      "evaluated_datasets": 3,
+      "mean_of_mean_euclidean_m": 0.031645149238131394,
+      "std_of_mean_euclidean_m": 0.002880816548312664
+    },
+    {
+      "camera_mode": "bearing",
+      "method": "closest",
+      "datasets": 3,
+      "evaluated_datasets": 3,
+      "mean_of_mean_euclidean_m": 0.060440528024224206,
+      "std_of_mean_euclidean_m": 0.028728308540972965
+    },
+    {
+      "camera_mode": "bearing",
+      "method": "kmeans",
+      "datasets": 3,
+      "evaluated_datasets": 3,
+      "mean_of_mean_euclidean_m": 0.031645149238131394,
+      "std_of_mean_euclidean_m": 0.002880816548312664
+    },
+    {
+      "camera_mode": "bearing",
+      "method": "strongest",
+      "datasets": 3,
+      "evaluated_datasets": 3,
+      "mean_of_mean_euclidean_m": 0.06097866166025234,
+      "std_of_mean_euclidean_m": 0.009874903801239548
+    },
+    {
+      "camera_mode": "bearing",
+      "method": "weighted",
+      "datasets": 3,
+      "evaluated_datasets": 3,
+      "mean_of_mean_euclidean_m": 0.03279104608190775,
+      "std_of_mean_euclidean_m": 0.0034634502204026456
+    },
+    {
+      "camera_mode": "none",
+      "method": "radar_only",
+      "datasets": 3,
+      "evaluated_datasets": 3,
+      "mean_of_mean_euclidean_m": 0.11303900900234574,
+      "std_of_mean_euclidean_m": 0.015784898543820515
+    },
+    {
+      "camera_mode": "paper_xyz",
+      "method": "average",
+      "datasets": 3,
+      "evaluated_datasets": 3,
+      "mean_of_mean_euclidean_m": 0.030041765668305572,
+      "std_of_mean_euclidean_m": 0.004280879388527339
+    },
+    {
+      "camera_mode": "paper_xyz",
+      "method": "closest",
+      "datasets": 3,
+      "evaluated_datasets": 3,
+      "mean_of_mean_euclidean_m": 0.06345827557880802,
+      "std_of_mean_euclidean_m": 0.011389408118313906
+    },
+    {
+      "camera_mode": "paper_xyz",
+      "method": "kmeans",
+      "datasets": 3,
+      "evaluated_datasets": 3,
+      "mean_of_mean_euclidean_m": 0.030041765668305572,
+      "std_of_mean_euclidean_m": 0.004280879388527339
+    },
+    {
+      "camera_mode": "paper_xyz",
+      "method": "strongest",
+      "datasets": 3,
+      "evaluated_datasets": 3,
+      "mean_of_mean_euclidean_m": 0.050550829467392,
+      "std_of_mean_euclidean_m": 0.007752535961151307
+    },
+    {
+      "camera_mode": "paper_xyz",
+      "method": "weighted",
+      "datasets": 3,
+      "evaluated_datasets": 3,
+      "mean_of_mean_euclidean_m": 0.030714836617055107,
+      "std_of_mean_euclidean_m": 0.0020337977708779335
+    }
+  ],
+  "executed_camera_modes": [
+    "bearing",
+    "paper_xyz"
+  ],
+  "camera_stream_present": true,
+  "paper_field_reproduction": false,
+  "completed": "algorithm, geometry, asynchronous replay, CSV interface and synthetic evaluation",
+  "pending": "author flight logs/calibration, detector training images and weights, ROS/Coral/hardware validation",
+  "caveats": [
+    "Mean Euclidean error and signed XYZ means are Table I metrics; RMSE is separately labelled.",
+    "No extrapolation of ground truth or interpolation across long gaps.",
+    "Tracks are retrospectively corrected histories; not causal published trajectories.",
+    "paper_xyz copies correlated state depth; bearing is an EKF extension.",
+    "Synthetic seeds are algorithm fixtures, not the author's two flight datasets."
+  ]
+}

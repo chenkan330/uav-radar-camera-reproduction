@@ -14,3 +14,8 @@
 - 相机深度来自当前状态，与状态相关；paper_xyz明示此假设，bearing是单独标明的EKF改进路径。
 - Weighted没有beta0取值，Q/R/P0/gate未给数值；默认值全部是示例参数。
 - 延迟回放保存原始点云/检测框，重新关联/投影；保留100Hz预测ticks，避免离散Q步长分割改变结果。
+- 2026-10-06完成第2–5步算法与合成验证，62项测试通过；默认3种子33实验，双击run_reproduction.cmd已验证可用。
+- 主入口run_reproduction.py --synthetic或--data目录；真实数据格式见docs/data_format.md，仅雷达可省略相机标定。
+- 默认例子output/step2–step5已逐步保存；本地重跑输出output/local_reproduction，真实数据与本机结果保持Git忽略。
+- 第4步1199个100Hz ticks，回放与采集顺序状态和完整协方差误差均为0；初始化anchor冻结，历史是事后修正而非当时实时发布。
+- GitHub main每步单独commit并push，步骤说明见docs/step1.md至step5.md与docs/reproduction_log.md。真实飞行/训练/设备复现仍待原始材料，不把算法验证称作整篇论文实测复现完成。

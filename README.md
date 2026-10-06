@@ -2,8 +2,12 @@
 
 参考论文：[Data Fusion Approach for Unmodified UAV Tracking with Vision and mmWave Radar](https://doi.org/10.1109/ICUAS65942.2025.11007835)，ICUAS 2025。
 本项目是依据论文逐步编写的独立实现，**不是作者官方源码**。论文 PDF 不随代码发布。
-已完成第1–4步：Kalman基线、雷达点云、相机模型、异步回放；每步保存代码、测试、示例结果和说明。
+已完成第1–5步的算法和合成验证：Kalman、雷达、相机、异步回放、数据导入与统一评价；每步单独提交GitHub并保存说明。
 **当前结果是合成数据验证，不代表论文实测精度。**
+
+Windows双击`run_reproduction.cmd`运行端到端示例；结果在`output/local_reproduction`。GitHub参考报告见[第5步结果](output/step5/report.md)。
+
+验证：全部62项检查通过；三个种子共33组对比。步骤提交与限制见[复现日志](docs/reproduction_log.md)。
 
 | 步骤 | 本步做了什么 | 运行和说明 |
 |---|---|---|
@@ -11,6 +15,11 @@
 | 2 | 两帧初始化、四维雷达门控、五种关联 | `python demo_step2.py`，[说明](docs/step2.md) |
 | 3 | 检测框中心、像素回投影、相机坐标与 bearing 模式 | `python demo_step3.py`，[说明](docs/step3.md) |
 | 4 | 100Hz预测、异步观测、迟到数据回滚与原始观测重放 | `python demo_step4.py`，[说明](docs/step4.md) |
+| 5 | CSV实测入口、五方法与雷达基线、时间插值评价和报告 | `python run_reproduction.py --synthetic`，[说明](docs/step5.md) |
+
+真实输入：`python run_reproduction.py --data data/my_flight`，见[数据格式](docs/data_format.md)。作者原始飞行日志、实际标定、MobileNet训练图/权重及ROS/Coral设备尚未提供，真实精度、检测训练与实机性能复现仍待材料补齐。
+
+新电脑部署：`python -m venv .venv`，`.venv\Scripts\python.exe -m pip install -r requirements.txt`。本机Python及环境已在D盘；固定验证版本见`requirements.lock.txt`，不上传环境或缓存。
 
 下面保留第1步的教学说明，后续各步的参数假设和验证见对应文档。
 
@@ -215,11 +224,11 @@ NPZ 中 6 维状态始终按 `[x,vx,y,vy,z,vz]` 排列。
 已完成第2步：雷达两帧初始化、四维观测、Mahalanobis 门控及五种关联方法；运行 `python demo_step2.py`，见 [第2步说明](docs/step2.md) 与 `output/step2/`。12项雷达数学测试通过。
 
 以下数据要求用于真实数据验证；缺少这些数据时，提交的结果会明确标为合成实验。
-继续第2步时，需要你提供**一小段真实 Radar 点云及字段说明**：
+第2步真实数据验证需要**一小段真实 Radar 点云及字段说明**：
 
 - 每帧的 `x,y,z`，单位、坐标轴方向；最好同时有速度和 intensity/SNR 字段及其定义。
-- 帧号、时间戳及单位，或至少已知的固定帧率；第2步只需知道相邻帧间隔，异步对齐仍留到第5步。
+- 帧号、时间戳及单位；异步对齐已在第4步实现，需要正确的采集与到达时间。
 - 雷达型号/导出格式，例如 CSV、NPY 或 ROS bag；若文件没有目标标注，需要指出无人机的大致初始位置或对应片段。
 - 若希望评价真实定位 RMSE，还需同时间的参考真值；只有点云也能做关联与轨迹展示。
 
-相机图像/检测框、内参、外参和两路时间戳将在第3–5步分别需要，目前不必先准备齐。
+第3–5步真实融合验证需要相机图像或已有检测框、真实内外参、两路时间戳和同坐标的参考真值。没有真值时仍可追踪，但不会给出定位精度。

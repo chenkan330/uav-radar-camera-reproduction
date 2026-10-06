@@ -4,6 +4,7 @@ __pycache__/
 tmp/
 .mplconfig/
 .deployment/
+/本地运行说明.txt
 .vs/
 *.pyproj.user
 data/
