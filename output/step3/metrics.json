@@ -1,0 +1,31 @@
+{
+  "step": 3,
+  "data_kind": "synthetic",
+  "seed": 42,
+  "samples": 201,
+  "accepted_detections": 178,
+  "confidence_threshold": 0.7,
+  "pixel_std_px": [
+    2.0,
+    2.0
+  ],
+  "intrinsics": {
+    "fu": 420.0,
+    "fv": 420.0,
+    "u0": 320.0,
+    "v0": 240.0
+  },
+  "extrinsics_convention": "global = M.T @ camera - translation",
+  "translation_m": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "roundtrip_max_abs_error_m": 6.661338147750939e-16,
+  "prior_rmse_3d_m": 0.8839899683433267,
+  "after_bearing_rmse_3d_m": 0.7160816619837126,
+  "prior_lateral_rmse_m": 0.4912731634860903,
+  "after_bearing_lateral_rmse_m": 0.19845222318165012,
+  "paper_pseudo_observation_uses_correlated_state_depth": true,
+  "caveat": "Independent synthetic priors; no detector training, real camera data, or paper accuracy claim. Bearing mode is an EKF extension to the paper's pseudo-XYZ observation."
+}
