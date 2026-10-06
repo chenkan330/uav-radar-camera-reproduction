@@ -9,6 +9,7 @@ from pathlib import Path
 import numpy as np
 
 from radar import DEFAULT_RADAR_R, METHODS, RadarAssociator, RadarInitializer
+from plot_style import METHOD_LABELS, configure_chinese_font
 
 
 def make_clouds(seed=42, duration=12.0, dt=0.1):
@@ -131,25 +132,26 @@ def save(output, seed, time, truth, clouds, estimates, metrics, gate, beta0, plo
         os.environ.setdefault("MPLCONFIGDIR", str(Path(__file__).resolve().parent / ".mplconfig"))
         import matplotlib
         matplotlib.use("Agg")
+        configure_chinese_font()
         import matplotlib.pyplot as plt
         fig, axes = plt.subplots(2, 2, figsize=(12, 7), constrained_layout=True)
         colors = dict(zip(METHODS, ("#e67e22", "#2874a6", "#27ae60", "#884ea0", "#c0392b")))
-        for axis, index, label in zip(axes.flat, (0, 2, 4), ("x", "y", "z")):
-            axis.plot(time, truth[:, index], color="black", linewidth=2, label="truth")
+        for axis, index, label in zip(axes.flat, (0, 2, 4), ("X", "Y", "Z")):
+            axis.plot(time, truth[:, index], color="black", linewidth=2, label="真实轨迹")
             for method in METHODS:
-                axis.plot(time, estimates[method][:, index], color=colors[method], label=method, alpha=.85)
+                axis.plot(time, estimates[method][:, index], color=colors[method], label=METHOD_LABELS[method], alpha=.85)
             for start, end in ((3, 3.5), (7.5, 7.6)):
                 axis.axvspan(start, end, color="gray", alpha=.12)
-            axis.set(xlabel="time (s)", ylabel=f"{label} (m)")
+            axis.set(xlabel="时间（秒）", ylabel=f"{label}（米）")
             axis.grid(alpha=.2)
         axes[0, 0].legend(ncol=2, fontsize=8)
         ax = axes[1, 1]
         values = [metrics[method]["position_rmse_m"] for method in METHODS]
-        ax.bar(METHODS, values, color=[colors[method] for method in METHODS])
-        ax.set(ylabel="3D position RMSE (m)", title="Synthetic clouds; no paper accuracy claim")
+        ax.bar([METHOD_LABELS[method] for method in METHODS], values, color=[colors[method] for method in METHODS])
+        ax.set(ylabel="三维位置均方根误差（米）", title="合成点云结果，仅用于算法验证")
         ax.tick_params(axis="x", rotation=20)
         ax.grid(axis="y", alpha=.2)
-        fig.suptitle("Step 2: radar initialization, gating and five association methods")
+        fig.suptitle("第 2 步：雷达初始化、门控与五种关联方法")
         fig.savefig(output / "overview.png", dpi=150)
         plt.close(fig)
     return summary

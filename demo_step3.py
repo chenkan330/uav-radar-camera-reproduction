@@ -17,6 +17,7 @@ from camera import (CameraExtrinsics, CameraIntrinsics, bbox_to_pixels,
                     camera_backproject, camera_bearing_observation,
                     camera_project, paper_pseudo_observation)
 from kalman3d import Kalman3D, POSITION
+from plot_style import configure_chinese_font
 
 
 def run_demo(seed=42, samples=201):
@@ -95,41 +96,42 @@ def save_outputs(output, data, metrics, plots=True):
     os.environ.setdefault("MPLCONFIGDIR", str(Path(__file__).resolve().parent / ".mplconfig"))
     import matplotlib
     matplotlib.use("Agg")
+    configure_chinese_font()
     import matplotlib.pyplot as plt
 
-    plt.rcParams.update({"font.family": "DejaVu Sans", "axes.spines.top": False,
+    plt.rcParams.update({"axes.spines.top": False,
                          "axes.spines.right": False, "axes.grid": True, "grid.alpha": .18})
     fig, axes = plt.subplots(2, 2, figsize=(13, 8.5), layout="constrained")
-    fig.suptitle("STEP 3 | Camera pixels, reference frames, and bearing update", fontsize=18, fontweight="bold")
+    fig.suptitle("第3步｜相机像素、坐标转换与方位观测更新", fontsize=18, fontweight="bold")
     truth, prior, corrected, t = (data[k] for k in ["truth", "prior", "corrected", "time"])
     accepted = data["accepted"]
     ax = axes[0, 0]
-    ax.plot(*data["clean_pixels"].T, color="#17243b", label="True pixel trajectory")
-    ax.scatter(*data["pixels"][accepted].T, s=11, color="#087e85", alpha=.5, label="Confidence >= 0.70")
-    ax.scatter(*data["pixels"][~accepted].T, s=28, color="#d98b2b", marker="x", label="Rejected confidence")
-    ax.set(xlim=(0, 640), ylim=(480, 0), xlabel="u (pixels)", ylabel="v (pixels)", title="VGA image: synthetic detection centers")
-    ax.legend(fontsize=8)
+    ax.plot(*data["clean_pixels"].T, color="#17243b", label="真实像素轨迹")
+    ax.scatter(*data["pixels"][accepted].T, s=11, color="#087e85", alpha=.5, label="置信度≥0.70")
+    ax.scatter(*data["pixels"][~accepted].T, s=28, color="#d98b2b", marker="x", label="低置信度检测（拒绝）")
+    ax.set(xlim=(0, 640), ylim=(480, 0), xlabel="水平坐标 u（像素）", ylabel="垂直坐标 v（像素）", title="640×480图像中的合成检测中心")
+    ax.legend(fontsize=9)
     ax = axes[0, 1]
-    ax.scatter(prior[:, 1], prior[:, 2], s=9, alpha=.25, color="#8596ba", label="Prior")
-    ax.plot(truth[:, 1], truth[:, 2], color="#17243b", lw=2, label="Truth")
-    ax.scatter(corrected[accepted, 1], corrected[accepted, 2], s=9, alpha=.6, color="#087e85", label="After bearing update")
-    ax.set(xlabel="Global Y (m)", ylabel="Global Z (m)", title="Lateral position corrected from pixels")
-    ax.legend(fontsize=8)
+    ax.scatter(prior[:, 1], prior[:, 2], s=9, alpha=.25, color="#8596ba", label="更新前估计")
+    ax.plot(truth[:, 1], truth[:, 2], color="#17243b", lw=2, label="真实轨迹")
+    ax.scatter(corrected[accepted, 1], corrected[accepted, 2], s=9, alpha=.6, color="#087e85", label="方位观测更新后")
+    ax.set(xlabel="全局 Y 位置（米）", ylabel="全局 Z 位置（米）", title="由像素观测修正横向位置")
+    ax.legend(fontsize=9)
     ax = axes[1, 0]
-    ax.plot(t, prior[:, 0] - truth[:, 0], color="#8596ba", lw=.8, alpha=.7, label="Prior depth error")
-    ax.plot(t, corrected[:, 0] - truth[:, 0], color="#087e85", lw=.8, label="After bearing update")
+    ax.plot(t, prior[:, 0] - truth[:, 0], color="#8596ba", lw=.8, alpha=.7, label="更新前深度误差")
+    ax.plot(t, corrected[:, 0] - truth[:, 0], color="#087e85", lw=.8, label="方位观测更新后")
     ax.axhline(0., color="#17243b", alpha=.4)
-    ax.set(xlabel="Time (s)", ylabel="Global X error (m)", title="Camera provides angles; no independent depth sample")
-    ax.legend(fontsize=8)
+    ax.set(xlabel="时间（秒）", ylabel="全局 X 误差（米）", title="相机提供方位信息，深度沿用状态估计")
+    ax.legend(fontsize=9)
     ax = axes[1, 1]
     prior_lateral = np.linalg.norm(prior[:, 1:] - truth[:, 1:], axis=1)
     after_lateral = np.linalg.norm(corrected[:, 1:] - truth[:, 1:], axis=1)
-    ax.plot(t, prior_lateral, color="#8596ba", lw=.8, alpha=.7, label="Prior lateral error")
-    ax.plot(t, after_lateral, color="#087e85", lw=.8, label="After bearing update")
-    ax.set(xlabel="Time (s)", ylabel="Lateral error (m)", title="Low-confidence boxes leave the prior unchanged")
-    ax.legend(fontsize=8)
+    ax.plot(t, prior_lateral, color="#8596ba", lw=.8, alpha=.7, label="更新前横向误差")
+    ax.plot(t, after_lateral, color="#087e85", lw=.8, label="方位观测更新后")
+    ax.set(xlabel="时间（秒）", ylabel="横向误差（米）", title="低置信度检测框保留更新前估计")
+    ax.legend(fontsize=9)
     fig.get_layout_engine().set(rect=(0, .055, 1, .935))
-    fig.text(.5, .014, "Synthetic calibration and boxes | One camera correction per independent prior | No paper hardware accuracy claim", ha="center", fontsize=10)
+    fig.text(.5, .014, "合成标定与检测框｜每个独立先验仅进行一次相机更新｜结果仅用于算法验证", ha="center", fontsize=10)
     fig.savefig(output / "camera_observations.png", dpi=150)
     plt.close(fig)
 

@@ -9,6 +9,8 @@ Windows双击`run_reproduction.cmd`运行端到端示例；结果在`output/loca
 
 验证：全部62项检查通过；三个种子共33组对比。步骤提交与限制见[复现日志](docs/reproduction_log.md)。
 
+各步骤结果图和报告表格统一使用中文标注。绘图自动选择已安装的中文字体，本机使用微软雅黑；其他系统可安装思源黑体或Noto Sans CJK SC。数值数据的CSV/JSON字段保留原格式。
+
 | 步骤 | 本步做了什么 | 运行和说明 |
 |---|---|---|
 | 1 | 手写同步三维 Kalman，验证预测和更新 | `python demo_step1.py`，[说明](docs/step1.md) |

@@ -19,3 +19,4 @@
 - 默认例子output/step2–step5已逐步保存；本地重跑输出output/local_reproduction，真实数据与本机结果保持Git忽略。
 - 第4步1199个100Hz ticks，回放与采集顺序状态和完整协方差误差均为0；初始化anchor冻结，历史是事后修正而非当时实时发布。
 - GitHub main每步单独commit并push，步骤说明见docs/step1.md至step5.md与docs/reproduction_log.md。真实飞行/训练/设备复现仍待原始材料，不把算法验证称作整篇论文实测复现完成。
+- 用户要求结果图表使用中文：标题、坐标轴、图例、方法名、单位和报告表格使用中文；绘图调用plot_style.configure_chinese_font，优先本机微软雅黑。保留CSV/JSON稳定字段，改标注不改算法数值。

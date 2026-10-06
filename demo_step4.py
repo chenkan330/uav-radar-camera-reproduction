@@ -8,6 +8,7 @@ import numpy as np
 from camera import CameraIntrinsics, CameraExtrinsics, camera_project
 from demo_step2 import make_clouds
 from fusion import FusionTracker, FusionConfig
+from plot_style import configure_chinese_font, MODE_LABELS
 
 
 def make_events(seed=42, duration=12.):
@@ -86,22 +87,25 @@ def run_demo(seed=42, duration=12., mode="paper_xyz", output=Path("output/step4"
         os.environ.setdefault("MPLCONFIGDIR",str(Path(__file__).parent/".mplconfig"))
         import matplotlib
         matplotlib.use("Agg")
+        configure_chinese_font()
         import matplotlib.pyplot as plt
         fig, axes=plt.subplots(2,2,figsize=(12,7),layout="constrained")
         for axis,index in zip(axes.flat[:3],range(3)):
-            axis.plot(truth[:,0],truth[:,index+1],"k",label="synthetic truth")
-            axis.plot(t,x[:,index*2],label="delayed replay",alpha=.85)
-            axis.plot(ref_t,ref_x[:,index*2],"--",label="ordered reference",alpha=.65)
-            axis.set(xlabel="time (s)",ylabel=f"{'xyz'[index]} (m)")
+            axis.plot(truth[:,0],truth[:,index+1],"k",label="合成真实轨迹")
+            axis.plot(t,x[:,index*2],label="迟到数据回放",alpha=.85)
+            axis.plot(ref_t,ref_x[:,index*2],"--",label="按采集时间处理",alpha=.65)
+            axis.set(xlabel="时间（秒）",ylabel=f"{'XYZ'[index]} 位置（米）",
+                     title=f"{'XYZ'[index]} 轴轨迹对比")
             axis.grid(alpha=.2)
-        axes.flat[0].legend(fontsize=8)
+        axes.flat[0].legend(fontsize=9)
         for sensor in ("radar","camera"):
             selected=[e for e in events if e["sensor"]==sensor]
             axes.flat[3].scatter([e["timestamp"] for e in selected],
-                [1000*(e["arrival_time"]-e["timestamp"]) for e in selected],s=8,label=sensor)
-        axes.flat[3].set(xlabel="acquisition time (s)",ylabel="delay (ms)")
+                [1000*(e["arrival_time"]-e["timestamp"]) for e in selected],s=8,
+                label={"radar":"雷达","camera":"相机"}[sensor])
+        axes.flat[3].set(xlabel="采集时间（秒）",ylabel="延迟（毫秒）",title="传感器数据到达延迟")
         axes.flat[3].legend()
-        fig.suptitle(f"Step 4: 100 Hz replay equals ordered processing ({mode}, synthetic)")
+        fig.suptitle(f"第4步：100赫兹回放与按采集时间处理一致（{MODE_LABELS[mode]}，合成数据）")
         fig.savefig(output/"replay.png",dpi=140)
         plt.close(fig)
     return summary

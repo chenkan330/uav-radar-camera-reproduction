@@ -17,6 +17,8 @@ from demo_step4 import make_events, run_events
 from evaluation import evaluate_positions
 from fusion import FusionConfig, FusionTracker
 from radar import METHODS
+from plot_style import (configure_chinese_font, METHOD_LABELS, MODE_LABELS,
+                        DATA_KIND_LABELS, dataset_label)
 
 
 def example_config():
@@ -141,41 +143,44 @@ def save_report(output,reports,representative_tracks,truth,config,plots=True):
         writer=csv.writer(stream);writer.writerow(["camera_mode","method","timestamp_s","x_m","y_m","z_m"])
         for (mode,name),(t,x) in representative_tracks.items():
             for timestamp,state in zip(t,x):writer.writerow([mode,name,timestamp,*state[[0,2,4]]])
-    lines=["# 第5步：统一复现报告","",f"数据类型：{config['data_kind']}。本报告不代表作者真实飞行数据复现。",
+    lines=["# 第5步：统一复现报告","",f"数据类型：{DATA_KIND_LABELS[config['data_kind']]}。本报告不代表作者真实飞行数据复现。",
            "","本步完成CSV导入、五方法比较、雷达单传感器基线、时间对齐评价和结果保存。",
-           "","| 数据 | 相机模式 | 方法 | 平均欧氏误差(m) | 3D RMSE(m) | 真值匹配率 |",
+           "","| 数据 | 相机模式 | 方法 | 平均欧氏误差（米） | 三维均方根误差（米） | 真值匹配率 |",
            "|---|---|---|---:|---:|---:|"]
     def number(value):return "无有效真值" if value is None else f"{value:.6f}"
     for report in reports:
         m=report["metrics"]
-        lines.append(f"| {report['dataset']} | {report['camera_mode']} | {report['method']} | {number(m['mean_euclidean_m'])} | {number(m['rmse3d_m'])} | {m['coverage_fraction']:.1%} |")
+        lines.append(f"| {dataset_label(report['dataset'])} | {MODE_LABELS[report['camera_mode']]} | {METHOD_LABELS[report['method']]} | {number(m['mean_euclidean_m'])} | {number(m['rmse3d_m'])} | {m['coverage_fraction']:.1%} |")
     lines += ["","各轴有符号平均误差、匹配时间范围、协方差和迟到事件统计见summary.json。",
               "真实飞行精度、MobileNet V2训练/mAP和Coral/ROS硬件运行仍需原始数据、模型及设备。",
-              "paper_xyz使用相关状态深度；bearing为另行标明的改进。代表性轨迹是回放修正的历史。"]
+              "论文三维观测模式使用相关状态深度；像素方位观测为另行标明的改进。代表性轨迹是回放修正的历史。"]
     (output/"report.md").write_text("\n".join(lines)+"\n",encoding="utf-8")
     if plots:
         os.environ.setdefault("MPLCONFIGDIR",str(Path(__file__).parent/".mplconfig"))
         import matplotlib
         matplotlib.use("Agg")
+        configure_chinese_font()
         import matplotlib.pyplot as plt
         fig,axes=plt.subplots(2,2,figsize=(13,8),layout="constrained")
         plotted_mode="paper_xyz" if any(mode=="paper_xyz" for mode,_ in representative_tracks) else "bearing"
         for axis,index in zip(axes.flat[:3],range(3)):
-            if truth is not None and len(truth):axis.plot(truth[:,0],truth[:,index+1],"k",lw=2,label="ground truth")
+            if truth is not None and len(truth):axis.plot(truth[:,0],truth[:,index+1],"k",lw=2,label="参考真值")
             for (mode,name),(t,x) in representative_tracks.items():
-                if mode==plotted_mode or mode=="none":axis.plot(t,x[:,index*2],label=name,alpha=.75)
-            axis.set(xlabel="time (s)",ylabel=f"{'xyz'[index]} (m)");axis.grid(alpha=.2)
+                if mode==plotted_mode or mode=="none":axis.plot(t,x[:,index*2],label=METHOD_LABELS[name],alpha=.75)
+            axis.set(xlabel="时间（秒）",ylabel=f"{'XYZ'[index]}位置（米）");axis.grid(alpha=.2)
         axes.flat[0].legend(ncol=2,fontsize=8)
         valid=[a for a in aggregates if a["mean_of_mean_euclidean_m"] is not None]
         if valid:
-            labels=[a["camera_mode"]+"\n"+a["method"] for a in valid]
-            axes.flat[3].bar(range(len(valid)),[a["mean_of_mean_euclidean_m"] for a in valid],
-                yerr=[a["std_of_mean_euclidean_m"] for a in valid],capsize=3)
-            axes.flat[3].set_xticks(range(len(valid)),labels,rotation=55,ha="right",fontsize=7)
-            axes.flat[3].set(ylabel="mean Euclidean error (m)",title="Mean and population std across fixtures")
-        else:axes.flat[3].text(.5,.5,"No matched ground truth; no accuracy claim",ha="center")
-        modes_title=" vs ".join(summary["executed_camera_modes"])
-        fig.suptitle(f"Step 5: five associations and radar baseline ({config['data_kind']}; {modes_title})")
+            labels=[METHOD_LABELS[a["method"]] if a["camera_mode"]=="none" else
+                    METHOD_LABELS[a["method"]]+"｜"+MODE_LABELS[a["camera_mode"]] for a in valid]
+            axes.flat[3].barh(range(len(valid)),[a["mean_of_mean_euclidean_m"] for a in valid],
+                xerr=[a["std_of_mean_euclidean_m"] for a in valid],capsize=3)
+            axes.flat[3].set_yticks(range(len(valid)),labels,fontsize=8)
+            axes.flat[3].invert_yaxis()
+            axes.flat[3].set(xlabel="平均欧氏误差（米）",title="跨数据组均值与总体标准差")
+        else:axes.flat[3].text(.5,.5,"无匹配真值，无法评价定位精度",ha="center")
+        modes_title="与".join(MODE_LABELS[mode] for mode in summary["executed_camera_modes"])
+        fig.suptitle(f"第5步：五种关联方法与仅雷达基线（{DATA_KIND_LABELS[config['data_kind']]}；{modes_title}）")
         fig.savefig(output/"comparison.png",dpi=140);plt.close(fig)
     return summary
 

@@ -13,6 +13,7 @@ from pathlib import Path
 import numpy as np
 
 from kalman3d import H_POSITION, POSITION, VELOCITY, Kalman3D
+from plot_style import configure_chinese_font
 
 
 RADAR_STD = np.array([0.20, 0.35, 0.35])  # XYZ, metres
@@ -160,10 +161,11 @@ def make_plots(output, data, metrics):
     os.environ.setdefault("MPLCONFIGDIR", str(Path(__file__).resolve().parent / ".mplconfig"))
     import matplotlib
     matplotlib.use("Agg")
+    configure_chinese_font()
     import matplotlib.pyplot as plt
 
     plt.rcParams.update({
-        "font.family": "DejaVu Sans", "font.size": 10, "axes.titlesize": 12,
+        "font.size": 10, "axes.titlesize": 12,
         "axes.spines.top": False, "axes.spines.right": False,
         "axes.grid": True, "grid.alpha": 0.18, "figure.facecolor": "#f5f7fb",
         "axes.facecolor": "white", "savefig.facecolor": "#f5f7fb",
@@ -172,66 +174,70 @@ def make_plots(output, data, metrics):
     t, truth = data["time"], data["truth"][:, POSITION]
     fused = data["fused"][:, POSITION]
     fig = plt.figure(figsize=(15, 10), layout="constrained")
-    fig.suptitle("STEP 1  |  Handwritten 3D Kalman filter", fontsize=21, fontweight="bold")
+    fig.suptitle("第 1 步｜手写三维卡尔曼滤波", fontsize=21, fontweight="bold")
     axes = [fig.add_subplot(2, 2, 1, projection="3d")]
     axes += [fig.add_subplot(2, 2, i) for i in [2, 3, 4]]
     ax = axes[0]
     for name in ["radar", "camera"]:
-        ax.scatter(*data[name].T, s=7, color=colors[name], alpha=0.23, label=f"{name.title()} XYZ (synthetic)")
-    ax.plot(*truth.T, color=colors["truth"], lw=2, label="Ground truth")
-    ax.plot(*fused.T, color=colors["fused"], lw=1.8, label="Fused KF")
-    ax.set(xlabel="X / depth (m)", ylabel="Y (m)", zlabel="Z (m)", title="3D trajectory")
+        label = {"radar": "合成雷达 XYZ", "camera": "合成相机 XYZ"}[name]
+        ax.scatter(*data[name].T, s=7, color=colors[name], alpha=0.23, label=label)
+    ax.plot(*truth.T, color=colors["truth"], lw=2, label="真实轨迹")
+    ax.plot(*fused.T, color=colors["fused"], lw=1.8, label="融合滤波结果")
+    ax.set(xlabel="X / 深度（米）", ylabel="Y（米）", zlabel="Z（米）", title="三维轨迹")
+    ax.zaxis.set_rotate_label(False)
+    ax.zaxis.label.set_rotation(90)
+    ax.zaxis.labelpad = 14
     ax.legend(fontsize=8, loc="upper left")
     ax.view_init(elev=23, azim=-55)
     ax = axes[1]
     for name in ["radar", "camera"]:
         ax.scatter(data[name][:, 0], data[name][:, 1], s=10, alpha=0.22, color=colors[name])
-    ax.plot(truth[:, 0], truth[:, 1], color=colors["truth"], lw=2, label="Ground truth")
-    ax.plot(fused[:, 0], fused[:, 1], color=colors["fused"], lw=1.8, label="Fused KF")
-    ax.scatter(*truth[0, :2], s=75, marker="*", color=colors["truth"], label="Start", zorder=5)
-    ax.set(title="XY view: noise reduction while tracking motion", xlabel="X / depth (m)", ylabel="Y (m)")
+    ax.plot(truth[:, 0], truth[:, 1], color=colors["truth"], lw=2, label="真实轨迹")
+    ax.plot(fused[:, 0], fused[:, 1], color=colors["fused"], lw=1.8, label="融合滤波结果")
+    ax.scatter(*truth[0, :2], s=75, marker="*", color=colors["truth"], label="起点", zorder=5)
+    ax.set(title="XY 平面：运动跟踪中的降噪效果", xlabel="X / 深度（米）", ylabel="Y（米）")
     ax.set_aspect("equal", adjustable="datalim")
     ax.legend(loc="best", fontsize=9)
     ax = axes[2]
-    for name, label in [("radar", "Raw Radar"), ("camera", "Synthetic Camera")]:
+    for name, label in [("radar", "原始雷达观测"), ("camera", "合成相机观测")]:
         ax.plot(t, np.linalg.norm(data[name] - truth, axis=1), color=colors[name], alpha=0.48, lw=0.8, label=label)
-    ax.plot(t[1:], np.linalg.norm(data["predicted"][1:, POSITION] - truth[1:], axis=1), color=colors["predicted"], lw=1, alpha=0.8, label="Before updates")
-    ax.plot(t, np.linalg.norm(fused - truth, axis=1), color=colors["fused"], lw=1.7, label="After both updates")
-    ax.set(title="3D position error over time", xlabel="Time (s)", ylabel="Euclidean error (m)")
+    ax.plot(t[1:], np.linalg.norm(data["predicted"][1:, POSITION] - truth[1:], axis=1), color=colors["predicted"], lw=1, alpha=0.8, label="观测更新前")
+    ax.plot(t, np.linalg.norm(fused - truth, axis=1), color=colors["fused"], lw=1.7, label="两次观测更新后")
+    ax.set(title="三维位置误差随时间变化", xlabel="时间（秒）", ylabel="欧氏距离误差（米）")
     ax.legend(ncol=2, fontsize=8)
     ax = axes[3]
     names = ["radar_raw", "camera_raw", "radar_only", "camera_only", "fused"]
     values = [metrics["rmse"][name]["position_3d_m"] for name in names]
-    bars = ax.barh(["Raw Radar", "Synthetic Camera", "Radar-only KF", "Camera-only KF", "Fused KF"], values,
+    bars = ax.barh(["原始雷达观测", "合成相机观测", "仅雷达滤波", "仅相机滤波", "融合滤波"], values,
                    color=[colors["radar"], colors["camera"], "#b5a282", "#aeb9ce", colors["fused"]], height=0.58)
-    ax.bar_label(bars, fmt="%.3f m", padding=5, fontsize=11)
+    ax.bar_label(bars, fmt="%.3f 米", padding=5, fontsize=11)
     ax.invert_yaxis()
-    ax.set(xlabel="3D position RMSE (m), all samples", title="Same simulated data, same motion model", xlim=(0, max(values) * 1.27))
-    fig.text(0.5, -0.015, f"Seed {metrics['seed']}  |  dt = {metrics['dt_s']:g} s  |  Both sensors provide independent synthetic XYZ; this is not a real-data result.", ha="center", fontsize=10, color="#526079")
+    ax.set(xlabel="三维位置均方根误差（米，全样本）", title="相同合成数据与运动模型的比较", xlim=(0, max(values) * 1.27))
+    fig.text(0.5, -0.015, f"随机种子 {metrics['seed']}｜时间步长 {metrics['dt_s']:g} 秒｜两传感器提供独立合成 XYZ 观测；结果仅用于仿真验证。", ha="center", fontsize=10, color="#526079")
     fig.savefig(output / "overview.png", dpi=160, bbox_inches="tight")
     plt.close(fig)
 
     fig, axes = plt.subplots(3, 1, figsize=(14, 9), sharex=True, layout="constrained")
-    fig.suptitle("Prediction -> Radar update -> Camera update", fontsize=20, fontweight="bold")
+    fig.suptitle("预测 → 雷达观测更新 → 相机观测更新", fontsize=20, fontweight="bold")
     # A short window exposes individual updates. All stages of a sample share t.
     left = min(5.0, t[-1] * 0.25)
     right = min(left + 2.5, t[-1])
     for i, ax in enumerate(axes):
         index = POSITION[i]
-        ax.scatter(t, data["radar"][:, i], color=colors["radar"], s=22, marker="x", alpha=0.65, label="Radar XYZ")
-        ax.scatter(t, data["camera"][:, i], color=colors["camera"], s=18, alpha=0.5, label="Synthetic Camera XYZ")
-        ax.plot(t, truth[:, i], color=colors["truth"], lw=2, label="Ground truth")
-        for name, marker, label in [("predicted", "^", "Prediction"), ("after_radar", "s", "After Radar"), ("fused", "o", "After Camera (fused)")]:
+        ax.scatter(t, data["radar"][:, i], color=colors["radar"], s=22, marker="x", alpha=0.65, label="雷达 XYZ 观测")
+        ax.scatter(t, data["camera"][:, i], color=colors["camera"], s=18, alpha=0.5, label="合成相机 XYZ 观测")
+        ax.plot(t, truth[:, i], color=colors["truth"], lw=2, label="真实轨迹")
+        for name, marker, label in [("predicted", "^", "预测结果"), ("after_radar", "s", "雷达更新后"), ("fused", "o", "相机更新后（融合）")]:
             start = 1 if name == "predicted" else 0
             ax.plot(t[start:], data[name][start:, index], color=colors[name], marker=marker, markersize=3.5, lw=1.2, label=label)
         sigma = np.sqrt(data["P_fused"][:, index, index])
-        ax.fill_between(t, fused[:, i] - 2 * sigma, fused[:, i] + 2 * sigma, color=colors["fused"], alpha=0.1, label="Fused +/- 2 sigma (model)")
+        ax.fill_between(t, fused[:, i] - 2 * sigma, fused[:, i] + 2 * sigma, color=colors["fused"], alpha=0.1, label="融合结果 ±2σ（模型）")
         visible = (t >= left) & (t <= right)
         shown = np.concatenate([data["radar"][visible, i], data["camera"][visible, i], truth[visible, i], fused[visible, i] - 2*sigma[visible], fused[visible, i] + 2*sigma[visible]])
         margin = max(0.05, np.ptp(shown) * 0.12)
-        ax.set(ylabel=f"{'XYZ'[i]} (m)", xlim=(left, right), ylim=(shown.min()-margin, shown.max()+margin))
+        ax.set(ylabel=f"{'XYZ'[i]}（米）", xlim=(left, right), ylim=(shown.min()-margin, shown.max()+margin))
     axes[0].legend(ncol=4, fontsize=8, loc="upper center", bbox_to_anchor=(0.5, 1.31))
-    axes[-1].set_xlabel("Time (s) | At each time: predict once, update twice")
+    axes[-1].set_xlabel("时间（秒）｜每个时刻预测一次，观测更新两次")
     fig.savefig(output / "prediction_update.png", dpi=160, bbox_inches="tight")
     plt.close(fig)
 
