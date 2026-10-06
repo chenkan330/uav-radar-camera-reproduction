@@ -3,6 +3,7 @@ __pycache__/
 *.pyc
 tmp/
 .mplconfig/
+.deployment/
 .vs/
 *.pyproj.user
 data/
@@ -13,3 +14,7 @@ data/
 /*.pdf
 output/*/
 !output/step1/
+!output/step2/
+!output/step3/
+!output/step4/
+!output/step5/

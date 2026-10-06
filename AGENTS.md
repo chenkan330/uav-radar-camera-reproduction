@@ -1,0 +1,16 @@
+# 论文复现项目记忆
+
+- 来源：https://github.com/chenkan330/uav-radar-camera-reproduction；分支 main。
+- 用户 2026-10-06 明确授权：继续完成后续论文复现，每一步分别提交并推送 GitHub，说明做了什么。此前仅本地部署的限制已被此授权替代。
+- 本项目位于论文目录的 reproduce；环境 .venv 在 D 盘，Python 基础环境 D:\Programs\Python\managed。下载和缓存优先 D 盘，其他程序不得放本论文目录。
+- 原误选仓库备份在父目录 .deployment-backups，不修改。
+- 每步同时记录论文对应、参数假设、运行方法、验证结果与缺口；实际通过检查后单独 commit/push。
+- 基础环境：Python 3.13.14、NumPy 2.5.3、Matplotlib 3.11.2；固定版本见 requirements.lock.txt。
+- 使用 .venv\Scripts\python.exe；全部测试：python -m unittest discover -s tests -v。
+- Step1 已验证：8项测试通过；默认201帧融合RMSE=0.11028075748317094m；run_step1.cmd 输出 output/local_step1。
+- 后续步骤：Step2雷达初始化/门控/关联，Step3检测框相机几何，Step4 100Hz异步及迟到回放，Step5数据接口及五方法评价。
+- 不发布论文PDF、真实数据、本机绝对路径配置、.venv或缓存。data/、tmp/、.deployment/忽略。
+- 当前未提供真实飞行数据、作者训练集/权重、实际内外参。合成测试不能宣称复现论文Table I、70% mAP、ROS/Coral硬件指标。
+- 相机深度来自当前状态，与状态相关；paper_xyz明示此假设，bearing是单独标明的EKF改进路径。
+- Weighted没有beta0取值，Q/R/P0/gate未给数值；默认值全部是示例参数。
+- 延迟回放保存原始点云/检测框，重新关联/投影；保留100Hz预测ticks，避免离散Q步长分割改变结果。
