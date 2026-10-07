@@ -1,0 +1,17 @@
+{
+  "condition": "manual-assisted image-only annotation, not trained detector",
+  "initial_pixel_seed": [
+    621,
+    496
+  ],
+  "camera_half": "left 1280x960",
+  "frames": 48,
+  "radar_read": false,
+  "leica_read": false,
+  "algorithm": "local 25px blackhat, threshold18, largest dark component within30px of previous observed pixel",
+  "visual_review_completed": true,
+  "review_artifact": "evaluation_annotation_review.png",
+  "reviewer": "Codex root, independently cross-checked by data audit agent",
+  "review_note": "All 48 original-frame crops inspected: marker stays in airframe/body region. Nearest-component arm bias corrected using image-only body-area rule before any evaluation metrics.",
+  "annotations_sha256": "dc530cfe2ce535c46c525bbf5113adbc430c43621074ba81c6e9f31758b00f16"
+}

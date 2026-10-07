@@ -1,0 +1,2147 @@
+[
+  {
+    "source_file": "1692846959.512097.npy",
+    "timestamp_s": 72.512097,
+    "original_points": 348,
+    "unique_points": 76,
+    "roi_points": 20,
+    "cluster_sizes": [
+      20
+    ],
+    "selected_points": 20,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "f5b0eb0a527ff8a3f63d61890b839a2098759d8dcb537bc46517c79a2082a152"
+  },
+  {
+    "source_file": "1692846959.580177.npy",
+    "timestamp_s": 72.580177,
+    "original_points": 364,
+    "unique_points": 79,
+    "roi_points": 24,
+    "cluster_sizes": [
+      24
+    ],
+    "selected_points": 24,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "9abcfdb908dd1fcb5b74c9ed2c950ec26d33b22b0c782c27d1c8a6759f2368c7"
+  },
+  {
+    "source_file": "1692846959.646386.npy",
+    "timestamp_s": 72.646386,
+    "original_points": 364,
+    "unique_points": 79,
+    "roi_points": 24,
+    "cluster_sizes": [
+      24
+    ],
+    "selected_points": 24,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "4826b30953f0e24634f6c1ae544aeaf97629e448c6593fa1075a9f0779a40c65"
+  },
+  {
+    "source_file": "1692846959.714333.npy",
+    "timestamp_s": 72.714333,
+    "original_points": 384,
+    "unique_points": 73,
+    "roi_points": 23,
+    "cluster_sizes": [
+      23
+    ],
+    "selected_points": 23,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "346de6d962cbf24f924a404a2118650a6c9805a52ac3183e7dda9cf0b6855fed"
+  },
+  {
+    "source_file": "1692846959.778996.npy",
+    "timestamp_s": 72.778996,
+    "original_points": 384,
+    "unique_points": 73,
+    "roi_points": 23,
+    "cluster_sizes": [
+      23
+    ],
+    "selected_points": 23,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "29b58df08e5f735ef5e3e93dbdb73dbcef46052bdb305da9977fab77bbd84604"
+  },
+  {
+    "source_file": "1692846959.847401.npy",
+    "timestamp_s": 72.847401,
+    "original_points": 408,
+    "unique_points": 75,
+    "roi_points": 24,
+    "cluster_sizes": [
+      24
+    ],
+    "selected_points": 24,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "e7807aebce85666b22bf612977f3214988af011d9978573516cd65bc8f769b25"
+  },
+  {
+    "source_file": "1692846959.911966.npy",
+    "timestamp_s": 72.911966,
+    "original_points": 408,
+    "unique_points": 75,
+    "roi_points": 24,
+    "cluster_sizes": [
+      24
+    ],
+    "selected_points": 24,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "e7807aebce85666b22bf612977f3214988af011d9978573516cd65bc8f769b25"
+  },
+  {
+    "source_file": "1692846959.979879.npy",
+    "timestamp_s": 72.979879,
+    "original_points": 431,
+    "unique_points": 76,
+    "roi_points": 24,
+    "cluster_sizes": [
+      24
+    ],
+    "selected_points": 24,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "e7807aebce85666b22bf612977f3214988af011d9978573516cd65bc8f769b25"
+  },
+  {
+    "source_file": "1692846960.046804.npy",
+    "timestamp_s": 73.046804,
+    "original_points": 431,
+    "unique_points": 76,
+    "roi_points": 24,
+    "cluster_sizes": [
+      24
+    ],
+    "selected_points": 24,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "e7807aebce85666b22bf612977f3214988af011d9978573516cd65bc8f769b25"
+  },
+  {
+    "source_file": "1692846960.114431.npy",
+    "timestamp_s": 73.114431,
+    "original_points": 449,
+    "unique_points": 76,
+    "roi_points": 24,
+    "cluster_sizes": [
+      24
+    ],
+    "selected_points": 24,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "e7807aebce85666b22bf612977f3214988af011d9978573516cd65bc8f769b25"
+  },
+  {
+    "source_file": "1692846960.179165.npy",
+    "timestamp_s": 73.179165,
+    "original_points": 449,
+    "unique_points": 76,
+    "roi_points": 24,
+    "cluster_sizes": [
+      24
+    ],
+    "selected_points": 24,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "e7807aebce85666b22bf612977f3214988af011d9978573516cd65bc8f769b25"
+  },
+  {
+    "source_file": "1692846960.247155.npy",
+    "timestamp_s": 73.247155,
+    "original_points": 461,
+    "unique_points": 79,
+    "roi_points": 28,
+    "cluster_sizes": [
+      28
+    ],
+    "selected_points": 28,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "f49e121095b3ed03b35d69516c5a538f79872e79b39b3123af2ef2d289d7c772"
+  },
+  {
+    "source_file": "1692846960.312128.npy",
+    "timestamp_s": 73.312128,
+    "original_points": 461,
+    "unique_points": 79,
+    "roi_points": 28,
+    "cluster_sizes": [
+      28
+    ],
+    "selected_points": 28,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "f49e121095b3ed03b35d69516c5a538f79872e79b39b3123af2ef2d289d7c772"
+  },
+  {
+    "source_file": "1692846960.381093.npy",
+    "timestamp_s": 73.381093,
+    "original_points": 467,
+    "unique_points": 78,
+    "roi_points": 28,
+    "cluster_sizes": [
+      28
+    ],
+    "selected_points": 28,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "f49e121095b3ed03b35d69516c5a538f79872e79b39b3123af2ef2d289d7c772"
+  },
+  {
+    "source_file": "1692846960.446064.npy",
+    "timestamp_s": 73.446064,
+    "original_points": 467,
+    "unique_points": 78,
+    "roi_points": 28,
+    "cluster_sizes": [
+      28
+    ],
+    "selected_points": 28,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "f49e121095b3ed03b35d69516c5a538f79872e79b39b3123af2ef2d289d7c772"
+  },
+  {
+    "source_file": "1692846960.514179.npy",
+    "timestamp_s": 73.514179,
+    "original_points": 473,
+    "unique_points": 81,
+    "roi_points": 32,
+    "cluster_sizes": [
+      32
+    ],
+    "selected_points": 32,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "5bdd7ea2a11182b2efe420199d912c885560dfad1e679b38ce73b4b7a6e3a285"
+  },
+  {
+    "source_file": "1692846960.579206.npy",
+    "timestamp_s": 73.579206,
+    "original_points": 473,
+    "unique_points": 81,
+    "roi_points": 32,
+    "cluster_sizes": [
+      32
+    ],
+    "selected_points": 32,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "5bdd7ea2a11182b2efe420199d912c885560dfad1e679b38ce73b4b7a6e3a285"
+  },
+  {
+    "source_file": "1692846960.647337.npy",
+    "timestamp_s": 73.647337,
+    "original_points": 480,
+    "unique_points": 73,
+    "roi_points": 33,
+    "cluster_sizes": [
+      33
+    ],
+    "selected_points": 33,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "bea53318ca0c1c34dab3712083499d608e013594b0baa6acef69af8642528c38"
+  },
+  {
+    "source_file": "1692846960.712034.npy",
+    "timestamp_s": 73.712034,
+    "original_points": 480,
+    "unique_points": 73,
+    "roi_points": 33,
+    "cluster_sizes": [
+      33
+    ],
+    "selected_points": 33,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "bea53318ca0c1c34dab3712083499d608e013594b0baa6acef69af8642528c38"
+  },
+  {
+    "source_file": "1692846960.781353.npy",
+    "timestamp_s": 73.781353,
+    "original_points": 489,
+    "unique_points": 75,
+    "roi_points": 36,
+    "cluster_sizes": [
+      36
+    ],
+    "selected_points": 36,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "543f395e1bf5888e19733053363e204ef8f91a2973b2589836bbb9ceb283983b"
+  },
+  {
+    "source_file": "1692846960.845965.npy",
+    "timestamp_s": 73.845965,
+    "original_points": 489,
+    "unique_points": 75,
+    "roi_points": 36,
+    "cluster_sizes": [
+      36
+    ],
+    "selected_points": 36,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "543f395e1bf5888e19733053363e204ef8f91a2973b2589836bbb9ceb283983b"
+  },
+  {
+    "source_file": "1692846960.914789.npy",
+    "timestamp_s": 73.914789,
+    "original_points": 498,
+    "unique_points": 79,
+    "roi_points": 40,
+    "cluster_sizes": [
+      40
+    ],
+    "selected_points": 40,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "83042c4d5de17178b0f8c4819d0d3e00305902adc21d2fbbe95600e58b656958"
+  },
+  {
+    "source_file": "1692846960.979111.npy",
+    "timestamp_s": 73.979111,
+    "original_points": 498,
+    "unique_points": 79,
+    "roi_points": 40,
+    "cluster_sizes": [
+      40
+    ],
+    "selected_points": 40,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "83042c4d5de17178b0f8c4819d0d3e00305902adc21d2fbbe95600e58b656958"
+  },
+  {
+    "source_file": "1692846961.047845.npy",
+    "timestamp_s": 74.047845,
+    "original_points": 508,
+    "unique_points": 83,
+    "roi_points": 44,
+    "cluster_sizes": [
+      44
+    ],
+    "selected_points": 44,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "73eaf478f5bca6b97d1e57fe34cce3b8ca0709b45fcfc9f3d2144b162b0d7cb8"
+  },
+  {
+    "source_file": "1692846961.112066.npy",
+    "timestamp_s": 74.112066,
+    "original_points": 508,
+    "unique_points": 83,
+    "roi_points": 44,
+    "cluster_sizes": [
+      44
+    ],
+    "selected_points": 44,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "73eaf478f5bca6b97d1e57fe34cce3b8ca0709b45fcfc9f3d2144b162b0d7cb8"
+  },
+  {
+    "source_file": "1692846961.180623.npy",
+    "timestamp_s": 74.180623,
+    "original_points": 520,
+    "unique_points": 86,
+    "roi_points": 48,
+    "cluster_sizes": [
+      48
+    ],
+    "selected_points": 48,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "9b5b358e33057a2c4d2726334f4e831b92f1900cb5a10de4a263a6fabad3109f"
+  },
+  {
+    "source_file": "1692846961.245726.npy",
+    "timestamp_s": 74.245726,
+    "original_points": 520,
+    "unique_points": 86,
+    "roi_points": 48,
+    "cluster_sizes": [
+      48
+    ],
+    "selected_points": 48,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "9b5b358e33057a2c4d2726334f4e831b92f1900cb5a10de4a263a6fabad3109f"
+  },
+  {
+    "source_file": "1692846961.314431.npy",
+    "timestamp_s": 74.314431,
+    "original_points": 534,
+    "unique_points": 89,
+    "roi_points": 52,
+    "cluster_sizes": [
+      52
+    ],
+    "selected_points": 52,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "e9a353b817e19fdf2829574864acf9e5afa27a94b00fa9b32e4ec5a385a0ec6b"
+  },
+  {
+    "source_file": "1692846961.379516.npy",
+    "timestamp_s": 74.379516,
+    "original_points": 534,
+    "unique_points": 89,
+    "roi_points": 52,
+    "cluster_sizes": [
+      52
+    ],
+    "selected_points": 52,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "6d472ca792515118b5efd9a3fcea03f8bd285df61a4ea41506ebf655f08707e6"
+  },
+  {
+    "source_file": "1692846961.448084.npy",
+    "timestamp_s": 74.448084,
+    "original_points": 546,
+    "unique_points": 92,
+    "roi_points": 56,
+    "cluster_sizes": [
+      56
+    ],
+    "selected_points": 56,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "cfce239050d09ad3bc08a997a4ec4c7c5c96a3f1886406be9893e4890d22ffb5"
+  },
+  {
+    "source_file": "1692846961.512678.npy",
+    "timestamp_s": 74.512678,
+    "original_points": 546,
+    "unique_points": 92,
+    "roi_points": 56,
+    "cluster_sizes": [
+      56
+    ],
+    "selected_points": 56,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "c43bbbdff851cb67733ffc32d8cff0c8c402bca2f6dad77ae9c8727addc9c978"
+  },
+  {
+    "source_file": "1692846961.581154.npy",
+    "timestamp_s": 74.581154,
+    "original_points": 558,
+    "unique_points": 96,
+    "roi_points": 60,
+    "cluster_sizes": [
+      60
+    ],
+    "selected_points": 60,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "0143fbfc535d6eba06d0f483393cc4f32570f656a9f0bd65e3d219a6a1a2c040"
+  },
+  {
+    "source_file": "1692846961.646733.npy",
+    "timestamp_s": 74.646733,
+    "original_points": 558,
+    "unique_points": 96,
+    "roi_points": 60,
+    "cluster_sizes": [
+      60
+    ],
+    "selected_points": 60,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "9ad61befdb3ef7c5e7bd12ca99b8edf12d001bf857ed1ef9d91222d2691737ee"
+  },
+  {
+    "source_file": "1692846961.715360.npy",
+    "timestamp_s": 74.71536,
+    "original_points": 570,
+    "unique_points": 98,
+    "roi_points": 63,
+    "cluster_sizes": [
+      63
+    ],
+    "selected_points": 63,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "6c9000cafb2c390a5a82317f7dc0ca4cc311863ab4eeb31bcfc187de6f36d672"
+  },
+  {
+    "source_file": "1692846961.779899.npy",
+    "timestamp_s": 74.779899,
+    "original_points": 570,
+    "unique_points": 98,
+    "roi_points": 63,
+    "cluster_sizes": [
+      63
+    ],
+    "selected_points": 63,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "6c9000cafb2c390a5a82317f7dc0ca4cc311863ab4eeb31bcfc187de6f36d672"
+  },
+  {
+    "source_file": "1692846961.847762.npy",
+    "timestamp_s": 74.847762,
+    "original_points": 583,
+    "unique_points": 102,
+    "roi_points": 66,
+    "cluster_sizes": [
+      66
+    ],
+    "selected_points": 66,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "12f3607c6c0273402f3408d6a3ded2460f990154ba473c2c2cb431f962ae238d"
+  },
+  {
+    "source_file": "1692846961.912464.npy",
+    "timestamp_s": 74.912464,
+    "original_points": 583,
+    "unique_points": 102,
+    "roi_points": 66,
+    "cluster_sizes": [
+      66
+    ],
+    "selected_points": 66,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "12f3607c6c0273402f3408d6a3ded2460f990154ba473c2c2cb431f962ae238d"
+  },
+  {
+    "source_file": "1692846961.980361.npy",
+    "timestamp_s": 74.980361,
+    "original_points": 596,
+    "unique_points": 100,
+    "roi_points": 70,
+    "cluster_sizes": [
+      70
+    ],
+    "selected_points": 70,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "4f5fa58a2f53df0dc7c9372bda0e76485bf669299a06f17a13984a1c0c85f5cb"
+  },
+  {
+    "source_file": "1692846962.045491.npy",
+    "timestamp_s": 75.045491,
+    "original_points": 596,
+    "unique_points": 100,
+    "roi_points": 70,
+    "cluster_sizes": [
+      70
+    ],
+    "selected_points": 70,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "4f5fa58a2f53df0dc7c9372bda0e76485bf669299a06f17a13984a1c0c85f5cb"
+  },
+  {
+    "source_file": "1692846962.114509.npy",
+    "timestamp_s": 75.114509,
+    "original_points": 606,
+    "unique_points": 95,
+    "roi_points": 72,
+    "cluster_sizes": [
+      72
+    ],
+    "selected_points": 72,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "710a023e859baa281dac14e7fc4be410facba00d9f24bfdd287f5b5d6ef28722"
+  },
+  {
+    "source_file": "1692846962.179489.npy",
+    "timestamp_s": 75.179489,
+    "original_points": 606,
+    "unique_points": 95,
+    "roi_points": 72,
+    "cluster_sizes": [
+      72
+    ],
+    "selected_points": 72,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "710a023e859baa281dac14e7fc4be410facba00d9f24bfdd287f5b5d6ef28722"
+  },
+  {
+    "source_file": "1692846962.248464.npy",
+    "timestamp_s": 75.248464,
+    "original_points": 619,
+    "unique_points": 101,
+    "roi_points": 76,
+    "cluster_sizes": [
+      76
+    ],
+    "selected_points": 76,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "42e6eebd0c5eb03e7296d6e4db8b8a4a3ee98b556a8cba2ee616370652d3b08d"
+  },
+  {
+    "source_file": "1692846962.312519.npy",
+    "timestamp_s": 75.312519,
+    "original_points": 619,
+    "unique_points": 101,
+    "roi_points": 76,
+    "cluster_sizes": [
+      76
+    ],
+    "selected_points": 76,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "42e6eebd0c5eb03e7296d6e4db8b8a4a3ee98b556a8cba2ee616370652d3b08d"
+  },
+  {
+    "source_file": "1692846962.380267.npy",
+    "timestamp_s": 75.380267,
+    "original_points": 624,
+    "unique_points": 104,
+    "roi_points": 79,
+    "cluster_sizes": [
+      79
+    ],
+    "selected_points": 79,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "1f50f9ff837daab4584ded680cc425586a1bf576651213eda29c9bd735dc42b8"
+  },
+  {
+    "source_file": "1692846962.446599.npy",
+    "timestamp_s": 75.446599,
+    "original_points": 624,
+    "unique_points": 104,
+    "roi_points": 79,
+    "cluster_sizes": [
+      79
+    ],
+    "selected_points": 79,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "1f50f9ff837daab4584ded680cc425586a1bf576651213eda29c9bd735dc42b8"
+  },
+  {
+    "source_file": "1692846962.515339.npy",
+    "timestamp_s": 75.515339,
+    "original_points": 627,
+    "unique_points": 106,
+    "roi_points": 80,
+    "cluster_sizes": [
+      80
+    ],
+    "selected_points": 80,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "2f636b57a986e4b294a1d5a0406cd0a3adeb555e588d86214ae480ecad530931"
+  },
+  {
+    "source_file": "1692846962.579306.npy",
+    "timestamp_s": 75.579306,
+    "original_points": 627,
+    "unique_points": 106,
+    "roi_points": 80,
+    "cluster_sizes": [
+      80
+    ],
+    "selected_points": 80,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "a912f2434733781f1cd6e13c644e59df4c49781250eb2d1e83ebe4733e3139f3"
+  },
+  {
+    "source_file": "1692846962.647561.npy",
+    "timestamp_s": 75.647561,
+    "original_points": 631,
+    "unique_points": 107,
+    "roi_points": 81,
+    "cluster_sizes": [
+      81
+    ],
+    "selected_points": 81,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "970f935f20bb9543dbabb973a16eb82131fb81a674537effd8c2b6c768fc50e1"
+  },
+  {
+    "source_file": "1692846962.712460.npy",
+    "timestamp_s": 75.71246,
+    "original_points": 631,
+    "unique_points": 107,
+    "roi_points": 81,
+    "cluster_sizes": [
+      81
+    ],
+    "selected_points": 81,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "73e2be76fc6b83cb6543b5598bda4eefa8f156f2de81952e3f92ee9d583e16b0"
+  },
+  {
+    "source_file": "1692846962.780136.npy",
+    "timestamp_s": 75.780136,
+    "original_points": 631,
+    "unique_points": 108,
+    "roi_points": 83,
+    "cluster_sizes": [
+      83
+    ],
+    "selected_points": 83,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "5371e91acdf5c4752be1ae8e1b3b8413e04d75d318d5870966341bf8b4c7594f"
+  },
+  {
+    "source_file": "1692846962.845943.npy",
+    "timestamp_s": 75.845943,
+    "original_points": 631,
+    "unique_points": 108,
+    "roi_points": 83,
+    "cluster_sizes": [
+      83
+    ],
+    "selected_points": 83,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "bcb6c2aac6fab6c6e583df9e79d8d7e7a9c1c8f1e79509ea5ea51a43268009d7"
+  },
+  {
+    "source_file": "1692846962.914673.npy",
+    "timestamp_s": 75.914673,
+    "original_points": 627,
+    "unique_points": 107,
+    "roi_points": 82,
+    "cluster_sizes": [
+      82
+    ],
+    "selected_points": 82,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "d61022fd280705be4eee01b7f5a7144064c77973fc8f594514bf218bf01a6c44"
+  },
+  {
+    "source_file": "1692846962.979317.npy",
+    "timestamp_s": 75.979317,
+    "original_points": 627,
+    "unique_points": 107,
+    "roi_points": 82,
+    "cluster_sizes": [
+      82
+    ],
+    "selected_points": 82,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "d61022fd280705be4eee01b7f5a7144064c77973fc8f594514bf218bf01a6c44"
+  },
+  {
+    "source_file": "1692846963.047761.npy",
+    "timestamp_s": 76.047761,
+    "original_points": 622,
+    "unique_points": 109,
+    "roi_points": 84,
+    "cluster_sizes": [
+      84
+    ],
+    "selected_points": 84,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "08f4d29b5ad4c6695a41eb0eea166ad9c2b178525cb117d87aec6f2683ff01e0"
+  },
+  {
+    "source_file": "1692846963.112475.npy",
+    "timestamp_s": 76.112475,
+    "original_points": 622,
+    "unique_points": 109,
+    "roi_points": 84,
+    "cluster_sizes": [
+      84
+    ],
+    "selected_points": 84,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "08f4d29b5ad4c6695a41eb0eea166ad9c2b178525cb117d87aec6f2683ff01e0"
+  },
+  {
+    "source_file": "1692846963.180824.npy",
+    "timestamp_s": 76.180824,
+    "original_points": 621,
+    "unique_points": 110,
+    "roi_points": 85,
+    "cluster_sizes": [
+      85
+    ],
+    "selected_points": 85,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "089038a476cbb7460e4ea5c78693a92f83169d4583857d9a8d63d3ea6907dd8d"
+  },
+  {
+    "source_file": "1692846963.245532.npy",
+    "timestamp_s": 76.245532,
+    "original_points": 621,
+    "unique_points": 110,
+    "roi_points": 85,
+    "cluster_sizes": [
+      85
+    ],
+    "selected_points": 85,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "089038a476cbb7460e4ea5c78693a92f83169d4583857d9a8d63d3ea6907dd8d"
+  },
+  {
+    "source_file": "1692846963.313552.npy",
+    "timestamp_s": 76.313552,
+    "original_points": 623,
+    "unique_points": 113,
+    "roi_points": 88,
+    "cluster_sizes": [
+      88
+    ],
+    "selected_points": 88,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "1c767bd77f627117686b1ab16ae4b374a7f49b01dca7b9dd6b05db08b244846f"
+  },
+  {
+    "source_file": "1692846963.379660.npy",
+    "timestamp_s": 76.37966,
+    "original_points": 623,
+    "unique_points": 113,
+    "roi_points": 88,
+    "cluster_sizes": [
+      88
+    ],
+    "selected_points": 88,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "1c767bd77f627117686b1ab16ae4b374a7f49b01dca7b9dd6b05db08b244846f"
+  },
+  {
+    "source_file": "1692846963.447883.npy",
+    "timestamp_s": 76.447883,
+    "original_points": 628,
+    "unique_points": 115,
+    "roi_points": 91,
+    "cluster_sizes": [
+      91
+    ],
+    "selected_points": 91,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "2495038234d0ab023216399eb346d6df37099ee3d8fdf5bd2333c963c89eefb0"
+  },
+  {
+    "source_file": "1692846963.512403.npy",
+    "timestamp_s": 76.512403,
+    "original_points": 628,
+    "unique_points": 115,
+    "roi_points": 91,
+    "cluster_sizes": [
+      91
+    ],
+    "selected_points": 91,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "2495038234d0ab023216399eb346d6df37099ee3d8fdf5bd2333c963c89eefb0"
+  },
+  {
+    "source_file": "1692846963.580473.npy",
+    "timestamp_s": 76.580473,
+    "original_points": 631,
+    "unique_points": 116,
+    "roi_points": 92,
+    "cluster_sizes": [
+      92
+    ],
+    "selected_points": 92,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "376ff408ae61c289567cb5c4deb7bd1349ac738571418e2e8d3dcaff7a5f2d85"
+  },
+  {
+    "source_file": "1692846963.645340.npy",
+    "timestamp_s": 76.64534,
+    "original_points": 631,
+    "unique_points": 116,
+    "roi_points": 92,
+    "cluster_sizes": [
+      92
+    ],
+    "selected_points": 92,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "57bb5b70e580f1589ef5d239eaef47960a3c7eac665880cae11bad15ecf9ad36"
+  },
+  {
+    "source_file": "1692846963.714492.npy",
+    "timestamp_s": 76.714492,
+    "original_points": 631,
+    "unique_points": 128,
+    "roi_points": 94,
+    "cluster_sizes": [
+      94
+    ],
+    "selected_points": 94,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "47f9145bded346a4672b7a436a1434e7677f22ba2dff922d367cddc97d091ed9"
+  },
+  {
+    "source_file": "1692846963.779663.npy",
+    "timestamp_s": 76.779663,
+    "original_points": 631,
+    "unique_points": 128,
+    "roi_points": 94,
+    "cluster_sizes": [
+      94
+    ],
+    "selected_points": 94,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "47f9145bded346a4672b7a436a1434e7677f22ba2dff922d367cddc97d091ed9"
+  },
+  {
+    "source_file": "1692846963.846076.npy",
+    "timestamp_s": 76.846076,
+    "original_points": 626,
+    "unique_points": 129,
+    "roi_points": 94,
+    "cluster_sizes": [
+      94
+    ],
+    "selected_points": 94,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "47f9145bded346a4672b7a436a1434e7677f22ba2dff922d367cddc97d091ed9"
+  },
+  {
+    "source_file": "1692846963.912510.npy",
+    "timestamp_s": 76.91251,
+    "original_points": 626,
+    "unique_points": 129,
+    "roi_points": 94,
+    "cluster_sizes": [
+      94
+    ],
+    "selected_points": 94,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "47f9145bded346a4672b7a436a1434e7677f22ba2dff922d367cddc97d091ed9"
+  },
+  {
+    "source_file": "1692846963.980110.npy",
+    "timestamp_s": 76.98011,
+    "original_points": 619,
+    "unique_points": 127,
+    "roi_points": 90,
+    "cluster_sizes": [
+      90
+    ],
+    "selected_points": 90,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "e5d60557b0966fc514f18cb011a8e4333d453d53aeec31b6786d09fc4c4f80a8"
+  },
+  {
+    "source_file": "1692846964.045339.npy",
+    "timestamp_s": 77.045339,
+    "original_points": 619,
+    "unique_points": 127,
+    "roi_points": 90,
+    "cluster_sizes": [
+      90
+    ],
+    "selected_points": 90,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "e5d60557b0966fc514f18cb011a8e4333d453d53aeec31b6786d09fc4c4f80a8"
+  },
+  {
+    "source_file": "1692846964.114571.npy",
+    "timestamp_s": 77.114571,
+    "original_points": 609,
+    "unique_points": 128,
+    "roi_points": 89,
+    "cluster_sizes": [
+      89
+    ],
+    "selected_points": 89,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "b80423b027182188b8459658adef9466aa88458beae876356581e8db22c73c5c"
+  },
+  {
+    "source_file": "1692846964.179774.npy",
+    "timestamp_s": 77.179774,
+    "original_points": 609,
+    "unique_points": 128,
+    "roi_points": 89,
+    "cluster_sizes": [
+      89
+    ],
+    "selected_points": 89,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "b80423b027182188b8459658adef9466aa88458beae876356581e8db22c73c5c"
+  },
+  {
+    "source_file": "1692846964.248036.npy",
+    "timestamp_s": 77.248036,
+    "original_points": 606,
+    "unique_points": 131,
+    "roi_points": 93,
+    "cluster_sizes": [
+      93
+    ],
+    "selected_points": 93,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "3ec526503ad0794fb3cdb957c0518d717441b00e2354cee43d768b0e4e2abbfa"
+  },
+  {
+    "source_file": "1692846964.312306.npy",
+    "timestamp_s": 77.312306,
+    "original_points": 606,
+    "unique_points": 131,
+    "roi_points": 93,
+    "cluster_sizes": [
+      93
+    ],
+    "selected_points": 93,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "3ec526503ad0794fb3cdb957c0518d717441b00e2354cee43d768b0e4e2abbfa"
+  },
+  {
+    "source_file": "1692846964.381023.npy",
+    "timestamp_s": 77.381023,
+    "original_points": 607,
+    "unique_points": 131,
+    "roi_points": 94,
+    "cluster_sizes": [
+      94
+    ],
+    "selected_points": 94,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "6b425d51a69841dcf760c74c76de4479e424bfc383f890ca43a79ba51aa5cafd"
+  },
+  {
+    "source_file": "1692846964.445304.npy",
+    "timestamp_s": 77.445304,
+    "original_points": 607,
+    "unique_points": 131,
+    "roi_points": 94,
+    "cluster_sizes": [
+      94
+    ],
+    "selected_points": 94,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "6b425d51a69841dcf760c74c76de4479e424bfc383f890ca43a79ba51aa5cafd"
+  },
+  {
+    "source_file": "1692846964.513544.npy",
+    "timestamp_s": 77.513544,
+    "original_points": 610,
+    "unique_points": 133,
+    "roi_points": 94,
+    "cluster_sizes": [
+      94
+    ],
+    "selected_points": 94,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "b7b45be043cf357e9ead606fd3ee7f434a39a00a5e2dbb13cdcf3bcd59b3788a"
+  },
+  {
+    "source_file": "1692846964.579704.npy",
+    "timestamp_s": 77.579704,
+    "original_points": 610,
+    "unique_points": 133,
+    "roi_points": 94,
+    "cluster_sizes": [
+      94
+    ],
+    "selected_points": 94,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "b7b45be043cf357e9ead606fd3ee7f434a39a00a5e2dbb13cdcf3bcd59b3788a"
+  },
+  {
+    "source_file": "1692846964.646932.npy",
+    "timestamp_s": 77.646932,
+    "original_points": 612,
+    "unique_points": 131,
+    "roi_points": 91,
+    "cluster_sizes": [
+      91
+    ],
+    "selected_points": 91,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "71abe1d49ffde87c0763d1177f789adebdfd8356edf278dea95d9a2c0d006ee1"
+  },
+  {
+    "source_file": "1692846964.712514.npy",
+    "timestamp_s": 77.712514,
+    "original_points": 612,
+    "unique_points": 131,
+    "roi_points": 91,
+    "cluster_sizes": [
+      91
+    ],
+    "selected_points": 91,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "71abe1d49ffde87c0763d1177f789adebdfd8356edf278dea95d9a2c0d006ee1"
+  },
+  {
+    "source_file": "1692846964.780205.npy",
+    "timestamp_s": 77.780205,
+    "original_points": 611,
+    "unique_points": 132,
+    "roi_points": 92,
+    "cluster_sizes": [
+      92
+    ],
+    "selected_points": 92,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "4ac8966a896d90a11a35e4eae7302b8a991ea16eb7d5de2d9634672bf16d5e9f"
+  },
+  {
+    "source_file": "1692846964.845356.npy",
+    "timestamp_s": 77.845356,
+    "original_points": 611,
+    "unique_points": 132,
+    "roi_points": 92,
+    "cluster_sizes": [
+      92
+    ],
+    "selected_points": 92,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "4ac8966a896d90a11a35e4eae7302b8a991ea16eb7d5de2d9634672bf16d5e9f"
+  },
+  {
+    "source_file": "1692846964.913260.npy",
+    "timestamp_s": 77.91326,
+    "original_points": 609,
+    "unique_points": 132,
+    "roi_points": 92,
+    "cluster_sizes": [
+      92
+    ],
+    "selected_points": 92,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "79cef3a30289d5e7d62d3a84adc93c5870bb816c62bdc55179e4c22d3ed0f20e"
+  },
+  {
+    "source_file": "1692846964.979489.npy",
+    "timestamp_s": 77.979489,
+    "original_points": 609,
+    "unique_points": 132,
+    "roi_points": 92,
+    "cluster_sizes": [
+      92
+    ],
+    "selected_points": 92,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "79cef3a30289d5e7d62d3a84adc93c5870bb816c62bdc55179e4c22d3ed0f20e"
+  },
+  {
+    "source_file": "1692846965.047777.npy",
+    "timestamp_s": 78.047777,
+    "original_points": 608,
+    "unique_points": 133,
+    "roi_points": 93,
+    "cluster_sizes": [
+      93
+    ],
+    "selected_points": 93,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "fcb421d0bdfdb07ba4a8580de9ac120c074a13dd05712cc21299b10739622aea"
+  },
+  {
+    "source_file": "1692846965.112343.npy",
+    "timestamp_s": 78.112343,
+    "original_points": 608,
+    "unique_points": 133,
+    "roi_points": 93,
+    "cluster_sizes": [
+      93
+    ],
+    "selected_points": 93,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "fcb421d0bdfdb07ba4a8580de9ac120c074a13dd05712cc21299b10739622aea"
+  },
+  {
+    "source_file": "1692846965.180964.npy",
+    "timestamp_s": 78.180964,
+    "original_points": 608,
+    "unique_points": 133,
+    "roi_points": 93,
+    "cluster_sizes": [
+      93
+    ],
+    "selected_points": 93,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "3095303217d76b4e8da2bea1c5bfc4745130157aa7b69b468b3e2b62c16db63b"
+  },
+  {
+    "source_file": "1692846965.245511.npy",
+    "timestamp_s": 78.245511,
+    "original_points": 608,
+    "unique_points": 133,
+    "roi_points": 93,
+    "cluster_sizes": [
+      93
+    ],
+    "selected_points": 93,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "3095303217d76b4e8da2bea1c5bfc4745130157aa7b69b468b3e2b62c16db63b"
+  },
+  {
+    "source_file": "1692846965.313320.npy",
+    "timestamp_s": 78.31332,
+    "original_points": 604,
+    "unique_points": 133,
+    "roi_points": 93,
+    "cluster_sizes": [
+      93
+    ],
+    "selected_points": 93,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "cb150b454cb004ffb9e09556f6df663fc172093de4cec2d360b9fd6602ad02e9"
+  },
+  {
+    "source_file": "1692846965.379374.npy",
+    "timestamp_s": 78.379374,
+    "original_points": 604,
+    "unique_points": 133,
+    "roi_points": 93,
+    "cluster_sizes": [
+      93
+    ],
+    "selected_points": 93,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "cb150b454cb004ffb9e09556f6df663fc172093de4cec2d360b9fd6602ad02e9"
+  },
+  {
+    "source_file": "1692846965.447462.npy",
+    "timestamp_s": 78.447462,
+    "original_points": 596,
+    "unique_points": 128,
+    "roi_points": 90,
+    "cluster_sizes": [
+      90
+    ],
+    "selected_points": 90,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "d403335e883913f500cf6b3d823ff1a2d0f784ea804f6e3c19a99d9cd8eed392"
+  },
+  {
+    "source_file": "1692846965.512628.npy",
+    "timestamp_s": 78.512628,
+    "original_points": 596,
+    "unique_points": 128,
+    "roi_points": 90,
+    "cluster_sizes": [
+      90
+    ],
+    "selected_points": 90,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "d403335e883913f500cf6b3d823ff1a2d0f784ea804f6e3c19a99d9cd8eed392"
+  },
+  {
+    "source_file": "1692846965.580023.npy",
+    "timestamp_s": 78.580023,
+    "original_points": 580,
+    "unique_points": 123,
+    "roi_points": 86,
+    "cluster_sizes": [
+      86
+    ],
+    "selected_points": 86,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "1aa824ccf093f53d1b6e664eb4b076306562a8c6adb1b357ed3d752d0407e7c8"
+  },
+  {
+    "source_file": "1692846965.645801.npy",
+    "timestamp_s": 78.645801,
+    "original_points": 580,
+    "unique_points": 123,
+    "roi_points": 86,
+    "cluster_sizes": [
+      86
+    ],
+    "selected_points": 86,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "1aa824ccf093f53d1b6e664eb4b076306562a8c6adb1b357ed3d752d0407e7c8"
+  },
+  {
+    "source_file": "1692846965.714651.npy",
+    "timestamp_s": 78.714651,
+    "original_points": 567,
+    "unique_points": 119,
+    "roi_points": 84,
+    "cluster_sizes": [
+      84
+    ],
+    "selected_points": 84,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "02e01450f5e8e92c56c0391b4142cd13ea9b11306c0e5c7a7d0f6184d0f8a6b2"
+  },
+  {
+    "source_file": "1692846965.779563.npy",
+    "timestamp_s": 78.779563,
+    "original_points": 567,
+    "unique_points": 119,
+    "roi_points": 84,
+    "cluster_sizes": [
+      84
+    ],
+    "selected_points": 84,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "02e01450f5e8e92c56c0391b4142cd13ea9b11306c0e5c7a7d0f6184d0f8a6b2"
+  },
+  {
+    "source_file": "1692846965.847553.npy",
+    "timestamp_s": 78.847553,
+    "original_points": 556,
+    "unique_points": 114,
+    "roi_points": 80,
+    "cluster_sizes": [
+      80
+    ],
+    "selected_points": 80,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "5eb2ba7f4813ee1c2bce088a1a091f420574910d1738526d9013a38362cd574f"
+  },
+  {
+    "source_file": "1692846965.912595.npy",
+    "timestamp_s": 78.912595,
+    "original_points": 556,
+    "unique_points": 114,
+    "roi_points": 80,
+    "cluster_sizes": [
+      80
+    ],
+    "selected_points": 80,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "5eb2ba7f4813ee1c2bce088a1a091f420574910d1738526d9013a38362cd574f"
+  },
+  {
+    "source_file": "1692846965.980524.npy",
+    "timestamp_s": 78.980524,
+    "original_points": 551,
+    "unique_points": 118,
+    "roi_points": 85,
+    "cluster_sizes": [
+      85
+    ],
+    "selected_points": 85,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "94fb7dfa0e9aa20b0c8a819cbe59a695b143a42802693f8ec18b6927a1e23dac"
+  },
+  {
+    "source_file": "1692846966.045627.npy",
+    "timestamp_s": 79.045627,
+    "original_points": 551,
+    "unique_points": 118,
+    "roi_points": 85,
+    "cluster_sizes": [
+      85
+    ],
+    "selected_points": 85,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "94fb7dfa0e9aa20b0c8a819cbe59a695b143a42802693f8ec18b6927a1e23dac"
+  },
+  {
+    "source_file": "1692846966.114681.npy",
+    "timestamp_s": 79.114681,
+    "original_points": 547,
+    "unique_points": 115,
+    "roi_points": 84,
+    "cluster_sizes": [
+      84
+    ],
+    "selected_points": 84,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "266c38a63c4ef77aa7cd663a13915f4cf6403faeb00d6fdea2419914f6a70557"
+  },
+  {
+    "source_file": "1692846966.179730.npy",
+    "timestamp_s": 79.17973,
+    "original_points": 547,
+    "unique_points": 115,
+    "roi_points": 84,
+    "cluster_sizes": [
+      84
+    ],
+    "selected_points": 84,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "266c38a63c4ef77aa7cd663a13915f4cf6403faeb00d6fdea2419914f6a70557"
+  },
+  {
+    "source_file": "1692846966.247788.npy",
+    "timestamp_s": 79.247788,
+    "original_points": 542,
+    "unique_points": 114,
+    "roi_points": 84,
+    "cluster_sizes": [
+      84
+    ],
+    "selected_points": 84,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "fd22d9ef5c57cf736ee0da15bebc7707a65f3043b7bf63afc4a1c387ba96b5d2"
+  },
+  {
+    "source_file": "1692846966.312635.npy",
+    "timestamp_s": 79.312635,
+    "original_points": 542,
+    "unique_points": 114,
+    "roi_points": 84,
+    "cluster_sizes": [
+      84
+    ],
+    "selected_points": 84,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "0f5f06e8b09ad1b99baad7c168da9959d36c8bf1b2e519d56d38e575f779ab48"
+  },
+  {
+    "source_file": "1692846966.380729.npy",
+    "timestamp_s": 79.380729,
+    "original_points": 538,
+    "unique_points": 116,
+    "roi_points": 85,
+    "cluster_sizes": [
+      85
+    ],
+    "selected_points": 85,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "824c0bf31be93cc10da1b900f1ef49dabbb3f7d713896fe22e98701899d96405"
+  },
+  {
+    "source_file": "1692846966.445488.npy",
+    "timestamp_s": 79.445488,
+    "original_points": 538,
+    "unique_points": 116,
+    "roi_points": 85,
+    "cluster_sizes": [
+      85
+    ],
+    "selected_points": 85,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "e19062eeee6666efe1754a244304b0041026910605a830ff420060ba36854a48"
+  },
+  {
+    "source_file": "1692846966.513851.npy",
+    "timestamp_s": 79.513851,
+    "original_points": 535,
+    "unique_points": 120,
+    "roi_points": 89,
+    "cluster_sizes": [
+      89
+    ],
+    "selected_points": 89,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "1f077b0c4c35ad358b05a9571c71206d43003d747ba6aa9300d7f698a8a705af"
+  },
+  {
+    "source_file": "1692846966.580128.npy",
+    "timestamp_s": 79.580128,
+    "original_points": 535,
+    "unique_points": 120,
+    "roi_points": 89,
+    "cluster_sizes": [
+      89
+    ],
+    "selected_points": 89,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "a157ffadb4405bb5d8eb039ce0a0316c2f6ce55798f58835d6a85ff212e95ea1"
+  },
+  {
+    "source_file": "1692846966.648485.npy",
+    "timestamp_s": 79.648485,
+    "original_points": 530,
+    "unique_points": 124,
+    "roi_points": 93,
+    "cluster_sizes": [
+      93
+    ],
+    "selected_points": 93,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "920a24658f5adc96d55f02776e7a449d4eac68724af2ed3a2310e85392c50d60"
+  },
+  {
+    "source_file": "1692846966.712532.npy",
+    "timestamp_s": 79.712532,
+    "original_points": 530,
+    "unique_points": 124,
+    "roi_points": 93,
+    "cluster_sizes": [
+      93
+    ],
+    "selected_points": 93,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "a7de741e41ff0c201253c04e502b055c929a8ae9a4e1888e6610ca118743c01a"
+  },
+  {
+    "source_file": "1692846966.781238.npy",
+    "timestamp_s": 79.781238,
+    "original_points": 523,
+    "unique_points": 124,
+    "roi_points": 94,
+    "cluster_sizes": [
+      94
+    ],
+    "selected_points": 94,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "cd9d22944b84660d7beec038dfc30b61862f68535f0f9a2b950adb3a2115a945"
+  },
+  {
+    "source_file": "1692846966.845632.npy",
+    "timestamp_s": 79.845632,
+    "original_points": 523,
+    "unique_points": 124,
+    "roi_points": 94,
+    "cluster_sizes": [
+      94
+    ],
+    "selected_points": 94,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "aef0917608fca6959b37c3922188c6d6a5ee162f20a159a95ab2b1db271cc8c3"
+  },
+  {
+    "source_file": "1692846966.913465.npy",
+    "timestamp_s": 79.913465,
+    "original_points": 517,
+    "unique_points": 108,
+    "roi_points": 86,
+    "cluster_sizes": [
+      86
+    ],
+    "selected_points": 86,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "31c6e9e852ec338c12c63fc1b8d18e0b08b8d921e005442ad87d1ff813a12caa"
+  },
+  {
+    "source_file": "1692846966.979903.npy",
+    "timestamp_s": 79.979903,
+    "original_points": 517,
+    "unique_points": 108,
+    "roi_points": 86,
+    "cluster_sizes": [
+      86
+    ],
+    "selected_points": 86,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "6a1803f8fd9b929c587fc29c25d8d470910c132768fb86686376a97d490c163e"
+  },
+  {
+    "source_file": "1692846967.047767.npy",
+    "timestamp_s": 80.047767,
+    "original_points": 512,
+    "unique_points": 118,
+    "roi_points": 89,
+    "cluster_sizes": [
+      89
+    ],
+    "selected_points": 89,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "aa20ece081ffe2669efb8e92f217ef8665753b17ef03e0c0073d5506b24fe5c8"
+  },
+  {
+    "source_file": "1692846967.112765.npy",
+    "timestamp_s": 80.112765,
+    "original_points": 512,
+    "unique_points": 118,
+    "roi_points": 89,
+    "cluster_sizes": [
+      89
+    ],
+    "selected_points": 89,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "2db208e554cac18577f16579ccd920c4fc161533868e692a17ea12c44d4eb18d"
+  },
+  {
+    "source_file": "1692846967.180863.npy",
+    "timestamp_s": 80.180863,
+    "original_points": 512,
+    "unique_points": 129,
+    "roi_points": 92,
+    "cluster_sizes": [
+      92
+    ],
+    "selected_points": 92,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "0c0b7c6520625129e09284732e79f3a4390d3304278f70e6f4d7803710543fd4"
+  },
+  {
+    "source_file": "1692846967.245479.npy",
+    "timestamp_s": 80.245479,
+    "original_points": 512,
+    "unique_points": 129,
+    "roi_points": 92,
+    "cluster_sizes": [
+      92
+    ],
+    "selected_points": 92,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "2c311538e74e28d19e30825baaa812040e0ce436774acc99a0eb2692759e65b7"
+  },
+  {
+    "source_file": "1692846967.314036.npy",
+    "timestamp_s": 80.314036,
+    "original_points": 522,
+    "unique_points": 150,
+    "roi_points": 103,
+    "cluster_sizes": [
+      103
+    ],
+    "selected_points": 103,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "6239a5502dde31a0861497fbbd85bc7173cb7e64c6e1e26b9642d92088ea5fda"
+  },
+  {
+    "source_file": "1692846967.379272.npy",
+    "timestamp_s": 80.379272,
+    "original_points": 522,
+    "unique_points": 150,
+    "roi_points": 103,
+    "cluster_sizes": [
+      103
+    ],
+    "selected_points": 103,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "c4ad94e40bcbc2e691ca982b1ef49d59abec8765b7d0383ebd0734e1e93b4fdc"
+  },
+  {
+    "source_file": "1692846967.448352.npy",
+    "timestamp_s": 80.448352,
+    "original_points": 535,
+    "unique_points": 173,
+    "roi_points": 112,
+    "cluster_sizes": [
+      112
+    ],
+    "selected_points": 112,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "661f8cb9772c6cea49662ef3c7d03a8dfcb983112fe8ba765188599cb43fbaf1"
+  },
+  {
+    "source_file": "1692846967.512673.npy",
+    "timestamp_s": 80.512673,
+    "original_points": 535,
+    "unique_points": 173,
+    "roi_points": 112,
+    "cluster_sizes": [
+      112
+    ],
+    "selected_points": 112,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "a67ce2ab104cc41eea8c3d433faa03bad4a3e5eb4feca3f5e60ae65b5c5f70e6"
+  },
+  {
+    "source_file": "1692846967.580948.npy",
+    "timestamp_s": 80.580948,
+    "original_points": 539,
+    "unique_points": 194,
+    "roi_points": 122,
+    "cluster_sizes": [
+      122
+    ],
+    "selected_points": 122,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "97b2e8d1bc8ccdc987a2cccdd00033e8c182aea2db362589f29017f070e40706"
+  },
+  {
+    "source_file": "1692846967.645731.npy",
+    "timestamp_s": 80.645731,
+    "original_points": 539,
+    "unique_points": 194,
+    "roi_points": 122,
+    "cluster_sizes": [
+      122
+    ],
+    "selected_points": 122,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "107b0c89b341f923afb603e3fe368e15ea602e3c93e33905c69e50f699f05929"
+  },
+  {
+    "source_file": "1692846967.713650.npy",
+    "timestamp_s": 80.71365,
+    "original_points": 538,
+    "unique_points": 205,
+    "roi_points": 125,
+    "cluster_sizes": [
+      125
+    ],
+    "selected_points": 125,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "04dde58a75f7a1d917d04e3ecbd9596416c0d04bd8d8e5fdfccb6555d03e7aa7"
+  },
+  {
+    "source_file": "1692846967.780071.npy",
+    "timestamp_s": 80.780071,
+    "original_points": 538,
+    "unique_points": 205,
+    "roi_points": 125,
+    "cluster_sizes": [
+      125
+    ],
+    "selected_points": 125,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "815814e34aa4350b38d3f20e049afc8e51c17da27c14107fc569c54a6867523f"
+  },
+  {
+    "source_file": "1692846967.847766.npy",
+    "timestamp_s": 80.847766,
+    "original_points": 531,
+    "unique_points": 212,
+    "roi_points": 126,
+    "cluster_sizes": [
+      126
+    ],
+    "selected_points": 126,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "d30d3e79ee22cd0bc76b28be426a179fd48d092e3cef593b19df364d1c3ee3ad"
+  },
+  {
+    "source_file": "1692846967.912788.npy",
+    "timestamp_s": 80.912788,
+    "original_points": 531,
+    "unique_points": 212,
+    "roi_points": 126,
+    "cluster_sizes": [
+      126
+    ],
+    "selected_points": 126,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": false,
+    "identical_to_previous": true,
+    "selected_set_sha256": "d30d3e79ee22cd0bc76b28be426a179fd48d092e3cef593b19df364d1c3ee3ad"
+  },
+  {
+    "source_file": "1692846967.981331.npy",
+    "timestamp_s": 80.981331,
+    "original_points": 531,
+    "unique_points": 226,
+    "roi_points": 132,
+    "cluster_sizes": [
+      132
+    ],
+    "selected_points": 132,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "e33979c1f396127579d52aa53b1b78095c9403ceedab76ba29e231c0c7bc4626"
+  },
+  {
+    "source_file": "1692846968.045483.npy",
+    "timestamp_s": 81.045483,
+    "original_points": 531,
+    "unique_points": 226,
+    "roi_points": 132,
+    "cluster_sizes": [
+      132
+    ],
+    "selected_points": 132,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "723002481beb087816896c3af571e2af642f6d6078c94541583e8726b38bd23b"
+  },
+  {
+    "source_file": "1692846968.113561.npy",
+    "timestamp_s": 81.113561,
+    "original_points": 535,
+    "unique_points": 241,
+    "roi_points": 136,
+    "cluster_sizes": [
+      136
+    ],
+    "selected_points": 136,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "c89ac727cc3bbb1bd3cf63e44b5b5f09d43ab7223493a457b6ae816ba70fe8a4"
+  },
+  {
+    "source_file": "1692846968.180101.npy",
+    "timestamp_s": 81.180101,
+    "original_points": 535,
+    "unique_points": 241,
+    "roi_points": 136,
+    "cluster_sizes": [
+      136
+    ],
+    "selected_points": 136,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "9a4f0648829e354c89403f3b450d357bee2368faf5adf11e125e896844630eaa"
+  },
+  {
+    "source_file": "1692846968.247794.npy",
+    "timestamp_s": 81.247794,
+    "original_points": 539,
+    "unique_points": 260,
+    "roi_points": 145,
+    "cluster_sizes": [
+      145
+    ],
+    "selected_points": 145,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "ea87b004e4fa0d6fbd9935e4496bf28c0ffbb0b6c4792b953e77637a50c8debf"
+  },
+  {
+    "source_file": "1692846968.312639.npy",
+    "timestamp_s": 81.312639,
+    "original_points": 539,
+    "unique_points": 260,
+    "roi_points": 145,
+    "cluster_sizes": [
+      145
+    ],
+    "selected_points": 145,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "4cea22ba752bed0349c65fec64563a644b42d137506cf436a326d1488d8ffcab"
+  },
+  {
+    "source_file": "1692846968.380819.npy",
+    "timestamp_s": 81.380819,
+    "original_points": 538,
+    "unique_points": 276,
+    "roi_points": 152,
+    "cluster_sizes": [
+      152
+    ],
+    "selected_points": 152,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "20f7b7e681284a169b77a7cadf43b752efba646fe81f6c0f0628f93905b4a1fd"
+  },
+  {
+    "source_file": "1692846968.445492.npy",
+    "timestamp_s": 81.445492,
+    "original_points": 538,
+    "unique_points": 276,
+    "roi_points": 152,
+    "cluster_sizes": [
+      152
+    ],
+    "selected_points": 152,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "6cc60048b2975d1cbdb13fe224c6b0b865607745e400aae2e77166aa3a70e6f8"
+  },
+  {
+    "source_file": "1692846968.513270.npy",
+    "timestamp_s": 81.51327,
+    "original_points": 533,
+    "unique_points": 278,
+    "roi_points": 152,
+    "cluster_sizes": [
+      152
+    ],
+    "selected_points": 152,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "46b4b5f06933454991fbe1eb87f9afe8f60a8793bf6c8689bbd13985960efe5b"
+  },
+  {
+    "source_file": "1692846968.578544.npy",
+    "timestamp_s": 81.578544,
+    "original_points": 533,
+    "unique_points": 278,
+    "roi_points": 152,
+    "cluster_sizes": [
+      152
+    ],
+    "selected_points": 152,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "898ded7d755fd2b5017e3f9d9d799152e4f1dab77e8d8992d5c210e759cc4969"
+  },
+  {
+    "source_file": "1692846968.647640.npy",
+    "timestamp_s": 81.64764,
+    "original_points": 533,
+    "unique_points": 278,
+    "roi_points": 152,
+    "cluster_sizes": [
+      152
+    ],
+    "selected_points": 152,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "22c7b92347646e4dfa51a40ff621e9f4b74cbfa5f7976245d568d3f46993bdf5"
+  },
+  {
+    "source_file": "1692846968.712642.npy",
+    "timestamp_s": 81.712642,
+    "original_points": 533,
+    "unique_points": 278,
+    "roi_points": 152,
+    "cluster_sizes": [
+      152
+    ],
+    "selected_points": 152,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "8f54d0bb947f38266026f3cf85e41a0cd92a271ff2837a5728adbaeeea4b31ad"
+  },
+  {
+    "source_file": "1692846968.780787.npy",
+    "timestamp_s": 81.780787,
+    "original_points": 536,
+    "unique_points": 274,
+    "roi_points": 148,
+    "cluster_sizes": [
+      148
+    ],
+    "selected_points": 148,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "043b5ff3d3942de43f335847adc757d53b146105f9419894e2482945806e3342"
+  },
+  {
+    "source_file": "1692846968.845528.npy",
+    "timestamp_s": 81.845528,
+    "original_points": 536,
+    "unique_points": 274,
+    "roi_points": 148,
+    "cluster_sizes": [
+      148
+    ],
+    "selected_points": 148,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "dc86e23f4199ad812bc4e1d73b258f594f6557af29323d7bebfed7810fb081d1"
+  },
+  {
+    "source_file": "1692846968.913940.npy",
+    "timestamp_s": 81.91394,
+    "original_points": 551,
+    "unique_points": 278,
+    "roi_points": 150,
+    "cluster_sizes": [
+      150
+    ],
+    "selected_points": 150,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "d58766261418c870df86199f76a43cb84dfd67f841a2cb0a4066dc79546825b3"
+  },
+  {
+    "source_file": "1692846968.978926.npy",
+    "timestamp_s": 81.978926,
+    "original_points": 551,
+    "unique_points": 278,
+    "roi_points": 150,
+    "cluster_sizes": [
+      150
+    ],
+    "selected_points": 150,
+    "rule": "fixed background/central ROI/largest single-link cluster; radar only",
+    "accepted_snapshot": true,
+    "identical_to_previous": false,
+    "selected_set_sha256": "8033ac96559b19c68bcaf35bc2f28125362b68e111582a7d43bb32cb9043e501"
+  }
+]
