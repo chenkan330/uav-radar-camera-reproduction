@@ -1,0 +1,141 @@
+{
+  "dataset": "MMAUD V1 Mavic3 independent Leica ground truth",
+  "source_sha256": "c8e2adfb3528ce93dd2c37fe2ccf9a3853108a26bfee04845b78695f87cb0cf3",
+  "source_bytes": 158950,
+  "topics": [
+    {
+      "topic": "/rosout",
+      "type": "rosgraph_msgs/msg/Log",
+      "count": 6
+    },
+    {
+      "topic": "/leica/point/absolute",
+      "type": "geometry_msgs/msg/PointStamped",
+      "count": 904
+    },
+    {
+      "topic": "/leica/point/relative",
+      "type": "geometry_msgs/msg/PointStamped",
+      "count": 904
+    },
+    {
+      "topic": "/tf",
+      "type": "tf2_msgs/msg/TFMessage",
+      "count": 1808
+    }
+  ],
+  "max_continuous_gap_s": 0.3,
+  "position_topics": {
+    "/leica/point/absolute": {
+      "count": 904,
+      "frame_ids": [
+        "world"
+      ],
+      "header_start_ns": 1692846880473257064,
+      "header_end_ns": 1692847064681550025,
+      "duration_s": 184.208292961,
+      "gap_percentiles_s": {
+        "min": 0.177469968,
+        "p25": 0.19870889200000003,
+        "median": 0.200236797,
+        "p75": 0.202008605,
+        "p95": 0.24002354150000002,
+        "max": 0.701784849
+      },
+      "coordinate_min_m": [
+        1000.3627815251964,
+        2008.9214766064592,
+        98.88730102466936
+      ],
+      "coordinate_max_m": [
+        1006.5285412206675,
+        2025.8056789777406,
+        119.05815767407371
+      ],
+      "segments": [
+        {
+          "start_ns": 1692846880473257064,
+          "end_ns": 1692846930628607034,
+          "samples": 248
+        },
+        {
+          "start_ns": 1692846931330391883,
+          "end_ns": 1692847064681550025,
+          "samples": 656
+        }
+      ]
+    },
+    "/leica/point/relative": {
+      "count": 904,
+      "frame_ids": [
+        "world"
+      ],
+      "header_start_ns": 1692846880473573923,
+      "header_end_ns": 1692847064681776046,
+      "duration_s": 184.208202123,
+      "gap_percentiles_s": {
+        "min": 0.177471161,
+        "p25": 0.1986429695,
+        "median": 0.200272798,
+        "p75": 0.2019690275,
+        "p95": 0.24015965509999998,
+        "max": 0.701922894
+      },
+      "coordinate_min_m": [
+        0.3545015520489869,
+        7.345583726954828,
+        -0.4020637384842445
+      ],
+      "coordinate_max_m": [
+        6.520261247520125,
+        24.229786098236218,
+        19.768792910920112
+      ],
+      "segments": [
+        {
+          "start_ns": 1692846880473573923,
+          "end_ns": 1692846930628962039,
+          "samples": 248
+        },
+        {
+          "start_ns": 1692846931330884933,
+          "end_ns": 1692847064681776046,
+          "samples": 656
+        }
+      ]
+    }
+  },
+  "transforms": {
+    "world -> leica_abs": {
+      "count": 904,
+      "translation_range_m": [
+        6.165759695471138,
+        16.88420237128139,
+        20.170856649404357
+      ],
+      "quaternion_range": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "meaning": "dynamic Leica target transform; not a radar/camera rig extrinsic"
+    },
+    "world -> leica_rel": {
+      "count": 904,
+      "translation_range_m": [
+        6.165759695471138,
+        16.88420237128139,
+        20.170856649404357
+      ],
+      "quaternion_range": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "meaning": "dynamic Leica target transform; not a radar/camera rig extrinsic"
+    }
+  },
+  "truth_used_for_tracking": false
+}

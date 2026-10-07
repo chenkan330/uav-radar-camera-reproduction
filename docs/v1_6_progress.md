@@ -10,6 +10,16 @@
 
 安装：`uv pip sync requirements-v16.lock.txt --python .venv/Scripts/python.exe`。设置uv缓存和临时目录到D盘。检查：`.venv/Scripts/python.exe -m unittest discover -s tests -q`。
 
+GitHub提交：`7101d9b`，已推送。
+
+## 第1a步：取得并审计独立真实真值
+
+官方Mavic3独立真值bag已保存在D盘，158,950字节，SHA-256 `c8e2adfb3528ce93dd2c37fe2ccf9a3853108a26bfee04845b78695f87cb0cf3`。实际解析`absolute`与`relative`各904个样本，时间覆盖184.208秒；存在一次0.701923秒缺口。按0.30秒覆盖阈值分为两个连续区间，后续不跨缺口评价。
+
+`/tf`只有随目标运动的Leica绝对/相对位置，不能当作雷达—相机或雷达—世界标定。位置原始bag和导出CSV留本地忽略目录，GitHub只保存来源、哈希、格式、覆盖审计和中文时序图。
+
+运行：`.venv/Scripts/python.exe tools/audit_mmaud_truth.py`；[审计报告](../output/v16_truth_audit/report.md)。本步骤未运行算法精度评价，也未宣称三种模态已配准。
+
 ## 完成条件
 
 1. 保存可核验的数据来源、文件哈希、真实格式、时钟和标定审计。原始数据留本地，GitHub保存获取工具、清单与分析结果。

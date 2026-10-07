@@ -19,3 +19,6 @@ output/*/
 !output/step3/
 !output/step4/
 !output/step5/
+!output/v16_data_audit/
+!output/v16_truth_audit/
+!output/v16_comparison/
