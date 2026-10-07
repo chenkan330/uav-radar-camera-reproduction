@@ -6,6 +6,8 @@
 
 2.0第1阶段已提供运动自机融合原型，完整77项检查与60组合成实验通过。双击 `run_d2d.cmd`，结果在 `output/local_d2d`；[阶段说明](docs/v2/stage1.md)、[中文参考报告](output/v2_step1/report.md)。这仍是受控合成验证，自机位姿不是实测导航结果。
 
+真实材料：[Purdue核验报告](output/v2_data_check/report.md)记录已取得的299帧空对空二维标注与许可；本地视频尚未保存，没有实测检测或定位成绩。`python tools/fetch_purdue_sample.py --annotations-only`获取小材料，省略选项才尝试固定视频样本；不会下载完整视频全集。
+
 下面保留1.5的说明和示例；其中“已完成”指1.5核心算法及合成验证，不能代表2.0实机完成。
 
 参考论文：[Data Fusion Approach for Unmodified UAV Tracking with Vision and mmWave Radar](https://doi.org/10.1109/ICUAS65942.2025.11007835)，ICUAS 2025。

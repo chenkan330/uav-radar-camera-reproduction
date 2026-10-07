@@ -8,8 +8,9 @@
 - 2.0第1阶段新增d2d.py、demo_d2d.py与run_d2d.cmd。原有62项加15项数学测试共77项通过；默认60组合成实验。参考结果output/v2_step1，本地重跑output/local_d2d。
 - 首阶段是已关联单目标、同步10Hz、准确合成自机输入；不是导航系统或真实融合精度验证。首个雷达初始化、零速度宽先验，真值不输入tracker。
 - 新Q参数是连续白加速度谱密度m²/s³，不能当成1.5 acceleration_std。独立ego协方差传播不解决共享或跨时相关。
+- Purdue真实D2D材料已保存data/public/purdue：许可、更新标注zip、Clip_1的299帧标注；CRC/哈希已核验。视频曾校验后因保存检查错误未保留，本地视频仍缺，抓取器已修正。不得记录为实测检测/跟踪/定位完成；核验报告output/v2_data_check，脚本tools/fetch_purdue_sample.py。
 - 用户 2026-10-06 明确授权：继续完成后续论文复现，每一步分别提交并推送 GitHub，说明做了什么。此前仅本地部署的限制已被此授权替代。
-- 本项目位于论文目录的 reproduce；环境 .venv 在 D 盘，Python 基础环境 D:\Programs\Python\managed。下载和缓存优先 D 盘，其他程序不得放本论文目录。
+- 冻结1.5位于论文目录的reproduce；当前2.0位于独立reproduce-v2，环境.venv在D盘，Python基础环境D:\Programs\Python\managed。下载和缓存优先D盘，其他程序不得放本论文目录。
 - 原误选仓库备份在父目录 .deployment-backups，不修改。
 - 每步同时记录论文对应、参数假设、运行方法、验证结果与缺口；实际通过检查后单独 commit/push。
 - 基础环境：Python 3.13.14、NumPy 2.5.3、Matplotlib 3.11.2；固定版本见 requirements.lock.txt。

@@ -13,7 +13,7 @@
 ## 访问与许可
 
 - MMAUD：[作者仓库](https://github.com/ntu-aris/MMAUD)、[论文](https://arxiv.org/html/2402.03706v1)。官方数据为 **CC BY-NC-SA 4.0**，用于非商业学术研究；软件的 MIT 许可不等于数据许可。已核对公开托管文件元数据：Mavic3.zip 为10,750,360,115字节，独立真值bag约159 KB。尚未下载全包、未完成格式转换或融合精度评价。
-- Purdue：[更新标注](https://engineering.purdue.edu/~bouman/UAV_Dataset/Video_Annotation-v2.zip)、[视频全集](https://engineering.purdue.edu/~bouman/UAV_Dataset/Videos.zip)、[BSD 3-Clause数据许可证](https://engineering.purdue.edu/~bouman/UAV_Dataset/pubs/LICENSE.txt)。已核验更新标注和视频的公开HTTP访问；下载一个小视频和标注进行文件核验，具体结果见 `output/v2_data_check`。标注只用于独立评价，不冒充检测器输出。
+- Purdue：[更新标注](https://engineering.purdue.edu/~bouman/UAV_Dataset/Video_Annotation-v2.zip)、[视频全集](https://engineering.purdue.edu/~bouman/UAV_Dataset/Videos.zip)、[BSD 3-Clause数据许可证](https://engineering.purdue.edu/~bouman/UAV_Dataset/pubs/LICENSE.txt)。已保存更新标注与许可，指定Clip_1有299条、299帧标注，CRC及SHA-256核验通过。视频的公开HTTP范围访问与一次完整CRC已核验，但该次下载因保存前错误未保留，本地仍缺视频；获取器已修正为先保存许可/标注，每一步成功立即保存。准确状态见[材料核验报告](../../output/v2_data_check/report.md)。尚未运行检测、跟踪或定位评价；标注不冒充检测器输出。
 - AERPAW：[Dryad 数据托管与说明](https://datadryad.org/dataset/doi:10.5061/dryad.7d7wm3898?public=true)，DOI `10.5061/dryad.7d7wm3898`，全包7.70 GB。说明页可读，实际下载入口在本环境返回HTTP 403；当前未取得数据，也未产生实测结果。不能把公开目录页可读写成数据已下载。
 
 原始数据保存在D盘研发目录的 `data/public/`，由Git忽略；GitHub只保存获取脚本、来源、哈希、转换说明和允许公开的结果。下载的真实视频属于研究输入；不为下载而绕过登录、权限或服务限制。

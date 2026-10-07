@@ -1,0 +1,100 @@
+{
+  "checked_date": "2026-10-07",
+  "dataset": "Purdue UAV-to-UAV Detection and Tracking Dataset",
+  "official_page": "https://engineering.purdue.edu/~bouman/UAV_Dataset/",
+  "scope": "real_material_download_and_format_check_only",
+  "data_license": "BSD-3-Clause",
+  "viewpoint": "camera_mounted_on_a_flying_UAV",
+  "video_status": "not_saved",
+  "video_source_url": "https://engineering.purdue.edu/~bouman/UAV_Dataset/Videos.zip",
+  "video_member": "Videos/Clip_1.mov",
+  "video_archive_bytes": 2035637654,
+  "video_range_access_verified": true,
+  "video_prior_attempt_note": "A prior bounded Clip_1 download passed CRC, but its program stopped before saving because the license-text check incorrectly required the institution name. No retained video or SHA-256 is claimed unless a video file is explicitly listed.",
+  "video_zip_member": null,
+  "detector_evaluation_completed": false,
+  "tracking_evaluation_completed": false,
+  "localization_evaluation_completed": false,
+  "downloaded_bytes_this_run": 957014,
+  "download_limit_bytes": 12000000,
+  "annotation": {
+    "member": "Video_Annotation-v2/refined_gt/Clip_1_refined.txt",
+    "crc32": "a6b99f09",
+    "crc_verified": true,
+    "row_count": 299,
+    "annotated_frame_count": 299,
+    "frame_min": 1,
+    "frame_max": 299,
+    "frame_numbering": "observed_positive_integer_starting_at_1",
+    "target_ids": [
+      1
+    ],
+    "target_count": 1,
+    "max_targets_per_annotated_frame": 1,
+    "column_count": 10,
+    "columns": [
+      "frame",
+      "target_id",
+      "left_px",
+      "top_px",
+      "width_px",
+      "height_px",
+      "annotation_flag",
+      "unused_1",
+      "unused_2",
+      "unused_3"
+    ],
+    "annotation_flag_values": [
+      0.5,
+      1.0
+    ],
+    "interpolated_row_count": 2,
+    "direct_annotated_row_count": 297,
+    "unused_values": [
+      [
+        -1.0
+      ],
+      [
+        -1.0
+      ],
+      [
+        -1.0
+      ]
+    ],
+    "first_row": [
+      1.0,
+      1.0,
+      1237.0,
+      159.75,
+      13.0,
+      11.0,
+      1.0,
+      -1.0,
+      -1.0,
+      -1.0
+    ],
+    "note": "Ground-truth boxes; the author renderer identifies seventh-column values below 1 as interpolated boxes. It is not detector confidence. Frame IDs are 1-based according to the bundled renderer, which is read as text and never executed."
+  },
+  "files": [
+    {
+      "path": "data/public/purdue/Video_Annotation-v2.zip",
+      "source_url": "https://engineering.purdue.edu/~bouman/UAV_Dataset/Video_Annotation-v2.zip",
+      "bytes": 955489,
+      "sha256": "61581df9426c1827acfa8dfc1e4f930dfa265d9b6c2dcbfef0993f9d82f388d6"
+    },
+    {
+      "path": "data/public/purdue/Clip_1_refined.txt",
+      "source_url": "https://engineering.purdue.edu/~bouman/UAV_Dataset/Video_Annotation-v2.zip",
+      "bytes": 13242,
+      "sha256": "080025024782f04533d2ab9be74500ff8323a15f889da5cace85243076c73750"
+    },
+    {
+      "path": "data/public/purdue/LICENSE.txt",
+      "source_url": "https://engineering.purdue.edu/~bouman/UAV_Dataset/pubs/LICENSE.txt",
+      "bytes": 1525,
+      "sha256": "1715e18e95efc260c7f3ca5f4ef98e165b6c4d687b15b818f8fc714ff04cb2a6"
+    }
+  ],
+  "errors": [],
+  "raw_data_in_git": false
+}
