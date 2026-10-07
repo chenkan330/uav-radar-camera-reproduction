@@ -1,6 +1,6 @@
 # 论文复现项目记忆
 
-- 来源：https://github.com/chenkan330/uav-radar-camera-reproduction；分支 main。
+- 来源：https://github.com/chenkan330/uav-radar-camera-reproduction；本工作目录分支 v1.6-mmaud，从已冻结 v1.5（06dc1bf）创建。
 - 用户 2026-10-06 明确授权：继续完成后续论文复现，每一步分别提交并推送 GitHub，说明做了什么。此前仅本地部署的限制已被此授权替代。
 - 本项目位于论文目录的 reproduce；环境 .venv 在 D 盘，Python 基础环境 D:\Programs\Python\managed。下载和缓存优先 D 盘，其他程序不得放本论文目录。
 - 原误选仓库备份在父目录 .deployment-backups，不修改。
@@ -20,3 +20,8 @@
 - 第4步1199个100Hz ticks，回放与采集顺序状态和完整协方差误差均为0；初始化anchor冻结，历史是事后修正而非当时实时发布。
 - GitHub main每步单独commit并push，步骤说明见docs/step1.md至step5.md与docs/reproduction_log.md。真实飞行/训练/设备复现仍待原始材料，不把算法验证称作整篇论文实测复现完成。
 - 用户要求结果图表使用中文：标题、坐标轴、图例、方法名、单位和报告表格使用中文；绘图调用plot_style.configure_chinese_font，优先本机微软雅黑。保留CSV/JSON稳定字段，改标注不改算法数值。
+- 2026-10-07用户授权完成1.6：MMAUD真实短片段，仅雷达与雷达＋相机对照。原始数据位于data/public/mmaud，Git忽略；不将原始大文件、第三方图像、相机权重或私有下载令牌上传GitHub。
+- 本工作目录reproduce-v1.6及.venv在D盘，reproduce/main保持1.5，reproduce-v2保持2.0。依赖新增rosbags 0.11.5、opencv-python-headless 5.0.0.93；固定版本见requirements-v16.lock.txt；原62项检查在本环境通过。
+- 实测之前必须确认时间戳、真实通道和坐标/标定；MMAUD为地面观测无人机，不能当作空对空或原论文作者Table I的逐数复现。径向Doppler不得伪装世界vx；删减为三维位置观测须单独注明。
+- 核心跟踪器不得读取目标真值。真值仅评价；禁止投影真值生成相机框、用整个测试真值拟合标定再称为独立评价。人工图像标注、视觉跟踪、参数或初始化修改都必须明示。
+- 每个阶段分开commit/push并说明；只有实际短片段、同源公平对照和可核验中文结果齐全后，才标记v1.6完成。
