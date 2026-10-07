@@ -19,3 +19,5 @@ output/*/
 !output/step3/
 !output/step4/
 !output/step5/
+!output/v2_data_check/
+!output/v2_step1/

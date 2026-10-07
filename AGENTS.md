@@ -1,6 +1,10 @@
 # 论文复现项目记忆
 
-- 来源：https://github.com/chenkan330/uav-radar-camera-reproduction；分支 main。
+- 来源：https://github.com/chenkan330/uav-radar-camera-reproduction；本目录分支 v2.0-d2d，从已冻结v1.5创建。
+- 2026-10-07授权：先保存版本1.5，再开始2.0，背景改为无人机对无人机感知；先研究算法改进并查找真实数据。
+- 1.5的main/06dc1bf已远程tag v1.5，62项检查重新通过；完整Git bundle验证通过。原reproduce不进行2.0开发。
+- 第二版独立目录reproduce-v2；环境.venv、原始数据data/public、下载与依赖缓存均优先D盘。路线与数据边界见docs/v2。
+- 不把2.0研发分支标记成已完成正式2.0。不要伪造radialDoppler=world vx，不把2D视频标注当3D融合真值；原始第三方数据不上传GitHub。
 - 用户 2026-10-06 明确授权：继续完成后续论文复现，每一步分别提交并推送 GitHub，说明做了什么。此前仅本地部署的限制已被此授权替代。
 - 本项目位于论文目录的 reproduce；环境 .venv 在 D 盘，Python 基础环境 D:\Programs\Python\managed。下载和缓存优先 D 盘，其他程序不得放本论文目录。
 - 原误选仓库备份在父目录 .deployment-backups，不修改。
