@@ -86,6 +86,14 @@ GitHub提交：`e57ad6b`，已推送。
 
 保存主/补充指标、全部状态和协方差、门控/选点、模型及来源摘要、50次敏感性结果和4张中文图。[主报告](../output/v16_comparison/report.md)、[敏感性报告](../output/v16_comparison/sensitivity_report.md)、[结果解释](v1_6_results.md)。71项检查通过；D盘Windows双击入口为`run_v16.cmd`，恢复步骤见[运行说明](v1_6_run.md)。
 
+GitHub提交：`453416f`，已推送。
+
+## 第5步：冻结版本记录与GitHub标签
+
+2026-10-07完成上述真实短片段探索性对照、输入独立审计、指标复算、全部训练刚体重采样和中文图表审核。71项检查通过；Windows入口已实际从头重跑主对照与50组扰动，退出成功。派生参数/标注与结果保存精确字节，避免Windows换行破坏摘要；详细验证记录见[verification.json](../output/v16_comparison/verification.json)。
+
+最终版本以GitHub标签[`v1.6`](https://github.com/chenkan330/uav-radar-camera-reproduction/tree/v1.6)保存，工作分支[`v1.6-mmaud`](https://github.com/chenkan330/uav-radar-camera-reproduction/tree/v1.6-mmaud)。标签在本完成记录提交后创建并推送，不覆盖已冻结的`v1.5`或`v2.0-d2d`分支。未把本次有限条件的验证扩大为可靠硬件精度或完整原论文实测复现。
+
 ## 数据适用边界
 
 [MMAUD官网](https://ntu-aris.github.io/MMAUD/)提供地面多传感器观测无人机数据。它适合原论文框架的外部真实数据适配验证；不能据此宣称重现原论文作者实测数值，也不能验证2.0的移动自机空对空补偿。
