@@ -1,0 +1,497 @@
+{
+  "version": "1.6",
+  "experiment": "MMAUD short-clip XYZ/bearing adaptation",
+  "data_kind": "real",
+  "manifest": {
+    "data_kind": "real",
+    "dataset": "MMAUD",
+    "selected_interval_s": [
+      72.5,
+      82.0
+    ],
+    "source": {
+      "description": "官方V1 Mavic3增强点云＋双鱼眼左图＋Leica棱镜真值；固定9.5秒探索性对照，人工辅助视觉、训练GT监督局部标定。",
+      "url": "https://ntu-aris.github.io/MMAUD/",
+      "recording_id": "V1_Mavic3_2023-08-24",
+      "time_origin_ns": 1692846887000000000,
+      "raw_sha256": {
+        "independent_Leica.bag": "c8e2adfb3528ce93dd2c37fe2ccf9a3853108a26bfee04845b78695f87cb0cf3",
+        "ground_truth_archive_span.bin": "a91ff0ee272adc52574a307a6ba482c8c055068fc5331465c16a460f49e88947",
+        "radar_enhance_pcl_archive_span.bin": "59825c6f5e9c6dbfc41ac801e520081ec38ba6d2396bd9c10ccb1966eec9ddb5",
+        "calibration/local_model.json": "be9281c8dcd3fc7bae85c1b4b884ad039e2733027921f8e32326f3d713c88a8f",
+        "Mavic3/image/1692846959.505620.png": "36ee8de70cd0a188eabf999a04cf44244dc488fdf5dd01497dfdca4d83e8195d",
+        "Mavic3/image/1692846959.706130.png": "d37f669d61f36d870f688d3794b862f6de56266177bd3f6ccbe9243f0841858b",
+        "Mavic3/image/1692846959.905948.png": "0fbeed5911967cfa063724799560e67f15deba3bc724c646aecd90e94a96cee1",
+        "Mavic3/image/1692846960.105604.png": "1ddd706748963e37518fc00eeffc00bcc7e274c668525de8d7b9c666fd8248cf",
+        "Mavic3/image/1692846960.305927.png": "ad407aa361b1eb11d0d0cd093af24adfc9a73747bd36a1a3d088104ce351f893",
+        "Mavic3/image/1692846960.505736.png": "0a0c5d4dd60214b948ee889ec532c7d885411dc06577f883237d1fb62ef719f1",
+        "Mavic3/image/1692846960.705526.png": "49b74ed3b0eacefeaea1c3cc9f8e86d796f514ccfc17c33d6919074e47a2614d",
+        "Mavic3/image/1692846960.905504.png": "ab1c264aec01e016f08f43a91769b714d184cd91bac42fc232f39a89ab05fa7b",
+        "Mavic3/image/1692846961.105664.png": "8ff10c5944b22dd8d117ec41ea1875620db9b5265ca0e9df2932944c75155f3d",
+        "Mavic3/image/1692846961.305895.png": "df4c3873ecc536367a328e9d53bdf5657f9d905fed1b2a9fe1018f48f19d8a5b",
+        "Mavic3/image/1692846961.505519.png": "e501f4aa650cb1607d174f381690cdcf0e7cbafd831890369de6515c73cf4640",
+        "Mavic3/image/1692846961.705542.png": "9956743136c9b9d213eb5090b3b5cefd5a23bf106cb9f929f1421a023119635d",
+        "Mavic3/image/1692846961.905521.png": "9962681e239af192c702a72e87ed41753aa65521b5b578336be081ddc4ccbc38",
+        "Mavic3/image/1692846962.105733.png": "1463c2976ab08f1a2762f2a5cd8c58c067410214c095a395c4d69d73d07af2a8",
+        "Mavic3/image/1692846962.305566.png": "6be4c59d6856849693e5547e7cc81cc66c292db35bfd97abc2d43a2eb98cfe54",
+        "Mavic3/image/1692846962.505862.png": "2951b7b29b51e0c163a0e3de29b3d1a70fc77c9fc05259ff0dd11b4b94101917",
+        "Mavic3/image/1692846962.705568.png": "718fca795d156f26468977753cbb04b08c5cbdd40113d8158f9b4dbd2fecc502",
+        "Mavic3/image/1692846962.905590.png": "4162cb810de5f54c4192dddc192ccc09c4ef456946d9fef82f78ecb5e6b420ba",
+        "Mavic3/image/1692846963.105493.png": "6f2928a5122e85f401423b7c27b784377e3fd62b80ee423c12fac445eb611ccf",
+        "Mavic3/image/1692846963.305559.png": "8193efe568c962fb030d95e98191cedd6dcae8a029051ef72db06ec29d8cbfa9",
+        "Mavic3/image/1692846963.505585.png": "6a8e6763fd5db5900f31addd76865a09fa97d9a62afb7b9ece7d9bfb5d6bc54c",
+        "Mavic3/image/1692846963.705610.png": "ca02a4f5d9322129648f2cfbe97bd5c3bcfc6f05692060a91f6c3cc7606716b9",
+        "Mavic3/image/1692846963.905522.png": "e528a69508f0c2476e06699ef90a1e8fd6a64056056c5cf52152b1a7873d6359",
+        "Mavic3/image/1692846964.105564.png": "8eee45d1e444f9b46353a829538fe706d7886b9119953238ca14d6567953775e",
+        "Mavic3/image/1692846964.305469.png": "aeb8f562f9b9d2f783cc09e48e4a03ef4cdaa6e9e16da5618ada705a965a2290",
+        "Mavic3/image/1692846964.506057.png": "0c91bc484510298240aaae58aac909a9e25b74f3e93d51f4c53515c2667b24f2",
+        "Mavic3/image/1692846964.705605.png": "f9e286caf8e00e6f8c0e4ac91b1cc38dd8696fbb156621a1a8d14a49b4a0519d",
+        "Mavic3/image/1692846964.905718.png": "c6f1beffa4647f109c5999ec1beb17b53de9b8b65759856c916995890f2ae1c1",
+        "Mavic3/image/1692846965.105796.png": "16d86e97b538cd4e8be8255e3e8a9808d6aa638160e1f696cd8d6e9f5b4038cf",
+        "Mavic3/image/1692846965.305898.png": "2177b2da22f86eadfb0a4eb75971ddd81eead98e4b24954b7172f1a3488d34ec",
+        "Mavic3/image/1692846965.505563.png": "197200e512c12357e54c5895c223a75fb22c235064f85d6dbf25b34947025e31",
+        "Mavic3/image/1692846965.705557.png": "4ff61c12ac73585fa7d2d40b1a0ade5ba25a7e79d9cd6c1f4e4a5b9a51f61915",
+        "Mavic3/image/1692846965.906096.png": "af97951a79e86425c3586f564da48fde4cc694414b72484a62496394689738a1",
+        "Mavic3/image/1692846966.105722.png": "90d373b2241b4ce571642ca4ea256d55ec2a6d662d9ed79cf4d081c8494d223d",
+        "Mavic3/image/1692846966.305523.png": "ac38161eb9d19242fb1959b6a9837dae2b9a7442a3552a05343b2cff85b3ea15",
+        "Mavic3/image/1692846966.505571.png": "35969a533d120c1933203034e728c9f77a538b72678556a91aa14fb45c952bdd",
+        "Mavic3/image/1692846966.705637.png": "706f160cb16f0bbf750074ccefe40ee377ca30f9297f360d25649c02b677f154",
+        "Mavic3/image/1692846966.905644.png": "164d427388a397717508c3537be755bfe68fabbb6d84b20048cc7476863caf61",
+        "Mavic3/image/1692846967.105971.png": "bb5b10efe489e30df798c337b46f6f4e4c0c038c2f26b898af8c96323992688a",
+        "Mavic3/image/1692846967.305990.png": "56714bb2f6c5817f7e10a617c64a07b305a013a20db4b2053115ad149ecf289d",
+        "Mavic3/image/1692846967.505143.png": "063bb3950bd8fd0dc0b5ebf38285d3164e31a0b71aabc9f5c5bba6218a799e8c",
+        "Mavic3/image/1692846967.705457.png": "7933d9862a6989ab4ead2c0a285dde050f917f20c0444c8e3feca79acff8ff11",
+        "Mavic3/image/1692846967.905296.png": "f6f8bea3e2dee0d986f19fd7882bad0f54c80978800234e087c91fc8390bb22d",
+        "Mavic3/image/1692846968.105310.png": "ffa7d034cb418d235868624ea6582b445721ab6c433a2fcd44a44c41f8a291b2",
+        "Mavic3/image/1692846968.305349.png": "c78ef4938c5ccba8fd9e3fa318645377bd81dfb591cc0b0b9f14075a2ed34458",
+        "Mavic3/image/1692846968.505365.png": "d71e145c2083b793a7d39b78f9d8deb9c436d1fc1e5c22102ca6819a9941a46a",
+        "Mavic3/image/1692846968.705254.png": "b28cf96c5eae0e5c1abced7048ec77b8d5862eadaed2eed0278dbd8ecaaaaafc",
+        "Mavic3/image/1692846968.905142.png": "8aea9cf82b62cf999d4f25154da411fe4a07d7faba2cfde7280c64ae425e7866",
+        "Mavic3/ground_truth/1692846959.283733.npy": "9e054e93c8817bb41ce6dc94eb0bb1d61b79c0c9f77e53da2aaeaf5f72f985e5",
+        "Mavic3/ground_truth/1692846959.481631.npy": "a5ff57f2dacfc6c6ec0d9eb945a7a3fd482f8cc9a38675b8ef27ae03945c97c7",
+        "Mavic3/ground_truth/1692846959.682032.npy": "c113f3041e343f47bd7e6d66eb20ceedbb64bce34c6dc10d0939cd58c140fd68",
+        "Mavic3/ground_truth/1692846959.881949.npy": "4b14770084807824c73fb34e08abffacf014932f3c91964ccd9c248609bd2e8a",
+        "Mavic3/ground_truth/1692846960.083898.npy": "4d56f6ea33fbfafeffc971e82058127b021cf24327d2f6fdb9103c394f5b370a",
+        "Mavic3/ground_truth/1692846960.283360.npy": "c9acc03dcfc01156c6fc996467837757c08b3a07a1f0fd3e443cbabff5acf611",
+        "Mavic3/ground_truth/1692846960.534340.npy": "0164165dbafb807d41e157c28a2565af729183dfa1a03a9fa6eedbcf8580f6b9",
+        "Mavic3/ground_truth/1692846960.747212.npy": "37bf0c9cead2503f579c03b7aef23a0f815d308af33776690b357312f00fd815",
+        "Mavic3/ground_truth/1692846960.984522.npy": "7aced628022b7de009a89abae37cd097df02ac5fe2316c6e23fed9a5fe6c5e24",
+        "Mavic3/ground_truth/1692846961.181469.npy": "cd54ee794e83459379265dc9dda5c1d3e0edc0a02f52aba86f152026507327e9",
+        "Mavic3/ground_truth/1692846961.383284.npy": "78887433b12a396e02f8e9dd1044c89a9938e2b739465bcb588506db5a50f6f6",
+        "Mavic3/ground_truth/1692846961.583612.npy": "8d0b112be1a4c2e2e99a8e2466e9c2ef3b3731a5c490ec81ce456d2cce157874",
+        "Mavic3/ground_truth/1692846961.781763.npy": "9a178e5f5f10ba60773a9b06531cd315d62c83cc0ddd4210ef40a13869fb7013",
+        "Mavic3/ground_truth/1692846961.983220.npy": "c120acbe9ea2ae0d499e528473de85df2a313ee08b35821471837e1f786d0976",
+        "Mavic3/ground_truth/1692846962.184451.npy": "1842516c4ef59e9428efd38e106e0756f337b78520e2e548b6db8ce516aa62ef",
+        "Mavic3/ground_truth/1692846962.380856.npy": "48acbdd16ee3a16b608df8808382b418c6de18e05e8530324371775694ae43f9",
+        "Mavic3/ground_truth/1692846962.581481.npy": "5c60a9de37f9335a94d4aa63ac02403077fbead6a7564ffaa3c438b81a68f938",
+        "Mavic3/ground_truth/1692846962.782360.npy": "00eae626a32003aeef4aa2740a22038f3e60628150ae495859e3841927dd5701",
+        "Mavic3/ground_truth/1692846962.984304.npy": "3cb972a76cddd638c905cee7cca34fbcf5740065bb27a9ca46a0cfdf0c08e4e2",
+        "Mavic3/ground_truth/1692846963.182302.npy": "e84474478b085d32ca37945154a644d36799921d89410eb346af6121c26dd417",
+        "Mavic3/ground_truth/1692846963.382704.npy": "97fa6ad62cb5e9bf2c0b107ffae0ecf34f0525c176a5a0af924d60bd46553e55",
+        "Mavic3/ground_truth/1692846963.584126.npy": "02fc53fdcc2feba9590fd050e061723a6df8342ae0716592c0cd8ec17752e1eb",
+        "Mavic3/ground_truth/1692846963.780657.npy": "b3a95039d199c0eb69c5dbea14c3a32e68584291716081ebf5ccddc36fd815ad",
+        "Mavic3/ground_truth/1692846963.985921.npy": "68e1c9776e6a553b6951d39fd1105c9218b8c9845a76aea631da935f5b86e69f",
+        "Mavic3/ground_truth/1692846964.184084.npy": "07529a3e753d1eb9d3e43426a6491d8cbd9b7445c6e01ba98da97e8a7349b740",
+        "Mavic3/ground_truth/1692846964.384002.npy": "217cc23977424a86c377993b39e170ea57cfdbb2ad999de50d82d5b5a1b56aa3",
+        "Mavic3/ground_truth/1692846964.583890.npy": "a83031c7e7c1d1db760b936f50f79e8656df7d2d695fa6d6f51059234ca30cd4",
+        "Mavic3/ground_truth/1692846964.780977.npy": "bd1148a1de4a01f8a922fd691acbc60f15e5d4059c0e1ec708105963bf20d812",
+        "Mavic3/ground_truth/1692846964.983831.npy": "40fd30b8f4e5ea3d1aeaae87a09d44af45a2ed38e322c0be66ce800726c88e0f",
+        "Mavic3/ground_truth/1692846965.182848.npy": "c7c3e5bb6719e7f18897c5b16e681aa45466bd9e996e2c7daa51528363d8ebe0",
+        "Mavic3/ground_truth/1692846965.382907.npy": "d082e615d0e75c66b0866bcca9406806d656de59322ba2b24bae1132518bdfa9",
+        "Mavic3/ground_truth/1692846965.584025.npy": "ef1399075e1ca59af83b335b3dff4559eb58c3db4f07c49a96af095179f02ca5",
+        "Mavic3/ground_truth/1692846965.781268.npy": "329fa8ad151cf0667c83638cb28e360893ea98b12fc538153d73a871e660d956",
+        "Mavic3/ground_truth/1692846965.982932.npy": "1b86b22d352771063a60fe7dbc101617ac76432afaae692670a7d572be3335a0",
+        "Mavic3/ground_truth/1692846966.184613.npy": "d84c87463b168c77ea9a7e47c1b24a48cb4b7f9ef4963e6da30e3caf8930b7b8",
+        "Mavic3/ground_truth/1692846966.382772.npy": "f25ae59ab518dcfdccbf98801582d615222fe123b2265e89b76467c38fbee0d3",
+        "Mavic3/ground_truth/1692846966.634844.npy": "a2c3cba58739e63da2243b0a2df081d78cda60dc8e1450b0d8eaf373afacbd07",
+        "Mavic3/ground_truth/1692846966.832422.npy": "37fc06f8d3e4912d72bbcd637d5dcad767b9af9f49b9582ad76dfc85ec177160",
+        "Mavic3/ground_truth/1692846967.034493.npy": "65c7ce644718bd47be890c47186fd5325f0bd3b3128b0bb12bc174d8ba84a7c6",
+        "Mavic3/ground_truth/1692846967.234947.npy": "eaf1370cf8fc37d7e7f9bdc55f18f7c83b805e19f85a4da676d031c7698f2f7b",
+        "Mavic3/ground_truth/1692846967.434549.npy": "d2f59b2b0319264e095ab95cf019567f19af21ab5cceedf0756ab03adad5fd00",
+        "Mavic3/ground_truth/1692846967.631612.npy": "ad25a86565d4a5c7441861040f3b3a3116d31665522616ec3f5c9bf388e313e8",
+        "Mavic3/ground_truth/1692846967.834175.npy": "9548a383d80631100e7a57bc3644c9b461df9dea30d28a3384ad2b1bd2c8137a",
+        "Mavic3/ground_truth/1692846968.034833.npy": "dfd0a428e2a78f21a73b720a85428d315ecc14a17cdec3860abac682a9285706",
+        "Mavic3/ground_truth/1692846968.235941.npy": "05e044b17710a6be3709daf1dfb4daac3d327449b6d1d31c4d8a9a4ebbbdf881",
+        "Mavic3/ground_truth/1692846968.434927.npy": "95d2524b2abe1f96feefa29eff923c47811592e7732345ab220aec9659298042",
+        "Mavic3/ground_truth/1692846968.636269.npy": "d360d7b53a6e5afd4477af1c75db25e08b2642e3e51647db921082a98001b8ff",
+        "Mavic3/ground_truth/1692846968.836115.npy": "912db5cb56053cb92ef0ca18835b89c22ecc719f5604cbb57da88b7ee60f3eae",
+        "Mavic3/ground_truth/1692846969.035025.npy": "117959362103136376c36b821d5ac518c3ab09e1db183afcfae968aa0d47bdef",
+        "Mavic3/ground_truth/1692846969.234185.npy": "4f68840308871b09df06910ab3ecd3cf63deda6b118d2d7938dc7c9fc74a4f99"
+      }
+    },
+    "config": {
+      "calibration": {
+        "rotation": [
+          [
+            0.9811749252876981,
+            -0.12582104360618107,
+            0.14650880851516296
+          ],
+          [
+            0.16779006507253064,
+            0.9310053922192184,
+            -0.3241534416317304
+          ],
+          [
+            -0.09561516642059024,
+            0.34263395138922115,
+            0.9345906672473104
+          ]
+        ],
+        "translation": [
+          -0.3386633877736498,
+          0.6368982660641277,
+          -0.6013261768961513
+        ],
+        "noise_norm": [
+          0.007289639342570727,
+          0.016021180484139794
+        ],
+        "source_kind": "held_out",
+        "source_description": "仅独立训练段Leica＋人工图像机身中心拟合的局部虚拟针孔投影；未知真实鱼眼K/D，不是物理外参或完整鱼眼去畸变。测试GT未参与拟合。",
+        "uses_test_truth": false,
+        "fit_intervals_s": [
+          [
+            21.0,
+            36.09999990463257
+          ],
+          [
+            125.0,
+            139.09999990463257
+          ]
+        ],
+        "projection_model": "local_pinhole_experiment",
+        "local_K": [
+          [
+            515.1998634671305,
+            0.0,
+            663.9694811651193
+          ],
+          [
+            0.0,
+            471.4986326308703,
+            355.43783217092033
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      },
+      "evaluation": {
+        "max_interpolation_gap_s": 0.3,
+        "truth_frame_alignment": {
+          "source_kind": "held_out",
+          "uses_test_truth": false,
+          "source_description": "仅两个独立训练段雷达候选簇中位数与Leica位置做Huber刚体拟合，p_truth=R@p_radar+t；测试真值用共同逆变换，不为两方法分别对齐；外参稳定性较弱。",
+          "fit_intervals_s": [
+            [
+              21.0,
+              36.09999990463257
+            ],
+            [
+              125.0,
+              139.09999990463257
+            ]
+          ],
+          "R_radar_to_truth": [
+            [
+              -0.9147774023822136,
+              -0.403926316886787,
+              -0.005082776517376673
+            ],
+            [
+              0.4039409518707838,
+              -0.9145491235185119,
+              -0.020775179259089022
+            ],
+            [
+              0.003743192831779033,
+              -0.021057806101229926,
+              0.9997712524921025
+            ]
+          ],
+          "t_radar_in_truth": [
+            0.09148649797222604,
+            0.7196300279306402,
+            -0.13659640115299787
+          ]
+        }
+      },
+      "filter": {
+        "radar_R": [
+          [
+            0.10214955413622713,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.7671504656294204,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.09
+          ]
+        ],
+        "acceleration_std": 4.0,
+        "velocity_std": 2.0,
+        "prediction_hz": 100,
+        "radar_gate_nis": 11.344866730144373,
+        "camera_gate_nis": 9.210340371976184,
+        "initial_point_index": 6,
+        "init_selection_description": "首个实际雷达最大簇中，选择最靠近该簇中位数的一枚实际观测；无GT，速度为零，首点只用一次。"
+      }
+    },
+    "radar_processing": {
+      "within_frame_exact_deduplication": true,
+      "background": "initial8s; .2m voxel present>=30 frames",
+      "central_roi": "abs(x)<2,abs(y)<2,z>2 metres",
+      "clustering": "largest .6m single-link component",
+      "source_frames": 143,
+      "identical_snapshots_suppressed": 46,
+      "accepted_snapshots": 97,
+      "covariance_divided_by_point_count": false,
+      "initial_file": "1692846959.512097.npy",
+      "initial_file_sha256": "7d76af055cd78a1369d2704a8b365059125b8f99ea6b7de92b5fd1c2a714cef5",
+      "initial_selected_xyz_m": [
+        0.05214371532201767,
+        -0.1325264722108841,
+        9.020475387573242
+      ],
+      "radar_R_status": "training centroid/reference residual covariance; not independently measured pointwise hardware noise"
+    },
+    "camera_annotation": {
+      "source": "image-only manually seeded largest-dark-component tracking, all48 visually reviewed",
+      "training_detector_reproduced": false,
+      "camera_half": "left",
+      "sampling_hz": 5,
+      "annotations_sha256": "dc530cfe2ce535c46c525bbf5113adbc430c43621074ba81c6e9f31758b00f16",
+      "qa_sha256": "cb00774e9ef74b0b388a7942ad41eb8649540871f614e5f75ba03a16fa048743"
+    },
+    "calibration_limits": [
+      "Unknown true K/D and camera-radar/Leica rig matrices",
+      "Local pinhole approximation for unrectified fisheye pixels",
+      "Image body, enhanced radar centroid, and Leica prism need not be identical physical points",
+      "Training residuals combine calibration, observation, timing and reference-point errors",
+      "No covariance reduction by duplicate/accumulated radar point count",
+      "雷达—真值刚体重采样旋转不稳定；仅探索性短片段，需敏感性分析。",
+      "增强点云有相关历史回波与时滞，未把训练时滞诊断当作已验证的时钟校正。"
+    ],
+    "input_sha256": {
+      "radar.csv": "1013bb2eada54334f746e0d3e9988cefa852686e8da2fa024376150af2746052",
+      "camera.csv": "7de6b3d17a1837cfe1a5568a6853545a32eb2e18608bbe4f9066541ebfe0917f",
+      "truth.csv": "9ba29368f0ee5f5726883799d0fc61fa446846d8d1a8d4764a7cdbf8a97978b8"
+    }
+  },
+  "input_sha256": {
+    "clip.json": "4eba152dcedcc68a319557c611fc6d1712a4be60e8e8635aeae6a593fa983dee",
+    "radar.csv": "1013bb2eada54334f746e0d3e9988cefa852686e8da2fa024376150af2746052",
+    "camera.csv": "7de6b3d17a1837cfe1a5568a6853545a32eb2e18608bbe4f9066541ebfe0917f",
+    "truth.csv": "9ba29368f0ee5f5726883799d0fc61fa446846d8d1a8d4764a7cdbf8a97978b8"
+  },
+  "raw_hashes_verified_here": false,
+  "camera_oracle_condition": true,
+  "projection_model": "local_pinhole_experiment",
+  "exploratory_heldout_projection": true,
+  "initial_source": {
+    "rule": "caller-selected first nonempty radar point; default index is a reference strategy",
+    "first_timestamp": 72.512097,
+    "point_index": 6,
+    "first_xyz_m": [
+      0.05214371532201767,
+      -0.1325264722108841,
+      9.020475387573242
+    ],
+    "velocity_rule": "zero",
+    "ground_truth_used": false,
+    "initialized_observation_reused": false,
+    "initialization_timestamp": 72.512097
+  },
+  "metrics": {
+    "radar_only": {
+      "whole_clip": {
+        "status": "evaluated",
+        "estimate_count": 949,
+        "matched_count": 949,
+        "unmatched_count": 0,
+        "coverage_fraction": 1.0,
+        "estimate_time_span_s": [
+          72.512097,
+          81.992097
+        ],
+        "truth_time_span_s": [
+          72.481631,
+          82.035025
+        ],
+        "matched_time_span_s": [
+          72.512097,
+          81.992097
+        ],
+        "max_interpolation_gap_s": 0.3,
+        "signed_mean_xyz_m": [
+          0.4254204588779581,
+          -0.14674602435217257,
+          -0.0996591070644701
+        ],
+        "mean_euclidean_m": 0.9585239484751064,
+        "median_euclidean_m": 1.0090707500777323,
+        "std_euclidean_m": 0.5035981470731703,
+        "p95_euclidean_m": 1.9573827526011414,
+        "rmse3d_m": 1.0827646344131483,
+        "axis_rmse_m": [
+          0.8559004028343071,
+          0.6551597807693027,
+          0.10285628627472462
+        ]
+      },
+      "after_first_second": {
+        "status": "evaluated",
+        "estimate_count": 849,
+        "matched_count": 849,
+        "unmatched_count": 0,
+        "coverage_fraction": 1.0,
+        "estimate_time_span_s": [
+          73.512097,
+          81.992097
+        ],
+        "truth_time_span_s": [
+          72.481631,
+          82.035025
+        ],
+        "matched_time_span_s": [
+          73.512097,
+          81.992097
+        ],
+        "max_interpolation_gap_s": 0.3,
+        "signed_mean_xyz_m": [
+          0.4584664463300238,
+          -0.14045551504781048,
+          -0.10428356346246208
+        ],
+        "mean_euclidean_m": 1.0413538343734499,
+        "median_euclidean_m": 1.031133709144928,
+        "std_euclidean_m": 0.46725132008458103,
+        "p95_euclidean_m": 1.958583421970846,
+        "rmse3d_m": 1.1413770649899488,
+        "axis_rmse_m": [
+          0.9034794588622314,
+          0.6892544897476099,
+          0.10674605501769953
+        ]
+      },
+      "minimum_covariance_eigenvalue": 0.00817983220239148,
+      "maximum_covariance_asymmetry": 0.0,
+      "accepted_radar_updates": 96,
+      "accepted_camera_updates": 0
+    },
+    "radar_camera": {
+      "whole_clip": {
+        "status": "evaluated",
+        "estimate_count": 949,
+        "matched_count": 949,
+        "unmatched_count": 0,
+        "coverage_fraction": 1.0,
+        "estimate_time_span_s": [
+          72.512097,
+          81.992097
+        ],
+        "truth_time_span_s": [
+          72.481631,
+          82.035025
+        ],
+        "matched_time_span_s": [
+          72.512097,
+          81.992097
+        ],
+        "max_interpolation_gap_s": 0.3,
+        "signed_mean_xyz_m": [
+          0.016812430246384277,
+          -0.0013458399176390756,
+          0.0931072863402749
+        ],
+        "mean_euclidean_m": 0.16933399937382848,
+        "median_euclidean_m": 0.166823412498866,
+        "std_euclidean_m": 0.05919204320317158,
+        "p95_euclidean_m": 0.27285415897064563,
+        "rmse3d_m": 0.17938144085300986,
+        "axis_rmse_m": [
+          0.11201488712563162,
+          0.08531907813586474,
+          0.11113514876392654
+        ]
+      },
+      "after_first_second": {
+        "status": "evaluated",
+        "estimate_count": 849,
+        "matched_count": 849,
+        "unmatched_count": 0,
+        "coverage_fraction": 1.0,
+        "estimate_time_span_s": [
+          73.512097,
+          81.992097
+        ],
+        "truth_time_span_s": [
+          72.481631,
+          82.035025
+        ],
+        "matched_time_span_s": [
+          73.512097,
+          81.992097
+        ],
+        "max_interpolation_gap_s": 0.3,
+        "signed_mean_xyz_m": [
+          0.01586383342984428,
+          -0.0009857370610578417,
+          0.0956236262716601
+        ],
+        "mean_euclidean_m": 0.17232790931648925,
+        "median_euclidean_m": 0.1672624479849961,
+        "std_euclidean_m": 0.05644871677731882,
+        "p95_euclidean_m": 0.2803716905807827,
+        "rmse3d_m": 0.1813377124461376,
+        "axis_rmse_m": [
+          0.11695937972448094,
+          0.08363413977312613,
+          0.1104952492828175
+        ]
+      },
+      "minimum_covariance_eigenvalue": 0.001630310526936015,
+      "maximum_covariance_asymmetry": 0.0,
+      "accepted_radar_updates": 96,
+      "accepted_camera_updates": 47
+    }
+  },
+  "ground_truth_filter_input": false,
+  "output_grid_hz": 100,
+  "shared_prediction_partition": true,
+  "prepared_camera_observations": 48,
+  "replayed_camera_events": 47,
+  "output_time_range_s": [
+    72.512097,
+    81.992097
+  ],
+  "output_samples_are_independent_sensor_measurements": false,
+  "noncausal_offline_calibration": true,
+  "calibration_sources_using_later_segments": [
+    "camera_calibration",
+    "truth_frame_alignment"
+  ],
+  "primary_scope": "whole selected clip including initialization; no error-based trimming",
+  "secondary_scope": "predeclared samples >= initialization timestamp + 1 second",
+  "caveats": [
+    "XYZ-only radar, no fabricated world vx or intensity; nearest association only.",
+    "Normalized-bearing EKF adaptation, not paper_xyz or all five paper associations.",
+    "Manual image annotations, when present, are an oracle visual condition, not a trained detector.",
+    "This runner parsed evaluation truth only after both filters finished; prior source audits/preparation are separate.",
+    "Test truth is not used for fitting, association, initialization, annotation, or tuning; training-only supervision is declared separately.",
+    "File hashing reads bytes for provenance, not numeric labels supplied to the tracker.",
+    "Discrete constant-acceleration Q depends on the common event partition.",
+    "Independent calibration/alignment are declared in the manifest; verify their cited evidence.",
+    "External-data generalization experiment, not a numerical reproduction of paper Table I.",
+    "Training-GT-supervised local pinhole mapping: calibration is unstable and exploratory, not complete fisheye rectification or official calibration."
+  ]
+}

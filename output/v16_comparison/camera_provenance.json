@@ -1,0 +1,242 @@
+[
+  {
+    "timestamp_s": 72.50562,
+    "source_image": "Mavic3/image/1692846959.505620.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 72.70613,
+    "source_image": "Mavic3/image/1692846959.706130.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 72.905948,
+    "source_image": "Mavic3/image/1692846959.905948.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 73.105604,
+    "source_image": "Mavic3/image/1692846960.105604.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 73.305927,
+    "source_image": "Mavic3/image/1692846960.305927.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 73.505736,
+    "source_image": "Mavic3/image/1692846960.505736.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 73.705526,
+    "source_image": "Mavic3/image/1692846960.705526.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 73.905504,
+    "source_image": "Mavic3/image/1692846960.905504.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 74.105664,
+    "source_image": "Mavic3/image/1692846961.105664.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 74.305895,
+    "source_image": "Mavic3/image/1692846961.305895.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 74.505519,
+    "source_image": "Mavic3/image/1692846961.505519.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 74.705542,
+    "source_image": "Mavic3/image/1692846961.705542.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 74.905521,
+    "source_image": "Mavic3/image/1692846961.905521.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 75.105733,
+    "source_image": "Mavic3/image/1692846962.105733.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 75.305566,
+    "source_image": "Mavic3/image/1692846962.305566.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 75.505862,
+    "source_image": "Mavic3/image/1692846962.505862.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 75.705568,
+    "source_image": "Mavic3/image/1692846962.705568.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 75.90559,
+    "source_image": "Mavic3/image/1692846962.905590.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 76.105493,
+    "source_image": "Mavic3/image/1692846963.105493.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 76.305559,
+    "source_image": "Mavic3/image/1692846963.305559.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 76.505585,
+    "source_image": "Mavic3/image/1692846963.505585.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 76.70561,
+    "source_image": "Mavic3/image/1692846963.705610.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 76.905522,
+    "source_image": "Mavic3/image/1692846963.905522.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 77.105564,
+    "source_image": "Mavic3/image/1692846964.105564.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 77.305469,
+    "source_image": "Mavic3/image/1692846964.305469.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 77.506057,
+    "source_image": "Mavic3/image/1692846964.506057.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 77.705605,
+    "source_image": "Mavic3/image/1692846964.705605.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 77.905718,
+    "source_image": "Mavic3/image/1692846964.905718.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 78.105796,
+    "source_image": "Mavic3/image/1692846965.105796.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 78.305898,
+    "source_image": "Mavic3/image/1692846965.305898.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 78.505563,
+    "source_image": "Mavic3/image/1692846965.505563.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 78.705557,
+    "source_image": "Mavic3/image/1692846965.705557.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 78.906096,
+    "source_image": "Mavic3/image/1692846965.906096.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 79.105722,
+    "source_image": "Mavic3/image/1692846966.105722.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 79.305523,
+    "source_image": "Mavic3/image/1692846966.305523.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 79.505571,
+    "source_image": "Mavic3/image/1692846966.505571.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 79.705637,
+    "source_image": "Mavic3/image/1692846966.705637.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 79.905644,
+    "source_image": "Mavic3/image/1692846966.905644.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 80.105971,
+    "source_image": "Mavic3/image/1692846967.105971.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 80.30599,
+    "source_image": "Mavic3/image/1692846967.305990.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 80.505143,
+    "source_image": "Mavic3/image/1692846967.505143.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 80.705457,
+    "source_image": "Mavic3/image/1692846967.705457.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 80.905296,
+    "source_image": "Mavic3/image/1692846967.905296.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 81.10531,
+    "source_image": "Mavic3/image/1692846968.105310.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 81.305349,
+    "source_image": "Mavic3/image/1692846968.305349.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 81.505365,
+    "source_image": "Mavic3/image/1692846968.505365.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 81.705254,
+    "source_image": "Mavic3/image/1692846968.705254.png",
+    "annotation_method": "manual_oracle"
+  },
+  {
+    "timestamp_s": 81.905142,
+    "source_image": "Mavic3/image/1692846968.905142.png",
+    "annotation_method": "manual_oracle"
+  }
+]

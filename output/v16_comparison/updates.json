@@ -1,0 +1,4222 @@
+{
+  "radar_only": [
+    {
+      "sensor": "radar",
+      "timestamp": 72.512097,
+      "accepted": true,
+      "nis": null,
+      "reason": "initialization once",
+      "selected_point_index": 6
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 72.580177,
+      "accepted": true,
+      "nis": 0.0,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 24,
+      "gated_count": 24,
+      "selected_point_index": 7,
+      "selected_xyz_m": [
+        0.05214371532201767,
+        -0.1325264722108841,
+        9.020475387573242
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 72.646386,
+      "accepted": true,
+      "nis": 0.0,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 24,
+      "gated_count": 24,
+      "selected_point_index": 7,
+      "selected_xyz_m": [
+        0.05214371532201767,
+        -0.1325264722108841,
+        9.020475387573242
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 72.70613,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 72.714333,
+      "accepted": true,
+      "nis": 0.0,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 23,
+      "gated_count": 23,
+      "selected_point_index": 9,
+      "selected_xyz_m": [
+        0.05214371532201767,
+        -0.1325264722108841,
+        9.020475387573242
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 72.778996,
+      "accepted": true,
+      "nis": 0.0,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 23,
+      "gated_count": 23,
+      "selected_point_index": 9,
+      "selected_xyz_m": [
+        0.05214371532201767,
+        -0.1325264722108841,
+        9.020475387573242
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 72.847401,
+      "accepted": true,
+      "nis": 0.0,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 24,
+      "gated_count": 24,
+      "selected_point_index": 9,
+      "selected_xyz_m": [
+        0.05214371532201767,
+        -0.1325264722108841,
+        9.020475387573242
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 72.905948,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 73.105604,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 73.247155,
+      "accepted": true,
+      "nis": 0.0,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 28,
+      "gated_count": 28,
+      "selected_point_index": 13,
+      "selected_xyz_m": [
+        0.05214371532201767,
+        -0.1325264722108841,
+        9.020475387573242
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 73.305927,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 73.505736,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 73.514179,
+      "accepted": true,
+      "nis": 0.0,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 32,
+      "gated_count": 32,
+      "selected_point_index": 17,
+      "selected_xyz_m": [
+        0.05214371532201767,
+        -0.1325264722108841,
+        9.020475387573242
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 73.647337,
+      "accepted": true,
+      "nis": 0.0,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 33,
+      "gated_count": 33,
+      "selected_point_index": 18,
+      "selected_xyz_m": [
+        0.05214371532201767,
+        -0.1325264722108841,
+        9.020475387573242
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 73.705526,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 73.781353,
+      "accepted": true,
+      "nis": 0.0,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 36,
+      "gated_count": 36,
+      "selected_point_index": 21,
+      "selected_xyz_m": [
+        0.05214371532201767,
+        -0.1325264722108841,
+        9.020475387573242
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 73.905504,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 73.914789,
+      "accepted": true,
+      "nis": 0.0,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 40,
+      "gated_count": 40,
+      "selected_point_index": 25,
+      "selected_xyz_m": [
+        0.05214371532201767,
+        -0.1325264722108841,
+        9.020475387573242
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 74.047845,
+      "accepted": true,
+      "nis": 0.0,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 44,
+      "gated_count": 44,
+      "selected_point_index": 29,
+      "selected_xyz_m": [
+        0.05214371532201767,
+        -0.1325264722108841,
+        9.020475387573242
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 74.105664,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 74.180623,
+      "accepted": true,
+      "nis": 0.0,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 48,
+      "gated_count": 48,
+      "selected_point_index": 33,
+      "selected_xyz_m": [
+        0.05214371532201767,
+        -0.1325264722108841,
+        9.020475387573242
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 74.305895,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 74.314431,
+      "accepted": true,
+      "nis": 0.0,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 52,
+      "gated_count": 52,
+      "selected_point_index": 37,
+      "selected_xyz_m": [
+        0.05214371532201767,
+        -0.1325264722108841,
+        9.020475387573242
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 74.379516,
+      "accepted": true,
+      "nis": 0.0,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 52,
+      "gated_count": 52,
+      "selected_point_index": 37,
+      "selected_xyz_m": [
+        0.05214371532201767,
+        -0.1325264722108841,
+        9.020475387573242
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 74.448084,
+      "accepted": true,
+      "nis": 0.0,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 56,
+      "gated_count": 56,
+      "selected_point_index": 41,
+      "selected_xyz_m": [
+        0.05214371532201767,
+        -0.1325264722108841,
+        9.020475387573242
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 74.505519,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 74.512678,
+      "accepted": true,
+      "nis": 0.0,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 56,
+      "gated_count": 56,
+      "selected_point_index": 41,
+      "selected_xyz_m": [
+        0.05214371532201767,
+        -0.1325264722108841,
+        9.020475387573242
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 74.581154,
+      "accepted": true,
+      "nis": 0.0,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 60,
+      "gated_count": 60,
+      "selected_point_index": 45,
+      "selected_xyz_m": [
+        0.05214371532201767,
+        -0.1325264722108841,
+        9.020475387573242
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 74.646733,
+      "accepted": true,
+      "nis": 0.0,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 60,
+      "gated_count": 60,
+      "selected_point_index": 45,
+      "selected_xyz_m": [
+        0.05214371532201767,
+        -0.1325264722108841,
+        9.020475387573242
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 74.705542,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 74.71536,
+      "accepted": true,
+      "nis": 0.0,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 63,
+      "gated_count": 63,
+      "selected_point_index": 48,
+      "selected_xyz_m": [
+        0.05214371532201767,
+        -0.1325264722108841,
+        9.020475387573242
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 74.847762,
+      "accepted": true,
+      "nis": 0.0,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 66,
+      "gated_count": 66,
+      "selected_point_index": 51,
+      "selected_xyz_m": [
+        0.05214371532201767,
+        -0.1325264722108841,
+        9.020475387573242
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 74.905521,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 74.980361,
+      "accepted": true,
+      "nis": 0.0,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 70,
+      "gated_count": 70,
+      "selected_point_index": 55,
+      "selected_xyz_m": [
+        0.05214371532201767,
+        -0.1325264722108841,
+        9.020475387573242
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 75.105733,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 75.114509,
+      "accepted": true,
+      "nis": 0.0,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 72,
+      "gated_count": 72,
+      "selected_point_index": 57,
+      "selected_xyz_m": [
+        0.05214371532201767,
+        -0.1325264722108841,
+        9.020475387573242
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 75.248464,
+      "accepted": true,
+      "nis": 0.0,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 76,
+      "gated_count": 76,
+      "selected_point_index": 61,
+      "selected_xyz_m": [
+        0.05214371532201767,
+        -0.1325264722108841,
+        9.020475387573242
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 75.305566,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 75.380267,
+      "accepted": true,
+      "nis": 0.0,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 79,
+      "gated_count": 79,
+      "selected_point_index": 64,
+      "selected_xyz_m": [
+        0.05214371532201767,
+        -0.1325264722108841,
+        9.020475387573242
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 75.505862,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 75.515339,
+      "accepted": true,
+      "nis": 0.0,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 80,
+      "gated_count": 80,
+      "selected_point_index": 65,
+      "selected_xyz_m": [
+        0.05214371532201767,
+        -0.1325264722108841,
+        9.020475387573242
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 75.579306,
+      "accepted": true,
+      "nis": 0.0,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 80,
+      "gated_count": 80,
+      "selected_point_index": 65,
+      "selected_xyz_m": [
+        0.05214371532201767,
+        -0.1325264722108841,
+        9.020475387573242
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 75.647561,
+      "accepted": true,
+      "nis": 0.0,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 81,
+      "gated_count": 81,
+      "selected_point_index": 68,
+      "selected_xyz_m": [
+        0.05214371532201767,
+        -0.1325264722108841,
+        9.020475387573242
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 75.705568,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 75.71246,
+      "accepted": true,
+      "nis": 0.0,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 81,
+      "gated_count": 81,
+      "selected_point_index": 68,
+      "selected_xyz_m": [
+        0.05214371532201767,
+        -0.1325264722108841,
+        9.020475387573242
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 75.780136,
+      "accepted": true,
+      "nis": 0.0,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 83,
+      "gated_count": 83,
+      "selected_point_index": 70,
+      "selected_xyz_m": [
+        0.05214371532201767,
+        -0.1325264722108841,
+        9.020475387573242
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 75.845943,
+      "accepted": true,
+      "nis": 0.0,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 83,
+      "gated_count": 83,
+      "selected_point_index": 70,
+      "selected_xyz_m": [
+        0.05214371532201767,
+        -0.1325264722108841,
+        9.020475387573242
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 75.90559,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 75.914673,
+      "accepted": true,
+      "nis": 0.0,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 82,
+      "gated_count": 82,
+      "selected_point_index": 73,
+      "selected_xyz_m": [
+        0.05214371532201767,
+        -0.1325264722108841,
+        9.020475387573242
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 76.047761,
+      "accepted": true,
+      "nis": 0.0,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 84,
+      "gated_count": 84,
+      "selected_point_index": 77,
+      "selected_xyz_m": [
+        0.05214371532201767,
+        -0.1325264722108841,
+        9.020475387573242
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 76.105493,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 76.180824,
+      "accepted": true,
+      "nis": 0.0,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 85,
+      "gated_count": 85,
+      "selected_point_index": 80,
+      "selected_xyz_m": [
+        0.05214371532201767,
+        -0.1325264722108841,
+        9.020475387573242
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 76.305559,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 76.313552,
+      "accepted": true,
+      "nis": 0.0,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 88,
+      "gated_count": 88,
+      "selected_point_index": 83,
+      "selected_xyz_m": [
+        0.05214371532201767,
+        -0.1325264722108841,
+        9.020475387573242
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 76.447883,
+      "accepted": true,
+      "nis": 0.0,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 91,
+      "gated_count": 91,
+      "selected_point_index": 86,
+      "selected_xyz_m": [
+        0.05214371532201767,
+        -0.1325264722108841,
+        9.020475387573242
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 76.505585,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 76.580473,
+      "accepted": true,
+      "nis": 0.0,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 92,
+      "gated_count": 92,
+      "selected_point_index": 89,
+      "selected_xyz_m": [
+        0.05214371532201767,
+        -0.1325264722108841,
+        9.020475387573242
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 76.64534,
+      "accepted": true,
+      "nis": 1.8136811752850712e-05,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 92,
+      "gated_count": 92,
+      "selected_point_index": 89,
+      "selected_xyz_m": [
+        0.05056934058666229,
+        -0.1325264722108841,
+        9.02048397064209
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 76.70561,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 76.714492,
+      "accepted": true,
+      "nis": 0.020075785140732636,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 94,
+      "gated_count": 94,
+      "selected_point_index": 92,
+      "selected_xyz_m": [
+        1.1641532182693481e-10,
+        -0.1325264722108841,
+        9.02062702178955
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 76.905522,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 76.98011,
+      "accepted": true,
+      "nis": 0.009053244407349325,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 90,
+      "gated_count": 90,
+      "selected_point_index": 89,
+      "selected_xyz_m": [
+        1.1641532182693481e-10,
+        -0.1604240983724594,
+        9.020173072814941
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 77.105564,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 77.114571,
+      "accepted": true,
+      "nis": 0.03468192620185213,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 89,
+      "gated_count": 89,
+      "selected_point_index": 86,
+      "selected_xyz_m": [
+        -0.05214371159672737,
+        -0.1325264722108841,
+        9.020475387573242
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 77.248036,
+      "accepted": true,
+      "nis": 0.06050381863891356,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 93,
+      "gated_count": 93,
+      "selected_point_index": 80,
+      "selected_xyz_m": [
+        -0.10428991168737411,
+        -0.1046275794506073,
+        9.020390510559082
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 77.305469,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 77.381023,
+      "accepted": true,
+      "nis": 0.01937064842500501,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 94,
+      "gated_count": 94,
+      "selected_point_index": 80,
+      "selected_xyz_m": [
+        -0.10428991168737411,
+        -0.1046275794506073,
+        9.020390510559082
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 77.506057,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 77.513544,
+      "accepted": true,
+      "nis": 0.05927105960392005,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 94,
+      "gated_count": 94,
+      "selected_point_index": 74,
+      "selected_xyz_m": [
+        -0.1738150417804718,
+        -0.07672768831253052,
+        9.019598960876465
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 77.646932,
+      "accepted": true,
+      "nis": 0.06852573123971742,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 91,
+      "gated_count": 91,
+      "selected_point_index": 63,
+      "selected_xyz_m": [
+        -0.2259547859430313,
+        -0.04882705956697464,
+        9.018636703491211
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 77.705605,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 77.780205,
+      "accepted": true,
+      "nis": 0.07351775539089492,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 92,
+      "gated_count": 92,
+      "selected_point_index": 56,
+      "selected_xyz_m": [
+        -0.2780872881412506,
+        0.0,
+        9.017313003540039
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 77.905718,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 77.91326,
+      "accepted": true,
+      "nis": 0.09692899689049968,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 92,
+      "gated_count": 92,
+      "selected_point_index": 48,
+      "selected_xyz_m": [
+        -0.34757307171821594,
+        0.04882705956697464,
+        9.014769554138184
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 78.047777,
+      "accepted": true,
+      "nis": 0.021052647208930606,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 93,
+      "gated_count": 93,
+      "selected_point_index": 46,
+      "selected_xyz_m": [
+        -0.34757307171821594,
+        0.04882705956697464,
+        9.014769554138184
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 78.105796,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 78.180964,
+      "accepted": true,
+      "nis": 0.0999566362139603,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 93,
+      "gated_count": 93,
+      "selected_point_index": 33,
+      "selected_xyz_m": [
+        -0.46911799907684326,
+        0.07672768831253052,
+        9.009068489074707
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 78.305898,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 78.31332,
+      "accepted": true,
+      "nis": 0.02608860921928843,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 93,
+      "gated_count": 93,
+      "selected_point_index": 31,
+      "selected_xyz_m": [
+        -0.46908432245254517,
+        0.1325264722108841,
+        9.008421897888184
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 78.447462,
+      "accepted": true,
+      "nis": 0.009808734725468211,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 90,
+      "gated_count": 90,
+      "selected_point_index": 31,
+      "selected_xyz_m": [
+        -0.46908432245254517,
+        0.1325264722108841,
+        9.008421897888184
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 78.505563,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 78.580023,
+      "accepted": true,
+      "nis": 0.029494203252690455,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 86,
+      "gated_count": 86,
+      "selected_point_index": 18,
+      "selected_xyz_m": [
+        -0.5731345415115356,
+        0.18832018971443176,
+        9.0014066696167
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 78.705557,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 78.714651,
+      "accepted": true,
+      "nis": 0.006614497474473496,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 84,
+      "gated_count": 81,
+      "selected_point_index": 17,
+      "selected_xyz_m": [
+        -0.5731345415115356,
+        0.18832018971443176,
+        9.0014066696167
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 78.847553,
+      "accepted": true,
+      "nis": 0.028535951453294933,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 80,
+      "gated_count": 70,
+      "selected_point_index": 15,
+      "selected_xyz_m": [
+        -0.5730612874031067,
+        0.23713384568691254,
+        9.00025749206543
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 78.906096,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 78.980524,
+      "accepted": true,
+      "nis": 0.02075904618428508,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 85,
+      "gated_count": 67,
+      "selected_point_index": 6,
+      "selected_xyz_m": [
+        -0.6422275900840759,
+        0.32079747319221497,
+        8.99299144744873
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 79.105722,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 79.114681,
+      "accepted": true,
+      "nis": 0.025817793983966424,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 84,
+      "gated_count": 64,
+      "selected_point_index": 4,
+      "selected_xyz_m": [
+        -0.6422275900840759,
+        0.32079747319221497,
+        8.99299144744873
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 79.247788,
+      "accepted": true,
+      "nis": 0.04523312819436309,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 84,
+      "gated_count": 62,
+      "selected_point_index": 2,
+      "selected_xyz_m": [
+        -0.6421538591384888,
+        0.3486795425415039,
+        8.991958618164062
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 79.305523,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 79.312635,
+      "accepted": true,
+      "nis": 0.038953235172585754,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 84,
+      "gated_count": 61,
+      "selected_point_index": 2,
+      "selected_xyz_m": [
+        -0.6421538591384888,
+        0.3486795425415039,
+        8.991958618164062
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 79.380729,
+      "accepted": true,
+      "nis": 0.03925227169531701,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 85,
+      "gated_count": 59,
+      "selected_point_index": 0,
+      "selected_xyz_m": [
+        -0.6420739889144897,
+        0.3765583038330078,
+        8.990839958190918
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 79.445488,
+      "accepted": true,
+      "nis": 0.03611930249932976,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 85,
+      "gated_count": 59,
+      "selected_point_index": 0,
+      "selected_xyz_m": [
+        -0.6420739889144897,
+        0.3765583038330078,
+        8.990839958190918
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 79.505571,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 79.513851,
+      "accepted": true,
+      "nis": 0.28560720063358835,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 89,
+      "gated_count": 63,
+      "selected_point_index": 2,
+      "selected_xyz_m": [
+        -0.5205273628234863,
+        0.4601719081401825,
+        8.994806289672852
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 79.580128,
+      "accepted": true,
+      "nis": 0.20345275533524176,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 89,
+      "gated_count": 65,
+      "selected_point_index": 2,
+      "selected_xyz_m": [
+        -0.5205273628234863,
+        0.4601719081401825,
+        8.994806289672852
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 79.648485,
+      "accepted": true,
+      "nis": 0.2900519539578172,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 93,
+      "gated_count": 70,
+      "selected_point_index": 13,
+      "selected_xyz_m": [
+        -0.4683038294315338,
+        0.5367830395698547,
+        8.99343204498291
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 79.705637,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 79.712532,
+      "accepted": true,
+      "nis": 0.19495930121050886,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 93,
+      "gated_count": 73,
+      "selected_point_index": 13,
+      "selected_xyz_m": [
+        -0.4683038294315338,
+        0.5367830395698547,
+        8.99343204498291
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 79.781238,
+      "accepted": true,
+      "nis": 0.4846334410192486,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 94,
+      "gated_count": 75,
+      "selected_point_index": 28,
+      "selected_xyz_m": [
+        -0.3469623327255249,
+        0.5367830395698547,
+        8.998929023742676
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 79.845632,
+      "accepted": true,
+      "nis": 0.30569733459839465,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 94,
+      "gated_count": 84,
+      "selected_point_index": 28,
+      "selected_xyz_m": [
+        -0.3469623327255249,
+        0.5367830395698547,
+        8.998929023742676
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 79.905644,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 79.913465,
+      "accepted": true,
+      "nis": 0.5915281894691311,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 86,
+      "gated_count": 82,
+      "selected_point_index": 32,
+      "selected_xyz_m": [
+        -0.22555778920650482,
+        0.5367830395698547,
+        9.002791404724121
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 79.979903,
+      "accepted": true,
+      "nis": 0.3471566281533098,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 86,
+      "gated_count": 86,
+      "selected_point_index": 32,
+      "selected_xyz_m": [
+        -0.22555778920650482,
+        0.5367830395698547,
+        9.002791404724121
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 80.047767,
+      "accepted": true,
+      "nis": 0.3817382766776974,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 89,
+      "gated_count": 89,
+      "selected_point_index": 40,
+      "selected_xyz_m": [
+        -0.17526456713676453,
+        0.3486795425415039,
+        9.013154983520508
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 80.105971,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 80.112765,
+      "accepted": true,
+      "nis": 0.21918176390013588,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 89,
+      "gated_count": 89,
+      "selected_point_index": 40,
+      "selected_xyz_m": [
+        -0.17369146645069122,
+        0.3486795425415039,
+        9.013185501098633
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 80.180863,
+      "accepted": true,
+      "nis": 1.9746271697519675,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 92,
+      "gated_count": 92,
+      "selected_point_index": 52,
+      "selected_xyz_m": [
+        0.22526948153972626,
+        0.7037923336029053,
+        8.991284370422363
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 80.245479,
+      "accepted": true,
+      "nis": 1.0919507019183232,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 92,
+      "gated_count": 92,
+      "selected_point_index": 52,
+      "selected_xyz_m": [
+        0.2221309244632721,
+        0.7037923336029053,
+        8.991360664367676
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 80.30599,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 80.314036,
+      "accepted": true,
+      "nis": 0.5395221941244278,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 103,
+      "gated_count": 102,
+      "selected_point_index": 63,
+      "selected_xyz_m": [
+        0.2221309244632721,
+        0.7037923336029053,
+        8.991360664367676
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 80.379272,
+      "accepted": true,
+      "nis": 0.2284101091729049,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 103,
+      "gated_count": 97,
+      "selected_point_index": 63,
+      "selected_xyz_m": [
+        0.22370019555091858,
+        0.7037923336029053,
+        8.991321563720703
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 80.448352,
+      "accepted": true,
+      "nis": 0.05722287770688209,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 112,
+      "gated_count": 87,
+      "selected_point_index": 72,
+      "selected_xyz_m": [
+        0.22056163847446442,
+        0.7037923336029053,
+        8.991397857666016
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 80.505143,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 80.512673,
+      "accepted": true,
+      "nis": 0.0036318885412230367,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 112,
+      "gated_count": 81,
+      "selected_point_index": 72,
+      "selected_xyz_m": [
+        0.22056163847446442,
+        0.7037923336029053,
+        8.991397857666016
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 80.580948,
+      "accepted": true,
+      "nis": 0.009118483694588335,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 122,
+      "gated_count": 76,
+      "selected_point_index": 82,
+      "selected_xyz_m": [
+        0.2221309244632721,
+        0.7037923336029053,
+        8.991358757019043
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 80.645731,
+      "accepted": true,
+      "nis": 0.04974537693321245,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 122,
+      "gated_count": 76,
+      "selected_point_index": 82,
+      "selected_xyz_m": [
+        0.21899235248565674,
+        0.7037923336029053,
+        8.991434097290039
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 80.705457,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 80.71365,
+      "accepted": true,
+      "nis": 0.025984956778299477,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 125,
+      "gated_count": 65,
+      "selected_point_index": 92,
+      "selected_xyz_m": [
+        0.3421177566051483,
+        0.5924761891365051,
+        8.99561595916748
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 80.780071,
+      "accepted": true,
+      "nis": 0.02621776933305658,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 125,
+      "gated_count": 60,
+      "selected_point_index": 96,
+      "selected_xyz_m": [
+        0.39411115646362305,
+        0.5924761891365051,
+        8.993488311767578
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 80.847766,
+      "accepted": true,
+      "nis": 0.03883037869944847,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 126,
+      "gated_count": 56,
+      "selected_point_index": 97,
+      "selected_xyz_m": [
+        0.390971839427948,
+        0.5924761891365051,
+        8.993623733520508
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 80.905296,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 80.981331,
+      "accepted": true,
+      "nis": 0.05267604935762056,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 132,
+      "gated_count": 51,
+      "selected_point_index": 107,
+      "selected_xyz_m": [
+        0.5140056014060974,
+        0.5367830395698547,
+        8.99092960357666
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 81.045483,
+      "accepted": true,
+      "nis": 0.06778904627236104,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 132,
+      "gated_count": 49,
+      "selected_point_index": 107,
+      "selected_xyz_m": [
+        0.510867178440094,
+        0.5367830395698547,
+        8.991106986999512
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 81.10531,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 81.113561,
+      "accepted": true,
+      "nis": 0.07756800530391368,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 136,
+      "gated_count": 43,
+      "selected_point_index": 115,
+      "selected_xyz_m": [
+        0.5630285739898682,
+        0.4810693860054016,
+        8.991144180297852
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 81.180101,
+      "accepted": true,
+      "nis": 0.09850812328503136,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 136,
+      "gated_count": 42,
+      "selected_point_index": 115,
+      "selected_xyz_m": [
+        0.5645977854728699,
+        0.4810693860054016,
+        8.991045951843262
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 81.247794,
+      "accepted": true,
+      "nis": 0.13420135747046671,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 145,
+      "gated_count": 38,
+      "selected_point_index": 125,
+      "selected_xyz_m": [
+        0.5630285143852234,
+        0.4810693860054016,
+        8.991144180297852
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 81.305349,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 81.312639,
+      "accepted": true,
+      "nis": 0.16062805718995868,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 145,
+      "gated_count": 38,
+      "selected_point_index": 125,
+      "selected_xyz_m": [
+        0.5645977258682251,
+        0.4810693860054016,
+        8.991045951843262
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 81.380819,
+      "accepted": true,
+      "nis": 0.1096900411201678,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 152,
+      "gated_count": 33,
+      "selected_point_index": 139,
+      "selected_xyz_m": [
+        0.6325735449790955,
+        0.4044334590435028,
+        8.99029541015625
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 81.445492,
+      "accepted": true,
+      "nis": 0.12760570758766934,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 152,
+      "gated_count": 33,
+      "selected_point_index": 139,
+      "selected_xyz_m": [
+        0.6325735449790955,
+        0.4044334590435028,
+        8.99029541015625
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 81.505365,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 81.51327,
+      "accepted": true,
+      "nis": 0.21159344679797823,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 152,
+      "gated_count": 29,
+      "selected_point_index": 142,
+      "selected_xyz_m": [
+        0.6328762173652649,
+        0.2929123044013977,
+        8.994597434997559
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 81.578544,
+      "accepted": true,
+      "nis": 0.21126046313744296,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 152,
+      "gated_count": 29,
+      "selected_point_index": 142,
+      "selected_xyz_m": [
+        0.6328762173652649,
+        0.2929123044013977,
+        8.994597434997559
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 81.64764,
+      "accepted": true,
+      "nis": 0.16718476581494657,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 152,
+      "gated_count": 25,
+      "selected_point_index": 149,
+      "selected_xyz_m": [
+        0.6850234270095825,
+        0.21621447801589966,
+        8.992945671081543
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 81.705254,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 81.712642,
+      "accepted": true,
+      "nis": 0.16036513117906853,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 152,
+      "gated_count": 24,
+      "selected_point_index": 149,
+      "selected_xyz_m": [
+        0.6850234270095825,
+        0.21621447801589966,
+        8.992945671081543
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 81.780787,
+      "accepted": true,
+      "nis": 0.30239903885795094,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 148,
+      "gated_count": 20,
+      "selected_point_index": 145,
+      "selected_xyz_m": [
+        0.6331098675727844,
+        0.1604240983724594,
+        8.997919082641602
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 81.845528,
+      "accepted": true,
+      "nis": 0.26407328732339724,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 148,
+      "gated_count": 20,
+      "selected_point_index": 145,
+      "selected_xyz_m": [
+        0.6331098675727844,
+        0.1604240983724594,
+        8.997919082641602
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 81.905142,
+      "accepted": false,
+      "nis": null,
+      "reason": "disabled in radar-only baseline"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 81.91394,
+      "accepted": true,
+      "nis": 2.670629116067865,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 150,
+      "gated_count": 17,
+      "selected_point_index": 147,
+      "selected_xyz_m": [
+        0.21650570631027222,
+        0.07672768831253052,
+        9.018668174743652
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 81.978926,
+      "accepted": true,
+      "nis": 1.8670172859289123,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 150,
+      "gated_count": 17,
+      "selected_point_index": 147,
+      "selected_xyz_m": [
+        0.21650570631027222,
+        0.07672768831253052,
+        9.018668174743652
+      ],
+      "reason": "nearest gated XYZ"
+    }
+  ],
+  "radar_camera": [
+    {
+      "sensor": "radar",
+      "timestamp": 72.512097,
+      "accepted": true,
+      "nis": null,
+      "reason": "initialization once",
+      "selected_point_index": 6
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 72.580177,
+      "accepted": true,
+      "nis": 0.0,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 24,
+      "gated_count": 24,
+      "selected_point_index": 7,
+      "selected_xyz_m": [
+        0.05214371532201767,
+        -0.1325264722108841,
+        9.020475387573242
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 72.646386,
+      "accepted": true,
+      "nis": 0.0,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 24,
+      "gated_count": 24,
+      "selected_point_index": 7,
+      "selected_xyz_m": [
+        0.05214371532201767,
+        -0.1325264722108841,
+        9.020475387573242
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 72.70613,
+      "accepted": true,
+      "nis": 0.35072981083674715,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.0814625238498281,
+        0.30061749801216914
+      ],
+      "prediction_normalized_xy": [
+        -0.07158121008018899,
+        0.27220286458364745
+      ],
+      "optical_depth_m": 9.299114304280913,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 72.714333,
+      "accepted": true,
+      "nis": 0.19659064258096687,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 23,
+      "gated_count": 23,
+      "selected_point_index": 11,
+      "selected_xyz_m": [
+        0.05276826024055481,
+        -0.07764111459255219,
+        9.092304229736328
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 72.778996,
+      "accepted": true,
+      "nis": 0.22796009452263116,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 23,
+      "gated_count": 23,
+      "selected_point_index": 11,
+      "selected_xyz_m": [
+        0.05276826024055481,
+        -0.07764111459255219,
+        9.083250999450684
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 72.847401,
+      "accepted": true,
+      "nis": 0.21938408426981523,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 24,
+      "gated_count": 24,
+      "selected_point_index": 12,
+      "selected_xyz_m": [
+        0.05276826024055481,
+        -0.07764111459255219,
+        9.128517150878906
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 72.905948,
+      "accepted": true,
+      "nis": 0.0002585277608796283,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.08152945468786957,
+        0.3009701101856293
+      ],
+      "prediction_normalized_xy": [
+        -0.08149144404918998,
+        0.30027956097155006
+      ],
+      "optical_depth_m": 9.307683096530875,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 73.105604,
+      "accepted": true,
+      "nis": 0.004465076391709745,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.0843988998469795,
+        0.30344730279188653
+      ],
+      "prediction_normalized_xy": [
+        -0.08406377435330664,
+        0.3056763764182206
+      ],
+      "optical_depth_m": 9.341520958457984,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 73.247155,
+      "accepted": true,
+      "nis": 0.30069175153058675,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 28,
+      "gated_count": 28,
+      "selected_point_index": 19,
+      "selected_xyz_m": [
+        0.05339084938168526,
+        -0.021424204111099243,
+        9.236221313476562
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 73.305927,
+      "accepted": true,
+      "nis": 0.029068004350639463,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.08546973789514765,
+        0.3011965908361097
+      ],
+      "prediction_normalized_xy": [
+        -0.08548085729209312,
+        0.3059631674832078
+      ],
+      "optical_depth_m": 9.407199204501556,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 73.505736,
+      "accepted": true,
+      "nis": 0.05583718764633521,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.08458499294628297,
+        0.30572543455003215
+      ],
+      "prediction_normalized_xy": [
+        -0.08743868145790157,
+        0.3044127533050267
+      ],
+      "optical_depth_m": 9.466897150038436,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 73.514179,
+      "accepted": true,
+      "nis": 0.31094942532284947,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 32,
+      "gated_count": 32,
+      "selected_point_index": 23,
+      "selected_xyz_m": [
+        0.05339084938168526,
+        -0.021424204111099243,
+        9.236221313476562
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 73.647337,
+      "accepted": true,
+      "nis": 0.3051423766592065,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 33,
+      "gated_count": 33,
+      "selected_point_index": 24,
+      "selected_xyz_m": [
+        0.05339084938168526,
+        -0.021424204111099243,
+        9.236221313476562
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 73.705526,
+      "accepted": true,
+      "nis": 0.5757794043095661,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.09375548777010569,
+        0.3047751292854122
+      ],
+      "prediction_normalized_xy": [
+        -0.0847670967659556,
+        0.30532666557288196
+      ],
+      "optical_depth_m": 9.438258720392982,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 73.781353,
+      "accepted": true,
+      "nis": 0.3248003873503137,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 36,
+      "gated_count": 36,
+      "selected_point_index": 2,
+      "selected_xyz_m": [
+        -0.05276826024055481,
+        0.07764111459255219,
+        9.128517150878906
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 73.905504,
+      "accepted": true,
+      "nis": 0.9456539667995439,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.10414340172612965,
+        0.3100577336629538
+      ],
+      "prediction_normalized_xy": [
+        -0.09277666355031279,
+        0.305787084287837
+      ],
+      "optical_depth_m": 9.397794017421676,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 73.914789,
+      "accepted": true,
+      "nis": 0.4812051435772318,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 40,
+      "gated_count": 40,
+      "selected_point_index": 6,
+      "selected_xyz_m": [
+        -0.05276826024055481,
+        0.07764111459255219,
+        9.128517150878906
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 74.047845,
+      "accepted": true,
+      "nis": 0.22514049434437058,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 44,
+      "gated_count": 44,
+      "selected_point_index": 1,
+      "selected_xyz_m": [
+        -0.17588429152965546,
+        -0.07764111459255219,
+        9.126975059509277
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 74.105664,
+      "accepted": true,
+      "nis": 0.23920446079032753,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.11006364578818277,
+        0.31268344102139517
+      ],
+      "prediction_normalized_xy": [
+        -0.10470465566440966,
+        0.3084965775003396
+      ],
+      "optical_depth_m": 9.32412769240641,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 74.180623,
+      "accepted": true,
+      "nis": 0.19560123385911846,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 48,
+      "gated_count": 48,
+      "selected_point_index": 0,
+      "selected_xyz_m": [
+        -0.23133468627929688,
+        -0.04998961091041565,
+        9.233366966247559
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 74.305895,
+      "accepted": true,
+      "nis": 0.02270502084775887,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.11643924119352292,
+        0.3133247004445443
+      ],
+      "prediction_normalized_xy": [
+        -0.11475561219640436,
+        0.31212385437796114
+      ],
+      "optical_depth_m": 9.325439064965188,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 74.314431,
+      "accepted": true,
+      "nis": 0.1700312189979226,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 52,
+      "gated_count": 52,
+      "selected_point_index": 0,
+      "selected_xyz_m": [
+        -0.2847076952457428,
+        -0.021424204111099243,
+        9.231986045837402
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 74.379516,
+      "accepted": true,
+      "nis": 0.2141874387556553,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 52,
+      "gated_count": 52,
+      "selected_point_index": 0,
+      "selected_xyz_m": [
+        -0.2847076952457428,
+        -0.021424204111099243,
+        9.241044044494629
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 74.448084,
+      "accepted": true,
+      "nis": 0.13668535050627723,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 56,
+      "gated_count": 56,
+      "selected_point_index": 0,
+      "selected_xyz_m": [
+        -0.40430137515068054,
+        0.23995687067508698,
+        9.1168851852417
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 74.505519,
+      "accepted": true,
+      "nis": 0.2541518616675849,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.12767861978500997,
+        0.3167371119704132
+      ],
+      "prediction_normalized_xy": [
+        -0.12198744700912086,
+        0.31386696789400137
+      ],
+      "optical_depth_m": 9.307419006247585,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 74.512678,
+      "accepted": true,
+      "nis": 0.15172733960912538,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 56,
+      "gated_count": 56,
+      "selected_point_index": 0,
+      "selected_xyz_m": [
+        -0.40430137515068054,
+        0.23995687067508698,
+        9.1168851852417
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 74.581154,
+      "accepted": true,
+      "nis": 0.1719555340370147,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 60,
+      "gated_count": 60,
+      "selected_point_index": 2,
+      "selected_xyz_m": [
+        -0.40430137515068054,
+        0.23995687067508698,
+        9.1168851852417
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 74.646733,
+      "accepted": true,
+      "nis": 0.2028946449000599,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 60,
+      "gated_count": 60,
+      "selected_point_index": 2,
+      "selected_xyz_m": [
+        -0.40430137515068054,
+        0.23995687067508698,
+        9.1168851852417
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 74.705542,
+      "accepted": true,
+      "nis": 0.08184961819098319,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.13541424305310842,
+        0.3206469888684318
+      ],
+      "prediction_normalized_xy": [
+        -0.1325131992017554,
+        0.3174871280150862
+      ],
+      "optical_depth_m": 9.239957181345318,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 74.71536,
+      "accepted": true,
+      "nis": 0.13461892661128552,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 63,
+      "gated_count": 63,
+      "selected_point_index": 1,
+      "selected_xyz_m": [
+        -0.474712997674942,
+        0.049408335238695145,
+        9.116515159606934
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 74.847762,
+      "accepted": true,
+      "nis": 0.2488789542573867,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 66,
+      "gated_count": 66,
+      "selected_point_index": 1,
+      "selected_xyz_m": [
+        -0.474712997674942,
+        0.049408335238695145,
+        9.116515159606934
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 74.905521,
+      "accepted": true,
+      "nis": 0.12105070687878092,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.14070764227370805,
+        0.3282672350094331
+      ],
+      "prediction_normalized_xy": [
+        -0.14195528818820352,
+        0.32081655269126014
+      ],
+      "optical_depth_m": 9.198679801489769,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 74.980361,
+      "accepted": true,
+      "nis": 0.3747673872549675,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 70,
+      "gated_count": 70,
+      "selected_point_index": 4,
+      "selected_xyz_m": [
+        -0.47468802332878113,
+        0.10587314516305923,
+        9.116035461425781
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 75.105733,
+      "accepted": true,
+      "nis": 0.14163493964087093,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.14915251436959234,
+        0.3360838351657301
+      ],
+      "prediction_normalized_xy": [
+        -0.14829916223459458,
+        0.32770709823518634
+      ],
+      "optical_depth_m": 9.158746353273244,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 75.114509,
+      "accepted": true,
+      "nis": 0.12510918808952565,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 72,
+      "gated_count": 72,
+      "selected_point_index": 0,
+      "selected_xyz_m": [
+        -0.6578308939933777,
+        0.16424371302127838,
+        9.211480140686035
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 75.248464,
+      "accepted": true,
+      "nis": 0.17875207677946153,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 76,
+      "gated_count": 76,
+      "selected_point_index": 0,
+      "selected_xyz_m": [
+        -0.6578308939933777,
+        0.16424371302127838,
+        9.211480140686035
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 75.305566,
+      "accepted": true,
+      "nis": 0.12817520696826418,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.1523721092091862,
+        0.34078939349176524
+      ],
+      "prediction_normalized_xy": [
+        -0.15584965024051112,
+        0.3361780743981853
+      ],
+      "optical_depth_m": 9.1678849333534,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 75.380267,
+      "accepted": true,
+      "nis": 0.2266458445891015,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 79,
+      "gated_count": 79,
+      "selected_point_index": 0,
+      "selected_xyz_m": [
+        -0.6578308939933777,
+        0.16424371302127838,
+        9.211480140686035
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 75.505862,
+      "accepted": true,
+      "nis": 0.46457753911556593,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.15285735778498663,
+        0.35238516689590194
+      ],
+      "prediction_normalized_xy": [
+        -0.1595188514896341,
+        0.34351002117450813
+      ],
+      "optical_depth_m": 9.161233763765011,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 75.515339,
+      "accepted": true,
+      "nis": 0.1995333453957506,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 80,
+      "gated_count": 80,
+      "selected_point_index": 1,
+      "selected_xyz_m": [
+        -0.6575880646705627,
+        0.29988640546798706,
+        9.20807933807373
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 75.579306,
+      "accepted": true,
+      "nis": 0.22524300625257754,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 80,
+      "gated_count": 80,
+      "selected_point_index": 1,
+      "selected_xyz_m": [
+        -0.6575880646705627,
+        0.29988640546798706,
+        9.20807933807373
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 75.647561,
+      "accepted": true,
+      "nis": 0.23970888196463608,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 81,
+      "gated_count": 81,
+      "selected_point_index": 2,
+      "selected_xyz_m": [
+        -0.6575188040733337,
+        0.3284355103969574,
+        9.207110404968262
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 75.705568,
+      "accepted": true,
+      "nis": 0.05392997975291098,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.1563507765810503,
+        0.3583653260940766
+      ],
+      "prediction_normalized_xy": [
+        -0.1571388812261912,
+        0.3533571550247136
+      ],
+      "optical_depth_m": 9.155417029638075,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 75.71246,
+      "accepted": true,
+      "nis": 0.26059650017264285,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 81,
+      "gated_count": 81,
+      "selected_point_index": 2,
+      "selected_xyz_m": [
+        -0.6575188040733337,
+        0.3284355103969574,
+        9.207110404968262
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 75.780136,
+      "accepted": true,
+      "nis": 0.2663927945368375,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 83,
+      "gated_count": 83,
+      "selected_point_index": 3,
+      "selected_xyz_m": [
+        -0.6573615670204163,
+        0.3855239748954773,
+        9.20490837097168
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 75.845943,
+      "accepted": true,
+      "nis": 0.27756366053772535,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 83,
+      "gated_count": 83,
+      "selected_point_index": 3,
+      "selected_xyz_m": [
+        -0.6573615670204163,
+        0.3855239748954773,
+        9.20490837097168
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 75.90559,
+      "accepted": true,
+      "nis": 0.7387079938803632,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.14722604269898443,
+        0.36535749149129026
+      ],
+      "prediction_normalized_xy": [
+        -0.15709339249838072,
+        0.3615795701799389
+      ],
+      "optical_depth_m": 9.138130355551946,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 75.914673,
+      "accepted": true,
+      "nis": 0.155376536073755,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 82,
+      "gated_count": 82,
+      "selected_point_index": 3,
+      "selected_xyz_m": [
+        -0.6573615670204163,
+        0.3855239748954773,
+        9.20490837097168
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 76.047761,
+      "accepted": true,
+      "nis": 0.15872228590788579,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 84,
+      "gated_count": 84,
+      "selected_point_index": 3,
+      "selected_xyz_m": [
+        -0.6573615670204163,
+        0.3855239748954773,
+        9.20490837097168
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 76.105493,
+      "accepted": true,
+      "nis": 0.7009225342353128,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.13978057995966128,
+        0.3774586953627536
+      ],
+      "prediction_normalized_xy": [
+        -0.1488022729329832,
+        0.369748729124206
+      ],
+      "optical_depth_m": 9.127653143360861,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 76.180824,
+      "accepted": true,
+      "nis": 0.4745112979869577,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 85,
+      "gated_count": 85,
+      "selected_point_index": 29,
+      "selected_xyz_m": [
+        -0.47936326265335083,
+        0.5780759453773499,
+        9.205820083618164
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 76.305559,
+      "accepted": true,
+      "nis": 1.9463693624031224,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.12092940801492966,
+        0.3824962981297988
+      ],
+      "prediction_normalized_xy": [
+        -0.1376258763231836,
+        0.3813863835476918
+      ],
+      "optical_depth_m": 9.107093452750386,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 76.313552,
+      "accepted": true,
+      "nis": 0.11840773875756519,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 88,
+      "gated_count": 88,
+      "selected_point_index": 29,
+      "selected_xyz_m": [
+        -0.47936326265335083,
+        0.5780759453773499,
+        9.205820083618164
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 76.447883,
+      "accepted": true,
+      "nis": 0.06979956105382329,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 91,
+      "gated_count": 91,
+      "selected_point_index": 29,
+      "selected_xyz_m": [
+        -0.47936326265335083,
+        0.5780759453773499,
+        9.205820083618164
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 76.505585,
+      "accepted": true,
+      "nis": 0.824278420043453,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.10560659932867877,
+        0.387505915495484
+      ],
+      "prediction_normalized_xy": [
+        -0.11634448132677261,
+        0.38916829763342453
+      ],
+      "optical_depth_m": 9.099770907144975,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 76.580473,
+      "accepted": true,
+      "nis": 0.41942921802118777,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 92,
+      "gated_count": 92,
+      "selected_point_index": 66,
+      "selected_xyz_m": [
+        -0.1771426945924759,
+        0.8841785788536072,
+        9.192276000976562
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 76.64534,
+      "accepted": true,
+      "nis": 0.24421047301786508,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 92,
+      "gated_count": 92,
+      "selected_point_index": 66,
+      "selected_xyz_m": [
+        -0.1787470281124115,
+        0.8841785788536072,
+        9.192244529724121
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 76.70561,
+      "accepted": true,
+      "nis": 0.20698294610996415,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.08983148629999645,
+        0.3882697608561148
+      ],
+      "prediction_normalized_xy": [
+        -0.09368716164927482,
+        0.39536238908718574
+      ],
+      "optical_depth_m": 9.08898358356077,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 76.714492,
+      "accepted": true,
+      "nis": 0.07254056625146586,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 94,
+      "gated_count": 94,
+      "selected_point_index": 69,
+      "selected_xyz_m": [
+        -0.1771426945924759,
+        0.8841785788536072,
+        9.192276000976562
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 76.905522,
+      "accepted": true,
+      "nis": 0.11565853370170442,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.07443563308127506,
+        0.3902292283421325
+      ],
+      "prediction_normalized_xy": [
+        -0.07503741350512394,
+        0.39787497364155067
+      ],
+      "optical_depth_m": 9.094643816240731,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 76.98011,
+      "accepted": true,
+      "nis": 0.11035703690150178,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 90,
+      "gated_count": 90,
+      "selected_point_index": 69,
+      "selected_xyz_m": [
+        -0.1771426945924759,
+        0.8841785788536072,
+        9.192276000976562
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 77.105564,
+      "accepted": true,
+      "nis": 0.5275318719179238,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.06630311264634131,
+        0.38971913920831686
+      ],
+      "prediction_normalized_xy": [
+        -0.05901953862352224,
+        0.39891195506000815
+      ],
+      "optical_depth_m": 9.101729025167755,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 77.114571,
+      "accepted": true,
+      "nis": 0.24208943305219507,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 89,
+      "gated_count": 89,
+      "selected_point_index": 69,
+      "selected_xyz_m": [
+        -0.1771426945924759,
+        0.8841785788536072,
+        9.192276000976562
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 77.248036,
+      "accepted": true,
+      "nis": 0.5049359168967055,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 93,
+      "gated_count": 93,
+      "selected_point_index": 69,
+      "selected_xyz_m": [
+        -0.1771426945924759,
+        0.8841785788536072,
+        9.192276000976562
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 77.305469,
+      "accepted": true,
+      "nis": 0.7090077899783064,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.04561882905070311,
+        0.3837314086918954
+      ],
+      "prediction_normalized_xy": [
+        -0.05215849604948677,
+        0.3980477618908065
+      ],
+      "optical_depth_m": 9.10623088836018,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 77.381023,
+      "accepted": true,
+      "nis": 0.20303089342036762,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 94,
+      "gated_count": 94,
+      "selected_point_index": 85,
+      "selected_xyz_m": [
+        0.2839081287384033,
+        0.6920673251152039,
+        9.206059455871582
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 77.506057,
+      "accepted": true,
+      "nis": 0.6998080537014995,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.03932956130274259,
+        0.3765544885233353
+      ],
+      "prediction_normalized_xy": [
+        -0.032745957212512125,
+        0.39095512416489775
+      ],
+      "optical_depth_m": 9.144996094484116,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 77.513544,
+      "accepted": true,
+      "nis": 0.07018264399710233,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 94,
+      "gated_count": 94,
+      "selected_point_index": 81,
+      "selected_xyz_m": [
+        0.2839081287384033,
+        0.6920673251152039,
+        9.206059455871582
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 77.646932,
+      "accepted": true,
+      "nis": 0.0562289315151232,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 91,
+      "gated_count": 91,
+      "selected_point_index": 77,
+      "selected_xyz_m": [
+        0.2839081287384033,
+        0.6920673251152039,
+        9.206059455871582
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 77.705605,
+      "accepted": true,
+      "nis": 0.44150150037866376,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.02944003297094658,
+        0.36976638738927836
+      ],
+      "prediction_normalized_xy": [
+        -0.024114539722285302,
+        0.3808823022829837
+      ],
+      "optical_depth_m": 9.189043455447674,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 77.780205,
+      "accepted": true,
+      "nis": 0.0871672565632898,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 92,
+      "gated_count": 92,
+      "selected_point_index": 73,
+      "selected_xyz_m": [
+        0.2839081287384033,
+        0.6920673251152039,
+        9.206059455871582
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 77.905718,
+      "accepted": true,
+      "nis": 0.7127169516219203,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.024705173190688295,
+        0.3592582084296076
+      ],
+      "prediction_normalized_xy": [
+        -0.01678470659433174,
+        0.37112365924247687
+      ],
+      "optical_depth_m": 9.227108214961055,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 77.91326,
+      "accepted": true,
+      "nis": 0.12560674582324982,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 92,
+      "gated_count": 92,
+      "selected_point_index": 69,
+      "selected_xyz_m": [
+        0.2839081287384033,
+        0.6920673251152039,
+        9.206059455871582
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 78.047777,
+      "accepted": true,
+      "nis": 0.033375469820432394,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 93,
+      "gated_count": 81,
+      "selected_point_index": 74,
+      "selected_xyz_m": [
+        0.40831586718559265,
+        0.606582760810852,
+        9.20741081237793
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 78.105796,
+      "accepted": true,
+      "nis": 0.4613325602414531,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.02172095880609074,
+        0.3540361326459022
+      ],
+      "prediction_normalized_xy": [
+        -0.014119778636710233,
+        0.35896527165181363
+      ],
+      "optical_depth_m": 9.266737072735877,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 78.180964,
+      "accepted": true,
+      "nis": 0.02610514068331392,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 93,
+      "gated_count": 81,
+      "selected_point_index": 70,
+      "selected_xyz_m": [
+        0.40831586718559265,
+        0.606582760810852,
+        9.20741081237793
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 78.305898,
+      "accepted": true,
+      "nis": 0.5599005131231816,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.02186680987374594,
+        0.344620498363598
+      ],
+      "prediction_normalized_xy": [
+        -0.013329683825627438,
+        0.3494446867800463
+      ],
+      "optical_depth_m": 9.300351751463877,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 78.31332,
+      "accepted": true,
+      "nis": 0.017275297819009373,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 93,
+      "gated_count": 81,
+      "selected_point_index": 66,
+      "selected_xyz_m": [
+        0.40831586718559265,
+        0.606582760810852,
+        9.20741081237793
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 78.447462,
+      "accepted": true,
+      "nis": 0.0337670801322776,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 90,
+      "gated_count": 78,
+      "selected_point_index": 67,
+      "selected_xyz_m": [
+        0.532670259475708,
+        0.5495635867118835,
+        9.204636573791504
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 78.505563,
+      "accepted": true,
+      "nis": 1.472725331813959,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.029713111217692215,
+        0.33820966297557536
+      ],
+      "prediction_normalized_xy": [
+        -0.01545244905757686,
+        0.339142975244709
+      ],
+      "optical_depth_m": 9.330675844418188,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 78.580023,
+      "accepted": true,
+      "nis": 0.020419149994547962,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 86,
+      "gated_count": 86,
+      "selected_point_index": 59,
+      "selected_xyz_m": [
+        0.40831586718559265,
+        0.606582760810852,
+        9.20741081237793
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 78.705557,
+      "accepted": true,
+      "nis": 3.20417767842202,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.046671116528288044,
+        0.3311718479822239
+      ],
+      "prediction_normalized_xy": [
+        -0.025431546404547794,
+        0.3308304061680406
+      ],
+      "optical_depth_m": 9.35418719818665,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 78.714651,
+      "accepted": true,
+      "nis": 0.1947051004939929,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 84,
+      "gated_count": 84,
+      "selected_point_index": 57,
+      "selected_xyz_m": [
+        0.40831586718559265,
+        0.606582760810852,
+        9.20741081237793
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 78.847553,
+      "accepted": true,
+      "nis": 0.31235329646848353,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 80,
+      "gated_count": 80,
+      "selected_point_index": 53,
+      "selected_xyz_m": [
+        0.40831586718559265,
+        0.606582760810852,
+        9.20741081237793
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 78.906096,
+      "accepted": true,
+      "nis": 4.898133335472798,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.07071240155517246,
+        0.3201425683282292
+      ],
+      "prediction_normalized_xy": [
+        -0.04471431263661077,
+        0.32329626277711493
+      ],
+      "optical_depth_m": 9.36442129862857,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 78.980524,
+      "accepted": true,
+      "nis": 0.55385449755475,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 85,
+      "gated_count": 85,
+      "selected_point_index": 36,
+      "selected_xyz_m": [
+        -0.17579789459705353,
+        0.2963993549346924,
+        9.122493743896484
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 79.105722,
+      "accepted": true,
+      "nis": 1.7612933908861899,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.09273281335228956,
+        0.3137167242954854
+      ],
+      "prediction_normalized_xy": [
+        -0.07691529178912201,
+        0.3139391883527238
+      ],
+      "optical_depth_m": 9.333092458202156,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 79.114681,
+      "accepted": true,
+      "nis": 0.05064358687436893,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 84,
+      "gated_count": 84,
+      "selected_point_index": 34,
+      "selected_xyz_m": [
+        -0.17579789459705353,
+        0.2963993549346924,
+        9.122493743896484
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 79.247788,
+      "accepted": true,
+      "nis": 0.11507007640630802,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 84,
+      "gated_count": 84,
+      "selected_point_index": 31,
+      "selected_xyz_m": [
+        -0.17579792439937592,
+        0.2963993549346924,
+        9.122493743896484
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 79.305523,
+      "accepted": true,
+      "nis": 0.7914289423577734,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.11724433187406831,
+        0.30572543455003215
+      ],
+      "prediction_normalized_xy": [
+        -0.10671626205585315,
+        0.3061903350682068
+      ],
+      "optical_depth_m": 9.28675780762583,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 79.312635,
+      "accepted": true,
+      "nis": 0.4143800571991513,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 84,
+      "gated_count": 84,
+      "selected_point_index": 30,
+      "selected_xyz_m": [
+        -0.17588429152965546,
+        -0.07764111459255219,
+        9.126975059509277
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 79.380729,
+      "accepted": true,
+      "nis": 0.10171705348151408,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 85,
+      "gated_count": 76,
+      "selected_point_index": 15,
+      "selected_xyz_m": [
+        -0.3516923487186432,
+        -0.10587314516305923,
+        9.12160873413086
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 79.445488,
+      "accepted": true,
+      "nis": 0.21647897703276717,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 85,
+      "gated_count": 67,
+      "selected_point_index": 15,
+      "selected_xyz_m": [
+        -0.3516923487186432,
+        -0.10587314516305923,
+        9.130668640136719
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 79.505571,
+      "accepted": true,
+      "nis": 0.3173397045223646,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.1396335349366916,
+        0.3037521714252123
+      ],
+      "prediction_normalized_xy": [
+        -0.13442972684074675,
+        0.29603950647702465
+      ],
+      "optical_depth_m": 9.272271876864286,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 79.513851,
+      "accepted": true,
+      "nis": 0.5559641243021332,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 89,
+      "gated_count": 63,
+      "selected_point_index": 16,
+      "selected_xyz_m": [
+        -0.3516923487186432,
+        -0.10587314516305923,
+        9.12160873413086
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 79.580128,
+      "accepted": true,
+      "nis": 0.8560449248241448,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 89,
+      "gated_count": 63,
+      "selected_point_index": 16,
+      "selected_xyz_m": [
+        -0.3516923487186432,
+        -0.10587314516305923,
+        9.12160873413086
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 79.648485,
+      "accepted": true,
+      "nis": 0.17284196645772412,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 93,
+      "gated_count": 62,
+      "selected_point_index": 2,
+      "selected_xyz_m": [
+        -0.5799576044082642,
+        -0.19056209921836853,
+        9.108566284179688
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 79.705637,
+      "accepted": true,
+      "nis": 0.03998682585220913,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.1569933310138409,
+        0.29412079451995576
+      ],
+      "prediction_normalized_xy": [
+        -0.1583549213804615,
+        0.290503581894565
+      ],
+      "optical_depth_m": 9.253853918230053,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 79.712532,
+      "accepted": true,
+      "nis": 0.32135711545698953,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 93,
+      "gated_count": 60,
+      "selected_point_index": 2,
+      "selected_xyz_m": [
+        -0.5799576044082642,
+        -0.19056209921836853,
+        9.117637634277344
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 79.781238,
+      "accepted": true,
+      "nis": 0.027810434434167967,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 94,
+      "gated_count": 58,
+      "selected_point_index": 2,
+      "selected_xyz_m": [
+        -0.7728714942932129,
+        -0.19056209921836853,
+        9.094228744506836
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 79.845632,
+      "accepted": true,
+      "nis": 0.10880745164969335,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 94,
+      "gated_count": 52,
+      "selected_point_index": 2,
+      "selected_xyz_m": [
+        -0.7728714942932129,
+        -0.19056209921836853,
+        9.103314399719238
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 79.905644,
+      "accepted": true,
+      "nis": 0.1285402235706758,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.17809858448628058,
+        0.291894253927388
+      ],
+      "prediction_normalized_xy": [
+        -0.17826444776065634,
+        0.2839233154577612
+      ],
+      "optical_depth_m": 9.245036194152307,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 79.913465,
+      "accepted": true,
+      "nis": 0.11212354291438277,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 86,
+      "gated_count": 44,
+      "selected_point_index": 0,
+      "selected_xyz_m": [
+        -0.8882237076759338,
+        -0.22136244177818298,
+        9.190927505493164
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 79.979903,
+      "accepted": true,
+      "nis": 0.18376330542106437,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 86,
+      "gated_count": 40,
+      "selected_point_index": 0,
+      "selected_xyz_m": [
+        -0.8882237076759338,
+        -0.22136244177818298,
+        9.190927505493164
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 80.047767,
+      "accepted": true,
+      "nis": 0.050879686295128346,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 89,
+      "gated_count": 43,
+      "selected_point_index": 1,
+      "selected_xyz_m": [
+        -1.011959433555603,
+        -0.2713344395160675,
+        9.176786422729492
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 80.105971,
+      "accepted": true,
+      "nis": 0.34529094388546056,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.19276160195008507,
+        0.2876817100223419
+      ],
+      "prediction_normalized_xy": [
+        -0.1986178876976339,
+        0.28092216375326606
+      ],
+      "optical_depth_m": 9.274825037583943,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 80.112765,
+      "accepted": true,
+      "nis": 0.07882336003310571,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 89,
+      "gated_count": 43,
+      "selected_point_index": 1,
+      "selected_xyz_m": [
+        -1.0103576183319092,
+        -0.2713344395160675,
+        9.176962852478027
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 80.180863,
+      "accepted": true,
+      "nis": 0.07949359184202762,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 92,
+      "gated_count": 45,
+      "selected_point_index": 1,
+      "selected_xyz_m": [
+        -1.0652801990509033,
+        -0.16424371302127838,
+        9.17329216003418
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 80.245479,
+      "accepted": true,
+      "nis": 0.17812683485824476,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 92,
+      "gated_count": 45,
+      "selected_point_index": 1,
+      "selected_xyz_m": [
+        -1.0684822797775269,
+        -0.16424371302127838,
+        9.172918319702148
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 80.30599,
+      "accepted": true,
+      "nis": 1.028343742539762,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.2015247851046916,
+        0.2857781055674599
+      ],
+      "prediction_normalized_xy": [
+        -0.2127437180622698,
+        0.27870066570307117
+      ],
+      "optical_depth_m": 9.292086706923218,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 80.314036,
+      "accepted": true,
+      "nis": 0.03016504458206166,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 103,
+      "gated_count": 56,
+      "selected_point_index": 1,
+      "selected_xyz_m": [
+        -1.13580322265625,
+        -0.22136244177818298,
+        9.163625717163086
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 80.379272,
+      "accepted": true,
+      "nis": 0.09143132464281126,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 103,
+      "gated_count": 56,
+      "selected_point_index": 0,
+      "selected_xyz_m": [
+        -1.200960397720337,
+        -0.22393642365932465,
+        9.263592720031738
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 80.448352,
+      "accepted": true,
+      "nis": 0.10361244432820467,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 112,
+      "gated_count": 63,
+      "selected_point_index": 0,
+      "selected_xyz_m": [
+        -1.2041939496994019,
+        -0.22393642365932465,
+        9.263171195983887
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 80.505143,
+      "accepted": true,
+      "nis": 1.6924703878355936,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.2052548271873596,
+        0.2839638282106919
+      ],
+      "prediction_normalized_xy": [
+        -0.22002906201104494,
+        0.27799975395693866
+      ],
+      "optical_depth_m": 9.338327958708424,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 80.512673,
+      "accepted": true,
+      "nis": 0.030375752754580498,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 112,
+      "gated_count": 64,
+      "selected_point_index": 0,
+      "selected_xyz_m": [
+        -1.2041939496994019,
+        -0.22393642365932465,
+        9.263171195983887
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 80.580948,
+      "accepted": true,
+      "nis": 0.048625455626855205,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 122,
+      "gated_count": 72,
+      "selected_point_index": 2,
+      "selected_xyz_m": [
+        -1.2021620273590088,
+        -0.3322545289993286,
+        9.260184288024902
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 80.645731,
+      "accepted": true,
+      "nis": 0.07898761520255715,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 122,
+      "gated_count": 72,
+      "selected_point_index": 2,
+      "selected_xyz_m": [
+        -1.2053943872451782,
+        -0.3322545289993286,
+        9.25976276397705
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 80.705457,
+      "accepted": true,
+      "nis": 1.4232431518028,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.20656456543574858,
+        0.28183185807099437
+      ],
+      "prediction_normalized_xy": [
+        -0.22018703482033955,
+        0.277167625478854
+      ],
+      "optical_depth_m": 9.388189816798953,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 80.71365,
+      "accepted": true,
+      "nis": 0.021386885325565513,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 125,
+      "gated_count": 80,
+      "selected_point_index": 2,
+      "selected_xyz_m": [
+        -1.2037781476974487,
+        -0.3322545289993286,
+        9.25997257232666
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 80.780071,
+      "accepted": true,
+      "nis": 0.03774342142423126,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 125,
+      "gated_count": 80,
+      "selected_point_index": 2,
+      "selected_xyz_m": [
+        -1.2037781476974487,
+        -0.3322545289993286,
+        9.25997257232666
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 80.847766,
+      "accepted": true,
+      "nis": 0.05280285698614378,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 126,
+      "gated_count": 84,
+      "selected_point_index": 4,
+      "selected_xyz_m": [
+        -1.2070105075836182,
+        -0.3322545289993286,
+        9.259550094604492
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 80.905296,
+      "accepted": true,
+      "nis": 1.002430074500163,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.20503410648100584,
+        0.2784830034319018
+      ],
+      "prediction_normalized_xy": [
+        -0.21657258892367445,
+        0.2761627756519153
+      ],
+      "optical_depth_m": 9.420269497802911,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 80.981331,
+      "accepted": true,
+      "nis": 0.026129996040780663,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 132,
+      "gated_count": 96,
+      "selected_point_index": 6,
+      "selected_xyz_m": [
+        -1.2053942680358887,
+        -0.3322545289993286,
+        9.259760856628418
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 81.045483,
+      "accepted": true,
+      "nis": 0.025373689597247617,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 132,
+      "gated_count": 96,
+      "selected_point_index": 6,
+      "selected_xyz_m": [
+        -1.2086265087127686,
+        -0.3322545289993286,
+        9.25933837890625
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 81.10531,
+      "accepted": true,
+      "nis": 0.6512177089012786,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.20199480401739878,
+        0.27957895798121885
+      ],
+      "prediction_normalized_xy": [
+        -0.21101389895741549,
+        0.2745066089027607
+      ],
+      "optical_depth_m": 9.444550520761695,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 81.113561,
+      "accepted": true,
+      "nis": 0.025178918126037727,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 136,
+      "gated_count": 105,
+      "selected_point_index": 13,
+      "selected_xyz_m": [
+        -1.2037781476974487,
+        -0.3322545289993286,
+        9.25997257232666
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 81.180101,
+      "accepted": true,
+      "nis": 0.024429241400803547,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 136,
+      "gated_count": 105,
+      "selected_point_index": 13,
+      "selected_xyz_m": [
+        -1.2021619081497192,
+        -0.3322545289993286,
+        9.26018238067627
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 81.247794,
+      "accepted": true,
+      "nis": 0.025052772406269363,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 145,
+      "gated_count": 115,
+      "selected_point_index": 13,
+      "selected_xyz_m": [
+        -1.2037780284881592,
+        -0.3322545289993286,
+        9.25997257232666
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 81.305349,
+      "accepted": true,
+      "nis": 0.8392825784774023,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.1948038633253117,
+        0.2822806801616406
+      ],
+      "prediction_normalized_xy": [
+        -0.2047244008360115,
+        0.27497398327426337
+      ],
+      "optical_depth_m": 9.44850060788011,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 81.312639,
+      "accepted": true,
+      "nis": 0.03675984058990654,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 145,
+      "gated_count": 115,
+      "selected_point_index": 61,
+      "selected_xyz_m": [
+        -1.0755369663238525,
+        -0.3322545289993286,
+        9.27574348449707
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 81.380819,
+      "accepted": true,
+      "nis": 0.02386230317426028,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 152,
+      "gated_count": 127,
+      "selected_point_index": 65,
+      "selected_xyz_m": [
+        -1.0771559476852417,
+        -0.3322545289993286,
+        9.275555610656738
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 81.445492,
+      "accepted": true,
+      "nis": 0.01610413268534778,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 152,
+      "gated_count": 127,
+      "selected_point_index": 65,
+      "selected_xyz_m": [
+        -1.0771559476852417,
+        -0.3322545289993286,
+        9.275555610656738
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 81.505365,
+      "accepted": true,
+      "nis": 0.9166575045941234,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.18498826673181093,
+        0.28888106606408415
+      ],
+      "prediction_normalized_xy": [
+        -0.1942611460451314,
+        0.2771904591527066
+      ],
+      "optical_depth_m": 9.454256700640931,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 81.51327,
+      "accepted": true,
+      "nis": 0.010459358775381383,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 152,
+      "gated_count": 132,
+      "selected_point_index": 82,
+      "selected_xyz_m": [
+        -1.0334471464157104,
+        -0.27448949217796326,
+        9.282408714294434
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 81.578544,
+      "accepted": true,
+      "nis": 0.012803325963935235,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 152,
+      "gated_count": 132,
+      "selected_point_index": 83,
+      "selected_xyz_m": [
+        -1.030206561088562,
+        -0.27448949217796326,
+        9.282768249511719
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 81.64764,
+      "accepted": true,
+      "nis": 0.023259034803742907,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 152,
+      "gated_count": 137,
+      "selected_point_index": 83,
+      "selected_xyz_m": [
+        -1.030206561088562,
+        -0.27448949217796326,
+        9.282768249511719
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 81.705254,
+      "accepted": true,
+      "nis": 0.3567560872432495,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.1763614074847442,
+        0.2910291058980966
+      ],
+      "prediction_normalized_xy": [
+        -0.18205114386329183,
+        0.2834532708225615
+      ],
+      "optical_depth_m": 9.44950410015081,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 81.712642,
+      "accepted": true,
+      "nis": 0.08726193294370849,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 152,
+      "gated_count": 139,
+      "selected_point_index": 104,
+      "selected_xyz_m": [
+        -0.8545321822166443,
+        -0.22393642365932465,
+        9.301939010620117
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 81.780787,
+      "accepted": true,
+      "nis": 0.04487345156077875,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 148,
+      "gated_count": 140,
+      "selected_point_index": 101,
+      "selected_xyz_m": [
+        -0.8545321822166443,
+        -0.22393642365932465,
+        9.301939010620117
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 81.845528,
+      "accepted": true,
+      "nis": 0.01955753045823987,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 148,
+      "gated_count": 140,
+      "selected_point_index": 101,
+      "selected_xyz_m": [
+        -0.8545321822166443,
+        -0.22393642365932465,
+        9.301939010620117
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "camera",
+      "timestamp": 81.905142,
+      "accepted": true,
+      "nis": 0.2011892974250027,
+      "gate_nis": 9.210340371976184,
+      "observation_normalized_xy": [
+        -0.16605752556436945,
+        0.29636812953067027
+      ],
+      "prediction_normalized_xy": [
+        -0.16920474958282036,
+        0.28842714160402366
+      ],
+      "optical_depth_m": 9.45140441587611,
+      "reason": "normalized bearing EKF"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 81.91394,
+      "accepted": true,
+      "nis": 0.01778120582163982,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 150,
+      "gated_count": 148,
+      "selected_point_index": 102,
+      "selected_xyz_m": [
+        -0.8529089093208313,
+        -0.22393642365932465,
+        9.302087783813477
+      ],
+      "reason": "nearest gated XYZ"
+    },
+    {
+      "sensor": "radar",
+      "timestamp": 81.978926,
+      "accepted": true,
+      "nis": 0.03141140180356437,
+      "gate_nis": 11.344866730144373,
+      "candidate_count": 150,
+      "gated_count": 149,
+      "selected_point_index": 102,
+      "selected_xyz_m": [
+        -0.8529089093208313,
+        -0.22393642365932465,
+        9.302087783813477
+      ],
+      "reason": "nearest gated XYZ"
+    }
+  ]
+}

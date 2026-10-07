@@ -3,7 +3,9 @@
 参考论文：[Data Fusion Approach for Unmodified UAV Tracking with Vision and mmWave Radar](https://doi.org/10.1109/ICUAS65942.2025.11007835)，ICUAS 2025。
 本项目是依据论文逐步编写的独立实现，**不是作者官方源码**。论文 PDF 不随代码发布。
 已完成第1–5步的算法和合成验证：Kalman、雷达、相机、异步回放、数据导入与统一评价；每步单独提交GitHub并保存说明。
-**当前结果是合成数据验证，不代表论文实测精度。**
+**1.5结果是合成数据验证，不代表论文实测精度。1.6另完成了标定受限的MMAUD真实短片段探索性对照。**
+
+版本1.6：固定9.5秒真实片段，三维RMSE为仅雷达1.082765米、雷达＋相机视线0.179381米，全部50次训练刚体扰动中融合误差较低。条件为**人工辅助视觉＋独立训练GT监督的局部实验投影**；官方完整标定、硬件同步与参考点关系尚未确证，不能作为设备精度或原论文表I逐数复现。D盘本机双击`run_v16.cmd`重跑；[结果解释与中文图](docs/v1_6_results.md)、[详细报告](output/v16_comparison/report.md)、[敏感性](output/v16_comparison/sensitivity_report.md)、[运行与恢复](docs/v1_6_run.md)、[每步记录](docs/v1_6_progress.md)。
 
 Windows双击`run_reproduction.cmd`运行端到端示例；结果在`output/local_reproduction`。GitHub参考报告见[第5步结果](output/step5/report.md)。
 

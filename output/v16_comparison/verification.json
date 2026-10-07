@@ -1,0 +1,39 @@
+{
+  "test_suite": {
+    "passed": 71,
+    "failed": 0,
+    "command": "python -m unittest discover -s tests -q"
+  },
+  "windows_entry": {
+    "path": "run_v16.cmd",
+    "exit_code": 0,
+    "main_and_all_50_draws_completed": true
+  },
+  "independent_read_only_audit": {
+    "source_sha_declarations_matched": 102,
+    "all_radar_candidate_sets_from_actual_arrays": 97,
+    "calibration_training_camera_correspondences": 31,
+    "calibration_training_radar_correspondences": 176,
+    "test_truth_used_for_fit_init_association_annotation_or_tuning": false,
+    "primary_metric_recalculation_max_difference_m": 2.3e-16,
+    "all_50_draw_baseline_metric_recalculation_max_difference_m": 2.3e-16,
+    "quantiles_recalculation_difference": 0
+  },
+  "chinese_plots_visually_inspected": [
+    "trajectory.png",
+    "time_error.png",
+    "mean_error_comparison.png",
+    "sensitivity.png"
+  ],
+  "effective_output_count": 949,
+  "scoring_original_truth_samples": 48,
+  "scoring_truth_samples_inside_selected_clip": 46,
+  "maximum_scoring_truth_gap_s": 0.252072,
+  "actual_camera_updates": 47,
+  "model_sha256": "be9281c8dcd3fc7bae85c1b4b884ad039e2733027921f8e32326f3d713c88a8f",
+  "primary_metrics_sha256": "20004bbd5c61974a2696724a258c80316cbf23720933c5f16ebd86e0dfee65c8",
+  "sensitivity_sha256": "433a6e15ced6497fee03271d4c33b3272fde9949e9df3aa998fce2fbc4b03f25",
+  "recorded_utc": "2026-10-07T06:18:54.711595+00:00",
+  "python": "3.13.14",
+  "scope": "Exploratory held-out short clip: manual-assisted vision and training-GT-supervised local projection; physical calibration, full uncertainty and hardware accuracy remain unverified."
+}
