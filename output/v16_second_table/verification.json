@@ -1,0 +1,52 @@
+{
+  "source_json_sha256": "ba388782131775ddc4dc21fae827ce246359fdcaf76b2da0c1d885b2b0bd0abb",
+  "workbook_sha256": "1306961286eb527f5860700463f8e4a6c342623355bf179dd71afcb2fb535b40",
+  "csv_sha256": "5e33e6ab6da5e805a9c9a66e8dc7becde44409091a36f67a0cb3144bb80b9116",
+  "worksheets": [
+    "Position",
+    "Velocity"
+  ],
+  "records_per_sheet": 20,
+  "interval_seconds": 1,
+  "time_since_initialization_seconds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "exact_saved_tick_indices": [
+    0,
+    100,
+    200,
+    300,
+    400,
+    500,
+    600,
+    700,
+    800,
+    900
+  ],
+  "source_npz_state_and_P_diagonal_exactly_matched": true,
+  "independent_reference_position_velocity_max_difference": 3.6e-15,
+  "original_GT_file_hashes_verified": 54,
+  "reference_velocity_is_direct_measurement": false,
+  "GT_velocity_variance_known": false,
+  "GT_no_extrapolation_or_gap_above_0_30_seconds": true,
+  "full_precision_numbers_preserved": true,
+  "V_and_V_ref_formula_values_recalculated_and_matched": true,
+  "formula_error_count": 0,
+  "both_sheets_visually_checked": true,
+  "exported_freeze_panes": {
+    "xSplit": 2,
+    "ySplit": 11
+  },
+  "native_desktop_Excel_recalculation_tested": false,
+  "primary_metrics_sha256_unchanged": "20004bbd5c61974a2696724a258c80316cbf23720933c5f16ebd86e0dfee65c8",
+  "primary_npz_sha256_unchanged": "64f4d31b62742e97d1c0c1db3c6d315e968f03dee041bf08107e7736e4285137"
+}

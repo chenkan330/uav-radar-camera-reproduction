@@ -2,4 +2,5 @@
 # Preserve their exact line endings on Windows and other hosts.
 output/v16_calibration/** -text whitespace=cr-at-eol
 output/v16_comparison/** -text whitespace=cr-at-eol
+output/v16_second_table/** -text whitespace=cr-at-eol
 run*.cmd text eol=crlf

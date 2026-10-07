@@ -7,6 +7,8 @@
 
 版本1.6：固定9.5秒真实片段，三维RMSE为仅雷达1.082765米、雷达＋相机视线0.179381米，全部50次训练刚体扰动中融合误差较低。条件为**人工辅助视觉＋独立训练GT监督的局部实验投影**；官方完整标定、硬件同步与参考点关系尚未确证，不能作为设备精度或原论文表I逐数复现。D盘本机双击`run_v16.cmd`重跑；[结果解释与中文图](docs/v1_6_results.md)、[详细报告](output/v16_comparison/report.md)、[敏感性](output/v16_comparison/sensitivity_report.md)、[运行与恢复](docs/v1_6_run.md)、[每步记录](docs/v1_6_progress.md)。
 
+1.6表格补充：[每秒位置/速度/方差报告](output/v16_second_table/report.md)、[Excel](output/v16_second_table/outputs/01a11067-689a-71a3-a0e4-e3f048b42212/mmaud_1s_table.xlsx)、[符号和计算方法](docs/v1_6_second_table.md)。t=0–9 s，每秒列两种方法的x/y/z、Vx/Vy/Vz/V、真值位置与V_ref、六项P后验方差。V_ref由真实位置1秒中心差分得到，源数据未直接测速度；符号和SI单位保留英文。
+
 Windows双击`run_reproduction.cmd`运行端到端示例；结果在`output/local_reproduction`。GitHub参考报告见[第5步结果](output/step5/report.md)。
 
 验证：全部62项检查通过；三个种子共33组对比。步骤提交与限制见[复现日志](docs/reproduction_log.md)。

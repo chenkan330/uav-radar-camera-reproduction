@@ -1,0 +1,1236 @@
+{
+  "metadata": {
+    "version": "1.6",
+    "dataset": "MMAUD",
+    "table_kind": "exact saved one-second posterior samples",
+    "method_labels": {
+      "radar_only": "仅雷达",
+      "radar_camera": "雷达＋相机"
+    },
+    "record_count": 20,
+    "sample_count_per_method": 10,
+    "state_order": [
+      "x",
+      "Vx",
+      "y",
+      "Vy",
+      "z",
+      "Vz"
+    ],
+    "frame": "primary radar coordinate frame",
+    "initialization_timestamp_s": 72.512097,
+    "time_origin_ns": 1692846887000000000,
+    "selected_interval_s": [
+      72.5,
+      82.0
+    ],
+    "saved_tick_indices": [
+      0,
+      100,
+      200,
+      300,
+      400,
+      500,
+      600,
+      700,
+      800,
+      900
+    ],
+    "sampling_interval_s": 1.0,
+    "saved_filter_grid_hz": 100,
+    "filter_rerun": false,
+    "filter_interpolation": false,
+    "source_sha256": {
+      "primary_metrics_json": "20004bbd5c61974a2696724a258c80316cbf23720933c5f16ebd86e0dfee65c8",
+      "primary_tracks_npz": "64f4d31b62742e97d1c0c1db3c6d315e968f03dee041bf08107e7736e4285137",
+      "local_model_json": "be9281c8dcd3fc7bae85c1b4b884ad039e2733027921f8e32326f3d713c88a8f",
+      "ground_truth_archive_span_bin": "a91ff0ee272adc52574a307a6ba482c8c055068fc5331465c16a460f49e88947",
+      "prepared_inputs": {
+        "prepared_v16/clip.json": "4eba152dcedcc68a319557c611fc6d1712a4be60e8e8635aeae6a593fa983dee",
+        "prepared_v16/radar.csv": "1013bb2eada54334f746e0d3e9988cefa852686e8da2fa024376150af2746052",
+        "prepared_v16/camera.csv": "7de6b3d17a1837cfe1a5568a6853545a32eb2e18608bbe4f9066541ebfe0917f",
+        "prepared_v16/truth.csv": "9ba29368f0ee5f5726883799d0fc61fa446846d8d1a8d4764a7cdbf8a97978b8"
+      }
+    },
+    "original_gt_file_sha256": {
+      "Mavic3/ground_truth/1692846958.882726.npy": "69e7483bdebf70b5164e6cfeab35fd70376b48c8d0c5ad266011751040ba9276",
+      "Mavic3/ground_truth/1692846959.083612.npy": "0e35d557afce367ff4149f6ac12941c7fec8f4f6a1d829f05e5fb53e0d079a69",
+      "Mavic3/ground_truth/1692846959.283733.npy": "9e054e93c8817bb41ce6dc94eb0bb1d61b79c0c9f77e53da2aaeaf5f72f985e5",
+      "Mavic3/ground_truth/1692846959.481631.npy": "a5ff57f2dacfc6c6ec0d9eb945a7a3fd482f8cc9a38675b8ef27ae03945c97c7",
+      "Mavic3/ground_truth/1692846959.682032.npy": "c113f3041e343f47bd7e6d66eb20ceedbb64bce34c6dc10d0939cd58c140fd68",
+      "Mavic3/ground_truth/1692846959.881949.npy": "4b14770084807824c73fb34e08abffacf014932f3c91964ccd9c248609bd2e8a",
+      "Mavic3/ground_truth/1692846960.083898.npy": "4d56f6ea33fbfafeffc971e82058127b021cf24327d2f6fdb9103c394f5b370a",
+      "Mavic3/ground_truth/1692846960.283360.npy": "c9acc03dcfc01156c6fc996467837757c08b3a07a1f0fd3e443cbabff5acf611",
+      "Mavic3/ground_truth/1692846960.534340.npy": "0164165dbafb807d41e157c28a2565af729183dfa1a03a9fa6eedbcf8580f6b9",
+      "Mavic3/ground_truth/1692846960.747212.npy": "37bf0c9cead2503f579c03b7aef23a0f815d308af33776690b357312f00fd815",
+      "Mavic3/ground_truth/1692846960.984522.npy": "7aced628022b7de009a89abae37cd097df02ac5fe2316c6e23fed9a5fe6c5e24",
+      "Mavic3/ground_truth/1692846961.181469.npy": "cd54ee794e83459379265dc9dda5c1d3e0edc0a02f52aba86f152026507327e9",
+      "Mavic3/ground_truth/1692846961.383284.npy": "78887433b12a396e02f8e9dd1044c89a9938e2b739465bcb588506db5a50f6f6",
+      "Mavic3/ground_truth/1692846961.583612.npy": "8d0b112be1a4c2e2e99a8e2466e9c2ef3b3731a5c490ec81ce456d2cce157874",
+      "Mavic3/ground_truth/1692846961.781763.npy": "9a178e5f5f10ba60773a9b06531cd315d62c83cc0ddd4210ef40a13869fb7013",
+      "Mavic3/ground_truth/1692846961.983220.npy": "c120acbe9ea2ae0d499e528473de85df2a313ee08b35821471837e1f786d0976",
+      "Mavic3/ground_truth/1692846962.184451.npy": "1842516c4ef59e9428efd38e106e0756f337b78520e2e548b6db8ce516aa62ef",
+      "Mavic3/ground_truth/1692846962.380856.npy": "48acbdd16ee3a16b608df8808382b418c6de18e05e8530324371775694ae43f9",
+      "Mavic3/ground_truth/1692846962.581481.npy": "5c60a9de37f9335a94d4aa63ac02403077fbead6a7564ffaa3c438b81a68f938",
+      "Mavic3/ground_truth/1692846962.782360.npy": "00eae626a32003aeef4aa2740a22038f3e60628150ae495859e3841927dd5701",
+      "Mavic3/ground_truth/1692846962.984304.npy": "3cb972a76cddd638c905cee7cca34fbcf5740065bb27a9ca46a0cfdf0c08e4e2",
+      "Mavic3/ground_truth/1692846963.182302.npy": "e84474478b085d32ca37945154a644d36799921d89410eb346af6121c26dd417",
+      "Mavic3/ground_truth/1692846963.382704.npy": "97fa6ad62cb5e9bf2c0b107ffae0ecf34f0525c176a5a0af924d60bd46553e55",
+      "Mavic3/ground_truth/1692846963.584126.npy": "02fc53fdcc2feba9590fd050e061723a6df8342ae0716592c0cd8ec17752e1eb",
+      "Mavic3/ground_truth/1692846963.780657.npy": "b3a95039d199c0eb69c5dbea14c3a32e68584291716081ebf5ccddc36fd815ad",
+      "Mavic3/ground_truth/1692846963.985921.npy": "68e1c9776e6a553b6951d39fd1105c9218b8c9845a76aea631da935f5b86e69f",
+      "Mavic3/ground_truth/1692846964.184084.npy": "07529a3e753d1eb9d3e43426a6491d8cbd9b7445c6e01ba98da97e8a7349b740",
+      "Mavic3/ground_truth/1692846964.384002.npy": "217cc23977424a86c377993b39e170ea57cfdbb2ad999de50d82d5b5a1b56aa3",
+      "Mavic3/ground_truth/1692846964.583890.npy": "a83031c7e7c1d1db760b936f50f79e8656df7d2d695fa6d6f51059234ca30cd4",
+      "Mavic3/ground_truth/1692846964.780977.npy": "bd1148a1de4a01f8a922fd691acbc60f15e5d4059c0e1ec708105963bf20d812",
+      "Mavic3/ground_truth/1692846964.983831.npy": "40fd30b8f4e5ea3d1aeaae87a09d44af45a2ed38e322c0be66ce800726c88e0f",
+      "Mavic3/ground_truth/1692846965.182848.npy": "c7c3e5bb6719e7f18897c5b16e681aa45466bd9e996e2c7daa51528363d8ebe0",
+      "Mavic3/ground_truth/1692846965.382907.npy": "d082e615d0e75c66b0866bcca9406806d656de59322ba2b24bae1132518bdfa9",
+      "Mavic3/ground_truth/1692846965.584025.npy": "ef1399075e1ca59af83b335b3dff4559eb58c3db4f07c49a96af095179f02ca5",
+      "Mavic3/ground_truth/1692846965.781268.npy": "329fa8ad151cf0667c83638cb28e360893ea98b12fc538153d73a871e660d956",
+      "Mavic3/ground_truth/1692846965.982932.npy": "1b86b22d352771063a60fe7dbc101617ac76432afaae692670a7d572be3335a0",
+      "Mavic3/ground_truth/1692846966.184613.npy": "d84c87463b168c77ea9a7e47c1b24a48cb4b7f9ef4963e6da30e3caf8930b7b8",
+      "Mavic3/ground_truth/1692846966.382772.npy": "f25ae59ab518dcfdccbf98801582d615222fe123b2265e89b76467c38fbee0d3",
+      "Mavic3/ground_truth/1692846966.634844.npy": "a2c3cba58739e63da2243b0a2df081d78cda60dc8e1450b0d8eaf373afacbd07",
+      "Mavic3/ground_truth/1692846966.832422.npy": "37fc06f8d3e4912d72bbcd637d5dcad767b9af9f49b9582ad76dfc85ec177160",
+      "Mavic3/ground_truth/1692846967.034493.npy": "65c7ce644718bd47be890c47186fd5325f0bd3b3128b0bb12bc174d8ba84a7c6",
+      "Mavic3/ground_truth/1692846967.234947.npy": "eaf1370cf8fc37d7e7f9bdc55f18f7c83b805e19f85a4da676d031c7698f2f7b",
+      "Mavic3/ground_truth/1692846967.434549.npy": "d2f59b2b0319264e095ab95cf019567f19af21ab5cceedf0756ab03adad5fd00",
+      "Mavic3/ground_truth/1692846967.631612.npy": "ad25a86565d4a5c7441861040f3b3a3116d31665522616ec3f5c9bf388e313e8",
+      "Mavic3/ground_truth/1692846967.834175.npy": "9548a383d80631100e7a57bc3644c9b461df9dea30d28a3384ad2b1bd2c8137a",
+      "Mavic3/ground_truth/1692846968.034833.npy": "dfd0a428e2a78f21a73b720a85428d315ecc14a17cdec3860abac682a9285706",
+      "Mavic3/ground_truth/1692846968.235941.npy": "05e044b17710a6be3709daf1dfb4daac3d327449b6d1d31c4d8a9a4ebbbdf881",
+      "Mavic3/ground_truth/1692846968.434927.npy": "95d2524b2abe1f96feefa29eff923c47811592e7732345ab220aec9659298042",
+      "Mavic3/ground_truth/1692846968.636269.npy": "d360d7b53a6e5afd4477af1c75db25e08b2642e3e51647db921082a98001b8ff",
+      "Mavic3/ground_truth/1692846968.836115.npy": "912db5cb56053cb92ef0ca18835b89c22ecc719f5604cbb57da88b7ee60f3eae",
+      "Mavic3/ground_truth/1692846969.035025.npy": "117959362103136376c36b821d5ac518c3ab09e1db183afcfae968aa0d47bdef",
+      "Mavic3/ground_truth/1692846969.234185.npy": "4f68840308871b09df06910ab3ecd3cf63deda6b118d2d7938dc7c9fc74a4f99",
+      "Mavic3/ground_truth/1692846969.434821.npy": "1994cb028beb2291d9d3b5d2619a5efdae021e47a7be645fd376d3fd09edb6ec",
+      "Mavic3/ground_truth/1692846969.634453.npy": "eced9e65b6d4b7d3d8a38e95434d140ae2483fa2923af5b5e00420ae288a671d"
+    },
+    "reference_source": "original MMAUD Leica XYZ position files; no measured velocity channel",
+    "V_ref_description": "centred one-second window-average approximation from linearly interpolated GT positions at t +/- 0.5 s; not directly measured or guaranteed instantaneous velocity",
+    "V_ref_formula": "R_primary.T @ (p_truth(t+0.5)-p_truth(t-0.5))/1.0",
+    "V_ref_scalar_description": "norm of the one-second average velocity vector, i.e. net displacement / 1 s; not average travelled-distance speed",
+    "V_ref_window_duration_s": 1.0,
+    "V_ref_half_window_s": 0.5,
+    "V_ref_variance_m2ps2": {
+      "Vx": null,
+      "Vy": null,
+      "Vz": null,
+      "V": null
+    },
+    "max_gt_interpolation_gap_s": 0.3,
+    "requested_gt_support_interval_s": [
+      71.9,
+      82.6
+    ],
+    "original_gt_file_count": 54,
+    "gt_boundary_policy": "all samples in selected interval +/- 0.6 s plus at most one actual preceding/following support sample; no extrapolation",
+    "actual_gt_support_interval_s": [
+      71.882726,
+      82.634453
+    ],
+    "gt_source_files_in_sample_index_order": [
+      "Mavic3/ground_truth/1692846958.882726.npy",
+      "Mavic3/ground_truth/1692846959.083612.npy",
+      "Mavic3/ground_truth/1692846959.283733.npy",
+      "Mavic3/ground_truth/1692846959.481631.npy",
+      "Mavic3/ground_truth/1692846959.682032.npy",
+      "Mavic3/ground_truth/1692846959.881949.npy",
+      "Mavic3/ground_truth/1692846960.083898.npy",
+      "Mavic3/ground_truth/1692846960.283360.npy",
+      "Mavic3/ground_truth/1692846960.534340.npy",
+      "Mavic3/ground_truth/1692846960.747212.npy",
+      "Mavic3/ground_truth/1692846960.984522.npy",
+      "Mavic3/ground_truth/1692846961.181469.npy",
+      "Mavic3/ground_truth/1692846961.383284.npy",
+      "Mavic3/ground_truth/1692846961.583612.npy",
+      "Mavic3/ground_truth/1692846961.781763.npy",
+      "Mavic3/ground_truth/1692846961.983220.npy",
+      "Mavic3/ground_truth/1692846962.184451.npy",
+      "Mavic3/ground_truth/1692846962.380856.npy",
+      "Mavic3/ground_truth/1692846962.581481.npy",
+      "Mavic3/ground_truth/1692846962.782360.npy",
+      "Mavic3/ground_truth/1692846962.984304.npy",
+      "Mavic3/ground_truth/1692846963.182302.npy",
+      "Mavic3/ground_truth/1692846963.382704.npy",
+      "Mavic3/ground_truth/1692846963.584126.npy",
+      "Mavic3/ground_truth/1692846963.780657.npy",
+      "Mavic3/ground_truth/1692846963.985921.npy",
+      "Mavic3/ground_truth/1692846964.184084.npy",
+      "Mavic3/ground_truth/1692846964.384002.npy",
+      "Mavic3/ground_truth/1692846964.583890.npy",
+      "Mavic3/ground_truth/1692846964.780977.npy",
+      "Mavic3/ground_truth/1692846964.983831.npy",
+      "Mavic3/ground_truth/1692846965.182848.npy",
+      "Mavic3/ground_truth/1692846965.382907.npy",
+      "Mavic3/ground_truth/1692846965.584025.npy",
+      "Mavic3/ground_truth/1692846965.781268.npy",
+      "Mavic3/ground_truth/1692846965.982932.npy",
+      "Mavic3/ground_truth/1692846966.184613.npy",
+      "Mavic3/ground_truth/1692846966.382772.npy",
+      "Mavic3/ground_truth/1692846966.634844.npy",
+      "Mavic3/ground_truth/1692846966.832422.npy",
+      "Mavic3/ground_truth/1692846967.034493.npy",
+      "Mavic3/ground_truth/1692846967.234947.npy",
+      "Mavic3/ground_truth/1692846967.434549.npy",
+      "Mavic3/ground_truth/1692846967.631612.npy",
+      "Mavic3/ground_truth/1692846967.834175.npy",
+      "Mavic3/ground_truth/1692846968.034833.npy",
+      "Mavic3/ground_truth/1692846968.235941.npy",
+      "Mavic3/ground_truth/1692846968.434927.npy",
+      "Mavic3/ground_truth/1692846968.636269.npy",
+      "Mavic3/ground_truth/1692846968.836115.npy",
+      "Mavic3/ground_truth/1692846969.035025.npy",
+      "Mavic3/ground_truth/1692846969.234185.npy",
+      "Mavic3/ground_truth/1692846969.434821.npy",
+      "Mavic3/ground_truth/1692846969.634453.npy"
+    ],
+    "reference_interpolation_support": [
+      {
+        "sample_index": 0,
+        "timestamp_s": 72.512097,
+        "gt_position_support": {
+          "indices": [
+            3,
+            4
+          ],
+          "weights": [
+            0.8479748105049274,
+            0.15202518949507254
+          ]
+        },
+        "V_ref_support": {
+          "window_start_s": 72.012097,
+          "window_end_s": 73.012097,
+          "window_duration_s": 1.0,
+          "before": {
+            "indices": [
+              0,
+              1
+            ],
+            "weights": [
+              0.3559979291737909,
+              0.6440020708262091
+            ]
+          },
+          "after": {
+            "indices": [
+              5,
+              6
+            ],
+            "weights": [
+              0.3555402601647353,
+              0.6444597398352647
+            ]
+          },
+          "maximum_actual_gap_in_window_s": 0.20194899999999905
+        }
+      },
+      {
+        "sample_index": 1,
+        "timestamp_s": 73.512097,
+        "gt_position_support": {
+          "indices": [
+            7,
+            8
+          ],
+          "weights": [
+            0.08862459160093739,
+            0.9113754083990626
+          ]
+        },
+        "V_ref_support": {
+          "window_start_s": 73.012097,
+          "window_end_s": 74.012097,
+          "window_duration_s": 1.0,
+          "before": {
+            "indices": [
+              5,
+              6
+            ],
+            "weights": [
+              0.3555402601647353,
+              0.6444597398352647
+            ]
+          },
+          "after": {
+            "indices": [
+              10,
+              11
+            ],
+            "weights": [
+              0.85998771243026,
+              0.14001228756974002
+            ]
+          },
+          "maximum_actual_gap_in_window_s": 0.2509799999999984
+        }
+      },
+      {
+        "sample_index": 2,
+        "timestamp_s": 74.512097,
+        "gt_position_support": {
+          "indices": [
+            12,
+            13
+          ],
+          "weights": [
+            0.35698953715908643,
+            0.6430104628409136
+          ]
+        },
+        "V_ref_support": {
+          "window_start_s": 74.012097,
+          "window_end_s": 75.012097,
+          "window_duration_s": 1.0,
+          "before": {
+            "indices": [
+              10,
+              11
+            ],
+            "weights": [
+              0.85998771243026,
+              0.14001228756974002
+            ]
+          },
+          "after": {
+            "indices": [
+              15,
+              16
+            ],
+            "weights": [
+              0.8564982532512619,
+              0.143501746748738
+            ]
+          },
+          "maximum_actual_gap_in_window_s": 0.2018149999999963
+        }
+      },
+      {
+        "sample_index": 3,
+        "timestamp_s": 75.512097,
+        "gt_position_support": {
+          "indices": [
+            17,
+            18
+          ],
+          "weights": [
+            0.34583925233644197,
+            0.654160747663558
+          ]
+        },
+        "V_ref_support": {
+          "window_start_s": 75.012097,
+          "window_end_s": 76.012097,
+          "window_duration_s": 1.0,
+          "before": {
+            "indices": [
+              15,
+              16
+            ],
+            "weights": [
+              0.8564982532512619,
+              0.143501746748738
+            ]
+          },
+          "after": {
+            "indices": [
+              20,
+              21
+            ],
+            "weights": [
+              0.8596298952514628,
+              0.14037010474853714
+            ]
+          },
+          "maximum_actual_gap_in_window_s": 0.20194399999999746
+        }
+      },
+      {
+        "sample_index": 4,
+        "timestamp_s": 76.512097,
+        "gt_position_support": {
+          "indices": [
+            22,
+            23
+          ],
+          "weights": [
+            0.3576024466046549,
+            0.6423975533953451
+          ]
+        },
+        "V_ref_support": {
+          "window_start_s": 76.012097,
+          "window_end_s": 77.012097,
+          "window_duration_s": 1.0,
+          "before": {
+            "indices": [
+              20,
+              21
+            ],
+            "weights": [
+              0.8596298952514628,
+              0.14037010474853714
+            ]
+          },
+          "after": {
+            "indices": [
+              25,
+              26
+            ],
+            "weights": [
+              0.8679067232531137,
+              0.13209327674688634
+            ]
+          },
+          "maximum_actual_gap_in_window_s": 0.20526399999999967
+        }
+      },
+      {
+        "sample_index": 5,
+        "timestamp_s": 77.512097,
+        "gt_position_support": {
+          "indices": [
+            27,
+            28
+          ],
+          "weights": [
+            0.3591661330344945,
+            0.6408338669655055
+          ]
+        },
+        "V_ref_support": {
+          "window_start_s": 77.012097,
+          "window_end_s": 78.012097,
+          "window_duration_s": 1.0,
+          "before": {
+            "indices": [
+              25,
+              26
+            ],
+            "weights": [
+              0.8679067232531137,
+              0.13209327674688634
+            ]
+          },
+          "after": {
+            "indices": [
+              30,
+              31
+            ],
+            "weights": [
+              0.857971932046004,
+              0.142028067953996
+            ]
+          },
+          "maximum_actual_gap_in_window_s": 0.2028540000000021
+        }
+      },
+      {
+        "sample_index": 6,
+        "timestamp_s": 78.512097,
+        "gt_position_support": {
+          "indices": [
+            32,
+            33
+          ],
+          "weights": [
+            0.357640787995117,
+            0.642359212004883
+          ]
+        },
+        "V_ref_support": {
+          "window_start_s": 78.012097,
+          "window_end_s": 79.012097,
+          "window_duration_s": 1.0,
+          "before": {
+            "indices": [
+              30,
+              31
+            ],
+            "weights": [
+              0.857971932046004,
+              0.142028067953996
+            ]
+          },
+          "after": {
+            "indices": [
+              35,
+              36
+            ],
+            "weights": [
+              0.8553904433238986,
+              0.14460955667610148
+            ]
+          },
+          "maximum_actual_gap_in_window_s": 0.20168099999999356
+        }
+      },
+      {
+        "sample_index": 7,
+        "timestamp_s": 79.512097,
+        "gt_position_support": {
+          "indices": [
+            37,
+            38
+          ],
+          "weights": [
+            0.48695214065824355,
+            0.5130478593417565
+          ]
+        },
+        "V_ref_support": {
+          "window_start_s": 79.012097,
+          "window_end_s": 80.012097,
+          "window_duration_s": 1.0,
+          "before": {
+            "indices": [
+              35,
+              36
+            ],
+            "weights": [
+              0.8553904433238986,
+              0.14460955667610148
+            ]
+          },
+          "after": {
+            "indices": [
+              39,
+              40
+            ],
+            "weights": [
+              0.11083233121031777,
+              0.8891676687896822
+            ]
+          },
+          "maximum_actual_gap_in_window_s": 0.2520719999999983
+        }
+      },
+      {
+        "sample_index": 8,
+        "timestamp_s": 80.512097,
+        "gt_position_support": {
+          "indices": [
+            42,
+            43
+          ],
+          "weights": [
+            0.6064811760706319,
+            0.39351882392936816
+          ]
+        },
+        "V_ref_support": {
+          "window_start_s": 80.012097,
+          "window_end_s": 81.012097,
+          "window_duration_s": 1.0,
+          "before": {
+            "indices": [
+              39,
+              40
+            ],
+            "weights": [
+              0.11083233121031777,
+              0.8891676687896822
+            ]
+          },
+          "after": {
+            "indices": [
+              44,
+              45
+            ],
+            "weights": [
+              0.11330721924871423,
+              0.8866927807512858
+            ]
+          },
+          "maximum_actual_gap_in_window_s": 0.20256299999999783
+        }
+      },
+      {
+        "sample_index": 9,
+        "timestamp_s": 81.512097,
+        "gt_position_support": {
+          "indices": [
+            47,
+            48
+          ],
+          "weights": [
+            0.6167217967438661,
+            0.383278203256134
+          ]
+        },
+        "V_ref_support": {
+          "window_start_s": 81.012097,
+          "window_end_s": 82.012097,
+          "window_duration_s": 1.0,
+          "before": {
+            "indices": [
+              44,
+              45
+            ],
+            "weights": [
+              0.11330721924871423,
+              0.8866927807512858
+            ]
+          },
+          "after": {
+            "indices": [
+              49,
+              50
+            ],
+            "weights": [
+              0.11526821175409796,
+              0.884731788245902
+            ]
+          },
+          "maximum_actual_gap_in_window_s": 0.2013419999999968
+        }
+      }
+    ],
+    "primary_R_radar_to_truth": [
+      [
+        -0.9147774023822136,
+        -0.403926316886787,
+        -0.005082776517376673
+      ],
+      [
+        0.4039409518707838,
+        -0.9145491235185119,
+        -0.020775179259089022
+      ],
+      [
+        0.003743192831779033,
+        -0.021057806101229926,
+        0.9997712524921025
+      ]
+    ],
+    "primary_t_radar_in_truth": [
+      0.09148649797222604,
+      0.7196300279306402,
+      -0.13659640115299787
+    ],
+    "variance_description": "posterior Kalman/EKF model covariance diagonal conditional on fixed parameters, not measured error variance; complete calibration-parameter uncertainty is not explicitly propagated; R contains a mixed noise estimate from training residuals; reference-speed variance is unknown",
+    "field_units": {
+      "position": "m",
+      "velocity": "m/s",
+      "position_variance": "m^2",
+      "velocity_variance": "m^2/s^2"
+    },
+    "numerical_checks": {
+      "constant_velocity_analytic": true,
+      "quadratic_analytic": true,
+      "internal_gap_rejected": true,
+      "extrapolation_rejected": true,
+      "saved_state_exactly_equal": true,
+      "saved_variance_exactly_equal": true,
+      "velocity_frame_rotation_without_translation": true,
+      "original_filter_not_rerun": true
+    },
+    "baseline_stagnation_evidence": {
+      "updates_json_sha256": "f4deba60af6aa8928a2ec282abd0cdbefb4077ed29c95ac5e31787c6138776ed",
+      "initial_selected_xyz_m": [
+        0.05214371532201767,
+        -0.1325264722108841,
+        9.020475387573242
+      ],
+      "accepted_initial_xyz_repeats_before_change": 36,
+      "repeated_selection_interval_s": [
+        72.580177,
+        76.580473
+      ],
+      "repeated_selected_point_indices": [
+        7,
+        9,
+        13,
+        17,
+        18,
+        21,
+        25,
+        29,
+        33,
+        37,
+        41,
+        45,
+        48,
+        51,
+        55,
+        57,
+        61,
+        64,
+        65,
+        68,
+        70,
+        73,
+        77,
+        80,
+        83,
+        86,
+        89
+      ],
+      "first_changed_selected_radar_update": {
+        "sensor": "radar",
+        "timestamp": 76.64534,
+        "accepted": true,
+        "nis": 1.8136811752850712e-05,
+        "gate_nis": 11.344866730144373,
+        "candidate_count": 92,
+        "gated_count": 92,
+        "selected_point_index": 89,
+        "selected_xyz_m": [
+          0.05056934058666229,
+          -0.1325264722108841,
+          9.02048397064209
+        ],
+        "reason": "nearest gated XYZ"
+      },
+      "first_changed_saved_tick": 414,
+      "first_changed_saved_timestamp_s": 76.652097,
+      "explanation": "Observed nearest-point reuse of the exact initial XYZ in enhanced historical point clouds; zero velocity is the saved baseline output, not missing-value padding or proof of a stationary target."
+    },
+    "conditions": "training-GT-supervised local experimental projection and manual-oracle camera; exploratory held-out clip, not official full calibration or paper Table I replication"
+  },
+  "records": [
+    {
+      "method": "radar_only",
+      "sample_index": 0,
+      "saved_tick_index": 0,
+      "time_since_initialization_s": 0.0,
+      "timestamp_s": 72.512097,
+      "filtered_x_m": 0.05214371532201767,
+      "filtered_y_m": -0.1325264722108841,
+      "filtered_z_m": 9.020475387573242,
+      "filtered_Vx_mps": 0.0,
+      "filtered_Vy_mps": 0.0,
+      "filtered_Vz_mps": 0.0,
+      "filtered_V_mps": 0.0,
+      "P_xx_m2": 0.10214955413622713,
+      "P_yy_m2": 0.7671504656294204,
+      "P_zz_m2": 0.09,
+      "P_VxVx_m2ps2": 4.0,
+      "P_VyVy_m2ps2": 4.0,
+      "P_VzVz_m2ps2": 4.0,
+      "gt_x_m": -0.06398507970005271,
+      "gt_y_m": 0.06980218593169352,
+      "gt_z_m": 9.074242312777734,
+      "V_ref_x_mps": -0.030146934997373497,
+      "V_ref_y_mps": 0.01694010183893888,
+      "V_ref_z_mps": 0.0037089668142472423,
+      "V_ref_mps": 0.03477874602222844
+    },
+    {
+      "method": "radar_camera",
+      "sample_index": 0,
+      "saved_tick_index": 0,
+      "time_since_initialization_s": 0.0,
+      "timestamp_s": 72.512097,
+      "filtered_x_m": 0.05214371532201767,
+      "filtered_y_m": -0.1325264722108841,
+      "filtered_z_m": 9.020475387573242,
+      "filtered_Vx_mps": 0.0,
+      "filtered_Vy_mps": 0.0,
+      "filtered_Vz_mps": 0.0,
+      "filtered_V_mps": 0.0,
+      "P_xx_m2": 0.10214955413622713,
+      "P_yy_m2": 0.7671504656294204,
+      "P_zz_m2": 0.09,
+      "P_VxVx_m2ps2": 4.0,
+      "P_VyVy_m2ps2": 4.0,
+      "P_VzVz_m2ps2": 4.0,
+      "gt_x_m": -0.06398507970005271,
+      "gt_y_m": 0.06980218593169352,
+      "gt_z_m": 9.074242312777734,
+      "V_ref_x_mps": -0.030146934997373497,
+      "V_ref_y_mps": 0.01694010183893888,
+      "V_ref_z_mps": 0.0037089668142472423,
+      "V_ref_mps": 0.03477874602222844
+    },
+    {
+      "method": "radar_only",
+      "sample_index": 1,
+      "saved_tick_index": 100,
+      "time_since_initialization_s": 1.0,
+      "timestamp_s": 73.512097,
+      "filtered_x_m": 0.05214371532201767,
+      "filtered_y_m": -0.1325264722108841,
+      "filtered_z_m": 9.020475387573242,
+      "filtered_Vx_mps": 0.0,
+      "filtered_Vy_mps": 0.0,
+      "filtered_Vz_mps": 0.0,
+      "filtered_V_mps": 0.0,
+      "P_xx_m2": 0.17200862588928276,
+      "P_yy_m2": 0.9137785667451692,
+      "P_zz_m2": 0.1531904761320965,
+      "P_VxVx_m2ps2": 0.3486712210470774,
+      "P_VyVy_m2ps2": 1.4997332535887882,
+      "P_VzVz_m2ps2": 0.31825182157044585,
+      "gt_x_m": -0.16580604112619154,
+      "gt_y_m": 0.07725633512402065,
+      "gt_z_m": 9.080571064109924,
+      "V_ref_x_mps": -0.25157023835248615,
+      "V_ref_y_mps": 0.06017020598535649,
+      "V_ref_z_mps": -0.001220026124298163,
+      "V_ref_mps": 0.2586687591820684
+    },
+    {
+      "method": "radar_camera",
+      "sample_index": 1,
+      "saved_tick_index": 100,
+      "time_since_initialization_s": 1.0,
+      "timestamp_s": 73.512097,
+      "filtered_x_m": -0.11046446117908539,
+      "filtered_y_m": 0.12268407217180599,
+      "filtered_z_m": 9.315273522990017,
+      "filtered_Vx_mps": -0.05472004777819136,
+      "filtered_Vy_mps": 0.06283207153515329,
+      "filtered_Vz_mps": 0.2990066448596153,
+      "filtered_V_mps": 0.31039833522821975,
+      "P_xx_m2": 0.003414531300286132,
+      "P_yy_m2": 0.013192098408298672,
+      "P_zz_m2": 0.1530448176824504,
+      "P_VxVx_m2ps2": 0.049966984648943676,
+      "P_VyVy_m2ps2": 0.09116376215479358,
+      "P_VzVz_m2ps2": 0.3179727686286868,
+      "gt_x_m": -0.16580604112619154,
+      "gt_y_m": 0.07725633512402065,
+      "gt_z_m": 9.080571064109924,
+      "V_ref_x_mps": -0.25157023835248615,
+      "V_ref_y_mps": 0.06017020598535649,
+      "V_ref_z_mps": -0.001220026124298163,
+      "V_ref_mps": 0.2586687591820684
+    },
+    {
+      "method": "radar_only",
+      "sample_index": 2,
+      "saved_tick_index": 200,
+      "time_since_initialization_s": 2.0,
+      "timestamp_s": 74.512097,
+      "filtered_x_m": 0.05214371532201767,
+      "filtered_y_m": -0.1325264722108841,
+      "filtered_z_m": 9.020475387573242,
+      "filtered_Vx_mps": 0.0,
+      "filtered_Vy_mps": 0.0,
+      "filtered_Vz_mps": 0.0,
+      "filtered_V_mps": 0.0,
+      "P_xx_m2": 0.02870185574716312,
+      "P_yy_m2": 0.16600878915803352,
+      "P_zz_m2": 0.025950399135287166,
+      "P_VxVx_m2ps2": 0.11186207939688997,
+      "P_VyVy_m2ps2": 0.21515124433780355,
+      "P_VzVz_m2ps2": 0.10844576078861559,
+      "gt_x_m": -0.5372085388825261,
+      "gt_y_m": 0.20166328015876706,
+      "gt_z_m": 9.090863785271702,
+      "V_ref_x_mps": -0.4153587173805571,
+      "V_ref_y_mps": 0.184104954344149,
+      "V_ref_z_mps": 0.01916355627894974,
+      "V_ref_mps": 0.45473590160371014
+    },
+    {
+      "method": "radar_camera",
+      "sample_index": 2,
+      "saved_tick_index": 200,
+      "time_since_initialization_s": 2.0,
+      "timestamp_s": 74.512097,
+      "filtered_x_m": -0.4925957769735324,
+      "filtered_y_m": 0.15631312016361795,
+      "filtered_z_m": 9.205993572352519,
+      "filtered_Vx_mps": -0.41656375790330447,
+      "filtered_Vy_mps": 0.03980526366776464,
+      "filtered_Vz_mps": 0.030040409613617827,
+      "filtered_V_mps": 0.41953813846173393,
+      "P_xx_m2": 0.0029532064473806454,
+      "P_yy_m2": 0.010113440100716846,
+      "P_zz_m2": 0.025928168491706895,
+      "P_VxVx_m2ps2": 0.04723806087115624,
+      "P_VyVy_m2ps2": 0.07308029472584966,
+      "P_VzVz_m2ps2": 0.10835832793359287,
+      "gt_x_m": -0.5372085388825261,
+      "gt_y_m": 0.20166328015876706,
+      "gt_z_m": 9.090863785271702,
+      "V_ref_x_mps": -0.4153587173805571,
+      "V_ref_y_mps": 0.184104954344149,
+      "V_ref_z_mps": 0.01916355627894974,
+      "V_ref_mps": 0.45473590160371014
+    },
+    {
+      "method": "radar_only",
+      "sample_index": 3,
+      "saved_tick_index": 300,
+      "time_since_initialization_s": 3.0,
+      "timestamp_s": 75.512097,
+      "filtered_x_m": 0.05214371532201767,
+      "filtered_y_m": -0.1325264722108841,
+      "filtered_z_m": 9.020475387573242,
+      "filtered_Vx_mps": 0.0,
+      "filtered_Vy_mps": 0.0,
+      "filtered_Vz_mps": 0.0,
+      "filtered_V_mps": 0.0,
+      "P_xx_m2": 0.04147916389230225,
+      "P_yy_m2": 0.17131035842722325,
+      "P_zz_m2": 0.03799561886150922,
+      "P_VxVx_m2ps2": 0.12672087259659526,
+      "P_VyVy_m2ps2": 0.20817540887893282,
+      "P_VzVz_m2ps2": 0.12288696402746728,
+      "gt_x_m": -0.8101358672094372,
+      "gt_y_m": 0.48813224256323917,
+      "gt_z_m": 9.11606549397781,
+      "V_ref_x_mps": 0.09030454119998829,
+      "V_ref_y_mps": 0.36426904116133385,
+      "V_ref_z_mps": 0.03148483774918475,
+      "V_ref_mps": 0.3766140458321097
+    },
+    {
+      "method": "radar_camera",
+      "sample_index": 3,
+      "saved_tick_index": 300,
+      "time_since_initialization_s": 3.0,
+      "timestamp_s": 75.512097,
+      "filtered_x_m": -0.7947288582326443,
+      "filtered_y_m": 0.3978025349778257,
+      "filtered_z_m": 9.18127500297106,
+      "filtered_Vx_mps": -0.22387621027086868,
+      "filtered_Vy_mps": 0.26931812452281256,
+      "filtered_Vz_mps": 0.03444573456335401,
+      "filtered_V_mps": 0.351908110664333,
+      "P_xx_m2": 0.002976735274014369,
+      "P_yy_m2": 0.009859561809338056,
+      "P_zz_m2": 0.03789563952853482,
+      "P_VxVx_m2ps2": 0.04761437816370189,
+      "P_VyVy_m2ps2": 0.07285981640282035,
+      "P_VzVz_m2ps2": 0.12264107967191559,
+      "gt_x_m": -0.8101358672094372,
+      "gt_y_m": 0.48813224256323917,
+      "gt_z_m": 9.11606549397781,
+      "V_ref_x_mps": 0.09030454119998829,
+      "V_ref_y_mps": 0.36426904116133385,
+      "V_ref_z_mps": 0.03148483774918475,
+      "V_ref_mps": 0.3766140458321097
+    },
+    {
+      "method": "radar_only",
+      "sample_index": 4,
+      "saved_tick_index": 400,
+      "time_since_initialization_s": 4.0,
+      "timestamp_s": 76.512097,
+      "filtered_x_m": 0.05214371532201767,
+      "filtered_y_m": -0.1325264722108841,
+      "filtered_z_m": 9.020475387573242,
+      "filtered_Vx_mps": 0.0,
+      "filtered_Vy_mps": 0.0,
+      "filtered_Vz_mps": 0.0,
+      "filtered_V_mps": 0.0,
+      "P_xx_m2": 0.033760539378553084,
+      "P_yy_m2": 0.1435547092390764,
+      "P_zz_m2": 0.030836807916233805,
+      "P_VxVx_m2ps2": 0.11583714274047599,
+      "P_VyVy_m2ps2": 0.19069180501659458,
+      "P_VzVz_m2ps2": 0.11221331548651076,
+      "gt_x_m": -0.31046072292700017,
+      "gt_y_m": 0.83619218085542,
+      "gt_z_m": 9.135444468673388,
+      "V_ref_x_mps": 0.7252752936136225,
+      "V_ref_y_mps": 0.2384938820243323,
+      "V_ref_z_mps": -0.007039242852211905,
+      "V_ref_mps": 0.7635136765175166
+    },
+    {
+      "method": "radar_camera",
+      "sample_index": 4,
+      "saved_tick_index": 400,
+      "time_since_initialization_s": 4.0,
+      "timestamp_s": 76.512097,
+      "filtered_x_m": -0.4255866699768359,
+      "filtered_y_m": 0.813089101342268,
+      "filtered_z_m": 9.214703783887005,
+      "filtered_Vx_mps": 0.570855361516009,
+      "filtered_Vy_mps": 0.42827117011004434,
+      "filtered_Vz_mps": 0.03185526690907106,
+      "filtered_V_mps": 0.7143576113886154,
+      "P_xx_m2": 0.002882820917631488,
+      "P_yy_m2": 0.00941867115565604,
+      "P_zz_m2": 0.030782385458234116,
+      "P_VxVx_m2ps2": 0.046960925351954654,
+      "P_VyVy_m2ps2": 0.07143081306672973,
+      "P_VzVz_m2ps2": 0.11213542711448883,
+      "gt_x_m": -0.31046072292700017,
+      "gt_y_m": 0.83619218085542,
+      "gt_z_m": 9.135444468673388,
+      "V_ref_x_mps": 0.7252752936136225,
+      "V_ref_y_mps": 0.2384938820243323,
+      "V_ref_z_mps": -0.007039242852211905,
+      "V_ref_mps": 0.7635136765175166
+    },
+    {
+      "method": "radar_only",
+      "sample_index": 5,
+      "saved_tick_index": 500,
+      "time_since_initialization_s": 5.0,
+      "timestamp_s": 77.512097,
+      "filtered_x_m": -0.08293874677241983,
+      "filtered_y_m": -0.1253583061913183,
+      "filtered_z_m": 9.02038236160942,
+      "filtered_Vx_mps": -0.11564653269984126,
+      "filtered_Vy_mps": 0.005597785397843074,
+      "filtered_Vz_mps": -8.188315336026271e-05,
+      "filtered_V_mps": 0.11578196073528278,
+      "P_xx_m2": 0.04262412644688806,
+      "P_yy_m2": 0.1807040049515241,
+      "P_zz_m2": 0.03894191868961868,
+      "P_VxVx_m2ps2": 0.12679637594620477,
+      "P_VyVy_m2ps2": 0.20360524853393566,
+      "P_VzVz_m2ps2": 0.123217032046077,
+      "gt_x_m": 0.35299886842508416,
+      "gt_y_m": 0.8024541894398816,
+      "gt_z_m": 9.124902315577401,
+      "V_ref_x_mps": 0.40208433391708553,
+      "V_ref_y_mps": -0.30911272108983473,
+      "V_ref_z_mps": -0.019881887958137747,
+      "V_ref_mps": 0.5075606125280884
+    },
+    {
+      "method": "radar_camera",
+      "sample_index": 5,
+      "saved_tick_index": 500,
+      "time_since_initialization_s": 5.0,
+      "timestamp_s": 77.512097,
+      "filtered_x_m": 0.23359887312420627,
+      "filtered_y_m": 0.8834246471049829,
+      "filtered_z_m": 9.204266635134047,
+      "filtered_Vx_mps": 0.5968496479796935,
+      "filtered_Vy_mps": 0.0177710584631533,
+      "filtered_Vz_mps": 0.013237147641008841,
+      "filtered_V_mps": 0.5972608600017707,
+      "P_xx_m2": 0.003122858304063598,
+      "P_yy_m2": 0.009433048766044005,
+      "P_zz_m2": 0.03876820425421907,
+      "P_VxVx_m2ps2": 0.04834469533747655,
+      "P_VyVy_m2ps2": 0.07180730307658288,
+      "P_VzVz_m2ps2": 0.12276845356211828,
+      "gt_x_m": 0.35299886842508416,
+      "gt_y_m": 0.8024541894398816,
+      "gt_z_m": 9.124902315577401,
+      "V_ref_x_mps": 0.40208433391708553,
+      "V_ref_y_mps": -0.30911272108983473,
+      "V_ref_z_mps": -0.019881887958137747,
+      "V_ref_mps": 0.5075606125280884
+    },
+    {
+      "method": "radar_only",
+      "sample_index": 6,
+      "saved_tick_index": 600,
+      "time_since_initialization_s": 6.0,
+      "timestamp_s": 78.512097,
+      "filtered_x_m": -0.5025149975876178,
+      "filtered_y_m": 0.07059878592475825,
+      "filtered_z_m": 9.009174389110472,
+      "filtered_Vx_mps": -0.32681247743129016,
+      "filtered_Vy_mps": 0.11252445129105404,
+      "filtered_Vz_mps": -0.009448302098161308,
+      "filtered_V_mps": 0.3457707592548399,
+      "P_xx_m2": 0.03521882251696482,
+      "P_yy_m2": 0.15932721353771853,
+      "P_zz_m2": 0.03204194448848406,
+      "P_VxVx_m2ps2": 0.11790716555711565,
+      "P_VyVy_m2ps2": 0.19330877500669919,
+      "P_VzVz_m2ps2": 0.11425292896975459,
+      "gt_x_m": 0.2770919787990358,
+      "gt_y_m": 0.3882946587069599,
+      "gt_z_m": 9.099177337604717,
+      "V_ref_x_mps": -0.7058465640824103,
+      "V_ref_y_mps": -0.4629316661876745,
+      "V_ref_z_mps": 0.0005506915443359864,
+      "V_ref_mps": 0.8441121980207474
+    },
+    {
+      "method": "radar_camera",
+      "sample_index": 6,
+      "saved_tick_index": 600,
+      "time_since_initialization_s": 6.0,
+      "timestamp_s": 78.512097,
+      "filtered_x_m": 0.4090884779358008,
+      "filtered_y_m": 0.5129120665217184,
+      "filtered_z_m": 9.222877646173888,
+      "filtered_Vx_mps": 0.003385810560070618,
+      "filtered_Vy_mps": -0.35840957744532,
+      "filtered_Vz_mps": 0.03887391998444522,
+      "filtered_V_mps": 0.3605274893439314,
+      "P_xx_m2": 0.003313739151204308,
+      "P_yy_m2": 0.009858907206916444,
+      "P_zz_m2": 0.03184473095703407,
+      "P_VxVx_m2ps2": 0.048608120798406415,
+      "P_VyVy_m2ps2": 0.07246425577969719,
+      "P_VzVz_m2ps2": 0.11378866750018332,
+      "gt_x_m": 0.2770919787990358,
+      "gt_y_m": 0.3882946587069599,
+      "gt_z_m": 9.099177337604717,
+      "V_ref_x_mps": -0.7058465640824103,
+      "V_ref_y_mps": -0.4629316661876745,
+      "V_ref_z_mps": 0.0005506915443359864,
+      "V_ref_mps": 0.8441121980207474
+    },
+    {
+      "method": "radar_only",
+      "sample_index": 7,
+      "saved_tick_index": 700,
+      "time_since_initialization_s": 7.0,
+      "timestamp_s": 79.512097,
+      "filtered_x_m": -0.708522172557935,
+      "filtered_y_m": 0.36404310461961076,
+      "filtered_z_m": 8.988385089396603,
+      "filtered_Vx_mps": -0.20375274170105753,
+      "filtered_Vy_mps": 0.21232211647949023,
+      "filtered_Vz_mps": -0.016788573943209432,
+      "filtered_V_mps": 0.2947502622765156,
+      "P_xx_m2": 0.0267194253797215,
+      "P_yy_m2": 0.12892747658231885,
+      "P_zz_m2": 0.024219902414451266,
+      "P_VxVx_m2ps2": 0.10809795764380654,
+      "P_VyVy_m2ps2": 0.17965661534898958,
+      "P_VzVz_m2ps2": 0.1047807004298942,
+      "gt_x_m": -0.74255176573916,
+      "gt_y_m": -0.06284749934503854,
+      "gt_z_m": 9.114754266252277,
+      "V_ref_x_mps": -0.883027228722158,
+      "V_ref_y_mps": -0.3293562080507658,
+      "V_ref_z_mps": 0.010825769998524557,
+      "V_ref_mps": 0.9425124910272408
+    },
+    {
+      "method": "radar_camera",
+      "sample_index": 7,
+      "saved_tick_index": 700,
+      "time_since_initialization_s": 7.0,
+      "timestamp_s": 79.512097,
+      "filtered_x_m": -0.5884019042302253,
+      "filtered_y_m": 0.0028680898388350486,
+      "filtered_z_m": 9.122035255879469,
+      "filtered_Vx_mps": -1.052282333233937,
+      "filtered_Vy_mps": -0.4978043675859125,
+      "filtered_Vz_mps": -0.06280511389687202,
+      "filtered_V_mps": 1.165783761919623,
+      "P_xx_m2": 0.002923177825562972,
+      "P_yy_m2": 0.01008908999240099,
+      "P_zz_m2": 0.024118664039276604,
+      "P_VxVx_m2ps2": 0.04742467852858687,
+      "P_VyVy_m2ps2": 0.07282864526352857,
+      "P_VzVz_m2ps2": 0.10449317087252824,
+      "gt_x_m": -0.74255176573916,
+      "gt_y_m": -0.06284749934503854,
+      "gt_z_m": 9.114754266252277,
+      "V_ref_x_mps": -0.883027228722158,
+      "V_ref_y_mps": -0.3293562080507658,
+      "V_ref_z_mps": 0.010825769998524557,
+      "V_ref_mps": 0.9425124910272408
+    },
+    {
+      "method": "radar_only",
+      "sample_index": 8,
+      "saved_tick_index": 800,
+      "time_since_initialization_s": 8.0,
+      "timestamp_s": 80.512097,
+      "filtered_x_m": 0.20042546933572555,
+      "filtered_y_m": 0.6854369391139296,
+      "filtered_z_m": 8.995531048639679,
+      "filtered_Vx_mps": 0.7453309572067907,
+      "filtered_Vy_mps": 0.2727902233164228,
+      "filtered_Vz_mps": -0.002125878855371798,
+      "filtered_V_mps": 0.7936858705235481,
+      "P_xx_m2": 0.023201686073553933,
+      "P_yy_m2": 0.10154994081404446,
+      "P_zz_m2": 0.021158047185147546,
+      "P_VxVx_m2ps2": 0.10309842742010979,
+      "P_VyVy_m2ps2": 0.1720652972374921,
+      "P_VzVz_m2ps2": 0.09986773282340276,
+      "gt_x_m": -1.2565036148480018,
+      "gt_y_m": -0.25509640883011864,
+      "gt_z_m": 9.121853228728039,
+      "V_ref_x_mps": -0.07050420043660999,
+      "V_ref_y_mps": -0.0754079173510216,
+      "V_ref_z_mps": 0.00747339601957361,
+      "V_ref_mps": 0.10350385464556167
+    },
+    {
+      "method": "radar_camera",
+      "sample_index": 8,
+      "saved_tick_index": 800,
+      "time_since_initialization_s": 8.0,
+      "timestamp_s": 80.512097,
+      "filtered_x_m": -1.2386252425738329,
+      "filtered_y_m": -0.28216034400314577,
+      "filtered_z_m": 9.22366637685988,
+      "filtered_Vx_mps": -0.4616028032940893,
+      "filtered_Vy_mps": -0.23866172678518233,
+      "filtered_Vz_mps": 0.13210112955631348,
+      "filtered_V_mps": 0.5361783996685251,
+      "P_xx_m2": 0.002988821245721239,
+      "P_yy_m2": 0.010354553777480693,
+      "P_zz_m2": 0.020931493164477767,
+      "P_VxVx_m2ps2": 0.046767710552539185,
+      "P_VyVy_m2ps2": 0.07281085058121844,
+      "P_VzVz_m2ps2": 0.09910281062878125,
+      "gt_x_m": -1.2565036148480018,
+      "gt_y_m": -0.25509640883011864,
+      "gt_z_m": 9.121853228728039,
+      "V_ref_x_mps": -0.07050420043660999,
+      "V_ref_y_mps": -0.0754079173510216,
+      "V_ref_z_mps": 0.00747339601957361,
+      "V_ref_mps": 0.10350385464556167
+    },
+    {
+      "method": "radar_only",
+      "sample_index": 9,
+      "saved_tick_index": 900,
+      "time_since_initialization_s": 9.0,
+      "timestamp_s": 81.512097,
+      "filtered_x_m": 0.7474997540211434,
+      "filtered_y_m": 0.5963020296143764,
+      "filtered_z_m": 8.989781476388465,
+      "filtered_Vx_mps": 0.5480300114991399,
+      "filtered_Vy_mps": 0.02778141270714812,
+      "filtered_Vz_mps": -0.004364521326035777,
+      "filtered_V_mps": 0.5487510814952056,
+      "P_xx_m2": 0.023372204540251237,
+      "P_yy_m2": 0.10440990592711556,
+      "P_zz_m2": 0.021294041341281333,
+      "P_VxVx_m2ps2": 0.10249773851997575,
+      "P_VyVy_m2ps2": 0.1683002007831777,
+      "P_VzVz_m2ps2": 0.09947736805857807,
+      "gt_x_m": -0.9842037006174325,
+      "gt_y_m": -0.17363082215000242,
+      "gt_z_m": 9.12772025539123,
+      "V_ref_x_mps": 0.42658379991934386,
+      "V_ref_y_mps": 0.26778875290370496,
+      "V_ref_z_mps": 0.004791203165982882,
+      "V_ref_mps": 0.5036938655206414
+    },
+    {
+      "method": "radar_camera",
+      "sample_index": 9,
+      "saved_tick_index": 900,
+      "time_since_initialization_s": 9.0,
+      "timestamp_s": 81.512097,
+      "filtered_x_m": -1.037208696220094,
+      "filtered_y_m": -0.23639158813639718,
+      "filtered_z_m": 9.312953775342569,
+      "filtered_Vx_mps": 0.30730066344606466,
+      "filtered_Vy_mps": 0.08376587408060873,
+      "filtered_Vz_mps": 0.10102426832230206,
+      "filtered_V_mps": 0.33415014919185115,
+      "P_xx_m2": 0.0030230719492954565,
+      "P_yy_m2": 0.010595473934695319,
+      "P_zz_m2": 0.021143907969531067,
+      "P_VxVx_m2ps2": 0.047376408884138584,
+      "P_VyVy_m2ps2": 0.07378120201371909,
+      "P_VzVz_m2ps2": 0.09898259162171019,
+      "gt_x_m": -0.9842037006174325,
+      "gt_y_m": -0.17363082215000242,
+      "gt_z_m": 9.12772025539123,
+      "V_ref_x_mps": 0.42658379991934386,
+      "V_ref_y_mps": 0.26778875290370496,
+      "V_ref_z_mps": 0.004791203165982882,
+      "V_ref_mps": 0.5036938655206414
+    }
+  ]
+}

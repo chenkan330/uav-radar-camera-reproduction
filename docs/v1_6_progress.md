@@ -94,6 +94,16 @@ GitHub提交：`453416f`，已推送。
 
 最终版本以GitHub标签[`v1.6`](https://github.com/chenkan330/uav-radar-camera-reproduction/tree/v1.6)保存，工作分支[`v1.6-mmaud`](https://github.com/chenkan330/uav-radar-camera-reproduction/tree/v1.6-mmaud)。标签在本完成记录提交后创建并推送，不覆盖已冻结的`v1.5`或`v2.0-d2d`分支。未把本次有限条件的验证扩大为可靠硬件精度或完整原论文实测复现。
 
+## 第6步：每秒状态、速度参考和模型方差表
+
+2026-10-07按新要求生成表格，以初始化为t=0，每秒取原保存tick，t=0–9共10时刻、两方法20行，列x/y/z、Vx/Vy/Vz/V、GT位置、V_ref各分量/模长和六项P后验对角方差。没有重新滤波或调整旧参数。说明中文，数学符号及SI单位保留英文。
+
+原GT只有位置，因此V_ref使用t±0.5s实际位置插值后的1s中心差分，标为窗口平均速度近似；不能冒称直接测速，标量是平均速度向量模长，不是路程平均速率。整个窗口禁止跨>0.30s缺口或外推；GT速度方差未知，不填0；滤波方差不等实际误差平方，也未显式传播完整标定参数不确定度（R使用训练残差混合噪声估计）。
+
+20条状态/P与原NPZ逐值一致；54份GT摘要匹配，独立复算参考位置/速度差<3.6×10⁻¹⁵。匀速/二次解析例子、内部缺口与外推拒绝检查通过。Excel分为Position和Velocity，数值保留原精度，V/V_ref公式重算及错误扫描、两张表可视核对通过。原1.6主结果和标签保持冻结，表格工具、派生JSON/CSV、说明与Excel以独立补充提交保存。
+
+[每秒表格报告](../output/v16_second_table/report.md)、[Excel](../output/v16_second_table/outputs/01a11067-689a-71a3-a0e4-e3f048b42212/mmaud_1s_table.xlsx)、[符号和方法](v1_6_second_table.md)。
+
 ## 数据适用边界
 
 [MMAUD官网](https://ntu-aris.github.io/MMAUD/)提供地面多传感器观测无人机数据。它适合原论文框架的外部真实数据适配验证；不能据此宣称重现原论文作者实测数值，也不能验证2.0的移动自机空对空补偿。

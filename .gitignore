@@ -23,3 +23,5 @@ output/*/
 !output/v16_truth_audit/
 !output/v16_comparison/
 !output/v16_calibration/
+!output/v16_second_table/
+*.xlsx.inspect.ndjson
