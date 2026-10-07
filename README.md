@@ -4,6 +4,8 @@
 
 2.0入口：[版本记录](docs/v2/version_history.md)、[算法改进路线](docs/v2/algorithm_plan.md)、[真实数据选择及验证边界](docs/v2/datasets.md)。每阶段独立提交GitHub；原始数据与运行环境保持D盘本地保存。
 
+2.0第1阶段已提供运动自机融合原型，完整77项检查与60组合成实验通过。双击 `run_d2d.cmd`，结果在 `output/local_d2d`；[阶段说明](docs/v2/stage1.md)、[中文参考报告](output/v2_step1/report.md)。这仍是受控合成验证，自机位姿不是实测导航结果。
+
 下面保留1.5的说明和示例；其中“已完成”指1.5核心算法及合成验证，不能代表2.0实机完成。
 
 参考论文：[Data Fusion Approach for Unmodified UAV Tracking with Vision and mmWave Radar](https://doi.org/10.1109/ICUAS65942.2025.11007835)，ICUAS 2025。

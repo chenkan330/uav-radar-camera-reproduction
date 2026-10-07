@@ -5,6 +5,9 @@
 - 1.5的main/06dc1bf已远程tag v1.5，62项检查重新通过；完整Git bundle验证通过。原reproduce不进行2.0开发。
 - 第二版独立目录reproduce-v2；环境.venv、原始数据data/public、下载与依赖缓存均优先D盘。路线与数据边界见docs/v2。
 - 不把2.0研发分支标记成已完成正式2.0。不要伪造radialDoppler=world vx，不把2D视频标注当3D融合真值；原始第三方数据不上传GitHub。
+- 2.0第1阶段新增d2d.py、demo_d2d.py与run_d2d.cmd。原有62项加15项数学测试共77项通过；默认60组合成实验。参考结果output/v2_step1，本地重跑output/local_d2d。
+- 首阶段是已关联单目标、同步10Hz、准确合成自机输入；不是导航系统或真实融合精度验证。首个雷达初始化、零速度宽先验，真值不输入tracker。
+- 新Q参数是连续白加速度谱密度m²/s³，不能当成1.5 acceleration_std。独立ego协方差传播不解决共享或跨时相关。
 - 用户 2026-10-06 明确授权：继续完成后续论文复现，每一步分别提交并推送 GitHub，说明做了什么。此前仅本地部署的限制已被此授权替代。
 - 本项目位于论文目录的 reproduce；环境 .venv 在 D 盘，Python 基础环境 D:\Programs\Python\managed。下载和缓存优先 D 盘，其他程序不得放本论文目录。
 - 原误选仓库备份在父目录 .deployment-backups，不修改。
