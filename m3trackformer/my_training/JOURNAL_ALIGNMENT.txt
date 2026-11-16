@@ -1,0 +1,172 @@
+正式发表版单目标核心对齐说明
+目标文献：IEEE TWC 2026，DOI 10.1109/TWC.2026.3720890
+本地PDF：项目根目录 m3TrackFormer_Transformer-Based_mmWave_Multi-Target_Tracking_With_Lost_Target_Re-Acquisition_Capability.pdf
+公开源码固定提交：f9dbbc90da4b5b2355bf5c587e013a1841b26aeb
+https://github.com/ltk722/Transformer-based-mmWave-tracking/tree/f9dbbc90da4b5b2355bf5c587e013a1841b26aeb
+
+先说明完成范围
+
+本轮实现正式版第IV节的单目标网络、两阶段训练、失跟采样和因果闭环。
+这是可核实核心公式的实现，不等于已经完整复现全文所有实验/数值。
+原训练集和原始回波/参数估计器没有公开，公开代码与正式论文也有结构和参数差异。
+多目标、全部基线和所有消融不在本轮单目标核心验证范围。
+当前主目录只保留step10d测试入口；训练、模型、共用函数和绘图代码位于core/。
+旧版程序已移出my_training，清理前的源码压缩备份位于项目根目录backups/。
+10秒和25秒历史实验记录仅作为历史资料，不代表当前网络成绩。
+
+为什么此前不能称正式版复现
+
+1. 此前部分设定沿用了早期arXiv v1：0.1秒、3层编码器、20000条轨迹、普通CE。
+   本地正式版改为0.05秒、4层编码器、10000条训练轨迹及另生成1000条测试轨迹。
+   正式版分类损失是CE加角距离惩罚，且Phase 2也使用该分类损失。
+2. 此前R-Net只监督下一时刻；正式版训练策略是多时刻监督。
+3. 此前失跟token固定在批填充后的末尾，位置编码不随实际漏检长度变化。
+   新版把预测token放在每条真实失跟序列之后，再做批填充。
+4. 此前长轨迹连续运行、达到失败阈值就终止，并固定K=4采集，样本少。
+   作者公开test_collect_lost_data.py枚举历史滑窗，按批以70%/20%/10%抽K=3/4/5。
+   新版沿用滑窗及K混合采样，正式测试固定K=4。
+5. 纠正前述解释：原文的两阶段训练没有明确要求反复迭代R-Net策略采样，
+   也没有明确要求人工随机遮挡增强；这两项没有作为“缺失的论文要求”添加。
+6. 纠正前述解释：FF只有交叉注意力和逐token FFN，没有额外跨token自注意力。
+   因而只计算最终query和计算全序列后取最终query在这一结构下数学上可以等价；
+   不能把旧实现“只算最终query”单独当作性能差距的充分原因。
+
+新程序的输入、输出和用途
+
+core/workflows/step05g_prepare_journal_dataset.py
+  输出四份分组数据nnet_train/rnet_sim/validation/test.npz及审计JSON。
+  合成模式默认10000条训练轨迹，再另生成1000条验证、1000条独立测试轨迹。
+  训练数据按80%/20%分给N-Net和R-Net仿真，属于论文未公布比例的实验约定。
+  真实轨迹模式只重采样参考位置，重新生成20Hz模拟测量，不插值旧噪声。
+  DFT标签改为作者辅助函数的半格中心32×32方向余弦网格；磁盘标签1..1024。
+  现阶段距离/角度测量仍是高斯代理，不声称实现完整OFDM回波/Swerling I/估计器。
+
+core/models.py
+  模型定义，不单独训练：MAFE、TSP、LE和FF；特征层残差后使用共享分类器。
+  4个编码单元、2个解码单元、256维、8头；输出1024类，不把填充0当物理波束。
+  历史窗口5个时刻，正式版VI节历史窗口实验明确给出该选择；未来5-token数值沿用源码。
+  模型内部标签0..1023，读写边界统一转换，不改变外部1..1024标签。
+  缺失历史及MAFE预测token不能充当注意力key/value；有效历史是唯一运动信息来源。
+  LE真实失跟前缀和当前预测token有效，只有批填充被屏蔽。
+  使用完整LE序列进入FF，交叉注意力仍屏蔽缺失/未来运动key。
+  多token训练只把已有失跟前缀作为输入；额外未来token是query，不包含未来负反馈。
+  第一预测输出在1-token/多token模式保持一致，已测试。
+  第IV节位置头按公式直接回归当前坐标，没有添加几何外推预测器。
+
+core/workflows/step07d_train_journal_nnet.py
+  Phase 1：输出best_nnet.pth、training_log.csv、config.json和summary.json。
+  损失按正式版(22)-(25)：每样本未来时刻求和，批平均；定位MSE为三坐标平方误差和。
+  AdamW、3e-4、batch256、50轮；默认滑窗步长1，与作者采样枚举方式一致。
+  归一化统计仅使用N-Net训练记录；验证与测试没有参与统计。
+  每批向量化读取与逐窗口读取逐值一致；GPU矩阵精度high写入配置。
+
+core/workflows/step08d_collect_journal_lost.py
+  输出train/validation.npz、采样配置和去重后的失跟状态统计。
+  N-Net采样组D_sim与N-Net训练组完全隔离，真实数据继续按原始记录组隔离。
+  每个完整历史滑窗独立初始化，只采样其最初漏检链，恢复即结束该采样窗。
+  不在评估时重置失败轨迹；滑窗初始化仅属于离线训练采样。
+  保存已有失败扫描、有效历史掩码和多个未来监督标签。
+  未来标签不作为网络输入；完全相同状态去重，避免重复窗口虚增样本数。
+
+core/workflows/step09d_train_journal_rnet.py
+  Phase 2：输出best_rnet.pth、训练日志及冻结校验。
+  冻结N-Net全部参数并保持eval，只训练LE和FF；不更新共享分类器。
+  使用多token CE加同一角距离惩罚，验证集Top-4选权重。
+  比较冻结前后完整N-Net的SHA256，并检查其梯度始终为空。
+
+step10d_journal_tracking.py
+  输出同一批轨迹上N-Net-only/N-Net+R-Net对照、恢复率和恢复延迟。
+  一次漏检后，下一时刻切R-Net；成功后回N-Net；连续5次漏检终止。
+  模型作出波束选择后才用真值判定模拟环境命中；当前/未来真值不传入模型。
+  未命中时不提供该时刻测量，不用真实位置补历史，不进行几何外推。
+  默认保存逐时刻动作/命中记录，--events保留为旧命令兼容参数。
+  测试结束自动保存并显示tracking_status.png及tracking_survival.png。
+  前者为同一轨迹两种方案的命中/漏检/恢复/终止时间图，附局部放大；
+  后者统计全部测试轨迹，只在达到连续漏检终止条件时下降。
+  图片与CSV位于本次run_*目录；--no-show可只保存不弹窗。
+  --plot-trajectory <ID>指定状态图轨迹，默认选R-Net恢复次数最多的示例。
+
+与作者发布实现仍存在的差异/不确定项（不隐藏）
+
+A. 论文MAFE输入为距离/方位角/俯仰角。公开N-Net则输入笛卡尔坐标，
+   另外有历史波束Embedding。新版按论文字面使用三维距离角度测量，不混入波束Embedding。
+B. 论文FF融合MAFE特征，和共享分类器连接。发布R-Net则对N-Net历史logits做128维投影，
+   只用1层decoder，并在logits上加修正；不能把发布权重直接加载到论文公式模型。
+C. 正式版给出D=256、Ld=2；新版按正式版，未静默降为发布R-Net的128维/1层。
+D. 角距矩阵按正式版(23)计算，离散角度排序沿用作者tools.py的64方位×16俯仰网格。
+   作者另一个DFT辅助函数及实际测试标签却采用32×32方向余弦网格。
+   二者排序并非同一几何网格；原文未给转换表，不能声称此项已消歧。
+   此处明确沿用作者损失函数排序，没有擅自另造几何映射。
+E. 发布测试MAT只有100条轨迹；其标签完全对应基站z=0，而正式版场景写z=10。
+   新生成数据按论文z=10；作者数据仅用于码本索引核验及作者版本参考，未拿来训练。
+F. 论文参数量报告N-Net约3.3M、R-Net约4.2M。新版按公式和源码4D FFN宽度构造，
+   N-Net为3456518参数，新增LE/FF为2632704参数；若再计入整个冻结N-Net则为6089222。
+   原文R-Net参数量是否计入共享模块未完全说明，计数仍不一致，不能宣称逐参数相同。
+G. 原始训练集、完整训练入口、测量生成器、Swerling I接收机未公开。
+   新增独立验证集、base/sim比例、初始半径、z扰动标准差、lambda、eta、归一化、
+   dropout和预测token的具体参数化属于显式补全；不能冒充原文已指定数值。
+H. 原文没有充分给出R-Net多token与滑窗采样的全部细节：新版按当前掩码历史滚动N-Net，
+   公开采样脚本则先做一次多token预测再检查未来失跟；这项实施差异保留记录。
+I. 真实轨迹仍受GPS插值、同一路线重复和既有测试组已看过的限制；不是新盲测。
+   原约5Hz参考位置插值至20Hz不会增加真实动态细节，平滑也可能让短间隔预测更容易。
+
+验证
+
+  & '.\.venv\Scripts\python.exe' '.\my_training\checks/test_journal_alignment.py'
+
+检查缺失隔离、额外预测token不能改变第一步、动态失跟前缀批填充不变性、
+零特征修正还原N-Net、Phase 2冻结、损失归约、角度环绕、作者DFT标签一致性、
+闭环5次终止/当前未知测量隔离及滑窗采样标签边界。
+
+运行顺序（均在项目根目录）
+
+  # 合成正式版运动学代理数据；完整回波不在当前实现中。
+  & '.\.venv\Scripts\python.exe' '.\my_training\core/workflows/step05g_prepare_journal_dataset.py'
+
+  # 真实参考轨迹扩展的示例，--source-data指定原50秒分组目录。
+  & '.\.venv\Scripts\python.exe' '.\my_training\core/workflows/step05g_prepare_journal_dataset.py' --source-data '<原50秒数据目录>'
+
+  & '.\.venv\Scripts\python.exe' '.\my_training\core/workflows/step07d_train_journal_nnet.py' --data '<新数据目录>'
+  & '.\.venv\Scripts\python.exe' '.\my_training\core/workflows/step08d_collect_journal_lost.py' --checkpoint '<新N-Net目录>\best_nnet.pth'
+  & '.\.venv\Scripts\python.exe' '.\my_training\core/workflows/step09d_train_journal_rnet.py' --data '<新失跟样本目录>'
+  & '.\.venv\Scripts\python.exe' '.\my_training\step10d_journal_tracking.py' --checkpoint '<新R-Net目录>\best_rnet.pth' --split validation
+  & '.\.venv\Scripts\python.exe' '.\my_training\step10d_journal_tracking.py' --checkpoint '<新R-Net目录>\best_rnet.pth' --split test --events
+
+新输出统一用outputs/step05g_journal、step07g_journal、step08g_journal、step09g_journal、step10g_journal等前缀。
+本轮真实50秒验证用相同前缀加_real50。根目录latest指针只在各阶段成功后更新。
+092253开头的N-Net运行是5轮后中止的数据读取预跑，不作为正式50轮成绩。
+
+目录整理后的辅助入口
+
+  core/models.py：网络结构（不单独运行）
+  core/common.py：数据及权重工具（不单独运行）
+  core/plots.py：测试自动绘图（不单独运行）
+  checks/：一致性测试、工作流检查和源码审计
+  tools/prepare_real_flights.py：从原始GPS压缩包重建50秒参考数据
+
+  # 仅从原始GPS记录重新开始时执行，再将输出目录传给主数据准备程序的--source-data。
+  & '.\.venv\Scripts\python.exe' '.\my_training\tools\prepare_real_flights.py'
+
+2026-11-15：原文多目标核心流程
+
+入口仍使用第10步step10_single_target_tracking.py，无需新增顶层步骤。
+默认3目标、共享12束；显式--single-target可调用原教学版单目标流程。
+core/multi_target.py实现第V节共享权重、逐目标N/R分支、Softmax后沿目标维度求和和全局Top-Bs。
+同一束可覆盖多个目标；失跟目标记录本次所有全局扫描波束，未失跟目标不进入LE/FF。
+为避免全零LE输入经过bias后污染正常目标，实际推理只对失跟子批次计算R-Net。
+动态失跟前缀沿用单目标训练时的紧凑排列与掩码，不为多目标重新训练网络。
+原文VI-D基线按目标顺序推理、每目标floor(Bs/I)束。
+基线只使用本目标分配的反馈，不利用其他目标扫描的偶然命中；重复方向计重复扫描开销，余数不重分。
+两种方法使用同样的场景、码本和命中规则。
+场景从同一数据分区无放回组合，余下不能凑足目标数的轨迹明确记入summary。
+当前实测轨迹不是同时记录，组合结果只称轨迹驱动的多目标仿真。
+
+指标约定：整组成功率、所有目标同时持续跟踪时长（首个目标达到5次连续漏检即终止）。
+同伴目标记censored_by_peer_failure；不虚报其自身失败，也不将截尾时长当独立完整目标寿命。
+这是显式采用的严格整组口径，论文Fig.9的数值不能据此直接宣称已逐点复现。
+记录恢复延迟、命中时定位RMSE、实际扫描数和时延；时延区分批次与摊销单场景，不冒充独立场景时延。
+复用已有正式版单目标权重，校验配置与推理前后权重SHA256；已有单目标实验的各项限制继续适用。
+未额外引入随机漏检、杂波、身份学习、目标出生消失或OTFS前端。
+
+验证命令：
+  & '.\.venv\Scripts\python.exe' '.\my_training\checks\test_multi_target.py'

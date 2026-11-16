@@ -1,0 +1,83 @@
+{
+  "version": "v1_original",
+  "created_utc": "2026-11-15T07:44:03.860140+00:00",
+  "description": "原文多目标核心流程，原始测量与固定权重；绘制既有结果。",
+  "original_run": "<LOCAL_ASSET>/run_20261115_064436_898950_UTC",
+  "source_sha256": {
+    "my_training/checks/audit_journal_alignment.py": "de6e4a9d965cc71cd745d2644f12a4bc1544cc93aab97b6f1121711ee24d316f",
+    "my_training/checks/test_journal_alignment.py": "1db5c976da8c98d73cc15e44e87f3063843620d1000de87d1cdecc3a53b60df8",
+    "my_training/checks/test_journal_workflow_smoke.py": "0a66bbd06b10ab9d353be5407db9e4b64f73630874292f85a5c45a9f195a0ac7",
+    "my_training/checks/test_multi_target.py": "a5b2491b3c708557e9445c2d914518fb48809cdd24d2cfac629c45ae4154fb1a",
+    "my_training/core/__init__.py": "f1b6eeb98c135229978bdcdf619cad2a4f4ed69e7bd5364f46fb4fc79a0fa261",
+    "my_training/core/common.py": "f4eeabfaa75f1e0927250c64eee9aa5097026d2dd6d9402436a710b3fc620d21",
+    "my_training/core/metric_charts.py": "74ad7b825ffc167dbdcc994505068c38e80b3d84429131d2938959241b5fc25d",
+    "my_training/core/models.py": "43972fb03a96a01c94a914e763440943933ca28f024bbb5156e0e164d7ba925f",
+    "my_training/core/multi_target.py": "faaee6dfd1c5e7b9541332782dde9c023ad6294f215276b69c773c1132aa13d8",
+    "my_training/core/plots.py": "d14f4784f471ea5d1685000add2abfdaee02ccf1f64ca8de7c84359948400cac",
+    "my_training/core/versions.py": "be4d66082c4c51726905aa01180297d96f24b25230a5dbdb09b335f07e51006e",
+    "my_training/core/workflows/__init__.py": "86b3f3c7766554c40ad430152b3465d2c33009c0c9bf396a88af7d53e7f5c79f",
+    "my_training/core/workflows/step05g_prepare_journal_dataset.py": "c27f3793bcccb372f2133c7daa37c75b61644cff7daf3864f55389a2deabec24",
+    "my_training/core/workflows/step07d_train_journal_nnet.py": "505b98e5990a0be7087f622e8863d1970396a654182b71e3cfdea0b20d066b35",
+    "my_training/core/workflows/step08d_collect_journal_lost.py": "18ba986e6e60fff78d209be2ef8916dca4be34c0bbd5e733b13158eb82f74a6e",
+    "my_training/core/workflows/step09d_train_journal_rnet.py": "898acf92383c1b20133d1c9e61db1793dcae7bd9833bc0e5f0ea6bafc6eab057",
+    "my_training/core/workflows/step11d_journal_experiment_report.py": "1de291f1d6d8804ede227a4a660093fb6c4de5c31570cd48ea405fb6590061f6",
+    "my_training/step01_generate_truth.py": "392f3f12fa3aed1f9194067393617f3bed0468529ffd30b83e6f0cfcc1f9b66a",
+    "my_training/step02_generate_measurements.py": "6eb208cbe350ea08fe942757fc35cd4a357ff9f89928872b600310b3ce1b136d",
+    "my_training/step03_generate_beam_labels.py": "d870387fc11d30b5634ae77972f54abd1389bc0b226aaf1a0aa9f31b8f929f69",
+    "my_training/step04_build_windows.py": "ba55fbd71c0b5e854081e7c5d4a216340c9bfa7c868ea817f59ab4dfbd187f97",
+    "my_training/step05_generate_dataset.py": "980991bb8bb192ac6e55e27ec81eac34139d3045236b6b7bdac79c53aa883bde",
+    "my_training/step06_build_nnet.py": "1255ed78f40b9f5c75f1a28ffc514cc88ca7a7d9be67c67a170c4b6c02ce57bb",
+    "my_training/step07_train_nnet.py": "05282e8c75002c1b5dcb45dbba790773467dbebb72ebf240b47cdc4c0b298dfb",
+    "my_training/step08_collect_lost_samples.py": "9e21346449bbf3593757b17cd9a3d254205419de9cb304766f24f08386f58d2a",
+    "my_training/step09_train_rnet.py": "87319920b6a263bf6ef8d8aaa6d74e6c8aff27315390c6ce2cf72fdba0ad85ad",
+    "my_training/step10_single_target_tracking.py": "8a71cbebe177d23abdcd51c918a8ccc1ac9f42a41f0df062944f01a6bbf8ea60",
+    "my_training/step10d_journal_tracking.py": "ac1130f55061b6d8e9b396d5472c391ee6c75506651507b889ab9b4ea0f6f26e",
+    "my_training/tools/prepare_real_flights.py": "420b1e8b0f33c8ba99c53409d95775ec423a2e62dcd5e62d37ae46b5fa56e8d7",
+    "my_training/README.txt": "ff12185aa42c3f188ca47b91fc1b6174061c8599e33ed030bee3e266d2c29e72",
+    "my_training/JOURNAL_ALIGNMENT.txt": "69cbf3f0cbbbc9181ed5eb34d14862ab28e4111cb85ddb55d1fb31dc62aa93e2",
+    "requirements.txt": "679508b69694861826b91d3654f275cf2036d9393c575d73885b9cae42e94799"
+  },
+  "external_assets": {
+    "source": {
+      "path": "<LOCAL_ASSET>/test.npz",
+      "sha256": "032d782c8318693476812ecb3392e010796737dd09232e6f003eb955c59984cc",
+      "bytes": 1019767
+    },
+    "nnet_checkpoint": {
+      "path": "<LOCAL_ASSET>/best_nnet.pth",
+      "sha256": "71e0e2becc08131963148c042752017f67fbc8de99df84d4fb164628e5b33345",
+      "bytes": 41548939
+    },
+    "rnet_checkpoint": {
+      "path": "<LOCAL_ASSET>/best_rnet.pth",
+      "sha256": "0476bdecbf19039e81a343cae3ba9f8b614f61ba8f5201fef9f0d8b2b21ce9fd",
+      "bytes": 10545544
+    }
+  },
+  "source_archive_sha256": "40f6dae2af2dc0e20b002bb08f822689638c7ad317aa5c978aaa3bdfc69ad3b9",
+  "large_data_and_weights_in_archive": false,
+  "local_result_sha256": {
+    "beam_scans.csv": "ea7209404264e08ecc19952365f7f7d13b96094b18615c786341bac0a964740a",
+    "decoupled_scenes.csv": "d1ab7201678671df889547f16951f249445dd3f89afd9488191f0a1ea0a1bdd5",
+    "decoupled_targets.csv": "4c74fbf5020151ef96804513c2c95d83085d6f598f0c41dabece5a93159b917b",
+    "joint_scenes.csv": "50ab7ac022d9f5ebf6303b306d66995bd905d816d3ec370462d343317f5e77d2",
+    "joint_targets.csv": "88139de913c3c5150e2081935411781c0177c68c5c3b1d0c688a2a5293a2a8c3",
+    "report.txt": "db265d2a53b714ef997cb87f5cfa361c8f635d55c3692b5b10222328e35d0ef5",
+    "scene_membership.npz": "8d77953a79e29e34d7ab037364af78a797549c1998116ecced6015384cc32da1",
+    "summary.json": "7163994bc5cfa1aeffeda74e07eecc648e31c2868895e26134c37520df6421dc",
+    "tracking_events.csv": "eb6780128ffe27639dd7924196aaaee82335553d7d8809a8e7162fee4ea42dd3",
+    "tracking_status.png": "1d373b3b910ef791220b9db05b48f8eae0ccb255ceaebed71b721fc03a313c46",
+    "tracking_survival.png": "095e6afbaca04a1d405c4a2787a7d360c3aeaf1ba2d823bd3eeeb7859902d899"
+  },
+  "published_results_sha256": {
+    "results/decoupled_scenes.csv": "d1ab7201678671df889547f16951f249445dd3f89afd9488191f0a1ea0a1bdd5",
+    "results/decoupled_targets.csv": "4c74fbf5020151ef96804513c2c95d83085d6f598f0c41dabece5a93159b917b",
+    "results/joint_scenes.csv": "50ab7ac022d9f5ebf6303b306d66995bd905d816d3ec370462d343317f5e77d2",
+    "results/joint_targets.csv": "88139de913c3c5150e2081935411781c0177c68c5c3b1d0c688a2a5293a2a8c3",
+    "results/report.txt": "db265d2a53b714ef997cb87f5cfa361c8f635d55c3692b5b10222328e35d0ef5",
+    "results/summary.json": "920cfe82972dc5ceb09b085fcda171aa762374eace3acc2eff01e52fc47f83a1",
+    "results/tracking_status.png": "1d373b3b910ef791220b9db05b48f8eae0ccb255ceaebed71b721fc03a313c46",
+    "results/tracking_survival.png": "095e6afbaca04a1d405c4a2787a7d360c3aeaf1ba2d823bd3eeeb7859902d899"
+  },
+  "public_export_note": "原始飞行数据、权重、逐帧大文件及本机路径配置不上传；本地保留完整结果。source.zip保留源代码快照，external_assets用SHA256核对。"
+}

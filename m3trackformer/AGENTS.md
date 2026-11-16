@@ -1,0 +1,3 @@
+# m³TrackFormer experiment instructions
+
+This subproject is independent of the repository root camera project. Use Python 3.13 and dependencies in requirements.txt. Keep numbered steps 1–10; internal modules live in my_training/core. Every new experiment version must preserve source and results via core.versions.save_version, then create a separate GitHub commit/version branch. Never overwrite frozen versions. Do not publish original flight datasets, weights, machine-specific path configurations or caches. Run checks/test_multi_target.py and relevant new checks. Use Chinese chart labels; report group-stop and detection-only RMSE definitions.

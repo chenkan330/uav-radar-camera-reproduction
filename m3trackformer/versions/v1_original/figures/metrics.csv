@@ -1,0 +1,31 @@
+﻿version,policy,metric,label,value,unit,source_run
+V1 原始多目标,joint,success_rate,整组跟踪成功率,70.58823529411765,%,<LOCAL_ASSET>/run_20261115_064436_898950_UTC
+V1 原始多目标,joint,mean_all_targets_duration_s,全部目标同时连续跟踪时长,40.05588235294118,s,<LOCAL_ASSET>/run_20261115_064436_898950_UTC
+V1 原始多目标,joint,position_rmse_m_on_detections,检测帧位置 RMSE,8.319566193403464,m,<LOCAL_ASSET>/run_20261115_064436_898950_UTC
+V1 原始多目标,joint,recovery_rate,重捕获成功率,81.81818181818183,%,<LOCAL_ASSET>/run_20261115_064436_898950_UTC
+V1 原始多目标,joint,mean_recovery_delay_s,平均重捕获延迟,53.70370370370371,ms,<LOCAL_ASSET>/run_20261115_064436_898950_UTC
+V1 原始多目标,joint,missed_target_block_rate,观测期目标帧漏检率,0.1444060993220256,%,<LOCAL_ASSET>/run_20261115_064436_898950_UTC
+V1 原始多目标,joint,recoveries,重捕获次数,27.0,次,<LOCAL_ASSET>/run_20261115_064436_898950_UTC
+V1 原始多目标,joint,lost_events,丢失事件次数,33.0,次,<LOCAL_ASSET>/run_20261115_064436_898950_UTC
+V1 原始多目标,joint,mean_unique_beams,每场景每帧不同扫描方向数,12.0,束,<LOCAL_ASSET>/run_20261115_064436_898950_UTC
+V1 原始多目标,joint,mean_beam_slots_used,每场景每帧实际扫描开销,12.0,束次,<LOCAL_ASSET>/run_20261115_064436_898950_UTC
+V1 原始多目标,joint,mean_prediction_batch_ms,平均整批波束预测耗时,1.6132275116663561,ms / batch,<LOCAL_ASSET>/run_20261115_064436_898950_UTC
+V1 原始多目标,joint,amortized_prediction_ms_per_scene,场景均摊波束预测耗时,0.1164840026095783,ms / scene,<LOCAL_ASSET>/run_20261115_064436_898950_UTC
+V1 原始多目标,joint,evaluated_target_blocks,已观测目标帧数,40857.0,帧,<LOCAL_ASSET>/run_20261115_064436_898950_UTC
+V1 原始多目标,joint,detected_target_blocks,已检测目标帧数,40798.0,帧,<LOCAL_ASSET>/run_20261115_064436_898950_UTC
+V1 原始多目标,joint,position_evaluation_count,位置 RMSE 评价帧数,40798.0,帧,<LOCAL_ASSET>/run_20261115_064436_898950_UTC
+V1 原始多目标,decoupled,success_rate,整组跟踪成功率,64.70588235294117,%,<LOCAL_ASSET>/run_20261115_064436_898950_UTC
+V1 原始多目标,decoupled,mean_all_targets_duration_s,全部目标同时连续跟踪时长,37.141176470588235,s,<LOCAL_ASSET>/run_20261115_064436_898950_UTC
+V1 原始多目标,decoupled,position_rmse_m_on_detections,检测帧位置 RMSE,8.262483947978863,m,<LOCAL_ASSET>/run_20261115_064436_898950_UTC
+V1 原始多目标,decoupled,recovery_rate,重捕获成功率,81.81818181818183,%,<LOCAL_ASSET>/run_20261115_064436_898950_UTC
+V1 原始多目标,decoupled,mean_recovery_delay_s,平均重捕获延迟,51.851851851851855,ms,<LOCAL_ASSET>/run_20261115_064436_898950_UTC
+V1 原始多目标,decoupled,missed_target_block_rate,观测期目标帧漏检率,0.15309893358673846,%,<LOCAL_ASSET>/run_20261115_064436_898950_UTC
+V1 原始多目标,decoupled,recoveries,重捕获次数,27.0,次,<LOCAL_ASSET>/run_20261115_064436_898950_UTC
+V1 原始多目标,decoupled,lost_events,丢失事件次数,33.0,次,<LOCAL_ASSET>/run_20261115_064436_898950_UTC
+V1 原始多目标,decoupled,mean_unique_beams,每场景每帧不同扫描方向数,10.748416217928414,束,<LOCAL_ASSET>/run_20261115_064436_898950_UTC
+V1 原始多目标,decoupled,mean_beam_slots_used,每场景每帧实际扫描开销,12.0,束次,<LOCAL_ASSET>/run_20261115_064436_898950_UTC
+V1 原始多目标,decoupled,mean_prediction_batch_ms,平均整批波束预测耗时,4.635575601113885,ms / batch,<LOCAL_ASSET>/run_20261115_064436_898950_UTC
+V1 原始多目标,decoupled,amortized_prediction_ms_per_scene,场景均摊波束预测耗时,0.3653153100864767,ms / scene,<LOCAL_ASSET>/run_20261115_064436_898950_UTC
+V1 原始多目标,decoupled,evaluated_target_blocks,已观测目标帧数,37884.0,帧,<LOCAL_ASSET>/run_20261115_064436_898950_UTC
+V1 原始多目标,decoupled,detected_target_blocks,已检测目标帧数,37826.0,帧,<LOCAL_ASSET>/run_20261115_064436_898950_UTC
+V1 原始多目标,decoupled,position_evaluation_count,位置 RMSE 评价帧数,37826.0,帧,<LOCAL_ASSET>/run_20261115_064436_898950_UTC
