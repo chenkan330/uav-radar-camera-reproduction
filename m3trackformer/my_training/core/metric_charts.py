@@ -244,6 +244,13 @@ def render_run_dashboard(run_dir, output_dir, label="V1 原始多目标"):
 
 
 def compare_versions(versions, output_dir):
+    records = [load_run_metrics(run)[0] for run in versions.values()]
+    if not records:
+        raise ValueError("至少需要一个版本")
+    for record in records[1:]:
+        for key in ("targets", "total_beams", "dt", "maximum_evaluated_duration_s", "scene_membership"):
+            if record[key] != records[0][key]:
+                raise ValueError(f"版本对照条件不一致：{key}")
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     return [

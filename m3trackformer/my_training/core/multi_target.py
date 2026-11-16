@@ -143,6 +143,8 @@ def simulate(nnet, rnet, checkpoint, scenes, device, dt, budget, policy,
                                        'recovered': bool(recovered[row, target]),
                                        'post_misses': int(after[row, target]),
                                        'true_beam_1based': int(beams[scene, target, step]+1),
+                                       'snr_db': float(scenes['snr_db'][scene, target, step]) if 'snr_db' in scenes else None,
+                                       'measurement_outlier': bool(scenes['outlier_mask'][scene, target, step]) if 'outlier_mask' in scenes else None,
                                        'feedback_beams_1based': ','.join(str(b+1) for b in feedback[row, target] if b >= 0),
                                        'scene_terminated': bool(scene_failed[row])})
                 if record_events:
@@ -285,6 +287,8 @@ def main(argv=None):
     p.add_argument('--data', type=Path)
     p.add_argument('--device', choices=['auto', 'cpu', 'cuda'], default='auto')
     p.add_argument('--no-show', action='store_true')
+    p.add_argument('--measurement-regime', choices=['original', 'stress'], default='original')
+    p.add_argument('--noise-seed', type=int, default=20261116)
     p.add_argument('--output-root', type=Path, default=BASE/'outputs/step10_multi_target')
     a = p.parse_args(argv)
     if a.targets < 1 or a.total_beams <= a.targets:
@@ -318,10 +322,18 @@ def main(argv=None):
         scenes, indices, unused = make_scenes(data, a.targets, a.seed, a.scenes)
     except ValueError as error:
         p.error(str(error))
+    noise_metadata = None
+    if a.measurement_regime == 'stress':
+        from .measurement_quality import NoiseConfig, perturb_scenes
+        scenes, noise_metadata = perturb_scenes(scenes, NoiseConfig(), a.noise_seed)
     before = (state_digest(nnet), state_digest(rnet))
     out = new_run(a.output_root)
     np.savez_compressed(out/'scene_membership.npz', source_indices=indices,
                         trajectory_id=scenes['trajectory_id'])
+    if noise_metadata is not None:
+        np.savez_compressed(out/'measurement_realization.npz', **{
+            key: scenes[key] for key in ('measurement', 'measurement_sigma', 'snr_db', 'outlier_mask')})
+        write_json(out/'noise_config.json', noise_metadata)
     print(f'多目标：{len(indices)}个场景 × {a.targets}个目标，总预算{a.total_beams}束；设备{device}', flush=True)
     # 预热只访问初始化历史，不写入闭环状态，不计入时延统计。
     h = nnet.config.history
@@ -369,6 +381,9 @@ def main(argv=None):
               'rnet_checkpoint': str(a.checkpoint.resolve()), 'nnet_checkpoint': saved['nnet_checkpoint'],
               'scene_membership': scenes['trajectory_id'].tolist(), 'unused_trajectory_ids': unused,
               'partition_audit': partition, 'weights_unchanged': True,
+              'measurement_regime': a.measurement_regime,
+              'quality_mode': 'raw', 'noise_seed': a.noise_seed,
+              'noise_metadata': noise_metadata,
               'test_is_new_blind_set': not cfg.get('test_records_used_previously', False),
               'results': summaries, 'limitations': cfg.get('limitations', [])+notes,
               'fully_reproduced_paper_numerical_results': False}
