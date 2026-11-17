@@ -187,11 +187,16 @@ def save_trajectory_figure(run_dir, scenes, trace_rows, target_rows, summary, *,
         fig.text(.075, .914, '程序直接读取闭环仿真记录绘制；蓝线来自实际获取测量后的当前状态估计',
                  fontsize=10, color='#4b5563')
         fig.text(.09, .19, f'本条轨迹  {"可用测量跟踪时间" if association_mode else "跟踪时间"}：{stats["tracking_duration_s"]:.2f} / {maximum:.2f} 秒'
-            f'    重捕率：{_rate(stats["recovery_rate"], stats["recoveries"], stats["lost_events"])}',
+            f'    {"更新恢复率" if association_mode else "重捕率"}：{_rate(stats["recovery_rate"], stats["recoveries"], stats["lost_events"])}',
             fontsize=12, fontweight='bold')
         fig.text(.09, .145, f'全部 {summary["scenes"]} 个场景  平均同时跟踪时间：'
-            f'{summary["mean_all_targets_duration_s"]:.2f} 秒    重捕率：'
+            f'{summary["mean_all_targets_duration_s"]:.2f} 秒    {"更新恢复率" if association_mode else "重捕率"}：'
             f'{_rate(summary["recovery_rate"], summary["recoveries"], summary["lost_events"])}', fontsize=11)
+        if association_mode and summary.get('physical_recovery'):
+            physical=summary['physical_recovery'];single,overall=physical['single'],physical['all']
+            fig.text(.09,.112,'物理漏检重捕率：本轨迹 '+_rate(single['recovery_rate'],single['recoveries'],single['lost_events'])+
+                '；首组全部场景 '+_rate(overall['recovery_rate'],overall['recoveries'],overall['lost_events']),
+                fontsize=9,color='#374151')
         footnote = ('图中时间/重捕率按可用更新统计；严格身份跟踪指标另列。紫菱形保留实际错配后的网络输出。\n'
             '未关联时蓝线留空；任一轨迹连续 5 帧没有可用测量即停止控制器。' if association_mode else
             '重捕率＝成功恢复次数／丢失事件数；连续漏检算一次事件。初始化不计入跟踪时间。\n'
@@ -206,6 +211,7 @@ def save_trajectory_figure(run_dir, scenes, trace_rows, target_rows, summary, *,
         'dt_s': dt, 'history_frames': history, 'estimate_source': sources[0],
         'stop_reason': stop_reason,
         'association_mode': association_mode,'wrong_identity_updates':len(wrong_identity),
+        'physical_recovery':summary.get('physical_recovery'),
         'single_trajectory': stats, 'all_scenes': {k: summary[k] for k in ('scenes',
             'mean_all_targets_duration_s', 'recoveries', 'lost_events', 'recovery_rate')},
         'maximum_evaluated_duration_s': (len(truth)-history)*dt,

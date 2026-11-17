@@ -89,6 +89,8 @@ def run_trial(root,configuration,phase,variants,current,nnet,rnet,checkpoint,dev
     trace += [dict(e) for e in events if e['scene_id']==0 and e['target_index']==0]
     cm=aggregate([{**records[0],'scene_rows':scores['controller_scene_rows'],'target_rows':scores['controller_target_rows']}],maximum)
     cm['scenes']=len(scores['controller_scene_rows'])
+    cm['physical_recovery']=dict(single=physical_reception_metrics(
+        [e for e in events if e['scene_id']==0 and e['target_index']==0],scenes,h),all=records[0]['physical_reception'])
     strict_time=scores['scene_rows'][0]['duration_s']
     save_trajectory_figure(out,scenes,trace,scores['controller_target_rows'],cm,dt=.05,history=h,trajectory_id=plot_id,
         title='匿名关联闭环：原 N-Net/R-Net实际输出',
@@ -251,7 +253,10 @@ def review_saved(original_root,output_root):
     original_root=Path(original_root).resolve();original=read_json(original_root/'summary.json')
     root=new_run(output_root);records=[];archives=[]
     for name in ('protocol.json','selection_locked_before_test.json'):
-        shutil.copy2(original_root/name,root/name)
+        source_file=original_root/name
+        if name=='selection_locked_before_test.json' and not source_file.exists():
+            source_file=Path(original['selection_record'])
+        shutil.copy2(source_file,root/name)
     selected=original['selected_configuration']['id']
     for saved in original['test_results']:
         configuration=saved['configuration'];source=original_root/'test'/configuration['id']
@@ -266,16 +271,42 @@ def review_saved(original_root,output_root):
             with (source/f'association_events_{seed}.csv').open(encoding='utf-8-sig',newline='') as stream:
                 events=list(csv.DictReader(stream))
             for e in events:
-                for key in ('scene_id','target_index','time_index','assigned_source_evaluation_only'):
+                for key in ('scene_id','target_index','time_index','assigned_source_evaluation_only','trajectory_id'):
                     e[key]=int(e[key])
-                for key in ('hit','identity_correct'):e[key]=e[key].lower()=='true'
+                for key in ('hit','identity_correct','recovered'):e[key]=e[key].lower()=='true'
                 e['time_s']=float(e['time_s'])
+                for axis in 'xyz':
+                    key=f'estimated_{axis}_m';e[key]=float(e[key]) if e[key] else None
             repeat['physical_reception']=physical_reception_metrics(events,scenes,record['history_frames'])
             if primary_events is None:primary_events=events
         record['physical_reception']=aggregate_physical(record['noise_repeats'])
         record['review_revision']=dict(source_run=str(source),source_summary_sha256=sha(source/'summary.json'),
             controller_simulation_repeated=False,primary_tracking_and_association_metrics_unchanged=True,
             purpose='补充原定义物理漏检重捕，避免将拒配恢复与R-Net性能改善混淆')
+        primary_scenes=variants[next(iter(variants))][0];h=record['history_frames']
+        first=record['noise_repeats'][0]
+        cm=aggregate([{**first,'scene_rows':first['controller_scene_rows'],'target_rows':first['controller_target_rows']}],
+            primary_scenes['beam'].shape[-1]-h)
+        cm['scenes']=len(first['controller_scene_rows'])
+        cm['physical_recovery']=dict(single=physical_reception_metrics(
+            [e for e in primary_events if e['scene_id']==0 and e['target_index']==0],primary_scenes,h),
+            all=first['physical_reception'])
+        from .measurement_quality import spherical_to_cartesian
+        plot_id=int(primary_scenes['trajectory_id'][0,0]);trace=[]
+        for k in range(h):
+            xyz=spherical_to_cartesian(primary_scenes['measurement'][0,0,k])
+            trace.append(dict(scene_id=0,target_index=0,trajectory_id=plot_id,time_index=k,time_s=(k-h)*.05,
+                phase='initialization',hit=True,recovered=False,identity_correct=True,
+                assigned_source_evaluation_only=0,estimate_source='initial_measurement',
+                **{f'estimated_{a}_m':float(xyz[j]) for j,a in enumerate('xyz')}))
+        trace.extend(e for e in primary_events if e['scene_id']==0 and e['target_index']==0)
+        assert out.resolve().is_relative_to(root.resolve())
+        for name in ('single_trajectory_tracking.png','single_trajectory_tracking_samples.csv','single_trajectory_tracking.json'):
+            (out/'figures'/name).unlink()  # only fresh copied files; original versions remain intact
+        strict_time=first['scene_rows'][0]['duration_s']
+        save_trajectory_figure(out,primary_scenes,trace,first['controller_target_rows'],cm,dt=.05,history=h,trajectory_id=plot_id,
+            title='匿名关联闭环：原 N-Net/R-Net实际输出',
+            selection_note=f'固定首场景首目标、首组噪声；该场景严格身份有效时长{strict_time:.2f}秒。\n本图保留控制器实际输出，错配也如实绘出；总体身份指标见比较图。')
         trial_figures(out,record,primary_events,variants[next(iter(variants))][0]['beam'].shape[-1],record['history_frames'],.05)
         records.append(record)
     reference=records[0]['ideal_huber_reference']
