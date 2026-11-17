@@ -194,16 +194,16 @@ def save_trajectory_figure(run_dir, scenes, trace_rows, target_rows, summary, *,
             f'{_rate(summary["recovery_rate"], summary["recoveries"], summary["lost_events"])}', fontsize=11)
         if association_mode and summary.get('physical_recovery'):
             physical=summary['physical_recovery'];single,overall=physical['single'],physical['all']
-            fig.text(.09,.112,'物理漏检重捕率：本轨迹 '+_rate(single['recovery_rate'],single['recoveries'],single['lost_events'])+
+            fig.text(.09,.117,'物理漏检重捕率：本轨迹 '+_rate(single['recovery_rate'],single['recoveries'],single['lost_events'])+
                 '；首组全部场景 '+_rate(overall['recovery_rate'],overall['recoveries'],overall['lost_events']),
                 fontsize=9,color='#374151')
         footnote = ('图中时间/重捕率按可用更新统计；严格身份跟踪指标另列。紫菱形保留实际错配后的网络输出。\n'
             '未关联时蓝线留空；任一轨迹连续 5 帧没有可用测量即停止控制器。' if association_mode else
             '重捕率＝成功恢复次数／丢失事件数；连续漏检算一次事件。初始化不计入跟踪时间。\n'
             '蓝线在漏检及终止后留空；黑 × 用真实位置事后标记。任一目标连续漏检 5 帧即整组终止。')
-        fig.text(.09, .083, footnote,
+        fig.text(.09, .064 if association_mode else .083, footnote,
             fontsize=9, color='#4b5563', linespacing=1.7)
-        fig.text(.09, .033, selection_note or '示例采用固定轨迹编号，仅用于展示；总体效果以全部场景指标为准。',
+        fig.text(.09, .014 if association_mode else .033, selection_note or '示例采用固定轨迹编号，仅用于展示；总体效果以全部场景指标为准。',
                  fontsize=8.5, color='#596273')
         fig.savefig(png, dpi=190, facecolor='white')
         plt.close(fig)
