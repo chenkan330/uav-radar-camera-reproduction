@@ -34,12 +34,13 @@ def replot(prior, version):
             row[key] = float(row[key]) if row[key] else None
         trace.append(row)
     v4 = summary.get('version') == 'v4_maneuver_uncertainty'
+    nr_v4 = summary.get('version') == 'v4_original_nr_maneuver'
     scene_info = summary['tracking'] if v4 else summary
     data = load_split(summary['source'])
     scenes, _, _ = make_scenes(data, scene_info['targets'], seed=summary.get('seed', 20261115))
     if scenes['trajectory_id'].tolist() != scene_info['scene_membership']:
         raise ValueError('Cannot reproduce original scene membership')
-    name = 'motion_probability' if v4 else 'joint'
+    name = 'motion_probability' if v4 else 'nr_robust' if nr_v4 else 'joint'
     with (prior/f'{name}_targets.csv').open(encoding='utf-8-sig', newline='') as stream:
         targets = list(csv.DictReader(stream))
     metrics = scene_info['methods'][name] if v4 else scene_info['results'][name]
@@ -59,7 +60,8 @@ def replot(prior, version):
     write_json(out/'summary.json', summary)
     png = save_trajectory_figure(out, scenes, trace, targets, metrics,
         dt=saved['dt_s'], history=saved['history_frames'], trajectory_id=saved['trajectory_id'],
-        title='V4：运动概率预测与鲁棒测量处理' if v4 else '多目标联合跟踪：单轨迹示例',
+        title='V4：运动概率预测与鲁棒测量处理' if v4 else
+            '重做 V4：原 Transformer N-Net/R-Net＋鲁棒预处理' if nr_v4 else '多目标联合跟踪：单轨迹示例',
         selection_note=saved['selection_note'])
     (out/'report.txt').write_text(
         '单轨迹效果图：由实际闭环仿真保存的逐帧样本重绘，仅调整显示排版。\n'
@@ -67,10 +69,10 @@ def replot(prior, version):
         f'单条重捕：{saved["single_trajectory"]["recoveries"]}/{saved["single_trajectory"]["lost_events"]}\n'
         f'全部场景平均同时跟踪时间：{metrics["mean_all_targets_duration_s"]:.6f}秒\n'
         f'全部场景重捕：{metrics["recoveries"]}/{metrics["lost_events"]}\n'
-        '蓝线：因果滤波当前位置；真实轨迹及漏检位置只用于事后绘图。\n'
+        f'蓝线：{"原N-Net实际位置输出" if nr_v4 else "因果滤波当前位置"}；真实轨迹及漏检位置只用于事后绘图。\n'
         '下一步：无身份标签检测输入；保持当前数据、权重、预算作为关联前基线。\n', encoding='utf-8')
     archive = save_version(version, out, 'V4单轨迹仿真图：固定示例、跟踪时间、重捕率；复用实际闭环记录，仅调整排版。')
-    if v4:
+    if v4 or nr_v4:
         (out.parent/'latest_complete_run.txt').write_text(out.name, encoding='utf-8')
     print(f'图：{png.resolve()}\n归档：{archive.resolve()}', flush=True)
     return archive

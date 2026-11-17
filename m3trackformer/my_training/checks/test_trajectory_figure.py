@@ -91,6 +91,7 @@ class TrajectoryFigureTests(unittest.TestCase):
             self.assertEqual(rows[-1]['phase'], 'not_evaluated')
             self.assertEqual(rows[7]['estimated_x_m'], '3.0')
             self.assertEqual(meta['single_trajectory']['recovery_rate'], .5)
+            self.assertEqual(meta['stop_reason'], 'target_failure')
             self.assertEqual(meta['figure_sha256'], hashlib.sha256(png.read_bytes()).hexdigest())
             self.assertEqual(meta['samples_sha256'], hashlib.sha256(csv_path.read_bytes()).hexdigest())
             with self.assertRaises(FileExistsError):

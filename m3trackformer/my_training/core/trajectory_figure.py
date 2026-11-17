@@ -62,6 +62,12 @@ def save_trajectory_figure(run_dir, scenes, trace_rows, target_rows, summary, *,
         raise ValueError('Display trace is empty or has duplicate frame indices')
     stats = trace_statistics(rows, dt)
     target = next(r for r in target_rows if int(r['trajectory_id']) == trajectory_id)
+    def enabled(value):
+        return value is True or str(value).lower() == 'true'
+    stop_reason = ('peer_failure_censoring' if enabled(target.get('censored_by_peer_failure'))
+                   else 'target_failure' if enabled(target.get('terminal_failure')) else 'complete')
+    stop_label = {'peer_failure_censoring': '同伴失跟，场景终止',
+                  'target_failure': '本目标连续漏检终止', 'complete': '已完成全程评估'}[stop_reason]
     for key in ('lost_events', 'recoveries'):
         if stats[key] != int(target[key]):
             raise ValueError(f'Trace and simulator disagree on {key}')
@@ -130,6 +136,13 @@ def save_trajectory_figure(run_dir, scenes, trace_rows, target_rows, summary, *,
             plot.grid(alpha=.25)
             plot.set_aspect('equal', adjustable='box')
         ax.scatter([0], [0], marker='^', color='#0087bd', s=100, zorder=6)
+        if stop_reason == 'peer_failure_censoring':
+            last = max(int(r['time_index']) for r in rows)
+            point = estimates[last, :2] if np.isfinite(estimates[last, :2]).all() else truth[last, :2]
+            ax.scatter([point[0]], [point[1]], marker='s', color='#6b7280', s=40, zorder=7)
+            ax.annotate(f'场景于 {stats["tracking_duration_s"]:.2f} s 终止', xy=point,
+                xytext=(-8, -24), textcoords='offset points', fontsize=8.5, ha='right',
+                color='#4b5563', arrowprops={'arrowstyle': '-', 'color': '#6b7280', 'lw': .8})
         ax.set(xlabel='X（m）', ylabel='Y（m）')
         ax.margins(.07)
         # First miss is selected for explanation, never the smallest-error segment.
@@ -155,8 +168,8 @@ def save_trajectory_figure(run_dir, scenes, trace_rows, target_rows, summary, *,
         fig.legend(handles=handles, loc='upper left', bbox_to_anchor=(.745, .59),
                    frameon=True, fontsize=10, labelspacing=.7)
         fig.text(.76, .365, f'轨迹 ID：{trajectory_id}\n场景：{g}，目标索引：{t}\n'
-                 f'实际漏检：{stats["missed_frames"]} 帧\n视图：水平面 XY 投影',
-                 fontsize=10, linespacing=1.6, color='#374151', va='top')
+                 f'实际漏检：{stats["missed_frames"]} 帧\n{stop_label}\n视图：水平面 XY 投影',
+                 fontsize=9.5, linespacing=1.6, color='#374151', va='top')
         maximum = (len(truth)-history)*dt
         fig.text(.075, .95, title, fontsize=17, fontweight='bold')
         fig.text(.075, .914, '程序直接读取闭环仿真记录绘制；蓝线来自实际获取测量后的当前状态估计',
@@ -176,6 +189,7 @@ def save_trajectory_figure(run_dir, scenes, trace_rows, target_rows, summary, *,
         plt.close(fig)
     metadata = {'trajectory_id': trajectory_id, 'scene_id': g, 'target_index': t,
         'dt_s': dt, 'history_frames': history, 'estimate_source': sources[0],
+        'stop_reason': stop_reason,
         'single_trajectory': stats, 'all_scenes': {k: summary[k] for k in ('scenes',
             'mean_all_targets_duration_s', 'recoveries', 'lost_events', 'recovery_rate')},
         'maximum_evaluated_duration_s': (len(truth)-history)*dt,
