@@ -1,0 +1,40 @@
+{
+  "version": "external_optimization_trial",
+  "public_scope": "aggregate_only",
+  "total_beams": 12,
+  "phase": "validation",
+  "alternative_prediction_network_used": false,
+  "position_metric": "original N-Net head on actual detections; methods have different coverage",
+  "external_temperature_does_not_change_per_target_ranking": true,
+  "aggregate": {
+    "scenes_with_noise_repeats": 60,
+    "unique_geometrical_scenes": 30,
+    "success_count": 43,
+    "success_rate": 0.7166666666666667,
+    "mean_all_targets_duration_s": 42.30750000000001,
+    "recoveries": 152,
+    "recovery_rate": 0.8941176470588236,
+    "position_rmse_m_on_detections": 10.127451557018826,
+    "position_evaluation_count": 152048,
+    "position_evaluation_coverage": 0.848103525211959,
+    "filter_ms_per_detected_frame": 0.003736789698816956
+  },
+  "same_geometries_across_methods": true,
+  "configuration": {
+    "id": "huber_base",
+    "family": "huber",
+    "label": "当前Huber基准",
+    "processor": {
+      "kind": "huber"
+    },
+    "temperature": 1.0
+  },
+  "targets": 3,
+  "test_records_used_previously": true,
+  "temperature_objective": "closed-loop validation selection, not test calibration",
+  "dt": 0.05,
+  "models_source_sha256": "43972fb03a96a01c94a914e763440943933ca28f024bbb5156e0e164d7ba925f",
+  "maximum_evaluated_duration_s": 49.800000000000004,
+  "networks_and_weights_unchanged": true,
+  "wall_time_s": 7.93698489999224
+}
