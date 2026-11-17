@@ -1,0 +1,23 @@
+{
+  "version": "opt_20261117_050701_235854_validation_huber_q24_c4",
+  "scope": "source archives, aggregate metrics, aggregate reports, authorized PNGs only",
+  "source_zip_sha256": "0f88b623ec58c4ddc7c56d30843c4710e304a7a349931722aff48400684458b8",
+  "excluded_categories": [
+    "original datasets",
+    "model weights",
+    "machine configuration",
+    "per-frame records",
+    "per-scene records",
+    "per-target records",
+    "trajectory samples and provenance",
+    "detailed noise-repeat records"
+  ],
+  "published_files_sha256": {
+    "results/figures/single_trajectory_tracking.png": "c24231703a1ac452b516fc50d7f2622a5f0c977a1608ab488852bd90ece2464f",
+    "results/figures/trial_metrics.png": "1acc0ea54a8dc5dab33db6e7f2ca5c3a1041302e3161a748f4a6f634ca2917cb",
+    "results/global_metrics.csv": "452817011775d8e9a2314a57f19e835ba4730ada097d51ad8612996b6cc726bd",
+    "results/report.md": "e6a8f7211a78617e991855b2449c37c571f09d216daf463f4a0b07b6ed48a5d7",
+    "results/summary.json": "54aaef6f50e0211d0a6001ab16b670cab4c628fdb920ed90b1ad47514ba60367",
+    "source.zip": "0f88b623ec58c4ddc7c56d30843c4710e304a7a349931722aff48400684458b8"
+  }
+}
