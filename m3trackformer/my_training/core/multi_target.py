@@ -500,6 +500,10 @@ def main(argv=None):
         scenes, noise_metadata = perturb_scenes(scenes, NoiseConfig(), a.noise_seed)
     before = (state_digest(nnet), state_digest(rnet))
     out = new_run(a.output_root)
+    real_reference = None
+    if 'real_GNSS' in cfg.get('dataset_kind', ''):
+        from .real_data_audit import audit_real_reference
+        real_reference = audit_real_reference(data_root, a.split, out)
     np.savez_compressed(out/'scene_membership.npz', source_indices=indices,
                         trajectory_id=scenes['trajectory_id'])
     if noise_metadata is not None:
@@ -574,6 +578,7 @@ def main(argv=None):
               'rnet_checkpoint': str(a.checkpoint.resolve()), 'nnet_checkpoint': str(nnet_path.resolve()),
               'scene_membership': scenes['trajectory_id'].tolist(), 'unused_trajectory_ids': unused,
               'partition_audit': partition, 'weights_unchanged': True,
+              'real_reference_audit': real_reference,
               'measurement_regime': a.measurement_regime,
               'quality_mode': a.quality_mode, 'noise_seed': a.noise_seed,
               'measurement_realization_sha256': hashlib.sha256(
@@ -593,7 +598,8 @@ def main(argv=None):
     from .trajectory_figure import save_trajectory_figure
     trajectory_figure = save_trajectory_figure(out, scenes, trajectory_trace, results['joint'][1],
         summaries['joint'], dt=cfg['dt'], history=h, trajectory_id=plot_id,
-        title='多目标联合跟踪：单轨迹示例')
+        title=('真实GNSS轨迹：原 N-Net/R-Net'+('＋鲁棒预处理' if a.quality_mode == 'robust' else '（扰动直接输入）')
+               if real_reference is not None and noise_metadata is not None else '多目标联合跟踪：单轨迹示例'))
     record['trajectory_figure'] = 'figures/single_trajectory_tracking.png'
     write_json(out/'summary.json', record)
     from .metric_charts import render_run_dashboard

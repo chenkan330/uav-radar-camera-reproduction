@@ -21,6 +21,10 @@ if __name__ == '__main__':
         print(f'自动使用项目环境：{project_python}', flush=True)
         raise SystemExit(subprocess.run([str(project_python), '-X', 'utf8',
                                         str(Path(__file__).resolve()), *sys.argv[1:]]).returncode)
+    if '--real-trajectories' in sys.argv[1:]:
+        from core.real_tracking_batch import main as real_main
+        real_main([value for value in sys.argv[1:] if value != '--real-trajectories'])
+        raise SystemExit(0)
     if '--maneuver-uncertainty' in sys.argv[1:]:
         from core.maneuver_nnet_rnet import main as maneuver_main
         maneuver_main([value for value in sys.argv[1:] if value != '--maneuver-uncertainty'])

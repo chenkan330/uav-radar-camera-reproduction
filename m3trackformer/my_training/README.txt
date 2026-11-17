@@ -1,5 +1,25 @@
 第1～10步与原文多目标运行说明
 
+2026-11-17 数据选择更新：后续主线采用真实飞行GNSS轨迹。
+  原始压缩包位于datasets/idf_ds/，Speedybee DataSet.zip和Holybro Pixhawk.zip均保留。
+  自行查看可先打开Speedybee DataSet.zip内的processed/GPS/Lap001_gps.csv。
+  经纬度已是小数角度；时间time (us)需减首帧时间后除以1000000，得到相对秒数。
+  该样本有2323行、约441.99秒，典型采样间隔约0.2秒；并非每个间隔完全相同。
+  实测GNSS位置是参考轨迹；雷达测量仍另行仿真，不将其称为真实雷达测量数据。
+  原V4机动入口仅用于生成轨迹历史实验；当前真实轨迹主线使用下述--real-trajectories入口。
+
+真实轨迹＋距离/SNR误差＋异常值，一次运行完成两组对照：
+  & '.\.venv\Scripts\python.exe' '.\my_training\step10_single_target_tracking.py' --real-trajectories
+  无界面保存图片：同一命令加 --no-show。
+  复用已按飞行记录组划分的50秒真实GPS切片，核对原始CSV重建结果，不改变原N/R结构、权重或切换规则。
+  两组分别为：扰动测量直接输入；完全相同的扰动测量加鲁棒输入预处理。
+  两组采用相同场景、相同12束预算和噪声种子，轨迹图蓝线均为N-Net实际位置输出。
+  原始GPS约5Hz；20Hz输入来自插值。GNSS位置为参考估计，雷达角距测量是仿真。
+  real_trajectory_sources.csv：每个真实切片的原始Lap文件、记录组、起止时间。
+  real_trajectory_audit.json：原始ZIP校验、GPS重建及插值校验结果。
+  批次结果位于outputs/step10_real_snr_outliers，每次生成独立raw/robust版本，旧版本不覆盖。
+  结束自动显示鲁棒组单轨迹图与指标对照图，其余图和CSV同时保存。
+
 2026-11-16 用户明确的当前主线约束：
   必须保留原Transformer N-Net与R-Net，网络结构、输入输出接口及正常/重捕分工不变。
   正常跟踪使用N-Net；失跟后通过原R-Net调整重捕波束。

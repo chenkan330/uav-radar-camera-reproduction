@@ -262,7 +262,7 @@ def compare_versions(versions, output_dir):
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     return [
-        _bar_grid(versions, METRICS, output_dir/"metrics_comparison.png", "多目标跟踪：三个版本的指标对照", FOOTNOTE, 3, 3, (15, 12)),
+        _bar_grid(versions, METRICS, output_dir/"metrics_comparison.png", "多目标跟踪：各版本的指标对照", FOOTNOTE, 3, 3, (15, 12)),
         _bar_grid(versions, RESOURCE_METRICS, output_dir/"resource_latency_comparison.png", "版本对照：扫描开销与计算耗时", LATENCY_NOTE, 1, 3, (15, 5.)),
         plot_comparison_survival(versions, output_dir/"tracking_survival_comparison.png"),
         plot_evaluation_coverage(versions, output_dir/"evaluation_coverage_comparison.png"),
