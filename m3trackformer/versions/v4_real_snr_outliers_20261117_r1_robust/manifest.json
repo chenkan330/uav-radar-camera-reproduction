@@ -1,0 +1,32 @@
+{
+  "version": "v4_real_snr_outliers_20261117_r1_robust",
+  "scope": "source archives, aggregate metrics, aggregate reports, authorized PNGs only",
+  "source_zip_sha256": "36f2bc4cdb05edb07d5d3c26048f0322d50156ae4ebd25f18980482a25ea060b",
+  "excluded_categories": [
+    "original datasets",
+    "model weights",
+    "machine configuration",
+    "per-frame records",
+    "per-scene records",
+    "per-target records",
+    "trajectory samples and provenance",
+    "detailed noise-repeat records"
+  ],
+  "published_files_sha256": {
+    "figures/evaluation_coverage_comparison.png": "ee57b9be9fc75f8ec58f61d703c867dbcdb75f2d01099478a1acc2cb5e422c3a",
+    "figures/metrics_comparison.png": "25188a9c6f956d087436b4f00bd6ad43bdca5ce642cf6b7b9c364ab246913f6e",
+    "figures/resource_latency_comparison.png": "80e0ea5f1c91baf89576f592046a16736bbc6e88d697ff25242e159d425025ff",
+    "figures/tracking_survival_comparison.png": "a88bb35db4bde8ac462dca46d24495a88d2a03631611b757835e6c1bd729ee82",
+    "results/figures/metric_dashboard.png": "3260ec42001b92656182269c11ac17eaf85a79056815833cca65fad16a6cc659",
+    "results/figures/resource_latency.png": "ad8a14a5f1cd502af32273365ef838859abef1b6ffbdb8172ad98c63c6bb78bf",
+    "results/figures/scene_distributions.png": "98eb8e48813dc6e34eeb36179d14be63bda15f0480c0da1d31a833abe5a37ca8",
+    "results/figures/single_trajectory_tracking.png": "bc9312186402996e34d1405ebd27e49d902dfa13e819e1dd4b402836564ba3c7",
+    "results/global_metrics.csv": "3283b11ac78a1f0178dd82d5f5d7206b8ee2c37af79916098ecd6570307565af",
+    "results/noise_diagnostics.png": "5bdfcafe1ad1b95d4517e2ce5f9726129afbb0db529a4d5cdd1c179f8c95f9f8",
+    "results/report.md": "e4fd3184cd5d712527b7cf3873a23b81cf76f56693994b718b41a57eb0d320d6",
+    "results/summary.json": "6d265d3a52ae837640076b5648e8e4a22d89ac7734fa16f89803bcf3170aa7d1",
+    "results/tracking_status.png": "a15bd63df368487d7c427edcb21050abe8d6b5ffb80555082adad05f35ced72c",
+    "results/tracking_survival.png": "482470772dc3e6382aeb14563542f7c3f686751e43b39034bff04ea609a3d1a3",
+    "source.zip": "36f2bc4cdb05edb07d5d3c26048f0322d50156ae4ebd25f18980482a25ea060b"
+  }
+}
