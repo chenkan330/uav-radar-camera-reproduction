@@ -138,7 +138,7 @@ def write_report(root,records,reference,selected,baseline_origin):
         '身份切换给出跨缺测保持上次已分配标签、以及仅连续帧变化两种计数，不与早期条件审计的计数混称为同一闭环指标。',
         '正常N-Net定位头仍为唯一位置输出；滤波预测只供输入处理与几何关联。RMSE评价帧集合不同，须结合正确更新覆盖率理解。', '',
         '## 运行','','```powershell',r'.\.venv\Scripts\python.exe .\my_training\step10_single_target_tracking.py --identity-closed-loop --apply-selected',
-        '```','','复用验证集锁定配置、首组噪声，保存全新版本，显示轨迹和身份指标图。完整重跑去掉--apply-selected；后台加--no-show。',
+        '```','','复用验证集锁定配置、三组固定测试噪声，保存全新版本，显示轨迹和身份指标图；单轨迹图仅展示首组。完整搜索重跑去掉--apply-selected；后台加--no-show。',
         '若未达到阶段门槛，下一步先分析连续拒配、错配或负证据不足，不直接增加新复杂条件；达标后才增加近距离交会/短时缺测，继续逐项验证。','']
     (root/'closed_loop_report.md').write_text('\n'.join(lines),encoding='utf-8')
 
@@ -179,7 +179,7 @@ def main(argv=None):
         if sha(lock)!=pointer['selection_lock_sha256'] or hashes!=pointer['checkpoint_sha256']:
             raise RuntimeError('闭环选择记录或权重校验不匹配')
         configuration=read_json(lock)['configuration'];selected=configuration['id']
-        phases=[('test',[TEST_SEEDS[0]],[configuration])];selection_path=lock
+        phases=[('test',TEST_SEEDS,[configuration])];selection_path=lock
         selection_digest=sha(selection_path)
     else:
         phases=[('validation',VALIDATION_SEEDS,CANDIDATES)]
@@ -223,7 +223,7 @@ def main(argv=None):
         selection_lock_sha256=sha(selection_path),test_results=[dict(configuration=r['configuration'],identity_tracking=r['identity_tracking'],
             controller_tracking=r['controller_tracking'],association=r['association'],physical_reception=r['physical_reception'],acceptance=r['acceptance']) for r in tests],
         selected_acceptance=chosen['acceptance'],networks_and_weights_unchanged=True,
-        replay_single_seed=args.apply_selected)
+        replay_single_seed=False,replay_selected_configuration=args.apply_selected)
     write_json(root/'summary.json',result)
     from tools.verify_versions import lock_figures
     for archive,phase in archives:

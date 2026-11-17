@@ -21,8 +21,13 @@ if __name__ == '__main__':
         print(f'自动使用项目环境：{project_python}', flush=True)
         raise SystemExit(subprocess.run([str(project_python), '-X', 'utf8',
                                         str(Path(__file__).resolve()), *sys.argv[1:]]).returncode)
-    if not sys.argv[1:] and (project_root/'my_training/outputs/current_tracking_configuration.json').exists():
-        sys.argv.append('--current-real')
+    if not sys.argv[1:]:
+        closed_loop_choice = project_root/'my_training/outputs/current_identity_closed_loop.json'
+        if closed_loop_choice.exists() and json.loads(closed_loop_choice.read_text(encoding='utf-8')).get('acceptance',{}).get('passed'):
+            print('当前入口：已验收的Huber匿名身份闭环（原N-Net/R-Net）',flush=True)
+            sys.argv.extend(['--identity-closed-loop','--apply-selected'])
+        elif (project_root/'my_training/outputs/current_tracking_configuration.json').exists():
+            sys.argv.append('--current-real')
     if '--identity-closed-loop' in sys.argv[1:]:
         from core.identity_closed_loop_experiment import main as closed_loop_main
         closed_loop_main([value for value in sys.argv[1:] if value != '--identity-closed-loop'])
