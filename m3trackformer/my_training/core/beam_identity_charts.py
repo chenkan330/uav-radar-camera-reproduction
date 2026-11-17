@@ -40,8 +40,8 @@ def render_budget(out, summary, audit, maximum, history, dt):
         ax.set_xticks(range(4), ['目标A', '目标B', '目标C', '拒配'])
         ax.set_yticks(range(3), ['真实A', '真实B', '真实C']); ax.set(title=name, xlabel='算法判断')
     fig.suptitle(f'{summary["total_beams"]}束：身份混淆矩阵（含全部检出点）', fontsize=16)
-    fig.text(.05, .025, '目标A/B/C按每场景初始化轨迹的序号汇总，非机型分类；真实编号仅用于事后评分。', fontsize=9)
-    fig.tight_layout(rect=(0, .07, 1, .9)); fig.savefig(folder/'identity_confusion.png', dpi=170); plt.close(fig)
+    fig.text(.05, .02, '目标A/B/C按每场景初始化轨迹的序号汇总，非机型分类；真实编号仅用于事后评分。', fontsize=9)
+    fig.tight_layout(rect=(0, .14, 1, .9)); fig.savefig(folder/'identity_confusion.png', dpi=170); plt.close(fig)
 
     rows = [r for r in audit.rows if r['scene_id'] == 0]
     fig, axes = plt.subplots(2, 1, figsize=(12, 6), sharex=True)
@@ -91,6 +91,40 @@ def render_budget(out, summary, audit, maximum, history, dt):
         fig.text(.03, .05, detail, fontsize=9)
         fig.text(.03, .01, '若存在同束多回波，固定展示首个此类时刻；否则展示首个扫描。示例只用于解释，不代表平均效果。', fontsize=8.5)
         fig.tight_layout(rect=(0, .13, 1, .92)); fig.savefig(folder/'beam_contributions.png', dpi=170); plt.close(fig)
+
+
+def render_spatial(out, summary, audit, positions):
+    """Plot real anonymous sensor coordinates, coloured by the decided identity."""
+    plt = _plotting()
+    snapshot = audit.collision_snapshot or audit.snapshot
+    scene = snapshot['scene_id'] if snapshot else 0
+    rows = [r for r in audit.rows if r['scene_id'] == scene]
+    fig, axes = plt.subplots(1, 2, figsize=(13, 6.3))
+    from matplotlib.lines import Line2D
+    for ax, (method, name) in zip(axes, METHODS.items()):
+        for target in range(3):
+            truth = positions[scene,target]
+            ax.plot(truth[:,0],truth[:,1],color=COLORS[target],ls='--',lw=1.1,alpha=.65)
+            ax.annotate('ABC'[target],truth[0,:2],fontsize=11,color=COLORS[target],fontweight='bold')
+        for label in range(-1,3):
+            own = [r for r in rows if r[method]==label]
+            if own:
+                ax.scatter([r['measurement_x_m'] for r in own],[r['measurement_y_m'] for r in own],
+                    c='#999999' if label<0 else COLORS[label],s=9,alpha=.65,rasterized=True)
+        wrong = [r for r in rows if r[method]>=0 and r[method]!=r['true_target_index_evaluation_only']]
+        if wrong:
+            ax.scatter([r['measurement_x_m'] for r in wrong],[r['measurement_y_m'] for r in wrong],
+                       c='#dc1740',s=22,marker='x',linewidths=.8)
+        ax.set(title=f'{name}\n{len(wrong)}个错配点 / {len(rows)}个检出点',xlabel='X / m',ylabel='Y / m')
+        ax.grid(alpha=.2); ax.set_aspect('equal',adjustable='datalim')
+    handles=[Line2D([0],[0],marker='o',ls='',color=COLORS[i],label=f'判为{letter}') for i,letter in enumerate('ABC')]
+    handles += [Line2D([0],[0],marker='x',ls='',color='#dc1740',label='错配'),
+                Line2D([0],[0],marker='o',ls='',color='#999999',label='拒配'),
+                Line2D([0],[0],ls='--',color='#555555',label='数据集参考轨迹')]
+    fig.legend(handles=handles,loc='lower center',ncol=6,bbox_to_anchor=(.5,.06),fontsize=9)
+    fig.suptitle(f'匿名测量点的身份着色：{summary["total_beams"]}束、场景{scene}、噪声{audit.seed}',fontsize=15)
+    fig.text(.04,.025,'圆点是实际检出的带噪测量，颜色是身份判断；不是关联后N-Net的估计轨迹。示例固定为首个同束混叠场景，不代表平均效果。',fontsize=9)
+    fig.tight_layout(rect=(0,.14,1,.91)); fig.savefig(out/'figures/identity_spatial.png',dpi=180); plt.close(fig)
 
 
 def render_comparison(root, records):

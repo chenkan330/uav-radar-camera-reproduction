@@ -7,7 +7,7 @@ import shutil
 import torch
 
 from .beam_identity import IdentityAudit, METHODS, DEFAULT_GATE, pool_summaries
-from .beam_identity_charts import render_budget, render_comparison
+from .beam_identity_charts import render_budget, render_comparison, render_spatial
 from .common import BASE, load_nnet, new_run, read_json, state_digest, write_json, write_rows
 from .maneuver_nnet_rnet import ORIGINAL_MODELS_SHA256, run_original_nr
 from .models import JournalRNet
@@ -73,6 +73,7 @@ def main(argv=None):
     parser.add_argument('--device', choices=('cuda', 'cpu'), default='cuda' if torch.cuda.is_available() else 'cpu')
     parser.add_argument('--total-beams', type=int, nargs='+', default=[4, 12])
     parser.add_argument('--output-root', type=Path, default=BASE/'outputs/step10_beam_identity')
+    parser.add_argument('--replot-run', type=Path, help='从既有仿真记录生成全新展示版本，不重算网络')
     args = parser.parse_args(argv)
     if any(b <= 3 or b > 1024 for b in args.total_beams) or len(set(args.total_beams)) != len(args.total_beams):
         parser.error('三目标共享预算须大于3且不超过1024，不可重复')
@@ -81,6 +82,8 @@ def main(argv=None):
         matplotlib.use('Agg')
     else:
         import matplotlib.pyplot as plt
+    if args.replot_run is not None:
+        return replot_saved(args.replot_run, args.output_root, not args.no_show)
     torch.set_num_threads(4)
     current = read_json(BASE/'outputs/current_journal_experiment.json')
     choice, choice_lock = load_tracking_choice()
@@ -147,6 +150,7 @@ def main(argv=None):
             title=f'Huber基准：{budget}束；身份判别暂不反馈网络',
             selection_note='固定首场景首目标、首组噪声；本图是共同Huber参照，不是未知身份关联后的跟踪结果。')
         render_budget(out, record, observer, maximum, nnet.config.history, .05)
+        render_spatial(out, record, observer, scenes['position'])
         for name in ('real_trajectory_sources.csv', 'real_trajectory_audit.json'):
             shutil.copy2(root/'test_reference'/name, out/name)
         shutil.copy2(choice_lock, out/'operating_choice_lock.json')
@@ -184,4 +188,65 @@ def main(argv=None):
         display = next((p for p,r in zip(paths,records) if r['total_beams']==12),paths[0])
         show_images([display/'figures/single_trajectory_tracking.png',root/'identity_comparison.png'])
     print(f'身份判别结果：{root.resolve()}', flush=True)
+    return root
+
+
+def replot_saved(original_root, output_root, show=False):
+    """Clone numeric results, redraw charts, and save new source/result snapshots."""
+    import csv
+    from types import SimpleNamespace
+    import numpy as np
+    original_root = Path(original_root).resolve()
+    old = read_json(original_root/'summary.json')
+    if old['protocol']['version'] != 'beam_identity_audit':
+        raise ValueError('只能从完整身份判别审计结果重新绘图')
+    root = new_run(output_root)
+    records, paths = [], []
+    for saved in old['results']:
+        budget = saved['total_beams']
+        source = original_root/f'beams_{budget}'
+        out = root/f'beams_{budget}'
+        shutil.copytree(source,out)
+        record = read_json(out/'summary.json')
+        seed = record['primary_plot_noise_seed']
+        with (source/f'identity_detection_samples_{seed}.csv').open(encoding='utf-8-sig',newline='') as stream:
+            rows = list(csv.DictReader(stream))
+        ints = ('scene_id','time_index','true_target_index_evaluation_only','beam_argmax','beam_geometry')
+        floats = ('time_s','measurement_x_m','measurement_y_m','measurement_z_m')
+        for row in rows:
+            for key in ints: row[key]=int(row[key])
+            for key in floats: row[key]=float(row[key])
+        snapshot = read_json(source/f'beam_contribution_snapshot_{seed}.json')
+        repeat = record['noise_repeats'][0]
+        frames = np.array([r['evaluated_blocks'] for r in repeat['scene_rows']])
+        has_collision = any(str(row['same_beam_collision']).lower()=='true' for row in rows)
+        audit = SimpleNamespace(rows=rows,seed=seed,scene_frames=frames,
+            snapshot=snapshot,collision_snapshot=snapshot if has_collision else None)
+        with np.load(record['source'],allow_pickle=False) as data:
+            index = {int(value):i for i,value in enumerate(data['trajectory_id'])}
+            positions = np.array([[data['position'][index[int(t)]] for t in group] for group in record['scene_membership']])
+        history,dt=5,.05
+        render_budget(out,record,audit,positions.shape[-2]-history,history,dt)
+        render_spatial(out,record,audit,positions)
+        record['presentation_revision']=dict(source_run=str(source),
+            source_summary_sha256=sha(source/'summary.json'),simulation_repeated=False,
+            numerical_metrics_unchanged=True,reason='增加匿名点身份着色图并修正混淆矩阵图脚注排版')
+        records.append(record); paths.append(out)
+    render_comparison(root,records); report(root,records)
+    for record,out in zip(records,paths):
+        for name in ('identity_comparison.png','identity_report.md'):
+            shutil.copy2(root/name,out/name)
+        write_json(out/'summary.json',record)
+        prefix='v5_'+root.name.removeprefix('run_').removesuffix('_UTC')
+        archive=save_version(f'{prefix}_beam_identity_b{record["total_beams"]}_r1',out,
+            '身份判别展示修订：保留全部原始仿真数值，新增空间着色图，不重算或修改算法指标。')
+        record['archive_path']=str(archive.resolve())
+        print(f'保存新的展示版本：{archive.resolve()}',flush=True)
+    write_json(root/'summary.json',dict(protocol=old['protocol'],presentation_revision=True,
+        source_run=str(original_root),results=[dict(total_beams=r['total_beams'],identity_metrics=r['identity_metrics'],
+            tracking_reference=r['tracking_reference'],archive_path=r['archive_path']) for r in records]))
+    (output_root/'latest_complete_run.txt').write_text(root.name,encoding='utf-8')
+    if show:
+        from .optimization_charts import show_images
+        show_images([paths[-1]/'figures/identity_spatial.png',root/'identity_comparison.png'])
     return root

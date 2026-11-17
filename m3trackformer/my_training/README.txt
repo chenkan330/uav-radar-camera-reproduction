@@ -17,9 +17,11 @@
   拒配计入全部检出点分母，真实编号只用于事后评价；同束多目标仍假设回波可分辨。
   输出在outputs/step10_beam_identity，版本快照在experiments/v5_*_beam_identity_b4或b12。
   identity_metrics.png / identity_confusion.png / identity_timeline.png：身份指标、混淆矩阵、逐帧归属。
+  identity_spatial.png：实际匿名测量点按判别身份着色；红×为错配、灰点为拒配，不冒充N-Net轨迹。
   beam_contributions.png：展开各目标对选中波束的原网络评分贡献。
   single_trajectory_tracking.png：原Huber参照的实际N-Net轨迹，含时间和重捕率。
   identity_report.md解释范围；下一步才接回关联结果并检验错误累积。
+  --replot-run 既有run目录：从原始CSV重新出图并保存新展示版本，旧版与仿真数值均保留。
 
 真实轨迹多方案优化比较（原N-Net/R-Net不改、不重新训练）：
   第10步加 --optimize-real --no-show：验证集选参并锁定方案，再对照测试。
