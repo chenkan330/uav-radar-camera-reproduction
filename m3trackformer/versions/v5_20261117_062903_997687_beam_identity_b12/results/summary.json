@@ -1,0 +1,74 @@
+{
+  "version": "beam_identity_audit",
+  "public_scope": "aggregate_only",
+  "total_beams": 12,
+  "identity_metrics": {
+    "beam_argmax": {
+      "total": 116526,
+      "assigned": 116526,
+      "correct": 111098,
+      "identity_switches": 798,
+      "collision_total": 9891,
+      "collision_correct": 4889,
+      "duplicate_track_frames": 5161,
+      "near_tie_returns": 6597,
+      "accuracy_all_returns": 0.9534181212776548,
+      "precision_assigned": 0.9534181212776548,
+      "assignment_coverage": 1.0,
+      "accuracy_same_beam": 0.4942877363259529,
+      "beam_only_upper_bound": 0.9570739577433363
+    },
+    "beam_geometry": {
+      "total": 116526,
+      "assigned": 113710,
+      "correct": 113686,
+      "identity_switches": 40,
+      "collision_total": 9891,
+      "collision_correct": 9628,
+      "duplicate_track_frames": 0,
+      "near_tie_returns": 6597,
+      "accuracy_all_returns": 0.9756277568954568,
+      "precision_assigned": 0.9997889367689737,
+      "assignment_coverage": 0.9758337195132417,
+      "accuracy_same_beam": 0.9734101708624001,
+      "beam_only_upper_bound": 0.9570739577433363
+    }
+  },
+  "protocol": {
+    "version": "beam_identity_audit",
+    "targets": 3,
+    "scene_seed": 20261115,
+    "huber_threshold": 3.0,
+    "acceleration_std": 12.0,
+    "external_temperature": 1.0,
+    "gate": 16.26623619623813,
+    "beam_weight": 1.0,
+    "unmatched_cost": 20.0,
+    "parameter_selection": "fixed_before_test_without_test_tuning",
+    "scope": "conditional_identity_decisions_on_oracle_associated_Huber_histories",
+    "association_decisions_feed_history": false,
+    "models_source_sha256": "43972fb03a96a01c94a914e763440943933ca28f024bbb5156e0e164d7ba925f",
+    "checkpoint_sha256": {
+      "nnet_checkpoint": "71e0e2becc08131963148c042752017f67fbc8de99df84d4fb164628e5b33345",
+      "rnet_checkpoint": "0476bdecbf19039e81a343cae3ba9f8b614f61ba8f5201fef9f0d8b2b21ce9fd"
+    },
+    "operating_choice_lock_sha256": "5f7be60bd1f3b6df03357ebde3c9fca241dd3136e27170c4f9f3d60c7f13a744"
+  },
+  "tracking_reference": {
+    "scenes_with_noise_repeats": 51,
+    "unique_geometrical_scenes": 17,
+    "success_count": 35,
+    "success_rate": 0.6862745098039216,
+    "mean_all_targets_duration_s": 38.15,
+    "recoveries": 111,
+    "recovery_rate": 0.8409090909090909,
+    "position_rmse_m_on_detections": 10.168743000797624,
+    "position_evaluation_count": 116526,
+    "position_evaluation_coverage": 0.7646665091739507,
+    "filter_ms_per_detected_frame": 0.004893555945719899
+  },
+  "models_source_sha256": "43972fb03a96a01c94a914e763440943933ca28f024bbb5156e0e164d7ba925f",
+  "tracking_reference_exactly_matches_prior_huber": true,
+  "networks_and_weights_unchanged": true,
+  "association_results_used_for_tracking": false
+}
