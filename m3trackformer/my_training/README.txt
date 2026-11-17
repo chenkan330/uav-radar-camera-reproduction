@@ -141,3 +141,21 @@
   network_integrity.json：原模型/权重校验值和实际N-Net/R-Net调用次数。
   默认结果根目录outputs/step10_v4_original_nr；每次成功运行自动创建新版本快照。
   旧V4各归档目录原样保留，不能把其概率网络结果当作本次原N/R结果。
+
+2026-11-17：真实轨迹上比较外围优化，原N-Net/R-Net完全冻结
+  & '.\.venv\Scripts\python.exe' '.\my_training\step10_single_target_tracking.py' --best-real
+  直接运行验证集已锁定的Student-t式创新降权（df=6），自动保存新快照并显示轨迹、指标两张图。
+  --best-real只重跑首个噪声种子；后台运行加 --no-show，不弹窗。
+  --optimize-real重新完成15组验证配置与8组测试配置；验证2种子、测试3种子，不根据测试调参。
+  选择顺序：完整跟踪成功率、平均同时跟踪时长、检测覆盖率。
+  方法：普通卡尔曼、Huber调参、Student-t式降权、自适应过程噪声、鲁棒双模型IMM、外部温度。
+  Student-t式/IMM均为声明的工程近似；滤波只预处理已获取测量，不替换原N/R网络或位置输出。
+  总预算12束，逐目标Softmax后求和取Top-B；N/R正常/失跟分工保持一致。
+  最新比较：outputs/step10_optimization/latest_complete_run.txt；已选方案重跑：latest_selected_run.txt。
+  完整报告results_report.md、test_comparison.csv、optimization_comparison.png位于比较结果目录。
+  current_optimized_tracking.json记录配置、选择锁定文件校验值及原N/R代码/权重校验值。
+  17组测试轨迹组合×3组噪声不等于51个独立场景；此前测试记录已使用，不称为盲测。
+  单轨迹图只绘固定首场景首目标和首组噪声，图中指标与三组噪声汇总口径不同。
+  三组汇总：Student-t式成功率70.59%、平均39.10秒、重捕率82.91%；Huber为68.63%、38.15秒、84.09%。
+  仅多1次完整成功，收益有限且重捕率略降；不声称统计显著或全部指标最优。
+  所有试验均保存独立source.zip/manifest/results/轨迹图，旧版本不覆盖。

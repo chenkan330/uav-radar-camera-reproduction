@@ -148,13 +148,26 @@ def main(argv=None):
     from .real_data_audit import audit_real_reference
     if args.apply_selected:
         choice = read_json(BASE/'outputs/current_optimized_tracking.json')
+        selection_path = Path(choice['experiment_root'])/'selection_locked_before_test.json'
+        if (choice['checkpoint_sha256'] != weight_hashes
+                or choice['models_source_sha256'] != sha(model_source)
+                or choice['selection_lock_sha256'] != sha(selection_path)
+                or choice['configuration'] != read_json(selection_path)['configuration']):
+            raise RuntimeError('已选配置、选参锁定文件或原N/R权重不匹配')
         audit_real_reference(data_root, 'test', root/'test_reference')
         scenes, unused = prepare_scenes(data_root, 'test', [TEST_SEEDS[0]])
         record, archive = trial(root, prefix, 'test', choice['configuration'], scenes, unused,
                                  current, nnet, rnet, checkpoint, device)
         print(f'按验证集最优固定配置运行：{archive.resolve()}', flush=True)
-        if before != (state_digest(nnet), state_digest(rnet)):
-            raise RuntimeError('推理改变了模型权重')
+        if (before != (state_digest(nnet), state_digest(rnet))
+                or sha(model_source) != ORIGINAL_MODELS_SHA256
+                or weight_hashes != {k: sha(current[k]) for k in weight_hashes}):
+            raise RuntimeError('推理改变了原N/R结构或权重')
+        (args.output_root/'latest_selected_run.txt').write_text(root.name, encoding='utf-8')
+        if not args.no_show:
+            from .optimization_charts import show_images
+            show_images([archive/'results/figures/single_trajectory_tracking.png',
+                         archive/'results/figures/trial_metrics.png'])
         return root
     protocol = {'candidates': candidates(), 'validation_seeds': VALIDATION_SEEDS, 'test_seeds': TEST_SEEDS,
         'ranking_order': ['validation_complete_scene_success_rate', 'validation_mean_tracking_duration',
@@ -204,8 +217,9 @@ def main(argv=None):
     if (before != (state_digest(nnet), state_digest(rnet)) or sha(model_source) != ORIGINAL_MODELS_SHA256
             or weight_hashes != {k: sha(current[k]) for k in weight_hashes}):
         raise RuntimeError('原N/R结构或权重发生变化')
-    from .optimization_charts import render_comparison
+    from .optimization_charts import render_comparison, write_report
     render_comparison(root, tests, winner['configuration']['id'])
+    write_report(root, validation, tests, winner['configuration']['id'])
     flat = []
     for record in tests:
         flat.append({'id': record['configuration']['id'], 'method': record['configuration']['label'],
@@ -229,17 +243,16 @@ def main(argv=None):
         destination = Path(archive_path)/'figures'
         destination.mkdir()
         for name in ('optimization_comparison.png', 'test_comparison.csv', 'summary.json',
-                     'selection_locked_before_test.json', 'protocol.json'):
+                     'selection_locked_before_test.json', 'protocol.json', 'results_report.md'):
             shutil.copy2(root/name, destination/name)
         lock_figures(archive_path)
     (args.output_root/'latest_complete_run.txt').write_text(root.name, encoding='utf-8')
     print(f'比较完成：{root.resolve()}\n固定选择：{winner["configuration"]["id"]}', flush=True)
     print(flat, flush=True)
     if not args.no_show:
-        import matplotlib.pyplot as plt
-        for p in (Path(pointer['version_archive'])/'results/figures/single_trajectory_tracking.png', root/'optimization_comparison.png'):
-            fig, ax = plt.subplots(figsize=(12, 8)); ax.imshow(plt.imread(p)); ax.axis('off')
-        plt.show()
+        from .optimization_charts import show_images
+        show_images([Path(pointer['version_archive'])/'results/figures/single_trajectory_tracking.png',
+                     root/'optimization_comparison.png'])
     return root
 
 
