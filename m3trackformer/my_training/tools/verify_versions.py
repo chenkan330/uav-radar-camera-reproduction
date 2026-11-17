@@ -108,6 +108,18 @@ def verify_version(directory, verify_assets=True, require_figures=True):
     else:
         warnings.append('External asset verification explicitly skipped')
     expected_figures = ['tracking_status.png', 'tracking_survival.png'] if require_figures else []
+    summary_path = results/'summary.json'
+    if require_figures and summary_path.exists():
+        try:
+            result_summary = json.loads(summary_path.read_text(encoding='utf-8'))
+            if result_summary.get('version') == 'v4_maneuver_uncertainty':
+                expected_figures = ['figures/'+name for name in (
+                    'forecast_scores.png', 'uncertainty_calibration.png',
+                    'motion_type_comparison.png', 'maneuver_onset_uncertainty.png',
+                    'future_motion_examples.png', 'maneuver_tracking_comparison.png',
+                    'motion_network_training.png')]
+        except (OSError, ValueError):
+            errors.append('Cannot identify result figure schema from summary.json')
     for name in expected_figures:
         if not (results/name).is_file():
             errors.append(f'Required tracking figure missing: {name}')

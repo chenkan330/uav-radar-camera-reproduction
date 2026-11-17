@@ -54,6 +54,24 @@ class VersionTests(unittest.TestCase):
     def snapshot(self, name='v1'):
         return versions.save_version(name, self.run, 'fixture', exclude_modules=('skip_me.py',))
 
+    def test_v4_requires_its_forecast_and_tracking_figures(self):
+        summary = dict(self.assets, version='v4_maneuver_uncertainty')
+        (self.run/'summary.json').write_text(json.dumps(summary), encoding='utf-8')
+        figures = self.run/'figures'
+        figures.mkdir()
+        names = ('forecast_scores.png', 'uncertainty_calibration.png',
+                 'motion_type_comparison.png', 'maneuver_onset_uncertainty.png',
+                 'future_motion_examples.png', 'maneuver_tracking_comparison.png',
+                 'motion_network_training.png')
+        for name in names[:-1]:
+            (figures/name).write_bytes(b'\x89PNG\r\n\x1a\n'+b'x'*64)
+        incomplete = self.snapshot('v4_incomplete')
+        audit = verify_version(incomplete)
+        self.assertFalse(audit['ok'])
+        self.assertTrue(any(names[-1] in error for error in audit['errors']))
+        (figures/names[-1]).write_bytes(b'\x89PNG\r\n\x1a\n'+b'x'*64)
+        self.assertTrue(verify_version(self.snapshot('v4_complete'))['ok'])
+
     @staticmethod
     def digest_tree(path):
         return {p.relative_to(path).as_posix(): versions.sha256(p) for p in path.rglob('*') if p.is_file()}

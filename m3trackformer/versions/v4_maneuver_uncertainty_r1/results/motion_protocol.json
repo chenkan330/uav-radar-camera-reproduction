@@ -1,0 +1,26 @@
+{
+  "motion_config": {
+    "minimum_speed_m_s": 10.0,
+    "maximum_speed_m_s": 35.0,
+    "maximum_tangential_acceleration_m_s2": 8.0,
+    "maximum_lateral_acceleration_m_s2": 12.0,
+    "maximum_turn_rate_deg_s": 120.0,
+    "minimum_event_duration_s": 0.75,
+    "maximum_event_duration_s": 2.5,
+    "steering_radius_m": 900.0
+  },
+  "motion_names": {
+    "0": "constant_speed",
+    "1": "acceleration_braking",
+    "2": "sharp_turn",
+    "3": "sudden_maneuver",
+    "4": "mixed"
+  },
+  "altitude": "constant_per_trajectory",
+  "integration": "trapezoidal_position_continuous_velocity",
+  "tangential_acceleration_is_not_total_vector_acceleration": true,
+  "effective_turn_rate_rad_s": "min(command_limit_rad_s, maximum_lateral_acceleration/max(old_speed,new_speed))",
+  "future_event_schedule_and_labels_are_evaluation_only": true,
+  "anchor_usage": "initial_geometry_only_from_training_reference_pool; no_future_path_copied",
+  "steering": "smooth_heading_control_near_configured_radius_without_coordinate_clipping; turn_labels_and_onsets_recorded"
+}

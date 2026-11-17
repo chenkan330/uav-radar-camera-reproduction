@@ -1,0 +1,210 @@
+{
+  "methods": {
+    "legacy_v3": {
+      "scenes": 17,
+      "targets_per_scene": 3,
+      "success_rate": 0.0,
+      "mean_all_targets_duration_s": 7.958823529411766,
+      "recoveries": 21,
+      "lost_events": 40,
+      "recovery_rate": 0.525,
+      "mean_recovery_delay_s": 0.07857142857142858,
+      "position_rmse_m_on_detections": 21.59359211910111,
+      "beam_slots_per_scene_block": 12,
+      "mean_prediction_batch_ms": 3.6640275113247767,
+      "amortized_prediction_ms_per_scene": 1.137346783390234,
+      "latency_scope": "beam_prediction_and_selection_only_excludes_position_regression_and_IO",
+      "measurement_update_count": 7992,
+      "measurement_raw_rmse_m_on_detections": 40.37999475554559,
+      "measurement_processed_rmse_m_on_detections": 10.434908453880118,
+      "measurement_mean_weight": 0.9797057417724345,
+      "measurement_downweighted_fraction": 0.06156156156156156,
+      "measurement_normal_downweighted_fraction": 0.041176470588235294,
+      "measurement_outlier_downweighted_fraction": 0.9883720930232558,
+      "measurement_observed_outlier_count": 172,
+      "filter_timing": {
+        "total_ms": 145.2692012535408,
+        "initialization_ms": 1.221099984832108,
+        "detected_target_frames": 7992,
+        "mean_ms_per_acquired_target_frame": 0.01817682698367628,
+        "scope": "CPU_measurement_processor_only_excludes_neural_inference_and_logging"
+      },
+      "measurement_metric_scope": "acquired_frames_only_with_method_dependent_coverage; not neural_position_RMSE",
+      "current_filtered_position_rmse_m_on_detections": 10.434908453880118,
+      "position_rmse_scope": "legacy current-position head retained; filtered current-state RMSE reported separately"
+    },
+    "motion_point": {
+      "scenes": 17,
+      "targets_per_scene": 3,
+      "success_rate": 0.5882352941176471,
+      "mean_all_targets_duration_s": 39.65,
+      "recoveries": 3,
+      "lost_events": 10,
+      "recovery_rate": 0.3,
+      "mean_recovery_delay_s": 0.05000000000000001,
+      "position_rmse_m_on_detections": 369.8251273403864,
+      "beam_slots_per_scene_block": 12,
+      "mean_prediction_batch_ms": 3.4323182735680025,
+      "amortized_prediction_ms_per_scene": 0.2585020185086318,
+      "latency_scope": "beam_prediction_and_selection_only_excludes_position_regression_and_IO",
+      "measurement_update_count": 40405,
+      "measurement_raw_rmse_m_on_detections": 57.88897253998255,
+      "measurement_processed_rmse_m_on_detections": 12.655960732320954,
+      "measurement_mean_weight": 0.9794180307341456,
+      "measurement_downweighted_fraction": 0.06580868704368271,
+      "measurement_normal_downweighted_fraction": 0.04527280089077842,
+      "measurement_outlier_downweighted_fraction": 0.9786276715410573,
+      "measurement_observed_outlier_count": 889,
+      "filter_timing": {
+        "total_ms": 265.3667994309217,
+        "initialization_ms": 1.141799963079393,
+        "detected_target_frames": 40405,
+        "mean_ms_per_acquired_target_frame": 0.006567672303698099,
+        "scope": "CPU_measurement_processor_only_excludes_neural_inference_and_logging"
+      },
+      "measurement_metric_scope": "acquired_frames_only_with_method_dependent_coverage; not neural_position_RMSE",
+      "current_filtered_position_rmse_m_on_detections": 12.655960732320954,
+      "position_rmse_scope": "legacy current-position head retained; filtered current-state RMSE reported separately"
+    },
+    "motion_probability": {
+      "scenes": 17,
+      "targets_per_scene": 3,
+      "success_rate": 0.8235294117647058,
+      "mean_all_targets_duration_s": 45.52352941176471,
+      "recoveries": 2,
+      "lost_events": 5,
+      "recovery_rate": 0.4,
+      "mean_recovery_delay_s": 0.07500000000000001,
+      "position_rmse_m_on_detections": 379.54414416165014,
+      "beam_slots_per_scene_block": 12,
+      "mean_prediction_batch_ms": 2.8748526102320917,
+      "amortized_prediction_ms_per_scene": 0.18607392315684385,
+      "latency_scope": "beam_prediction_and_selection_only_excludes_position_regression_and_IO",
+      "measurement_update_count": 46416,
+      "measurement_raw_rmse_m_on_detections": 58.131521546364475,
+      "measurement_processed_rmse_m_on_detections": 12.902874451200127,
+      "measurement_mean_weight": 0.979350463853276,
+      "measurement_downweighted_fraction": 0.0666580489486384,
+      "measurement_normal_downweighted_fraction": 0.04619044472345206,
+      "measurement_outlier_downweighted_fraction": 0.9803343166175025,
+      "measurement_observed_outlier_count": 1017,
+      "filter_timing": {
+        "total_ms": 260.49349922686815,
+        "initialization_ms": 1.0091000003740191,
+        "detected_target_frames": 46416,
+        "mean_ms_per_acquired_target_frame": 0.0056121488113337675,
+        "scope": "CPU_measurement_processor_only_excludes_neural_inference_and_logging"
+      },
+      "measurement_metric_scope": "acquired_frames_only_with_method_dependent_coverage; not neural_position_RMSE",
+      "current_filtered_position_rmse_m_on_detections": 12.902874451200127,
+      "position_rmse_scope": "legacy current-position head retained; filtered current-state RMSE reported separately"
+    }
+  },
+  "targets": 3,
+  "total_beams": 12,
+  "maximum_evaluated_duration_s": 49.8,
+  "maximum_duration_s": 49.8,
+  "scene_membership": [
+    [
+      400048,
+      400017,
+      400037
+    ],
+    [
+      400044,
+      400021,
+      400045
+    ],
+    [
+      400030,
+      400028,
+      400027
+    ],
+    [
+      400025,
+      400002,
+      400011
+    ],
+    [
+      400006,
+      400039,
+      400020
+    ],
+    [
+      400018,
+      400046,
+      400012
+    ],
+    [
+      400043,
+      400009,
+      400016
+    ],
+    [
+      400000,
+      400040,
+      400003
+    ],
+    [
+      400023,
+      400015,
+      400013
+    ],
+    [
+      400034,
+      400024,
+      400008
+    ],
+    [
+      400033,
+      400022,
+      400035
+    ],
+    [
+      400038,
+      400010,
+      400029
+    ],
+    [
+      400050,
+      400014,
+      400031
+    ],
+    [
+      400041,
+      400036,
+      400001
+    ],
+    [
+      400042,
+      400032,
+      400026
+    ],
+    [
+      400049,
+      400047,
+      400005
+    ],
+    [
+      400004,
+      400019,
+      400007
+    ]
+  ],
+  "unused_trajectory_ids": [],
+  "same_external_measurement_stream": true,
+  "measurement_sha256": "f2f556154135cdfbc3c041f5c40391757f8ba6523e4aa1b7a3135e83c7d67870",
+  "position_metric": "filtered current-state estimate on detections only",
+  "probability_projection": {
+    "samples_per_component": 256,
+    "nodes": "fixed Sobol Gaussian nodes",
+    "tiny_spatial_tie_breaker_mass": 1e-06,
+    "no_future_truth_or_motion_labels_in_predictor": true
+  },
+  "legacy_initial_acquisitions": 5,
+  "motion_initial_acquisitions": 5,
+  "motion_history": 20,
+  "left_padding_is_invalid": true,
+  "point_probability_comparison": "same learned forecast means; fixed spread vs full calibrated mixture",
+  "weights_unchanged": true
+}
