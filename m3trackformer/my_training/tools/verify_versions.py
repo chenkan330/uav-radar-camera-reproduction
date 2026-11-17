@@ -127,6 +127,9 @@ def verify_version(directory, verify_assets=True, require_figures=True):
                 expected_figures = ['figures/identity_metrics.png', 'figures/identity_confusion.png',
                                     'figures/identity_timeline.png', 'figures/beam_contributions.png',
                                     'identity_comparison.png']
+            elif result_summary.get('version') == 'identity_closed_loop':
+                expected_figures = ['figures/closed_loop_metrics.png','figures/closed_loop_identity_timeline.png',
+                                    'figures/closed_loop_confusion.png']
             if result_summary.get('trajectory_figure'):
                 expected_figures.append('figures/single_trajectory_tracking.png')
                 for artifact in ('single_trajectory_tracking.json', 'single_trajectory_tracking_samples.csv'):

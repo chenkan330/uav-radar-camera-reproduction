@@ -77,6 +77,8 @@ def save_trajectory_figure(run_dir, scenes, trace_rows, target_rows, summary, *,
     estimates = np.full_like(truth, np.nan)
     missed, recovered = [], []
     lookup = {int(r['time_index']): r for r in rows}
+    association_mode = any('identity_correct' in r for r in rows)
+    wrong_identity = []
     sources = sorted({r['estimate_source'] for r in rows if r['phase'] == 'tracking'})
     if not sources or len(sources) != 1:
         raise ValueError('A display trace must identify one current-position estimator')
@@ -90,6 +92,8 @@ def save_trajectory_figure(run_dir, scenes, trace_rows, target_rows, summary, *,
             if not np.isfinite(estimates[i]).all():
                 raise ValueError('Acquired frames require actual finite estimates')
         if row is not None and row['phase'] == 'tracking':
+            if hit and 'identity_correct' in row and not enabled(row['identity_correct']):
+                wrong_identity.append(i)
             if not hit:
                 missed.append(i)
             if row['recovered'] is True or str(row['recovered']).lower() == 'true':
@@ -99,6 +103,8 @@ def save_trajectory_figure(run_dir, scenes, trace_rows, target_rows, summary, *,
             'phase': row['phase'] if row else 'not_evaluated',
             'hit': hit if row else None, 'recovered': i in recovered,
             'estimate_source': row['estimate_source'] if row else '',
+            **({'identity_correct': row.get('identity_correct'),
+                'assigned_source_evaluation_only': row.get('assigned_source_evaluation_only')} if association_mode and row else {}),
             **{f'true_{a}_m': float(truth[i, k]) for k, a in enumerate('xyz')},
             **{f'estimated_{a}_m': float(estimates[i, k]) if hit else None for k, a in enumerate('xyz')}})
     with csv_path.open('x', encoding='utf-8-sig', newline='') as stream:
@@ -133,6 +139,9 @@ def save_trajectory_figure(run_dir, scenes, trace_rows, target_rows, summary, *,
             if recovered:
                 plot.scatter(estimates[recovered, 0], estimates[recovered, 1], marker='o',
                              facecolors='none', edgecolors='#16834b', s=75, linewidths=1.5, zorder=7)
+            if wrong_identity:
+                plot.scatter(estimates[wrong_identity,0],estimates[wrong_identity,1],marker='D',
+                    facecolors='none',edgecolors='#a32da8',s=65,linewidths=1.2,zorder=8)
             plot.grid(alpha=.25)
             plot.set_aspect('equal', adjustable='box')
         ax.scatter([0], [0], marker='^', color='#0087bd', s=100, zorder=6)
@@ -163,25 +172,31 @@ def save_trajectory_figure(run_dir, scenes, trace_rows, target_rows, summary, *,
             Line2D([], [], color='#ee2222', lw=1.7, label='真实轨迹'),
             Line2D([], [], marker='o', color='#ee2222', ls='', ms=7, label='起点'),
             Line2D([], [], color='#1455d9', ls='--', lw=1.35, label=estimate_label),
-            Line2D([], [], marker='x', color='black', ls='', ms=7, label='漏检位置'),
+            Line2D([], [], marker='x', color='black', ls='', ms=7,
+                label='无可用关联测量' if association_mode else '漏检位置'),
             Line2D([], [], marker='o', markerfacecolor='none', color='#16834b', ls='', ms=8, label='重捕成功')]
+        if association_mode:
+            handles.append(Line2D([],[],marker='D',markerfacecolor='none',color='#a32da8',ls='',ms=7,label='错身份更新'))
         fig.legend(handles=handles, loc='upper left', bbox_to_anchor=(.745, .59),
                    frameon=True, fontsize=10, labelspacing=.7)
-        fig.text(.76, .365, f'轨迹 ID：{trajectory_id}\n场景：{g}，目标索引：{t}\n'
-                 f'实际漏检：{stats["missed_frames"]} 帧\n{stop_label}\n视图：水平面 XY 投影',
+        fig.text(.76, .345 if association_mode else .365, f'轨迹 ID：{trajectory_id}\n场景：{g}，目标索引：{t}\n'
+                 f'{"无可用更新" if association_mode else "实际漏检"}：{stats["missed_frames"]} 帧\n{stop_label}\n视图：水平面 XY 投影',
                  fontsize=9.5, linespacing=1.6, color='#374151', va='top')
         maximum = (len(truth)-history)*dt
         fig.text(.075, .95, title, fontsize=17, fontweight='bold')
         fig.text(.075, .914, '程序直接读取闭环仿真记录绘制；蓝线来自实际获取测量后的当前状态估计',
                  fontsize=10, color='#4b5563')
-        fig.text(.09, .19, f'本条轨迹  跟踪时间：{stats["tracking_duration_s"]:.2f} / {maximum:.2f} 秒'
+        fig.text(.09, .19, f'本条轨迹  {"可用测量跟踪时间" if association_mode else "跟踪时间"}：{stats["tracking_duration_s"]:.2f} / {maximum:.2f} 秒'
             f'    重捕率：{_rate(stats["recovery_rate"], stats["recoveries"], stats["lost_events"])}',
             fontsize=12, fontweight='bold')
         fig.text(.09, .145, f'全部 {summary["scenes"]} 个场景  平均同时跟踪时间：'
             f'{summary["mean_all_targets_duration_s"]:.2f} 秒    重捕率：'
             f'{_rate(summary["recovery_rate"], summary["recoveries"], summary["lost_events"])}', fontsize=11)
-        fig.text(.09, .083, '重捕率＝成功恢复次数／丢失事件数；连续漏检算一次事件。初始化不计入跟踪时间。\n'
-            '蓝线在漏检及终止后留空；黑 × 用真实位置事后标记。任一目标连续漏检 5 帧即整组终止。',
+        footnote = ('图中时间/重捕率按可用更新统计；严格身份跟踪指标另列。紫菱形保留实际错配后的网络输出。\n'
+            '未关联时蓝线留空；任一轨迹连续 5 帧没有可用测量即停止控制器。' if association_mode else
+            '重捕率＝成功恢复次数／丢失事件数；连续漏检算一次事件。初始化不计入跟踪时间。\n'
+            '蓝线在漏检及终止后留空；黑 × 用真实位置事后标记。任一目标连续漏检 5 帧即整组终止。')
+        fig.text(.09, .083, footnote,
             fontsize=9, color='#4b5563', linespacing=1.7)
         fig.text(.09, .033, selection_note or '示例采用固定轨迹编号，仅用于展示；总体效果以全部场景指标为准。',
                  fontsize=8.5, color='#596273')
@@ -190,6 +205,7 @@ def save_trajectory_figure(run_dir, scenes, trace_rows, target_rows, summary, *,
     metadata = {'trajectory_id': trajectory_id, 'scene_id': g, 'target_index': t,
         'dt_s': dt, 'history_frames': history, 'estimate_source': sources[0],
         'stop_reason': stop_reason,
+        'association_mode': association_mode,'wrong_identity_updates':len(wrong_identity),
         'single_trajectory': stats, 'all_scenes': {k: summary[k] for k in ('scenes',
             'mean_all_targets_duration_s', 'recoveries', 'lost_events', 'recovery_rate')},
         'maximum_evaluated_duration_s': (len(truth)-history)*dt,

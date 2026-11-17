@@ -34,6 +34,7 @@ def export(version, output_root=None):
             if (not path.is_file() or path.name in {'tracking_events.csv', 'beam_scans.csv',
                     'measurement_updates.csv', 'single_trajectory_tracking_samples.csv'}
                     or path.name.startswith('identity_detection_samples_')
+                    or path.name.startswith('association_events_')
                     or path.name.endswith(('_events.csv', '_scans.csv', '_measurement_updates.csv'))):
                 continue
             if path.suffix not in {'.png', '.json', '.csv', '.txt'}:

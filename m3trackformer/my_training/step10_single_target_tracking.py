@@ -23,6 +23,10 @@ if __name__ == '__main__':
                                         str(Path(__file__).resolve()), *sys.argv[1:]]).returncode)
     if not sys.argv[1:] and (project_root/'my_training/outputs/current_tracking_configuration.json').exists():
         sys.argv.append('--current-real')
+    if '--identity-closed-loop' in sys.argv[1:]:
+        from core.identity_closed_loop_experiment import main as closed_loop_main
+        closed_loop_main([value for value in sys.argv[1:] if value != '--identity-closed-loop'])
+        raise SystemExit(0)
     if '--beam-identity' in sys.argv[1:]:
         from core.beam_identity_experiment import main as identity_main
         identity_main([value for value in sys.argv[1:] if value != '--beam-identity'])
