@@ -1,0 +1,32 @@
+{
+  "trajectory_id": 400017,
+  "scene_id": 0,
+  "target_index": 1,
+  "dt_s": 0.05,
+  "history_frames": 5,
+  "estimate_source": "causal_filtered_measurement",
+  "single_trajectory": {
+    "tracking_duration_s": 49.800000000000004,
+    "lost_events": 1,
+    "recoveries": 1,
+    "recovery_rate": 1.0,
+    "evaluated_frames": 996,
+    "missed_frames": 2
+  },
+  "all_scenes": {
+    "scenes": 17,
+    "mean_all_targets_duration_s": 45.52352941176471,
+    "recoveries": 2,
+    "lost_events": 5,
+    "recovery_rate": 0.4
+  },
+  "maximum_evaluated_duration_s": 49.800000000000004,
+  "selection_note": "固定示例 ID 400017：在已有 V4 中包含重捕事件，供后续版本对照；不代表随机或平均场景。",
+  "no_interpolation_or_synthetic_estimates": true,
+  "truth_is_evaluation_only": true,
+  "xy_projection": true,
+  "zoom_time_index": 757,
+  "samples_sha256": "86d8db3e4f37c43936293334e0f7cee239d5a58207aad61dd96c42ca0dc2254a",
+  "figure_sha256": "73852b80f4227a25451694ae3d15e048e525d82ed41009d1f77c881b23efbb67",
+  "plot_code_sha256": "849bdd3715041650fb0d3502d084e931f6c7807620decbf7a23f33ce6f2934c5"
+}

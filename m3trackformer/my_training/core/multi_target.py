@@ -52,7 +52,8 @@ def _prediction(nnet, rnet, x, valid, failed, counts):
 
 def simulate(nnet, rnet, checkpoint, scenes, device, dt, budget, policy,
              record_events=True, quality_mode='raw', measurement_updates=None,
-             filter_timing=None, beam_predictor=None):
+             filter_timing=None, beam_predictor=None, trajectory_trace=None,
+             trace_trajectory_id=None):
     """同场景任一目标连续失跟达到阈值即终止；未失败的同伴记为截尾。"""
     if policy not in POLICIES:
         raise ValueError('未知多目标策略')
@@ -94,6 +95,32 @@ def simulate(nnet, rnet, checkpoint, scenes, device, dt, budget, policy,
     squared_error = np.zeros_like(counts, dtype=float)
     position_count = np.zeros_like(counts)
     events, scans, timings = [], [], []
+    # Output-only trace: never substitute truth or unacquired measurements into history.
+    trace_members = []
+    if trajectory_trace is not None:
+        if 'position' not in scenes:
+            raise ValueError('Trajectory plotting requires evaluation truth positions')
+        trace_members = [(g, t) for g in range(groups) for t in range(targets)
+                         if trace_trajectory_id is None or
+                         int(scenes['trajectory_id'][g, t]) == trace_trajectory_id]
+        if not trace_members:
+            raise ValueError('Requested plot trajectory is not in these scenes')
+
+    def record_trace(g, t, step, estimate, phase, hit=True, recovered=False):
+        trajectory_trace.append({'policy': policy, 'scene_id': g, 'target_index': t,
+            'trajectory_id': int(scenes['trajectory_id'][g, t]), 'time_index': step,
+            'time_s': (step-h)*dt, 'phase': phase, 'hit': bool(hit),
+            'recovered': bool(recovered),
+            'estimate_source': 'causal_filtered_measurement' if processor is not None
+                else 'initial_measurement' if phase == 'initialization' else 'legacy_neural_position_head',
+            **{f'true_{a}_m': float(scenes['position'][g, t, step, k]) for k, a in enumerate('xyz')},
+            **{f'estimated_{a}_m': float(estimate[k]) if hit else None for k, a in enumerate('xyz')}})
+
+    if trace_members:
+        from .measurement_quality import spherical_to_cartesian
+        for g, t in trace_members:
+            for step in range(h):
+                record_trace(g, t, step, spherical_to_cartesian(measured[g, t, step]), 'initialization')
     with torch.inference_mode():
         for step in range(h, steps):
             live = np.flatnonzero(active)
@@ -235,6 +262,19 @@ def simulate(nnet, rnet, checkpoint, scenes, device, dt, budget, policy,
                 errors = positions.cpu().numpy() - scenes['position'][gs, good_target, step]
                 squared_error[gs, good_target] += (errors**2).sum(1)
                 position_count[gs, good_target] += 1
+
+            if trace_members:
+                estimates = np.full((len(live), targets, 3), np.nan)
+                if processor is not None:
+                    estimates[good_scene, good_target] = spherical_to_cartesian(
+                        measured[live[good_scene], good_target, step])
+                elif len(good_scene):
+                    estimates[good_scene, good_target] = positions.cpu().numpy()
+                local = {int(g): i for i, g in enumerate(live)}
+                for g, t in trace_members:
+                    if g in local:
+                        i = local[g]
+                        record_trace(g, t, step, estimates[i, t], 'tracking', hit[i, t], recovered[i, t])
 
     scene_rows, target_rows = [], []
     for scene in range(groups):
@@ -381,6 +421,7 @@ def main(argv=None):
     p.add_argument('--data', type=Path)
     p.add_argument('--device', choices=['auto', 'cpu', 'cuda'], default='auto')
     p.add_argument('--no-show', action='store_true')
+    p.add_argument('--plot-trajectory-id', type=int, help='Fixed trajectory ID for the simulation trajectory figure')
     p.add_argument('--measurement-regime', choices=['original', 'stress'], default='original')
     p.add_argument('--noise-seed', type=int, default=20261116)
     p.add_argument('--quality-mode', choices=['raw', 'robust'], default='raw')
@@ -445,6 +486,9 @@ def main(argv=None):
         from .measurement_quality import render_noise_diagnostics
         render_noise_diagnostics(scenes, out)
     print(f'多目标：{len(indices)}个场景 × {a.targets}个目标，总预算{a.total_beams}束；设备{device}', flush=True)
+    plot_id = a.plot_trajectory_id if a.plot_trajectory_id is not None else int(scenes['trajectory_id'].min())
+    if plot_id not in scenes['trajectory_id']:
+        p.error('--plot-trajectory-id 不在本次仿真场景中')
     # 预热只访问初始化历史，不写入闭环状态，不计入时延统计。
     h = nnet.config.history
     with torch.inference_mode():
@@ -458,12 +502,15 @@ def main(argv=None):
             nnet(warm_x, warm_v)
             rnet(nnet, warm_x, warm_v, warm_failed, torch.ones(1, dtype=torch.long, device=device))
     results, summaries, all_events, all_scans, all_updates = {}, {}, [], [], []
+    trajectory_trace = []
     for policy in POLICIES:
         print(f'正在运行：{LABELS[policy]}', flush=True)
         updates, filter_timing = [], {}
         result = simulate(nnet, rnet, ck, scenes, device, cfg['dt'], a.total_beams, policy,
                           quality_mode=a.quality_mode, measurement_updates=updates,
-                          filter_timing=filter_timing)
+                          filter_timing=filter_timing,
+                          trajectory_trace=trajectory_trace if policy == 'joint' else None,
+                          trace_trajectory_id=plot_id)
         results[policy] = result
         summaries[policy] = summarize(result[0], result[1], result[4], cfg['dt'], a.total_beams, a.targets, policy)
         summaries[policy].update(summarize_measurement_updates(updates, filter_timing))
@@ -520,6 +567,12 @@ def main(argv=None):
               'results': summaries, 'limitations': cfg.get('limitations', [])+notes,
               'fully_reproduced_paper_numerical_results': False}
     write_json(out/'summary.json', record)
+    from .trajectory_figure import save_trajectory_figure
+    trajectory_figure = save_trajectory_figure(out, scenes, trajectory_trace, results['joint'][1],
+        summaries['joint'], dt=cfg['dt'], history=h, trajectory_id=plot_id,
+        title='多目标联合跟踪：单轨迹示例')
+    record['trajectory_figure'] = 'figures/single_trajectory_tracking.png'
+    write_json(out/'summary.json', record)
     from .metric_charts import render_run_dashboard
     chart_label = ('距离/SNR与异常值 + 鲁棒处理' if a.quality_mode == 'robust'
                    else '距离/SNR与异常值，未优化' if noise_metadata is not None else '原始多目标')
@@ -537,10 +590,17 @@ def main(argv=None):
     print('\n'.join(lines), flush=True)
     print(f'结果目录：{out.resolve()}', flush=True)
     print('图片：tracking_status.png、tracking_survival.png', flush=True)
+    print(f'轨迹图：{trajectory_figure.resolve()}', flush=True)
     from .versions import save_version
     archived = save_version(a.archive_version or ('v_'+out.name), out,
                             f'{chart_label}；{a.targets}目标/{a.total_beams}束；固定模型权重和噪声种子。')
     print(f'源代码与结果归档：{archived.resolve()}', flush=True)
     from .plots import finish_tracking_plots
+    if not a.no_show:
+        import matplotlib.pyplot as plt
+        image_fig, image_ax = plt.subplots(figsize=(12, 9))
+        image_fig.canvas.manager.set_window_title('单轨迹效果、跟踪时间与重捕率')
+        image_ax.imshow(plt.imread(trajectory_figure)); image_ax.axis('off')
+        image_fig.tight_layout()
     finish_tracking_plots(figures, show=not a.no_show)
     return out

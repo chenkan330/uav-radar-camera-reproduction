@@ -14,6 +14,7 @@ from .maneuver_tracking import MotionBeamPredictor
 from .models import JournalRNet
 from .motion_uncertainty import MotionConfig, MotionUncertaintyNet, evaluate_distribution
 from .multi_target import make_scenes, simulate, summarize, summarize_measurement_updates
+from .trajectory_figure import V4_REFERENCE_ID, save_trajectory_figure
 
 
 def closed_loop_scores(hook, events, scenes, history=5):
@@ -42,7 +43,7 @@ def closed_loop_scores(hook, events, scenes, history=5):
     return scores
 
 
-def finish_run(out, device):
+def finish_run(out, device, plot_trajectory_id=V4_REFERENCE_ID):
     out = Path(out)
     if (out/'tracking_metrics.json').exists():
         raise FileExistsError('已完成的V4结果不覆盖，请创建新运行目录')
@@ -58,12 +59,15 @@ def finish_run(out, device):
     calibration = read_json(out/'calibration.json')
     data = load_split(out/'data/test.npz')
     scenes, indices, unused = make_scenes(data, 3, seed=20261115)
+    if plot_trajectory_id not in scenes['trajectory_id']:
+        raise ValueError('指定的轨迹图编号不在测试场景中')
     # Only raw external measurements and quality metadata enter this tracking loop.
     # The all-observation filtered stream is reserved for the separate forecast benchmark.
     for key in ('measurement_sigma', 'snr_db', 'outlier_mask'):
         scenes[key] = data[key][indices]
     before = state_digest(nnet), state_digest(rnet), state_digest(model)
     methods, loop_scores = {}, {}
+    current_trace, current_targets = [], None
     hooks = {'legacy_v3': None,
              'motion_point': MotionBeamPredictor(model, device, mode='point',
                  fixed_scale=calibration['point_fixed_scale_m'], record=True),
@@ -73,7 +77,11 @@ def finish_run(out, device):
         print(f'V4闭环跟踪：{name}', flush=True)
         updates, timing = [], {}
         result = simulate(nnet, rnet, ck, scenes, device, .05, 12, 'joint', quality_mode='robust',
-                          measurement_updates=updates, filter_timing=timing, beam_predictor=hook)
+                          measurement_updates=updates, filter_timing=timing, beam_predictor=hook,
+                          trajectory_trace=current_trace if name == 'motion_probability' else None,
+                          trace_trajectory_id=plot_trajectory_id)
+        if name == 'motion_probability':
+            current_targets = result[1]
         summary = summarize(result[0], result[1], result[4], .05, 12, 3, 'joint')
         summary.update(summarize_measurement_updates(updates, timing))
         summary['current_filtered_position_rmse_m_on_detections'] = summary['measurement_processed_rmse_m_on_detections']
@@ -104,6 +112,7 @@ def finish_run(out, device):
     write_json(out/'closed_loop_forecast_metrics.json', loop_scores)
     forecast = read_json(out/'forecast_summary.json')
     summary = {'version': 'v4_maneuver_uncertainty',
+               'trajectory_figure': 'figures/single_trajectory_tracking.png',
                'source': str((out/'data/test.npz').resolve()),
                'nnet_checkpoint': current['nnet_checkpoint'], 'rnet_checkpoint': current['rnet_checkpoint'],
                'motion_checkpoint': str((out/'best_motion_forecaster.pth').resolve()),
@@ -121,6 +130,11 @@ def finish_run(out, device):
     write_json(out/'summary.json', summary)
     from .maneuver_charts import render_v4
     render_v4(out)
+    save_trajectory_figure(out, scenes, current_trace, current_targets, methods['motion_probability'],
+        dt=.05, history=nnet.config.history, trajectory_id=plot_trajectory_id,
+        title='V4：运动概率预测与鲁棒测量处理',
+        selection_note='固定示例 ID 400017：在已有 V4 中包含重捕事件，供后续版本对照；不代表随机或平均场景。'
+            if plot_trajectory_id == V4_REFERENCE_ID else '用户指定的固定示例轨迹；总体效果以全部场景指标为准。')
     return out
 
 
@@ -129,6 +143,7 @@ def main(argv=None):
     parser.add_argument('--resume-run', type=Path)
     parser.add_argument('--retrain', action='store_true')
     parser.add_argument('--no-show', action='store_true')
+    parser.add_argument('--plot-trajectory-id', type=int, default=V4_REFERENCE_ID)
     parser.add_argument('--archive-version')
     parser.add_argument('--device', default='cuda' if torch.cuda.is_available() else 'cpu')
     parser.add_argument('--output-root', type=Path, default=BASE/'outputs/step10_v4_maneuver')
@@ -153,7 +168,7 @@ def main(argv=None):
         else:
             from .workflows.step10e_maneuver_uncertainty import train_and_evaluate
             train_and_evaluate(out, device)
-    finish_run(out, device)
+    finish_run(out, device, args.plot_trajectory_id)
     from .versions import save_version
     version = args.archive_version or ('v4_'+out.name)
     archived = save_version(version, out, '加速/急转弯/突发/混合机动；Transformer三分量未来位置分布与独立概率校准。')
@@ -161,7 +176,7 @@ def main(argv=None):
     print(f'V4结果：{out.resolve()}\n版本快照：{archived.resolve()}', flush=True)
     if not args.no_show:
         import matplotlib.pyplot as plt
-        for filename in ('forecast_scores.png', 'maneuver_tracking_comparison.png'):
+        for filename in ('single_trajectory_tracking.png', 'maneuver_tracking_comparison.png'):
             path = out/'figures'/filename
             if path.exists():
                 fig, ax = plt.subplots(figsize=(12, 7)); ax.imshow(plt.imread(path)); ax.axis('off')
