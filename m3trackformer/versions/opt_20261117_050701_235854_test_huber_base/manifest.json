@@ -1,0 +1,24 @@
+{
+  "version": "opt_20261117_050701_235854_test_huber_base",
+  "scope": "source archives, aggregate metrics, aggregate reports, authorized PNGs only",
+  "source_zip_sha256": "4e8dc47f947489459ae68e731c5d511dcb84bf7102ccd554872cbb3bd337e65d",
+  "excluded_categories": [
+    "original datasets",
+    "model weights",
+    "machine configuration",
+    "per-frame records",
+    "per-scene records",
+    "per-target records",
+    "trajectory samples and provenance",
+    "detailed noise-repeat records"
+  ],
+  "published_files_sha256": {
+    "figures/optimization_comparison.png": "8a64d08db52abfa92e311adc9af6b980fb2aa85036398f0a9df0494b886fb6b9",
+    "results/figures/single_trajectory_tracking.png": "d4b569369e05889badc9c835677ccd0c339860ae4a68b2744cac219a0e95a510",
+    "results/figures/trial_metrics.png": "7f923dad573f5ffa331efcae3b240fa03a1326a60cd5ee0c9b23b5a31c0e1835",
+    "results/global_metrics.csv": "c2976d1ff15a9dad6600ce335a888b5c2a5bc06f6465dc8f29b1e87c19a5bfa7",
+    "results/report.md": "d9ed1ed5620250110961282d53ec7ff77a630f7af6878b139e5a0854beec4cc2",
+    "results/summary.json": "2aea6337c17504ffd22490f899351483c5c6ee434041c52c6b76bfcf80a89bab",
+    "source.zip": "4e8dc47f947489459ae68e731c5d511dcb84bf7102ccd554872cbb3bd337e65d"
+  }
+}
