@@ -1,0 +1,24 @@
+{
+  "version": "opt_20261117_050701_235854_test_kalman_q6",
+  "scope": "source archives, aggregate metrics, aggregate reports, authorized PNGs only",
+  "source_zip_sha256": "c238e502045578d585062a57b8fde5eeb59e827baa645423206402fce347beaa",
+  "excluded_categories": [
+    "original datasets",
+    "model weights",
+    "machine configuration",
+    "per-frame records",
+    "per-scene records",
+    "per-target records",
+    "trajectory samples and provenance",
+    "detailed noise-repeat records"
+  ],
+  "published_files_sha256": {
+    "figures/optimization_comparison.png": "8a64d08db52abfa92e311adc9af6b980fb2aa85036398f0a9df0494b886fb6b9",
+    "results/figures/single_trajectory_tracking.png": "3ff6412c98c0ef807aec5d92679ec66e7e7407b71fd90bc53471a0987c0e6057",
+    "results/figures/trial_metrics.png": "df464d449a2d2e589d04d8a5ef7b5b1833062092f8885ccccd1475d4c8df6ced",
+    "results/global_metrics.csv": "d301ac8d49ec8584293201258089108d0f245eb3c1adf64bbc78059810a72485",
+    "results/report.md": "723f058df5773a218eade8ec40b6955fe43095d14af3943867e991d00614e4cb",
+    "results/summary.json": "74b2a7e8a0bceb19d5468d7310fe401e27cea48b2f59e05e342663339adbaf56",
+    "source.zip": "c238e502045578d585062a57b8fde5eeb59e827baa645423206402fce347beaa"
+  }
+}
