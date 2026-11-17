@@ -149,9 +149,9 @@ def save_trajectory_figure(run_dir, scenes, trace_rows, target_rows, summary, *,
             Line2D([], [], marker='o', markerfacecolor='none', color='#16834b', ls='', ms=8, label='重捕成功')]
         fig.legend(handles=handles, loc='upper left', bbox_to_anchor=(.745, .59),
                    frameon=True, fontsize=10, labelspacing=.7)
-        fig.text(.76, .32, f'轨迹 ID：{trajectory_id}\n场景：{g}，目标索引：{t}\n'
+        fig.text(.76, .365, f'轨迹 ID：{trajectory_id}\n场景：{g}，目标索引：{t}\n'
                  f'实际漏检：{stats["missed_frames"]} 帧\n视图：水平面 XY 投影',
-                 fontsize=10, linespacing=1.7, color='#374151')
+                 fontsize=10, linespacing=1.6, color='#374151', va='top')
         maximum = (len(truth)-history)*dt
         fig.text(.075, .95, title, fontsize=17, fontweight='bold')
         fig.text(.075, .914, '程序直接读取闭环仿真记录绘制；蓝线来自实际获取测量后的当前状态估计',

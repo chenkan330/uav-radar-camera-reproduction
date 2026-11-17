@@ -1,0 +1,234 @@
+{
+  "seed": 20261121,
+  "dt": 0.05,
+  "split_counts": {
+    "train": 800,
+    "validation": 160,
+    "calibration": 160,
+    "test": 51
+  },
+  "trajectory_ids_disjoint": true,
+  "anchor_source_split": "original_nnet_train_only",
+  "anchor_source_sha256": "be718a5ad36a4b0ac542bcd01724445f6150382377d4fa49cf6bb8632184dc9f",
+  "split_sha256": {
+    "train": "3cbb4cf5adfc392eb5e5fd6a1c124e781973a089611decbb80b89319209435e8",
+    "validation": "b4954e1c46d193e008c9c901236c23d2aa54ed43ff574bd4d9ac68633b3af369",
+    "calibration": "38d8a41b2e61878554f8783a47da07ab2aa63c94e854ca10f984b46aeef9a833",
+    "test": "8bc33b04f4f00afeb5a47f2f84e1667bceeedbe5aec9a0368c4dd9484bcaa392"
+  },
+  "noise": {
+    "train": {
+      "noise_config": {
+        "reference_range_m": 300.0,
+        "reference_snr_db": 20.0,
+        "range_power_exponent": 4.0,
+        "fading_std_db": 2.0,
+        "fading_correlation": 0.95,
+        "minimum_snr_db": -10.0,
+        "maximum_snr_db": 40.0,
+        "reference_range_sigma_m": 1.0,
+        "reference_angle_sigma_deg": 0.5,
+        "range_sigma_floor_m": 0.3,
+        "angle_sigma_floor_deg": 0.1,
+        "outlier_probability": 0.02,
+        "burst_start_probability": 0.001,
+        "burst_min_length": 2,
+        "burst_max_length": 4,
+        "outlier_range_min_m": 20.0,
+        "outlier_range_max_m": 80.0,
+        "outlier_angle_min_deg": 3.0,
+        "outlier_angle_max_deg": 10.0,
+        "initialization_samples_without_outliers": 5
+      },
+      "seed": 20311121,
+      "base_station_m": [
+        0.0,
+        0.0,
+        10.0
+      ],
+      "observation_model": "heteroscedastic_spherical_radar_proxy",
+      "snr_model": "reference_snr_db - 10*range_power_exponent*log10(range/reference_range) + AR1_fading",
+      "outlier_count": 7338,
+      "measurement_count": 320800,
+      "actual_outlier_fraction": 0.022874064837905238,
+      "snr_db_min": -6.788690567016602,
+      "snr_db_median": 10.11787223815918,
+      "snr_db_max": 40.0,
+      "range_m_min": 63.49253561892735,
+      "range_m_max": 1008.0952412794213,
+      "labels_evaluation_only": [
+        "outlier_mask",
+        "position",
+        "beam"
+      ],
+      "limitations": [
+        "Monostatic r^-4 received-power proxy; not a physical waveform/receiver simulation.",
+        "Reported SNR and nominal covariance are idealized metadata; no online covariance estimator is simulated.",
+        "Outliers contaminate acquired measurements; beam misses retain the original ideal feedback model.",
+        "Initialization observations have Gaussian noise but injected outliers are excluded explicitly."
+      ]
+    },
+    "validation": {
+      "noise_config": {
+        "reference_range_m": 300.0,
+        "reference_snr_db": 20.0,
+        "range_power_exponent": 4.0,
+        "fading_std_db": 2.0,
+        "fading_correlation": 0.95,
+        "minimum_snr_db": -10.0,
+        "maximum_snr_db": 40.0,
+        "reference_range_sigma_m": 1.0,
+        "reference_angle_sigma_deg": 0.5,
+        "range_sigma_floor_m": 0.3,
+        "angle_sigma_floor_deg": 0.1,
+        "outlier_probability": 0.02,
+        "burst_start_probability": 0.001,
+        "burst_min_length": 2,
+        "burst_max_length": 4,
+        "outlier_range_min_m": 20.0,
+        "outlier_range_max_m": 80.0,
+        "outlier_angle_min_deg": 3.0,
+        "outlier_angle_max_deg": 10.0,
+        "initialization_samples_without_outliers": 5
+      },
+      "seed": 20311121,
+      "base_station_m": [
+        0.0,
+        0.0,
+        10.0
+      ],
+      "observation_model": "heteroscedastic_spherical_radar_proxy",
+      "snr_model": "reference_snr_db - 10*range_power_exponent*log10(range/reference_range) + AR1_fading",
+      "outlier_count": 1451,
+      "measurement_count": 64160,
+      "actual_outlier_fraction": 0.022615336658354114,
+      "snr_db_min": -6.114360332489014,
+      "snr_db_median": 9.572888374328613,
+      "snr_db_max": 40.0,
+      "range_m_min": 85.19878861907245,
+      "range_m_max": 990.5198773353738,
+      "labels_evaluation_only": [
+        "outlier_mask",
+        "position",
+        "beam"
+      ],
+      "limitations": [
+        "Monostatic r^-4 received-power proxy; not a physical waveform/receiver simulation.",
+        "Reported SNR and nominal covariance are idealized metadata; no online covariance estimator is simulated.",
+        "Outliers contaminate acquired measurements; beam misses retain the original ideal feedback model.",
+        "Initialization observations have Gaussian noise but injected outliers are excluded explicitly."
+      ]
+    },
+    "calibration": {
+      "noise_config": {
+        "reference_range_m": 300.0,
+        "reference_snr_db": 20.0,
+        "range_power_exponent": 4.0,
+        "fading_std_db": 2.0,
+        "fading_correlation": 0.95,
+        "minimum_snr_db": -10.0,
+        "maximum_snr_db": 40.0,
+        "reference_range_sigma_m": 1.0,
+        "reference_angle_sigma_deg": 0.5,
+        "range_sigma_floor_m": 0.3,
+        "angle_sigma_floor_deg": 0.1,
+        "outlier_probability": 0.02,
+        "burst_start_probability": 0.001,
+        "burst_min_length": 2,
+        "burst_max_length": 4,
+        "outlier_range_min_m": 20.0,
+        "outlier_range_max_m": 80.0,
+        "outlier_angle_min_deg": 3.0,
+        "outlier_angle_max_deg": 10.0,
+        "initialization_samples_without_outliers": 5
+      },
+      "seed": 20311121,
+      "base_station_m": [
+        0.0,
+        0.0,
+        10.0
+      ],
+      "observation_model": "heteroscedastic_spherical_radar_proxy",
+      "snr_model": "reference_snr_db - 10*range_power_exponent*log10(range/reference_range) + AR1_fading",
+      "outlier_count": 1430,
+      "measurement_count": 64160,
+      "actual_outlier_fraction": 0.022288029925187032,
+      "snr_db_min": -5.193369388580322,
+      "snr_db_median": 9.712512969970703,
+      "snr_db_max": 36.52499771118164,
+      "range_m_min": 136.88716432075825,
+      "range_m_max": 987.7151878912597,
+      "labels_evaluation_only": [
+        "outlier_mask",
+        "position",
+        "beam"
+      ],
+      "limitations": [
+        "Monostatic r^-4 received-power proxy; not a physical waveform/receiver simulation.",
+        "Reported SNR and nominal covariance are idealized metadata; no online covariance estimator is simulated.",
+        "Outliers contaminate acquired measurements; beam misses retain the original ideal feedback model.",
+        "Initialization observations have Gaussian noise but injected outliers are excluded explicitly."
+      ]
+    },
+    "test": {
+      "noise_config": {
+        "reference_range_m": 300.0,
+        "reference_snr_db": 20.0,
+        "range_power_exponent": 4.0,
+        "fading_std_db": 2.0,
+        "fading_correlation": 0.95,
+        "minimum_snr_db": -10.0,
+        "maximum_snr_db": 40.0,
+        "reference_range_sigma_m": 1.0,
+        "reference_angle_sigma_deg": 0.5,
+        "range_sigma_floor_m": 0.3,
+        "angle_sigma_floor_deg": 0.1,
+        "outlier_probability": 0.02,
+        "burst_start_probability": 0.001,
+        "burst_min_length": 2,
+        "burst_max_length": 4,
+        "outlier_range_min_m": 20.0,
+        "outlier_range_max_m": 80.0,
+        "outlier_angle_min_deg": 3.0,
+        "outlier_angle_max_deg": 10.0,
+        "initialization_samples_without_outliers": 5
+      },
+      "seed": 20311121,
+      "base_station_m": [
+        0.0,
+        0.0,
+        10.0
+      ],
+      "observation_model": "heteroscedastic_spherical_radar_proxy",
+      "snr_model": "reference_snr_db - 10*range_power_exponent*log10(range/reference_range) + AR1_fading",
+      "outlier_count": 1128,
+      "measurement_count": 51051,
+      "actual_outlier_fraction": 0.022095551507316215,
+      "snr_db_min": -5.632645130157471,
+      "snr_db_median": 6.90044641494751,
+      "snr_db_max": 40.0,
+      "range_m_min": 101.11660916881635,
+      "range_m_max": 996.9158942941262,
+      "labels_evaluation_only": [
+        "outlier_mask",
+        "position",
+        "beam"
+      ],
+      "limitations": [
+        "Monostatic r^-4 received-power proxy; not a physical waveform/receiver simulation.",
+        "Reported SNR and nominal covariance are idealized metadata; no online covariance estimator is simulated.",
+        "Outliers contaminate acquired measurements; beam misses retain the original ideal feedback model.",
+        "Initialization observations have Gaussian noise but injected outliers are excluded explicitly."
+      ]
+    }
+  },
+  "original_data": "<LOCAL_ASSET>/run_20261112_092203_922688_UTC",
+  "all_observation_forecast_benchmark": true,
+  "limitations": [
+    "Generated maneuvers are simulation assumptions, not new measured flight records.",
+    "Forecast benchmark has all acquired observations; closed-loop tracking is evaluated separately.",
+    "Training/validation/calibration length20s and test length50s; windows share the same horizons.",
+    "Input tail masking regularizes 0-4 missing latest observations; older filtered states remain causal.",
+    "Initial spatial anchors come only from original training positions; no original test flight enters training."
+  ]
+}

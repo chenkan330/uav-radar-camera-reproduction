@@ -20,7 +20,7 @@ def portable(value):
     return value
 
 
-def export(version):
+def export(version, output_root=None):
     root = BASE/'experiments'/version
     manifest = json.loads((root/'manifest.json').read_text(encoding='utf-8'))
     entries = {}
@@ -31,7 +31,9 @@ def export(version):
     entries[prefix+'source.zip'] = (root/'source.zip').read_bytes()
     for sub in ('results', 'figures'):
         for path in (root/sub).rglob('*'):
-            if not path.is_file() or path.name in {'tracking_events.csv', 'beam_scans.csv'}:
+            if (not path.is_file() or path.name in {'tracking_events.csv', 'beam_scans.csv',
+                    'measurement_updates.csv', 'single_trajectory_tracking_samples.csv'}
+                    or path.name.endswith(('_events.csv', '_scans.csv', '_measurement_updates.csv'))):
                 continue
             if path.suffix not in {'.png', '.json', '.csv', '.txt'}:
                 continue
@@ -47,6 +49,11 @@ def export(version):
                 writer.writeheader()
                 writer.writerows({k: portable(v) for k, v in row.items()} for row in reader)
                 data = buffer.getvalue().encode('utf-8-sig')
+            elif path.suffix == '.txt':
+                text = data.decode('utf-8-sig')
+                text = re.sub(r'[A-Za-z]:[\\/][^\s\"<>]+',
+                    lambda m: '<LOCAL_ASSET>/'+m.group().replace('\\', '/').rsplit('/', 1)[-1], text)
+                data = text.encode('utf-8')
             entries[prefix+path.relative_to(root).as_posix()] = data
     public_manifest = portable(manifest)
     public_manifest['local_result_sha256'] = public_manifest.pop('result_sha256')
@@ -76,10 +83,15 @@ def export(version):
         '项目环境位于仓库工作目录的 `.venv` 时会自动选择。\n\n'
         '原始：`python my_training/step10_single_target_tracking.py --no-show`\n\n'
         '扰动未优化：同一命令加 `--measurement-regime stress`；鲁棒版再加 `--quality-mode robust`（V3起）。\n\n'
+        'V4运动概率版：`python my_training/step10_single_target_tracking.py --maneuver-uncertainty --no-show`；'
+        '需自行准备未公开的V4数据/权重。V4与V1～V3使用不同测试轨迹，只能在各自匹配场景内比较。\n\n'
+        '最新版本自动由闭环仿真生成 `figures/single_trajectory_tracking.png`，图中分别给出示例和总体'
+        '跟踪时间/重捕率。V4蓝线是因果滤波当前位置，示例ID400017固定用于以后版本比较；'
+        '逐帧绘图样本CSV只保留在本地，不公开。\n\n'
         '当前是轨迹驱动的代理测量仿真，理想身份关联和波束命中反馈仍保留，未声称复现论文全部物理回波或数值。'
         'V2/V3固定同一噪声种子及模型；鲁棒版只使用已命中的测量和接收机名义协方差，不使用异常真值标签。\n'
     ).encode('utf-8')
-    out = BASE.parent/'_doc_work'/'github_exports'/version
+    out = (Path(output_root) if output_root is not None else BASE.parent/'_doc_work'/'github_exports')/version
     out.mkdir(parents=True, exist_ok=False)
     rows = []
     for i, (name, data) in enumerate(sorted(entries.items())):
@@ -96,4 +108,6 @@ def export(version):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('version')
-    export(parser.parse_args().version)
+    parser.add_argument('--output-root', type=Path)
+    args = parser.parse_args()
+    export(args.version, args.output_root)
