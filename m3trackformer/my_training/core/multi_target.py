@@ -52,7 +52,7 @@ def _prediction(nnet, rnet, x, valid, failed, counts):
 
 def simulate(nnet, rnet, checkpoint, scenes, device, dt, budget, policy,
              record_events=True, quality_mode='raw', measurement_updates=None,
-             filter_timing=None):
+             filter_timing=None, beam_predictor=None):
     """同场景任一目标连续失跟达到阈值即终止；未失败的同伴记为截尾。"""
     if policy not in POLICIES:
         raise ValueError('未知多目标策略')
@@ -110,8 +110,28 @@ def simulate(nnet, rnet, checkpoint, scenes, device, dt, budget, policy,
             if device.type == 'cuda':
                 torch.cuda.synchronize(device)
             started = time.perf_counter()
+            custom_logits = None
+            if beam_predictor is not None:
+                length = beam_predictor.history
+                begin = max(0, step-length)
+                past = measured[live, :, begin:step]
+                available = valid[live, :, begin:step]
+                sigmas = scenes.get('measurement_sigma')
+                past_sigma = sigmas[live, :, begin:step] if sigmas is not None else None
+                if past.shape[-2] < length:
+                    pad = length-past.shape[-2]
+                    past = np.pad(past, ((0, 0), (0, 0), (pad, 0), (0, 0)))
+                    available = np.pad(available, ((0, 0), (0, 0), (pad, 0)))
+                    if past_sigma is not None:
+                        past_sigma = np.pad(past_sigma, ((0, 0), (0, 0), (pad, 0), (0, 0)))
+                past = np.where(available[..., None], past, 0)
+                if past_sigma is not None:
+                    past_sigma = np.where(available[..., None], past_sigma, 1.)
+                custom_logits = beam_predictor(past, available, past_sigma, dt)
+                if custom_logits.shape != (len(live), targets, c.classes):
+                    raise ValueError('自定义运动预测须返回[场景,目标,码本]分数')
             if policy == 'joint':
-                logits = _prediction(nnet, rnet, x.flatten(0, 1), v.flatten(0, 1),
+                logits = custom_logits if custom_logits is not None else _prediction(nnet, rnet, x.flatten(0, 1), v.flatten(0, 1),
                                      f.flatten(0, 1), ct.flatten()).reshape(len(live), targets, -1)
                 chosen = joint_beams(logits, budget).cpu().numpy()
                 feedback = np.broadcast_to(chosen[:, None], (len(live), targets, budget)).copy()
@@ -121,7 +141,7 @@ def simulate(nnet, rnet, checkpoint, scenes, device, dt, budget, policy,
                 quota = budget // targets
                 feedback = np.full((len(live), targets, budget), -1, dtype=np.int64)
                 for target in range(targets):
-                    logits = _prediction(nnet, rnet, x[:, target], v[:, target],
+                    logits = custom_logits[:, target] if custom_logits is not None else _prediction(nnet, rnet, x[:, target], v[:, target],
                                          f[:, target], ct[:, target])
                     feedback[:, target, :quota] = logits.argsort(
                         dim=-1, descending=True, stable=True)[:, :quota].cpu().numpy()
