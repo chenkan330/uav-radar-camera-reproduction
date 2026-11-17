@@ -1,0 +1,25 @@
+{
+  "version": "v6_20261117_071813_412022_validation_gate64",
+  "scope": "source archives, aggregate metrics, aggregate reports, authorized PNGs only",
+  "source_zip_sha256": "6b7ac7bde3989e4c6d26b3ed048f8dd7160993b2a1024e0d1f0b9a95de6efd58",
+  "excluded_categories": [
+    "original datasets",
+    "model weights",
+    "machine configuration",
+    "per-frame records",
+    "per-scene records",
+    "per-target records",
+    "trajectory samples and provenance",
+    "detailed noise-repeat records"
+  ],
+  "published_files_sha256": {
+    "results/figures/closed_loop_confusion.png": "ff3cba3ea3aec5e9abf141405763f0de4608a9dbd0dc41658ebe814113c37018",
+    "results/figures/closed_loop_identity_timeline.png": "1b3ad30917f9234f58feec2afacbd37986f8e2d41cac0dda0c8d58cb90558c69",
+    "results/figures/closed_loop_metrics.png": "9b499b8d18eb373503960188bd86f5dce02f81610d478ce0096fa5f890d016b0",
+    "results/figures/single_trajectory_tracking.png": "4942dd647568d6561bd24d8fe598e245d2e1b1474786b4e4798d287fe89b0bc8",
+    "results/global_metrics.csv": "94778afc9a7270c2f40414a4b99153f81422dd32ec321e677465052287c45fb2",
+    "results/report.md": "b511ae231b3f03cc9e9ed79d5f479f6a26d37ce8623dda72241721cbaa434c93",
+    "results/summary.json": "f9819668a5c8b3210423117e700d2d224cd29407ede0803a9301f0118ce0a42b",
+    "source.zip": "6b7ac7bde3989e4c6d26b3ed048f8dd7160993b2a1024e0d1f0b9a95de6efd58"
+  }
+}
