@@ -1,0 +1,383 @@
+{
+  "version": "v4_original_nr_maneuver",
+  "source": "<LOCAL_ASSET>/test.npz",
+  "nnet_checkpoint": "<LOCAL_ASSET>/best_nnet.pth",
+  "rnet_checkpoint": "<LOCAL_ASSET>/best_rnet.pth",
+  "trajectory_figure": "figures/single_trajectory_tracking.png",
+  "targets": 3,
+  "total_beams": 12,
+  "dt": 0.05,
+  "history": 5,
+  "failure_limit": 5,
+  "maximum_evaluated_duration_s": 49.800000000000004,
+  "scene_membership": [
+    [
+      400048,
+      400017,
+      400037
+    ],
+    [
+      400044,
+      400021,
+      400045
+    ],
+    [
+      400030,
+      400028,
+      400027
+    ],
+    [
+      400025,
+      400002,
+      400011
+    ],
+    [
+      400006,
+      400039,
+      400020
+    ],
+    [
+      400018,
+      400046,
+      400012
+    ],
+    [
+      400043,
+      400009,
+      400016
+    ],
+    [
+      400000,
+      400040,
+      400003
+    ],
+    [
+      400023,
+      400015,
+      400013
+    ],
+    [
+      400034,
+      400024,
+      400008
+    ],
+    [
+      400033,
+      400022,
+      400035
+    ],
+    [
+      400038,
+      400010,
+      400029
+    ],
+    [
+      400050,
+      400014,
+      400031
+    ],
+    [
+      400041,
+      400036,
+      400001
+    ],
+    [
+      400042,
+      400032,
+      400026
+    ],
+    [
+      400049,
+      400047,
+      400005
+    ],
+    [
+      400004,
+      400019,
+      400007
+    ]
+  ],
+  "unused_trajectory_ids": [],
+  "results": {
+    "nr_raw": {
+      "scenes": 17,
+      "targets_per_scene": 3,
+      "success_rate": 0.0,
+      "mean_all_targets_duration_s": 5.879411764705883,
+      "recoveries": 32,
+      "lost_events": 50,
+      "recovery_rate": 0.64,
+      "mean_recovery_delay_s": 0.0890625,
+      "position_rmse_m_on_detections": 25.480304307586287,
+      "beam_slots_per_scene_block": 12,
+      "mean_prediction_batch_ms": 5.749515647900411,
+      "amortized_prediction_ms_per_scene": 0.7007067162278224,
+      "latency_scope": "beam_prediction_and_selection_only_excludes_position_regression_and_IO",
+      "measurement_update_count": 5851,
+      "measurement_raw_rmse_m_on_detections": 38.04494155732658,
+      "measurement_processed_rmse_m_on_detections": 38.04494155732658,
+      "measurement_mean_weight": 1.0,
+      "measurement_downweighted_fraction": 0.0,
+      "measurement_normal_downweighted_fraction": 0.0,
+      "measurement_outlier_downweighted_fraction": 0.0,
+      "measurement_observed_outlier_count": 122,
+      "filter_timing": {
+        "total_ms": 0.0,
+        "initialization_ms": 0.0,
+        "detected_target_frames": 0,
+        "mean_ms_per_acquired_target_frame": 0.0,
+        "scope": "CPU_measurement_processor_only_excludes_neural_inference_and_logging"
+      },
+      "measurement_metric_scope": "acquired_frames_only_with_method_dependent_coverage; not neural_position_RMSE",
+      "position_evaluation_count": 5851,
+      "position_evaluation_coverage": 0.11518623513662493,
+      "rnet_target_frames": 128,
+      "position_metric": "original N-Net position head on actually detected frames only",
+      "quality_mode": "raw"
+    },
+    "nr_robust": {
+      "scenes": 17,
+      "targets_per_scene": 3,
+      "success_rate": 0.0,
+      "mean_all_targets_duration_s": 7.958823529411766,
+      "recoveries": 21,
+      "lost_events": 40,
+      "recovery_rate": 0.525,
+      "mean_recovery_delay_s": 0.07857142857142858,
+      "position_rmse_m_on_detections": 21.59359211910111,
+      "beam_slots_per_scene_block": 12,
+      "mean_prediction_batch_ms": 2.3355950573397894,
+      "amortized_prediction_ms_per_scene": 1.1871979525736513,
+      "latency_scope": "beam_prediction_and_selection_only_excludes_position_regression_and_IO",
+      "measurement_update_count": 7992,
+      "measurement_raw_rmse_m_on_detections": 40.37999475554559,
+      "measurement_processed_rmse_m_on_detections": 10.434908453880118,
+      "measurement_mean_weight": 0.9797057417724345,
+      "measurement_downweighted_fraction": 0.06156156156156156,
+      "measurement_normal_downweighted_fraction": 0.041176470588235294,
+      "measurement_outlier_downweighted_fraction": 0.9883720930232558,
+      "measurement_observed_outlier_count": 172,
+      "filter_timing": {
+        "total_ms": 137.7094987547025,
+        "initialization_ms": 1.115199993364513,
+        "detected_target_frames": 7992,
+        "mean_ms_per_acquired_target_frame": 0.017230918262600415,
+        "scope": "CPU_measurement_processor_only_excludes_neural_inference_and_logging"
+      },
+      "measurement_metric_scope": "acquired_frames_only_with_method_dependent_coverage; not neural_position_RMSE",
+      "position_evaluation_count": 7992,
+      "position_evaluation_coverage": 0.1573352232459249,
+      "rnet_target_frames": 107,
+      "position_metric": "original N-Net position head on actually detected frames only",
+      "quality_mode": "robust"
+    }
+  },
+  "beam_probabilities": {
+    "nr_raw": {
+      "count": 5997,
+      "scope": "next-block beam class on active target frames only",
+      "calibrated_on_test": false,
+      "is_3d_motion_uncertainty": false,
+      "mean_confidence": 0.8929536131312146,
+      "mean_entropy_nats": 0.2736513130644604,
+      "mean_nll_nats": 1.6016060722206835,
+      "mean_brier_score": 0.5538875356482713,
+      "mean_selected_probability_mass": 0.997551177220973,
+      "top1_accuracy": 0.655661163915291,
+      "ece": 0.2372924492159236,
+      "bins": [
+        {
+          "lower": 0.0,
+          "upper": 0.1,
+          "count": 7,
+          "confidence": 0.07912117647815452,
+          "accuracy": 0.0
+        },
+        {
+          "lower": 0.1,
+          "upper": 0.2,
+          "count": 5,
+          "confidence": 0.1327439630744514,
+          "accuracy": 0.0
+        },
+        {
+          "lower": 0.2,
+          "upper": 0.30000000000000004,
+          "count": 3,
+          "confidence": 0.2567384264303208,
+          "accuracy": 0.0
+        },
+        {
+          "lower": 0.30000000000000004,
+          "upper": 0.4,
+          "count": 30,
+          "confidence": 0.37039238166064,
+          "accuracy": 0.3333333333333333
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.5,
+          "count": 83,
+          "confidence": 0.4613698044175114,
+          "accuracy": 0.20481927710843373
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.6000000000000001,
+          "count": 357,
+          "confidence": 0.5494499065568047,
+          "accuracy": 0.44537815126050423
+        },
+        {
+          "lower": 0.6000000000000001,
+          "upper": 0.7000000000000001,
+          "count": 379,
+          "confidence": 0.6490108035995791,
+          "accuracy": 0.42480211081794195
+        },
+        {
+          "lower": 0.7000000000000001,
+          "upper": 0.8,
+          "count": 418,
+          "confidence": 0.7512130838976514,
+          "accuracy": 0.46411483253588515
+        },
+        {
+          "lower": 0.8,
+          "upper": 0.9,
+          "count": 633,
+          "confidence": 0.8545451866561833,
+          "accuracy": 0.5434439178515008
+        },
+        {
+          "lower": 0.9,
+          "upper": 1.0,
+          "count": 4082,
+          "confidence": 0.9815254007775132,
+          "accuracy": 0.7464478196962273
+        }
+      ]
+    },
+    "nr_robust": {
+      "count": 8118,
+      "scope": "next-block beam class on active target frames only",
+      "calibrated_on_test": false,
+      "is_3d_motion_uncertainty": false,
+      "mean_confidence": 0.8980529726305604,
+      "mean_entropy_nats": 0.2548413850037072,
+      "mean_nll_nats": 1.0419586693102383,
+      "mean_brier_score": 0.42093502797598725,
+      "mean_selected_probability_mass": 0.9977014641634363,
+      "top1_accuracy": 0.7297363882729736,
+      "ece": 0.16982495429868605,
+      "bins": [
+        {
+          "lower": 0.0,
+          "upper": 0.1,
+          "count": 11,
+          "confidence": 0.0675764180817835,
+          "accuracy": 0.0
+        },
+        {
+          "lower": 0.2,
+          "upper": 0.30000000000000004,
+          "count": 6,
+          "confidence": 0.2689603552282328,
+          "accuracy": 0.6666666666666666
+        },
+        {
+          "lower": 0.30000000000000004,
+          "upper": 0.4,
+          "count": 34,
+          "confidence": 0.36069894934436125,
+          "accuracy": 0.47058823529411764
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.5,
+          "count": 84,
+          "confidence": 0.45554626776721835,
+          "accuracy": 0.25
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.6000000000000001,
+          "count": 522,
+          "confidence": 0.5506462196887995,
+          "accuracy": 0.49616858237547895
+        },
+        {
+          "lower": 0.6000000000000001,
+          "upper": 0.7000000000000001,
+          "count": 497,
+          "confidence": 0.6492196913522397,
+          "accuracy": 0.4708249496981891
+        },
+        {
+          "lower": 0.7000000000000001,
+          "upper": 0.8,
+          "count": 529,
+          "confidence": 0.7520882187530415,
+          "accuracy": 0.4839319470699433
+        },
+        {
+          "lower": 0.8,
+          "upper": 0.9,
+          "count": 794,
+          "confidence": 0.8547431361578519,
+          "accuracy": 0.5428211586901763
+        },
+        {
+          "lower": 0.9,
+          "upper": 1.0,
+          "count": 5641,
+          "confidence": 0.9840253584834524,
+          "accuracy": 0.8337174259882999
+        }
+      ]
+    }
+  },
+  "models_source_sha256": "43972fb03a96a01c94a914e763440943933ca28f024bbb5156e0e164d7ba925f",
+  "checkpoint_sha256": {
+    "nnet_checkpoint": "71e0e2becc08131963148c042752017f67fbc8de99df84d4fb164628e5b33345",
+    "rnet_checkpoint": "0476bdecbf19039e81a343cae3ba9f8b614f61ba8f5201fef9f0d8b2b21ce9fd"
+  },
+  "actual_network_calls": {
+    "nr_raw": {
+      "nnet_forward_calls": 621,
+      "nnet_target_frames": 11976,
+      "rnet_forward_calls": 97,
+      "rnet_target_frames": 128,
+      "expected_rnet_target_frames": 128,
+      "original_nr_routing_verified": true,
+      "alternative_prediction_network_used": false,
+      "trajectory_estimator": "nnet_position_head"
+    },
+    "nr_robust": {
+      "nnet_forward_calls": 1299,
+      "nnet_target_frames": 16217,
+      "rnet_forward_calls": 85,
+      "rnet_target_frames": 107,
+      "expected_rnet_target_frames": 107,
+      "original_nr_routing_verified": true,
+      "alternative_prediction_network_used": false,
+      "trajectory_estimator": "nnet_position_head"
+    }
+  },
+  "weights_unchanged": true,
+  "networks_unchanged": true,
+  "alternative_prediction_network_used": false,
+  "same_external_measurement_stream": true,
+  "measurement_sha256": "f2f556154135cdfbc3c041f5c40391757f8ba6523e4aa1b7a3135e83c7d67870",
+  "reused_maneuver_test_sha256": "8bc33b04f4f00afeb5a47f2f84e1667bceeedbe5aec9a0368c4dd9484bcaa392",
+  "filtered_measurement_array_used": false,
+  "fully_reproduced_paper_numerical_results": false,
+  "limitations": [
+    "Fixed original weights are tested on new simulated maneuvers; no retraining or tuning on test.",
+    "The probability evaluation is next-beam classification, not 3-D position/path uncertainty.",
+    "Same 17 groups as old V4; any target reaching five misses stops the entire group.",
+    "Position RMSE uses N-Net output on detections only; exposures differ between methods.",
+    "Ideal measurement identity and beam-hit feedback are still assumed; identity association is not implemented.",
+    "Receiver sigmas are idealized; this is trajectory-driven proxy simulation, not physical radar data."
+  ]
+}

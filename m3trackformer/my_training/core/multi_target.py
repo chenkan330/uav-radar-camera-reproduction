@@ -53,12 +53,17 @@ def _prediction(nnet, rnet, x, valid, failed, counts):
 def simulate(nnet, rnet, checkpoint, scenes, device, dt, budget, policy,
              record_events=True, quality_mode='raw', measurement_updates=None,
              filter_timing=None, beam_predictor=None, trajectory_trace=None,
-             trace_trajectory_id=None):
+             trace_trajectory_id=None, trajectory_estimator='auto',
+             beam_probability_metrics=None):
     """同场景任一目标连续失跟达到阈值即终止；未失败的同伴记为截尾。"""
     if policy not in POLICIES:
         raise ValueError('未知多目标策略')
     if quality_mode not in ('raw', 'robust'):
         raise ValueError('Unknown measurement quality mode')
+    if trajectory_estimator not in ('auto', 'nnet'):
+        raise ValueError('Unknown trajectory estimator')
+    if beam_probability_metrics is not None and policy != 'joint':
+        raise ValueError('Beam probability diagnostics require joint selection')
     original_measurement, beams = scenes['measurement'], scenes['beam'] - 1
     measured = original_measurement.copy() if quality_mode == 'robust' else original_measurement
     groups, targets, steps = beams.shape
@@ -111,7 +116,8 @@ def simulate(nnet, rnet, checkpoint, scenes, device, dt, budget, policy,
             'trajectory_id': int(scenes['trajectory_id'][g, t]), 'time_index': step,
             'time_s': (step-h)*dt, 'phase': phase, 'hit': bool(hit),
             'recovered': bool(recovered),
-            'estimate_source': 'causal_filtered_measurement' if processor is not None
+            'estimate_source': 'nnet_position_head' if phase == 'tracking' and trajectory_estimator == 'nnet'
+                else 'causal_filtered_measurement' if processor is not None
                 else 'initial_measurement' if phase == 'initialization' else 'legacy_neural_position_head',
             **{f'true_{a}_m': float(scenes['position'][g, t, step, k]) for k, a in enumerate('xyz')},
             **{f'estimated_{a}_m': float(estimate[k]) if hit else None for k, a in enumerate('xyz')}})
@@ -180,6 +186,23 @@ def simulate(nnet, rnet, checkpoint, scenes, device, dt, budget, policy,
 
             # 真值仅在选束结束后用于模拟环境。独立基线只使用分配给本目标的扫描反馈。
             hit = (feedback == beams[live, :, step, None]).any(-1)
+            if beam_probability_metrics is not None:
+                # Offline scores only, after beam decisions: labels never return to inference.
+                probabilities = logits.detach().double().softmax(-1).cpu().numpy()
+                for i, g in enumerate(live):
+                    for t in range(targets):
+                        probability = probabilities[i, t]
+                        label = int(beams[g, t, step])
+                        predicted = int(probability.argmax())
+                        beam_probability_metrics.append({'scene_id': int(g), 'target_index': t,
+                            'trajectory_id': int(scenes['trajectory_id'][g, t]), 'time_index': step,
+                            'mode': 'R' if prior[i, t] else 'N',
+                            'confidence': float(probability[predicted]), 'top1_correct': predicted == label,
+                            'entropy_nats': float(-(probability*np.log(np.maximum(probability, 1e-300))).sum()),
+                            'nll_nats': float(-np.log(max(probability[label], 1e-300))),
+                            'brier_score': float((probability**2).sum()-2*probability[label]+1),
+                            'selected_probability_mass': float(probability[chosen[i]].sum()),
+                            'hit': bool(hit[i, t])})
             # Filtering happens only AFTER causal beam selection and actual hit feedback.
             # A low robust weight never becomes failed-beam evidence for R-Net.
             weights, nis = np.ones((groups, targets)), np.full((groups, targets), np.nan)
@@ -265,7 +288,7 @@ def simulate(nnet, rnet, checkpoint, scenes, device, dt, budget, policy,
 
             if trace_members:
                 estimates = np.full((len(live), targets, 3), np.nan)
-                if processor is not None:
+                if processor is not None and trajectory_estimator != 'nnet':
                     estimates[good_scene, good_target] = spherical_to_cartesian(
                         measured[live[good_scene], good_target, step])
                 elif len(good_scene):
@@ -510,7 +533,7 @@ def main(argv=None):
                           quality_mode=a.quality_mode, measurement_updates=updates,
                           filter_timing=filter_timing,
                           trajectory_trace=trajectory_trace if policy == 'joint' else None,
-                          trace_trajectory_id=plot_id)
+                          trace_trajectory_id=plot_id, trajectory_estimator='nnet')
         results[policy] = result
         summaries[policy] = summarize(result[0], result[1], result[4], cfg['dt'], a.total_beams, a.targets, policy)
         summaries[policy].update(summarize_measurement_updates(updates, filter_timing))

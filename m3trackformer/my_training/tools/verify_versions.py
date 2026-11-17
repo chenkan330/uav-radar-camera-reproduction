@@ -118,6 +118,9 @@ def verify_version(directory, verify_assets=True, require_figures=True):
                     'motion_type_comparison.png', 'maneuver_onset_uncertainty.png',
                     'future_motion_examples.png', 'maneuver_tracking_comparison.png',
                     'motion_network_training.png')]
+            elif result_summary.get('version') == 'v4_original_nr_maneuver':
+                expected_figures = ['figures/nr_tracking_metrics.png',
+                                    'figures/beam_probability_reliability.png']
             if result_summary.get('trajectory_figure'):
                 expected_figures.append('figures/single_trajectory_tracking.png')
                 for artifact in ('single_trajectory_tracking.json', 'single_trajectory_tracking_samples.csv'):

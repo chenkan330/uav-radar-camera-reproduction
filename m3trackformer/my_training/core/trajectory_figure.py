@@ -74,6 +74,7 @@ def save_trajectory_figure(run_dir, scenes, trace_rows, target_rows, summary, *,
     sources = sorted({r['estimate_source'] for r in rows if r['phase'] == 'tracking'})
     if not sources or len(sources) != 1:
         raise ValueError('A display trace must identify one current-position estimator')
+    neural_trace = sources[0] in ('nnet_position_head', 'legacy_neural_position_head')
     sample_rows = []
     for i in range(len(truth)):
         row = lookup.get(i)
@@ -110,10 +111,14 @@ def save_trajectory_figure(run_dir, scenes, trace_rows, target_rows, summary, *,
         fig = plt.figure(figsize=(11.5, 8.5), facecolor='white')
         ax = fig.add_axes((.09, .25, .62, .62))
         zoom = fig.add_axes((.76, .655, .215, .21))
-        estimate_label = '因果滤波估计' if sources[0] == 'causal_filtered_measurement' else '原网络位置估计'
+        estimate_label = '原 N-Net 位置输出' if neural_trace else '因果滤波估计'
+        blue = estimates.copy()
+        if neural_trace:
+            # Initial measurements are not neural network position predictions.
+            blue[:history] = np.nan
         for plot in (ax, zoom):
             plot.plot(truth[:, 0], truth[:, 1], color='#ee2222', lw=1.7, label='真实轨迹', zorder=2)
-            plot.plot(estimates[:, 0], estimates[:, 1], color='#1455d9', ls='--', lw=1.35,
+            plot.plot(blue[:, 0], blue[:, 1], color='#1455d9', ls='--', lw=1.35,
                       label=estimate_label, zorder=3)
             plot.scatter([truth[0, 0]], [truth[0, 1]], color='#ee2222', s=62, zorder=5)
             if missed:
@@ -176,6 +181,7 @@ def save_trajectory_figure(run_dir, scenes, trace_rows, target_rows, summary, *,
         'maximum_evaluated_duration_s': (len(truth)-history)*dt,
         'selection_note': selection_note or 'fixed ID; otherwise minimum available trajectory ID',
         'no_interpolation_or_synthetic_estimates': True, 'truth_is_evaluation_only': True,
+        'initial_measurements_drawn_as_neural_predictions': False,
         'xy_projection': True, 'zoom_time_index': center_index,
         'samples_sha256': hashlib.sha256(csv_path.read_bytes()).hexdigest(),
         'figure_sha256': hashlib.sha256(png.read_bytes()).hexdigest(),

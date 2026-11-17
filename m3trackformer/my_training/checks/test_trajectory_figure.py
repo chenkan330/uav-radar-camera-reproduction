@@ -104,6 +104,19 @@ class TrajectoryFigureTests(unittest.TestCase):
         self.assertIsNone(stats['recovery_rate'])
         self.assertEqual(stats['lost_events'], 0)
 
+    def test_nnet_trace_with_robust_input_keeps_real_neural_output(self):
+        data, trace, probabilities = fixture(), [], []
+        result = simulate(FixedPositionNet(), None, NORMALIZATION, data, torch.device('cpu'),
+            .05, 3, 'joint', quality_mode='robust', trajectory_trace=trace,
+            trace_trajectory_id=400017, trajectory_estimator='nnet',
+            beam_probability_metrics=probabilities)
+        self.assertEqual(self.run_simulation(data, quality='robust')[:4], result[:4])
+        hit = next(r for r in trace if r['time_index'] == 7)
+        self.assertEqual(hit['estimate_source'], 'nnet_position_head')
+        self.assertEqual(hit['estimated_x_m'], 3.)
+        self.assertEqual(len(probabilities), result[0][0]['evaluated_blocks'])
+        self.assertTrue(all(0 <= r['selected_probability_mass'] <= 1.000000001 for r in probabilities))
+
 
 if __name__ == '__main__':
     unittest.main()

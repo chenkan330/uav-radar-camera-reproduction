@@ -97,7 +97,7 @@ def export(version, output_root=None):
     for i, (name, data) in enumerate(sorted(entries.items())):
         binary = name.endswith(('.zip', '.png'))
         row = {'path': name, 'encoding': 'base64' if binary else 'utf-8',
-               'content': base64.b64encode(data).decode('ascii') if binary else data.decode('utf-8-sig')}
+               'content': base64.b64encode(data).decode('ascii') if binary else data.decode('utf-8')}
         payload = out/f'{i:03}.json'
         payload.write_text(json.dumps(row, ensure_ascii=True), encoding='ascii')
         rows.append({'index': i, 'path': name, 'payload': str(payload), 'bytes': len(data), 'binary': binary})

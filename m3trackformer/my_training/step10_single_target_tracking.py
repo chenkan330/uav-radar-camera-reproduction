@@ -22,7 +22,7 @@ if __name__ == '__main__':
         raise SystemExit(subprocess.run([str(project_python), '-X', 'utf8',
                                         str(Path(__file__).resolve()), *sys.argv[1:]]).returncode)
     if '--maneuver-uncertainty' in sys.argv[1:]:
-        from core.maneuver_experiment import main as maneuver_main
+        from core.maneuver_nnet_rnet import main as maneuver_main
         maneuver_main([value for value in sys.argv[1:] if value != '--maneuver-uncertainty'])
         raise SystemExit(0)
     if '--single-target' not in sys.argv[1:]:

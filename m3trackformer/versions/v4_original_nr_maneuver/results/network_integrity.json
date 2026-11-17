@@ -1,0 +1,32 @@
+{
+  "models_source_sha256": "43972fb03a96a01c94a914e763440943933ca28f024bbb5156e0e164d7ba925f",
+  "checkpoint_sha256": {
+    "nnet_checkpoint": "71e0e2becc08131963148c042752017f67fbc8de99df84d4fb164628e5b33345",
+    "rnet_checkpoint": "0476bdecbf19039e81a343cae3ba9f8b614f61ba8f5201fef9f0d8b2b21ce9fd"
+  },
+  "actual_network_calls": {
+    "nr_raw": {
+      "nnet_forward_calls": 621,
+      "nnet_target_frames": 11976,
+      "rnet_forward_calls": 97,
+      "rnet_target_frames": 128,
+      "expected_rnet_target_frames": 128,
+      "original_nr_routing_verified": true,
+      "alternative_prediction_network_used": false,
+      "trajectory_estimator": "nnet_position_head"
+    },
+    "nr_robust": {
+      "nnet_forward_calls": 1299,
+      "nnet_target_frames": 16217,
+      "rnet_forward_calls": 85,
+      "rnet_target_frames": 107,
+      "expected_rnet_target_frames": 107,
+      "original_nr_routing_verified": true,
+      "alternative_prediction_network_used": false,
+      "trajectory_estimator": "nnet_position_head"
+    }
+  },
+  "networks_unchanged": true,
+  "weights_unchanged": true,
+  "alternative_prediction_network_used": false
+}

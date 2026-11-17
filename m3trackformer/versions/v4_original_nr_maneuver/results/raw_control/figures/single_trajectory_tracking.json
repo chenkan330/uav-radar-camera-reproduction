@@ -1,0 +1,33 @@
+{
+  "trajectory_id": 400017,
+  "scene_id": 0,
+  "target_index": 1,
+  "dt_s": 0.05,
+  "history_frames": 5,
+  "estimate_source": "nnet_position_head",
+  "single_trajectory": {
+    "tracking_duration_s": 6.15,
+    "lost_events": 0,
+    "recoveries": 0,
+    "recovery_rate": null,
+    "evaluated_frames": 123,
+    "missed_frames": 0
+  },
+  "all_scenes": {
+    "scenes": 17,
+    "mean_all_targets_duration_s": 5.879411764705883,
+    "recoveries": 32,
+    "lost_events": 50,
+    "recovery_rate": 0.64
+  },
+  "maximum_evaluated_duration_s": 49.800000000000004,
+  "selection_note": "固定旧V4示例 ID 400017；本次不根据跟踪结果重新挑选。全部指标来自原N/R实际闭环仿真。",
+  "no_interpolation_or_synthetic_estimates": true,
+  "truth_is_evaluation_only": true,
+  "initial_measurements_drawn_as_neural_predictions": false,
+  "xy_projection": true,
+  "zoom_time_index": 5,
+  "samples_sha256": "883f8babcb04752d908a42f333172a1092ee2371eee09845eeee05971fb497ed",
+  "figure_sha256": "aebeef8cb7e51d6952a1fa847ca0a0a8f9202274c3246381bcd5d8ae118fea41",
+  "plot_code_sha256": "9e011c8ac9f2ac9d8641b0d41c1b57d614a3c1c2889414c61750a13d6c74f01f"
+}
