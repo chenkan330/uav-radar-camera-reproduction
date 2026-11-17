@@ -19,6 +19,8 @@
   real_trajectory_audit.json：原始ZIP校验、GPS重建及插值校验结果。
   批次结果位于outputs/step10_real_snr_outliers，每次生成独立raw/robust版本，旧版本不覆盖。
   结束自动显示鲁棒组单轨迹图与指标对照图，其余图和CSV同时保存。
+  默认展示固定场景种子的首场景首目标，当前为轨迹729；不是按成功率或误差排名挑选。
+  --plot-trajectory-id 可以指定其他实际存在的编号。编号193立即失跟的失败图也已另版保留。
 
 2026-11-16 用户明确的当前主线约束：
   必须保留原Transformer N-Net与R-Net，网络结构、输入输出接口及正常/重捕分工不变。

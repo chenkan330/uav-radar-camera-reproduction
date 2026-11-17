@@ -4,7 +4,7 @@ import hashlib
 import shutil
 from pathlib import Path
 
-from .common import BASE, new_run, read_json, write_json
+from .common import BASE, load_split, new_run, read_json, write_json
 from .maneuver_nnet_rnet import ORIGINAL_MODELS_SHA256
 
 
@@ -27,6 +27,10 @@ def main(argv=None):
     config = read_json(data_root/'config.json')
     if 'real_GNSS' not in config.get('dataset_kind', ''):
         parser.error('必须提供真实GNSS参考轨迹分区，不能使用生成机动轨迹')
+    if args.plot_trajectory_id is None:
+        from .multi_target import make_scenes
+        fixed_scenes, _, _ = make_scenes(load_split(data_root/'test.npz'), 3, seed=20261115)
+        args.plot_trajectory_id = int(fixed_scenes['trajectory_id'][0, 0])
     model_source = Path(__file__).with_name('models.py')
     if sha(model_source) != ORIGINAL_MODELS_SHA256:
         raise RuntimeError('原N-Net/R-Net定义被修改，停止实验')
@@ -69,6 +73,8 @@ def main(argv=None):
         'real_reference_audit': summaries['raw']['real_reference_audit'],
         'test_is_new_blind_set': summaries['raw']['test_is_new_blind_set'],
         'primary_position_curve': 'original N-Net output on acquired frames',
+        'plot_trajectory_id': args.plot_trajectory_id,
+        'default_plot_selection': 'first target of first fixed-seed scene; no outcome ranking',
         'GNSS_truth_is_reference_not_independent_high_precision_truth': True}
     write_json(root/'batch_summary.json', pair)
     write_json(comparison/'paired_experiment.json', pair)

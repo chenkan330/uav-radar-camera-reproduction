@@ -115,7 +115,7 @@ def save_trajectory_figure(run_dir, scenes, trace_rows, target_rows, summary, *,
     with plt.rc_context({'font.sans-serif': ['Microsoft YaHei', 'SimHei', 'DejaVu Sans'],
                          'axes.unicode_minus': False, 'font.size': 10}):
         fig = plt.figure(figsize=(11.5, 8.5), facecolor='white')
-        ax = fig.add_axes((.09, .25, .62, .62))
+        ax = fig.add_axes((.09, .30, .62, .57))
         zoom = fig.add_axes((.76, .655, .215, .21))
         estimate_label = '原 N-Net 位置输出' if neural_trace else '因果滤波估计'
         blue = estimates.copy()

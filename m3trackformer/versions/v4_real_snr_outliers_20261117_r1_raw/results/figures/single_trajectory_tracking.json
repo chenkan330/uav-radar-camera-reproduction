@@ -1,0 +1,34 @@
+{
+  "trajectory_id": 729,
+  "scene_id": 0,
+  "target_index": 0,
+  "dt_s": 0.05,
+  "history_frames": 5,
+  "estimate_source": "nnet_position_head",
+  "stop_reason": "peer_failure_censoring",
+  "single_trajectory": {
+    "tracking_duration_s": 33.7,
+    "lost_events": 0,
+    "recoveries": 0,
+    "recovery_rate": null,
+    "evaluated_frames": 674,
+    "missed_frames": 0
+  },
+  "all_scenes": {
+    "scenes": 17,
+    "mean_all_targets_duration_s": 25.841176470588238,
+    "recoveries": 51,
+    "lost_events": 64,
+    "recovery_rate": 0.796875
+  },
+  "maximum_evaluated_duration_s": 49.800000000000004,
+  "selection_note": "fixed ID; otherwise minimum available trajectory ID",
+  "no_interpolation_or_synthetic_estimates": true,
+  "truth_is_evaluation_only": true,
+  "initial_measurements_drawn_as_neural_predictions": false,
+  "xy_projection": true,
+  "zoom_time_index": 5,
+  "samples_sha256": "8d8d091938f25fd7df5ce3c78bef5b597c53223f1587ee24b3f9ef97a83b4654",
+  "figure_sha256": "8b053ea027327f184437b690ef57b87ff29ffb09c6486a0925fc7914510cbd9f",
+  "plot_code_sha256": "5d7923c10c1e87fa6baa4d9ceb1f6cdae53e1d12513f0338b9b0a279dbe1cfe1"
+}

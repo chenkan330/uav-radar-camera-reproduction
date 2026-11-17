@@ -1,0 +1,272 @@
+{
+  "split": "test",
+  "targets": 3,
+  "total_beams": 12,
+  "seed": 20261115,
+  "dt": 0.05,
+  "history": 5,
+  "failure_limit": 5,
+  "maximum_evaluated_duration_s": 49.800000000000004,
+  "source": "<LOCAL_ASSET>/test.npz",
+  "source_sha256": "032d782c8318693476812ecb3392e010796737dd09232e6f003eb955c59984cc",
+  "rnet_checkpoint": "<LOCAL_ASSET>/best_rnet.pth",
+  "nnet_checkpoint": "<LOCAL_ASSET>/best_nnet.pth",
+  "scene_membership": [
+    [
+      729,
+      210,
+      230
+    ],
+    [
+      725,
+      214,
+      726
+    ],
+    [
+      223,
+      221,
+      220
+    ],
+    [
+      218,
+      195,
+      204
+    ],
+    [
+      199,
+      232,
+      213
+    ],
+    [
+      211,
+      727,
+      205
+    ],
+    [
+      724,
+      202,
+      209
+    ],
+    [
+      193,
+      233,
+      196
+    ],
+    [
+      216,
+      208,
+      206
+    ],
+    [
+      227,
+      217,
+      201
+    ],
+    [
+      226,
+      215,
+      228
+    ],
+    [
+      231,
+      203,
+      222
+    ],
+    [
+      731,
+      207,
+      224
+    ],
+    [
+      234,
+      229,
+      194
+    ],
+    [
+      723,
+      225,
+      219
+    ],
+    [
+      730,
+      728,
+      198
+    ],
+    [
+      197,
+      212,
+      200
+    ]
+  ],
+  "unused_trajectory_ids": [],
+  "partition_audit": {
+    "ids_disjoint": true,
+    "session_groups_disjoint": true,
+    "split_counts": {
+      "nnet_train": 625,
+      "rnet_sim": 92,
+      "validation": 90,
+      "test": 51
+    }
+  },
+  "weights_unchanged": true,
+  "real_reference_audit": {
+    "real_GNSS_reference_verified": true,
+    "positions_equal_parent_reference_interpolation": true,
+    "positions_reconstructed_from_original_GPS_CSV": true,
+    "raw_archive": "<LOCAL_ASSET>/Speedybee DataSet.zip",
+    "raw_archive_md5": "fa6210078d8f615118027a5310dfc99c",
+    "source_segments_manifest": "<LOCAL_ASSET>/segments.csv",
+    "split": "test",
+    "segments": 51,
+    "source_flights": 6,
+    "duration_s": 50.0,
+    "input_dt_s": 0.05,
+    "original_GNSS_approximately_hz": 5,
+    "interpolation_adds_no_real_motion_detail": true,
+    "GNSS_is_reference_not_independent_high_precision_truth": true,
+    "test_is_new_blind_set": false
+  },
+  "measurement_regime": "stress",
+  "quality_mode": "raw",
+  "noise_seed": 20261116,
+  "measurement_realization_sha256": "e72b07d4e3e5a0d734434bd59e9671aaf2a6ea6b677b9c152183f5986bf97bdf",
+  "quality_config": null,
+  "noise_metadata": {
+    "noise_config": {
+      "reference_range_m": 300.0,
+      "reference_snr_db": 20.0,
+      "range_power_exponent": 4.0,
+      "fading_std_db": 2.0,
+      "fading_correlation": 0.95,
+      "minimum_snr_db": -10.0,
+      "maximum_snr_db": 40.0,
+      "reference_range_sigma_m": 1.0,
+      "reference_angle_sigma_deg": 0.5,
+      "range_sigma_floor_m": 0.3,
+      "angle_sigma_floor_deg": 0.1,
+      "outlier_probability": 0.02,
+      "burst_start_probability": 0.001,
+      "burst_min_length": 2,
+      "burst_max_length": 4,
+      "outlier_range_min_m": 20.0,
+      "outlier_range_max_m": 80.0,
+      "outlier_angle_min_deg": 3.0,
+      "outlier_angle_max_deg": 10.0,
+      "initialization_samples_without_outliers": 5
+    },
+    "seed": 20261116,
+    "base_station_m": [
+      0.0,
+      0.0,
+      10.0
+    ],
+    "observation_model": "heteroscedastic_spherical_radar_proxy",
+    "snr_model": "reference_snr_db - 10*range_power_exponent*log10(range/reference_range) + AR1_fading",
+    "outlier_count": 1138,
+    "measurement_count": 51051,
+    "actual_outlier_fraction": 0.02229143405613994,
+    "snr_db_min": -2.095738649368286,
+    "snr_db_median": 11.785246849060059,
+    "snr_db_max": 40.0,
+    "range_m_min": 54.7392280785696,
+    "range_m_max": 799.5462610318418,
+    "labels_evaluation_only": [
+      "outlier_mask",
+      "position",
+      "beam"
+    ],
+    "limitations": [
+      "Monostatic r^-4 received-power proxy; not a physical waveform/receiver simulation.",
+      "Reported SNR and nominal covariance are idealized metadata; no online covariance estimator is simulated.",
+      "Outliers contaminate acquired measurements; beam misses retain the original ideal feedback model.",
+      "Initialization observations have Gaussian noise but injected outliers are excluded explicitly."
+    ]
+  },
+  "test_is_new_blind_set": false,
+  "results": {
+    "joint": {
+      "scenes": 17,
+      "targets_per_scene": 3,
+      "success_rate": 0.29411764705882354,
+      "mean_all_targets_duration_s": 25.841176470588238,
+      "recoveries": 51,
+      "lost_events": 64,
+      "recovery_rate": 0.796875,
+      "mean_recovery_delay_s": 0.07450980392156863,
+      "position_rmse_m_on_detections": 17.04020621617397,
+      "beam_slots_per_scene_block": 12,
+      "mean_prediction_batch_ms": 2.241782931736065,
+      "amortized_prediction_ms_per_scene": 0.266430319734846,
+      "latency_scope": "beam_prediction_and_selection_only_excludes_position_regression_and_IO",
+      "measurement_update_count": 26221,
+      "measurement_raw_rmse_m_on_detections": 32.919916564817605,
+      "measurement_processed_rmse_m_on_detections": 32.919916564817605,
+      "measurement_mean_weight": 1.0,
+      "measurement_downweighted_fraction": 0.0,
+      "measurement_normal_downweighted_fraction": 0.0,
+      "measurement_outlier_downweighted_fraction": 0.0,
+      "measurement_observed_outlier_count": 595,
+      "filter_timing": {
+        "total_ms": 0.0,
+        "initialization_ms": 0.0,
+        "detected_target_frames": 0,
+        "mean_ms_per_acquired_target_frame": 0.0,
+        "scope": "CPU_measurement_processor_only_excludes_neural_inference_and_logging"
+      },
+      "measurement_metric_scope": "acquired_frames_only_with_method_dependent_coverage; not neural_position_RMSE"
+    },
+    "decoupled": {
+      "scenes": 17,
+      "targets_per_scene": 3,
+      "success_rate": 0.23529411764705882,
+      "mean_all_targets_duration_s": 22.902941176470588,
+      "recoveries": 56,
+      "lost_events": 69,
+      "recovery_rate": 0.8115942028985508,
+      "mean_recovery_delay_s": 0.07410714285714286,
+      "position_rmse_m_on_detections": 16.578165692181972,
+      "beam_slots_per_scene_block": 12,
+      "mean_prediction_batch_ms": 4.614556726957094,
+      "amortized_prediction_ms_per_scene": 0.6509150892907984,
+      "latency_scope": "beam_prediction_and_selection_only_excludes_position_regression_and_IO",
+      "measurement_update_count": 23213,
+      "measurement_raw_rmse_m_on_detections": 33.027218063395445,
+      "measurement_processed_rmse_m_on_detections": 33.027218063395445,
+      "measurement_mean_weight": 1.0,
+      "measurement_downweighted_fraction": 0.0,
+      "measurement_normal_downweighted_fraction": 0.0,
+      "measurement_outlier_downweighted_fraction": 0.0,
+      "measurement_observed_outlier_count": 536,
+      "filter_timing": {
+        "total_ms": 0.0,
+        "initialization_ms": 0.0,
+        "detected_target_frames": 0,
+        "mean_ms_per_acquired_target_frame": 0.0,
+        "scope": "CPU_measurement_processor_only_excludes_neural_inference_and_logging"
+      },
+      "measurement_metric_scope": "acquired_frames_only_with_method_dependent_coverage; not neural_position_RMSE"
+    }
+  },
+  "limitations": [
+    "原训练集及回波/参数估计器未公开；当前高斯距离角度测量是代理，不是完整物理数值复现。",
+    "初始水平半径、z扰动方差、损失权重等未给出的数值均为显式实验设定。",
+    "GPS reference positions were interpolated from about 5 Hz to 20 Hz; this adds no real motion detail and smoothing may simplify short-horizon prediction.",
+    "Recording groups are disjoint, but the same route repeats and these test recording groups were used in earlier experiments.",
+    "按正式版第V节实现共享网络、逐目标N/R分支及Softmax后概率求和Top-Bs。",
+    "独立基线按原文VI-D每目标floor(Bs/I)束、顺序推理，仅使用本目标分配的扫描反馈；重复方向仍消耗扫描名额，余数不用。",
+    "本实现主指标为所有目标同时持续跟踪时长：任一目标连续5次失败即终止场景；其余目标记同伴失败截尾，不能当成自身失败或独立完整跟踪时长。",
+    "轨迹在当前分区内无放回组合；拼成同步时间轴的仿真场景，不代表原始记录实际同时采集。",
+    "只在选束完成后用正确波束判定命中；只有命中测量进入历史；身份关联和同束目标可分辨性是理想假设。",
+    "测量为轨迹加距离/SNR相关高斯误差与异常值的代理，未实现完整OFDM回波、检测器、杂波或新目标出现。",
+    "复用现有单目标模型，保留JOURNAL_ALIGNMENT.txt中码本/角距损失、模型参数量及数据限制；不是全文数值严格复现。",
+    "CUDA预热后计时；批次时延与摊销单场景时延分开，不能据此声称复现论文的独立单场景时延。",
+    "Monostatic r^-4 received-power proxy; not a physical waveform/receiver simulation.",
+    "Reported SNR and nominal covariance are idealized metadata; no online covariance estimator is simulated.",
+    "Outliers contaminate acquired measurements; beam misses retain the original ideal feedback model.",
+    "Initialization observations have Gaussian noise but injected outliers are excluded explicitly.",
+    "距离/SNR相关误差和异常值为显式代理实验设定；固定噪声种子，未据测试结果调整滤波参数。"
+  ],
+  "fully_reproduced_paper_numerical_results": false,
+  "trajectory_figure": "figures/single_trajectory_tracking.png"
+}

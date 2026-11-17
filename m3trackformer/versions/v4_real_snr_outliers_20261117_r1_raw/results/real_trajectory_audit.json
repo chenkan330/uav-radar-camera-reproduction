@@ -1,0 +1,17 @@
+{
+  "real_GNSS_reference_verified": true,
+  "positions_equal_parent_reference_interpolation": true,
+  "positions_reconstructed_from_original_GPS_CSV": true,
+  "raw_archive": "<LOCAL_ASSET>/Speedybee DataSet.zip",
+  "raw_archive_md5": "fa6210078d8f615118027a5310dfc99c",
+  "source_segments_manifest": "<LOCAL_ASSET>/segments.csv",
+  "split": "test",
+  "segments": 51,
+  "source_flights": 6,
+  "duration_s": 50.0,
+  "input_dt_s": 0.05,
+  "original_GNSS_approximately_hz": 5,
+  "interpolation_adds_no_real_motion_detail": true,
+  "GNSS_is_reference_not_independent_high_precision_truth": true,
+  "test_is_new_blind_set": false
+}
