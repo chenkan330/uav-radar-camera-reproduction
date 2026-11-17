@@ -1,0 +1,28 @@
+{
+  "version": "v5_20261117_063406_980773_beam_identity_b12_r1",
+  "scope": "source archives, aggregate metrics, aggregate reports, authorized PNGs only",
+  "source_zip_sha256": "fd3c3f87f58d2f3cfb6e811e2074110de27bf8aa5dfe33b4093a3b21fd3a6891",
+  "excluded_categories": [
+    "original datasets",
+    "model weights",
+    "machine configuration",
+    "per-frame records",
+    "per-scene records",
+    "per-target records",
+    "trajectory samples and provenance",
+    "detailed noise-repeat records"
+  ],
+  "published_files_sha256": {
+    "results/figures/beam_contributions.png": "f5bd3356e75da614d0003541e4c3172ecbc4b1114c5a8e84c1112f9ff67f8123",
+    "results/figures/identity_confusion.png": "be8b550c0d9d60296bedcac203a624eda681159bf2fa69a1d0734eb78d39ea5d",
+    "results/figures/identity_metrics.png": "d5b410e8cd41018e3c3b4c9aedd30abe3b034f729f17a5d8b5daaf5931e53677",
+    "results/figures/identity_spatial.png": "eb7726ec6cb70b25d82778c4cb545df866a73eb4213ae7958b65752c726bf997",
+    "results/figures/identity_timeline.png": "b7669dc3fc71eaa68df528f97589e7f5f254c709fe8b2d93c201d133a367b481",
+    "results/figures/single_trajectory_tracking.png": "06dc46af9f82975338953d382e032617dff50e48b911b6ce5173095f5e81f4d7",
+    "results/global_metrics.csv": "daa2a130227cf8cf6470f052f3ee280ef16af4ba31ddca289e32c6bcb0a7fa9c",
+    "results/identity_comparison.png": "ef771eb8a974453c92ae20edbfb0acbaa676ad5d355a78cdcee8794e900b22bd",
+    "results/report.md": "a8a7f9041d466cd67a4fb1718f2b472ebc14d6f0d205c9154f9c0288404c8839",
+    "results/summary.json": "99880da2578032e5e81b8a1e8e8fcc07503a646100c8cae45df141f656c4750f",
+    "source.zip": "fd3c3f87f58d2f3cfb6e811e2074110de27bf8aa5dfe33b4093a3b21fd3a6891"
+  }
+}
