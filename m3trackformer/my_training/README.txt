@@ -1,8 +1,29 @@
 第1～10步与原文多目标运行说明
 
+当前使用方案（2026-11-17用户指定）：Huber基准，不采用Student-t作为主线。
+  无参数点击运行第10步：自动使用项目环境，运行真实轨迹Huber基准，保存并显示两张图。
+  --current-real：显式运行当前用户配置；--best-real保留为兼容入口，也优先使用当前用户配置。
+  当前配置在outputs/current_tracking_configuration.json；用户选择记录单独锁定，不改写过去验证集结果。
+  Huber阈值3、加速度标准差12、外部温度1；原Transformer N-Net/R-Net结构、权重及分工不变。
+  --optimize-real仍可复现比较，不会覆盖上述用户配置。
+
+波束贡献身份区分第一版：
+  & '.\.venv\Scripts\python.exe' '.\my_training\step10_single_target_tracking.py' --beam-identity
+  默认测试3个目标共享4束和12束，分别比较最高贡献直接归属、评分+几何门控+全局一对一匹配。
+  --total-beams 4 / --total-beams 12：只运行一个预算。--no-show：后台保存，不弹窗。
+  本版是条件身份判别审计，规则只接收匿名检出点；原Huber基准的过去历史仍保持理想关联。
+  身份判断暂不反馈Huber或N/R历史，不能把本版跟踪率称为未知身份闭环效果。
+  指标：全部检出点正确归属率、已分配精度、分配覆盖率、同束混叠正确率和归属切换。
+  拒配计入全部检出点分母，真实编号只用于事后评价；同束多目标仍假设回波可分辨。
+  输出在outputs/step10_beam_identity，版本快照在experiments/v5_*_beam_identity_b4或b12。
+  identity_metrics.png / identity_confusion.png / identity_timeline.png：身份指标、混淆矩阵、逐帧归属。
+  beam_contributions.png：展开各目标对选中波束的原网络评分贡献。
+  single_trajectory_tracking.png：原Huber参照的实际N-Net轨迹，含时间和重捕率。
+  identity_report.md解释范围；下一步才接回关联结果并检验错误累积。
+
 真实轨迹多方案优化比较（原N-Net/R-Net不改、不重新训练）：
   第10步加 --optimize-real --no-show：验证集选参并锁定方案，再对照测试。
-  第10步加 --best-real --no-show：读取outputs/current_optimized_tracking.json，运行已锁定最优外围配置。
+  第10步加 --best-real --no-show：优先读取用户当前配置；未指定时读取current_optimized_tracking.json。
   候选包括普通卡尔曼、Huber、Student-t式降权、自适应过程噪声、鲁棒双模型IMM、外部概率温度调整。
   先按验证集完整跟踪成功率、平均跟踪时间、检测覆盖率排序；测试集不参与选参或改选。
   验证集2个噪声种子，测试集3个噪声种子；同一分区各方法严格共享轨迹、扰动、预算和权重。
@@ -41,7 +62,7 @@
   已核对core/models.py与V1源码归档字节完全一致；不存在原模型定义被覆盖的情况。
 
 第10步入口：step10_single_target_tracking.py。
-现在直接点击VS Code右上角运行按钮，默认执行原文多目标核心流程：
+历史未加测量预处理的原文多目标入口（显式多目标参数仍可调用）：
   3个目标，共享12束，复用现有正式版N-Net/R-Net权重，比较联合选束与独立均分。
 程序会自动使用项目.venv，结束后保存并显示跟踪状态图和整组持续跟踪比例曲线。
 
@@ -144,7 +165,7 @@
 
 2026-11-17：真实轨迹上比较外围优化，原N-Net/R-Net完全冻结
   & '.\.venv\Scripts\python.exe' '.\my_training\step10_single_target_tracking.py' --best-real
-  直接运行验证集已锁定的Student-t式创新降权（df=6），自动保存新快照并显示轨迹、指标两张图。
+  该次自动比较选择Student-t式创新降权（df=6）；用户随后指定继续使用Huber，当前入口优先用户配置。
   --best-real只重跑首个噪声种子；后台运行加 --no-show，不弹窗。
   --optimize-real重新完成15组验证配置与8组测试配置；验证2种子、测试3种子，不根据测试调参。
   选择顺序：完整跟踪成功率、平均同时跟踪时长、检测覆盖率。

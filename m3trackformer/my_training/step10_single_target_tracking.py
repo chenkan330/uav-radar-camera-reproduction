@@ -1,4 +1,4 @@
-"""第10步：默认运行原文多目标流程；--single-target运行旧教学单目标对照。"""
+"""第10步：运行当前真实轨迹基准；支持原多目标、波束身份审计及教学单目标。"""
 import argparse
 import csv
 from datetime import datetime, timezone
@@ -21,10 +21,16 @@ if __name__ == '__main__':
         print(f'自动使用项目环境：{project_python}', flush=True)
         raise SystemExit(subprocess.run([str(project_python), '-X', 'utf8',
                                         str(Path(__file__).resolve()), *sys.argv[1:]]).returncode)
-    if '--optimize-real' in sys.argv[1:] or '--best-real' in sys.argv[1:]:
+    if not sys.argv[1:] and (project_root/'my_training/outputs/current_tracking_configuration.json').exists():
+        sys.argv.append('--current-real')
+    if '--beam-identity' in sys.argv[1:]:
+        from core.beam_identity_experiment import main as identity_main
+        identity_main([value for value in sys.argv[1:] if value != '--beam-identity'])
+        raise SystemExit(0)
+    if any(flag in sys.argv[1:] for flag in ('--optimize-real', '--best-real', '--current-real')):
         from core.optimization_experiment import main as optimization_main
-        parameters = [value for value in sys.argv[1:] if value not in ('--optimize-real', '--best-real')]
-        if '--best-real' in sys.argv[1:]:
+        parameters = [value for value in sys.argv[1:] if value not in ('--optimize-real', '--best-real', '--current-real')]
+        if '--best-real' in sys.argv[1:] or '--current-real' in sys.argv[1:]:
             parameters.append('--apply-selected')
         optimization_main(parameters)
         raise SystemExit(0)

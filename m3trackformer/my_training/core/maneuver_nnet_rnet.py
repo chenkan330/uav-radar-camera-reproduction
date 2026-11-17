@@ -30,7 +30,8 @@ def find_maneuver_test():
 
 def run_original_nr(nnet, rnet, checkpoint, scenes, device, *, quality_mode, dt, budget, plot_id,
                     measurement_processor_factory=None, logit_temperature=1.,
-                    record_events=True, collect_probability=True, collect_updates=True):
+                    record_events=True, collect_probability=True, collect_updates=True,
+                    detection_observer=None):
     """Use the original routing; hooks count real calls without changing outputs."""
     audit = {'nnet_forward_calls': 0, 'nnet_target_frames': 0,
              'rnet_forward_calls': 0, 'rnet_target_frames': 0}
@@ -51,7 +52,7 @@ def run_original_nr(nnet, rnet, checkpoint, scenes, device, *, quality_mode, dt,
             beam_predictor=None, trajectory_trace=trace, trace_trajectory_id=plot_id,
             trajectory_estimator='nnet', beam_probability_metrics=probability_rows if collect_probability else None,
             measurement_processor_factory=measurement_processor_factory, logit_temperature=logit_temperature,
-            record_events=record_events)
+            record_events=record_events, detection_observer=detection_observer)
     finally:
         for hook in hooks:
             hook.remove()

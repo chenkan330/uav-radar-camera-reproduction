@@ -55,7 +55,7 @@ def simulate(nnet, rnet, checkpoint, scenes, device, dt, budget, policy,
              filter_timing=None, beam_predictor=None, trajectory_trace=None,
              trace_trajectory_id=None, trajectory_estimator='auto',
              beam_probability_metrics=None, measurement_processor_factory=None,
-             logit_temperature=1.):
+             logit_temperature=1., detection_observer=None):
     """同场景任一目标连续失跟达到阈值即终止；未失败的同伴记为截尾。"""
     if policy not in POLICIES:
         raise ValueError('未知多目标策略')
@@ -194,6 +194,19 @@ def simulate(nnet, rnet, checkpoint, scenes, device, dt, budget, policy,
 
             # 真值仅在选束结束后用于模拟环境。独立基线只使用分配给本目标的扫描反馈。
             hit = (feedback == beams[live, :, step, None]).any(-1)
+            if detection_observer is not None:
+                if policy != 'joint' or processor is None:
+                    raise ValueError('Identity audit requires joint beams and the Huber history baseline')
+                # Passive sensor/evaluator tap. Copies prevent the observer changing
+                # the original tracker. Its anonymous matcher receives detections
+                # only; the source indices stay in its separate scoring adapter.
+                detection_observer.observe(step=step, live=live.copy(), selected=swept.copy(),
+                    probabilities=logits.detach().double().softmax(-1).cpu().numpy(),
+                    hit=hit.copy(), beam_labels=beams[live, :, step].copy(),
+                    measurements=original_measurement[live, :, step].copy(),
+                    sigmas=scenes['measurement_sigma'][live, :, step].copy(),
+                    state=processor.state[live].copy(), covariance=processor.covariance[live].copy(),
+                    transition=processor.transition.copy(), process_covariance=processor.process_covariance.copy())
             if beam_probability_metrics is not None:
                 # Offline scores only, after beam decisions: labels never return to inference.
                 probabilities = logits.detach().double().softmax(-1).cpu().numpy()

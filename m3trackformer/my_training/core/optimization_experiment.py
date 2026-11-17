@@ -25,6 +25,22 @@ def sha(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
+def load_tracking_choice(base=BASE):
+    """A user-selected operating baseline takes precedence over sweep results."""
+    active = base/'outputs/current_tracking_configuration.json'
+    choice = read_json(active if active.exists() else base/'outputs/current_optimized_tracking.json')
+    user_choice = choice.get('selection_basis') == 'user_requested_baseline'
+    path = (Path(choice['selection_record']) if user_choice else
+            Path(choice['experiment_root'])/'selection_locked_before_test.json')
+    lock = read_json(path)
+    if (sha(path) != choice['selection_lock_sha256']
+            or lock['configuration'] != choice['configuration']
+            or (user_choice and (lock.get('selection_basis') != 'user_requested_baseline'
+                                or choice.get('selected_on_validation') is not False))):
+        raise RuntimeError('当前运行配置与原始选择记录不一致')
+    return choice, path
+
+
 def aggregate(records, maximum_blocks):
     scenes = [r for record in records for r in record['scene_rows']]
     targets = [r for record in records for r in record['target_rows']]
@@ -57,7 +73,8 @@ def prepare_scenes(data_root, split, seeds):
     return variants, unused
 
 
-def trial(root, prefix, stage, configuration, scene_variants, unused, current, nnet, rnet, checkpoint, device):
+def trial(root, prefix, stage, configuration, scene_variants, unused, current, nnet, rnet, checkpoint, device,
+          selection_provenance=None):
     out = root/stage/configuration['id']
     out.mkdir(parents=True, exist_ok=False)
     data_root = Path(current['data'])
@@ -111,10 +128,17 @@ def trial(root, prefix, stage, configuration, scene_variants, unused, current, n
         selection_note=f'固定首场景首目标；本图仅展示噪声种子{seed}，汇总图包含全部固定种子。')
     from .optimization_charts import render_trial
     render_trial(out, f'{stage}：{configuration["label"]}（{configuration["id"]}）', total)
+    if selection_provenance is not None:
+        record['selection_provenance'] = selection_provenance
+        write_json(out/'operating_configuration.json', selection_provenance)
+        import shutil
+        shutil.copy2(selection_provenance['selection_record'], out/'operating_choice_lock.json')
     write_json(out/'summary.json', record)
     version = f'{prefix}_{stage}_{configuration["id"]}'
-    saved = save_version(version, out,
-        '原N/R外部算法比较；验证集选参、测试前锁定；实际N-Net轨迹与真实GPS来源保留。')
+    description = ('用户指定当前Huber基准；不改写历史验证集选择；原N/R及真实GPS来源保持。'
+        if selection_provenance and selection_provenance.get('selection_basis') == 'user_requested_baseline'
+        else '原N/R外部算法比较；验证集选参、测试前锁定；实际N-Net轨迹与真实GPS来源保留。')
+    saved = save_version(version, out, description)
     return record, saved
 
 
@@ -150,18 +174,17 @@ def main(argv=None):
     prefix = 'opt_'+root.name.removeprefix('run_').removesuffix('_UTC')
     from .real_data_audit import audit_real_reference
     if args.apply_selected:
-        choice = read_json(BASE/'outputs/current_optimized_tracking.json')
-        selection_path = Path(choice['experiment_root'])/'selection_locked_before_test.json'
+        choice, selection_path = load_tracking_choice()
         if (choice['checkpoint_sha256'] != weight_hashes
                 or choice['models_source_sha256'] != sha(model_source)
-                or choice['selection_lock_sha256'] != sha(selection_path)
-                or choice['configuration'] != read_json(selection_path)['configuration']):
+                or choice['selection_lock_sha256'] != sha(selection_path)):
             raise RuntimeError('已选配置、选参锁定文件或原N/R权重不匹配')
         audit_real_reference(data_root, 'test', root/'test_reference')
         scenes, unused = prepare_scenes(data_root, 'test', [TEST_SEEDS[0]])
         record, archive = trial(root, prefix, 'test', choice['configuration'], scenes, unused,
-                                 current, nnet, rnet, checkpoint, device)
-        print(f'按验证集最优固定配置运行：{archive.resolve()}', flush=True)
+                                 current, nnet, rnet, checkpoint, device,
+                                 selection_provenance={**choice, 'selection_record': str(selection_path.resolve())})
+        print(f'按当前固定配置 {choice["configuration"]["id"]} 运行：{archive.resolve()}', flush=True)
         if (before != (state_digest(nnet), state_digest(rnet))
                 or sha(model_source) != ORIGINAL_MODELS_SHA256
                 or weight_hashes != {k: sha(current[k]) for k in weight_hashes}):
