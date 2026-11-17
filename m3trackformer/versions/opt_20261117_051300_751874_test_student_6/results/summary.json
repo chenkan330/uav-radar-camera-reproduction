@@ -1,0 +1,41 @@
+{
+  "version": "external_optimization_trial",
+  "public_scope": "aggregate_only",
+  "total_beams": 12,
+  "phase": "test",
+  "alternative_prediction_network_used": false,
+  "position_metric": "original N-Net head on actual detections; methods have different coverage",
+  "external_temperature_does_not_change_per_target_ranking": true,
+  "aggregate": {
+    "scenes_with_noise_repeats": 17,
+    "unique_geometrical_scenes": 17,
+    "success_count": 13,
+    "success_rate": 0.7647058823529411,
+    "mean_all_targets_duration_s": 40.29117647058824,
+    "recoveries": 34,
+    "recovery_rate": 0.85,
+    "position_rmse_m_on_detections": 10.487697057249852,
+    "position_evaluation_count": 41034,
+    "position_evaluation_coverage": 0.8078195133475077,
+    "filter_ms_per_detected_frame": 0.006143958671157269
+  },
+  "same_geometries_across_methods": true,
+  "configuration": {
+    "id": "student_6",
+    "family": "student",
+    "label": "Student-t式降权",
+    "processor": {
+      "kind": "student",
+      "student_df": 6.0
+    },
+    "temperature": 1.0
+  },
+  "targets": 3,
+  "test_records_used_previously": true,
+  "temperature_objective": "closed-loop validation selection, not test calibration",
+  "dt": 0.05,
+  "models_source_sha256": "43972fb03a96a01c94a914e763440943933ca28f024bbb5156e0e164d7ba925f",
+  "maximum_evaluated_duration_s": 49.800000000000004,
+  "networks_and_weights_unchanged": true,
+  "wall_time_s": 5.1647611999942455
+}
