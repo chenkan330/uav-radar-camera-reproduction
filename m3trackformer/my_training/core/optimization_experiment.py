@@ -128,6 +128,9 @@ def main(argv=None):
     import matplotlib
     if args.no_show:
         matplotlib.use('Agg')
+    else:
+        # Initialize the interactive backend before export helpers choose Agg.
+        import matplotlib.pyplot as plt
     torch.set_num_threads(4)
     current = read_json(BASE/'outputs/current_journal_experiment.json')
     data_root = Path(current['data'])
