@@ -1,0 +1,23 @@
+{
+  "version": "opt_20261117_050701_235854_validation_temperature_0p7",
+  "scope": "source archives, aggregate metrics, aggregate reports, authorized PNGs only",
+  "source_zip_sha256": "0d9d9c0f9f51415444f161837a2e239e26f3b7d9bbf8965a47435174a6ba476f",
+  "excluded_categories": [
+    "original datasets",
+    "model weights",
+    "machine configuration",
+    "per-frame records",
+    "per-scene records",
+    "per-target records",
+    "trajectory samples and provenance",
+    "detailed noise-repeat records"
+  ],
+  "published_files_sha256": {
+    "results/figures/single_trajectory_tracking.png": "1ab94e0393d65e024084e27cf1377d9f157904382ec12bf0e56bf202f61f06ef",
+    "results/figures/trial_metrics.png": "aa4d9f85b6bba78aa7504b6493eb0f2ada29e4bd9cc542177b5e39afcfe459e4",
+    "results/global_metrics.csv": "959c5349b171ca591eed89959b1109b988d1f80a927e8396d404a291d7132258",
+    "results/report.md": "224513fba50e783f0dac4d27af714446e3a42cb1148d7e7de38d158c4357d030",
+    "results/summary.json": "81e5a7777a8fd8284b25a14a1d785bc35e23e6468be442f5f083aa08c8be09a9",
+    "source.zip": "0d9d9c0f9f51415444f161837a2e239e26f3b7d9bbf8965a47435174a6ba476f"
+  }
+}
