@@ -60,19 +60,21 @@ def comparison(root,records,reference,selected):
     fig,axes=plt.subplots(2,3,figsize=(13.5,9))
     specs=[('success_rate','身份有效整段成功率','%',100),
         ('mean_all_targets_duration_s','平均身份有效跟踪时长','秒',1),
-        ('recovery_rate','身份有效重捕率','%',100),
+        ('physical_recovery_rate','物理漏检重捕率（沿用原定义）','%',100),
         ('precision_assigned','已接受关联正确率','%',100),
         ('correct_update_coverage','正确更新覆盖完整时域的比例','%',100),
         ('position_rmse_m_on_detections','身份有效时段内N-Net位置RMSE','m',1)]
     for ax,(key,title,unit,scale) in zip(axes.flat,specs):
-        ref=1. if key=='precision_assigned' else reference['position_evaluation_coverage'] if key=='correct_update_coverage' else reference[key]
-        values=[ref]+[(r['association'] if key in ('precision_assigned','correct_update_coverage') else r['identity_tracking'])[key] for r in records]
+        ref=1. if key=='precision_assigned' else reference['position_evaluation_coverage'] if key=='correct_update_coverage' else reference['recovery_rate'] if key=='physical_recovery_rate' else reference[key]
+        values=[ref]+[r['physical_reception']['recovery_rate'] if key=='physical_recovery_rate' else
+            (r['association'] if key in ('precision_assigned','correct_update_coverage') else r['identity_tracking'])[key] for r in records]
         ax.bar(range(len(names)),[(v or 0)*scale for v in values],color=colours)
         for i,v in enumerate(values):ax.text(i,(v or 0)*scale,'N/A' if v is None else f'{v*scale:.2f}',ha='center',va='bottom',fontsize=10)
         ax.set_xticks(range(len(names)),names,fontsize=9)
         ax.set(title=title,ylabel=unit,ylim=(0,115 if unit=='%' else max([1]+[(v or 0)*scale for v in values])*1.28))
         ax.grid(axis='y',alpha=.2)
     fig.suptitle('V6：关联结果真正进入闭环；原 N-Net/R-Net、Huber及12束预算不变',fontsize=16)
-    fig.text(.04,.025,'绿色是验证集锁定的配置。相同17组场景×3组噪声；身份计时为事后评价，不控制在线算法。\n'
-        '基准使用理想身份关联；未知身份版本仅向R-Net提供确认无回波的波束证据。RMSE帧集合不同，需结合覆盖率解读。',fontsize=9)
+    repeats=len(records[0]['noise_repeats']);groups=len(records[0]['noise_repeats'][0]['scene_rows'])
+    fig.text(.04,.025,f'绿色是验证集锁定的配置。相同{groups}组场景×{repeats}组噪声；身份计时为事后评价，不控制在线算法。\n'
+        '物理重捕仅计实际波束漏检；拒配后的更新恢复另报。RMSE帧集合不同，需结合正确更新覆盖率解读。',fontsize=9)
     fig.tight_layout(rect=(0,.10,1,.94),h_pad=2);fig.savefig(root/'closed_loop_comparison.png',dpi=175);plt.close(fig)

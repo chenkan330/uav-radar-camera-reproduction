@@ -1,0 +1,103 @@
+{
+  "version": "identity_closed_loop",
+  "public_scope": "aggregate_only",
+  "physical_reception": {
+    "recoveries": 100,
+    "missed_target_frames": 196,
+    "evaluated_target_frames": 111426,
+    "recovery_rate": 0.8403361344537815
+  },
+  "total_beams": 12,
+  "negative_evidence": "empty_sensor_channels_only; occupied_channels_are_padding",
+  "phase": "test",
+  "metric_scope": "identity duration stops offline after any original identity has five consecutive noncorrect updates; controller stops only after five unavailable updates",
+  "controller_tracking": {
+    "scenes_with_noise_repeats": 51,
+    "unique_geometrical_scenes": 17,
+    "success_count": 34,
+    "success_rate": 0.6666666666666666,
+    "mean_all_targets_duration_s": 36.41372549019608,
+    "recoveries": 2465,
+    "recovery_rate": 0.9899598393574297,
+    "position_rmse_m_on_detections": 10.146996544222603,
+    "position_evaluation_count": 108579,
+    "position_evaluation_coverage": 0.7125167336010709,
+    "filter_ms_per_detected_frame": 0.005163079421098045
+  },
+  "evaluation_truth_controls_online_stopping": false,
+  "configuration": {
+    "id": "v5_gate",
+    "label": "闭环：原V5门限",
+    "parameters": {
+      "gate": 16.26623619623813,
+      "beam_weight": 1.0,
+      "unmatched_cost": 20.0
+    }
+  },
+  "targets": 3,
+  "ideal_huber_reference": {
+    "scenes_with_noise_repeats": 51,
+    "unique_geometrical_scenes": 17,
+    "success_count": 35,
+    "success_rate": 0.6862745098039216,
+    "mean_all_targets_duration_s": 38.15,
+    "recoveries": 111,
+    "recovery_rate": 0.8409090909090909,
+    "position_rmse_m_on_detections": 10.168743000797624,
+    "position_evaluation_count": 116526,
+    "position_evaluation_coverage": 0.7646665091739507,
+    "filter_ms_per_detected_frame": 0.006161799082926862
+  },
+  "dt": 0.05,
+  "models_source_sha256": "43972fb03a96a01c94a914e763440943933ca28f024bbb5156e0e164d7ba925f",
+  "history_frames": 5,
+  "initialization": "first_five_correctly_grouped_acquired_measurements_only",
+  "identity_tracking": {
+    "scenes_with_noise_repeats": 51,
+    "unique_geometrical_scenes": 17,
+    "success_count": 34,
+    "success_rate": 0.6666666666666666,
+    "mean_all_targets_duration_s": 36.41372549019608,
+    "recoveries": 2486,
+    "recovery_rate": 0.9900438072481084,
+    "position_rmse_m_on_detections": 10.146996544222603,
+    "position_evaluation_count": 108579,
+    "position_evaluation_coverage": 0.7125167336010709,
+    "filter_ms_per_detected_frame": 0.005163079421098045
+  },
+  "acceptance": {
+    "passed": true,
+    "checks": {
+      "success_retention": true,
+      "duration_retention": true,
+      "assigned_precision": true
+    },
+    "criteria": {
+      "max_success_loss": 0.05,
+      "min_duration_retention": 0.95,
+      "min_assigned_precision": 0.995
+    },
+    "label": "project_stage_criteria_not_an_industry_or_paper_standard"
+  },
+  "association": {
+    "total": 111230,
+    "assigned": 108579,
+    "correct": 108553,
+    "wrong": 26,
+    "rejected": 2651,
+    "collision_total": 10247,
+    "collision_correct": 9972,
+    "identity_switches": 44,
+    "identity_switches_consecutive": 42,
+    "unassigned_with_returns": 2847,
+    "confirmed_empty_scan": 0,
+    "accuracy_all_returns": 0.9759327519554077,
+    "precision_assigned": 0.9997605430147635,
+    "assignment_coverage": 0.976166501843028,
+    "accuracy_same_beam": 0.973162876939592,
+    "correct_update_coverage": 0.7123461164921122,
+    "zero_wrong_update_scene_success_rate": 0.5686274509803921
+  },
+  "networks_and_weights_unchanged": true,
+  "association_results_used_for_tracking": true
+}

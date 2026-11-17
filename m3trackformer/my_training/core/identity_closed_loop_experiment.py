@@ -9,7 +9,8 @@ import torch
 
 from .beam_identity import DEFAULT_GATE
 from .common import BASE,load_nnet,new_run,read_json,state_digest,write_json,write_rows
-from .identity_closed_loop import RecordedRadar,simulate_anonymous,evaluate,aggregate_association
+from .identity_closed_loop import (RecordedRadar,simulate_anonymous,evaluate,aggregate_association,
+                                  physical_reception_metrics,aggregate_physical)
 from .identity_closed_loop_charts import trial_figures,comparison
 from .maneuver_nnet_rnet import ORIGINAL_MODELS_SHA256
 from .models import JournalRNet
@@ -48,7 +49,8 @@ def run_trial(root,configuration,phase,variants,current,nnet,rnet,checkpoint,dev
             scenes['measurement_sigma'][...,:h,:],sensor,steps,device,.05,12,configuration['parameters'])
         scores,events=evaluate(events,sensor,scenes,h,.05,nnet.config.failure_limit)
         rec=dict(noise_seed=seed,**scores,filter_timing=timing,network_calls=calls,
-            measurement_sha256=hashlib.sha256(scenes['measurement'].tobytes()).hexdigest())
+            measurement_sha256=hashlib.sha256(scenes['measurement'].tobytes()).hexdigest(),
+            physical_reception=physical_reception_metrics(events,scenes,h))
         records.append(rec)
         write_rows(out/f'association_events_{seed}.csv',events)
         write_rows(out/f'identity_scenes_{seed}.csv',scores['scene_rows'])
@@ -65,6 +67,7 @@ def run_trial(root,configuration,phase,variants,current,nnet,rnet,checkpoint,dev
     association=aggregate_association(records,maximum,3)
     record=dict(version='identity_closed_loop',phase=phase,configuration=configuration,
         identity_tracking=metrics,controller_tracking=controller,association=association,noise_repeats=records,
+        physical_reception=aggregate_physical(records),
         acceptance=acceptance(metrics,association,reference),ideal_huber_reference=reference,
         source=str(Path(current['data'])/f'{phase}.npz'),nnet_checkpoint=current['nnet_checkpoint'],rnet_checkpoint=current['rnet_checkpoint'],
         total_beams=12,targets=3,dt=.05,history_frames=h,
@@ -111,16 +114,25 @@ def write_report(root,records,reference,selected,baseline_origin):
         '另外保留可用测量控制器时长：任一轨迹连续5帧无可用测量才停止。轨迹图保留这期间全部实际N-Net输出，错配点用紫菱形，不隐去错误。',
         '身份有效重捕率统计没有正确关联的事件恢复到正确关联的比例；与只看可用更新的控制器重捕率分别报告。',
         '阶段门槛在测试前设定：完整成功率相对理想关联参照降低≤5个百分点，平均身份有效时长保留≥95%，已接受关联精度≥99.5%。这是本项目阶段门槛，不是论文或行业标准。',
-        '门限候选仅由验证集排序，测试前锁定。测试重复17组场景×3组噪声，不是51个独立场景，记录此前已使用，不是新盲测。', '',
-        '|方案|身份有效完整成功率|平均身份有效时长/s|身份有效重捕率|已接受关联精度|正确更新覆盖率|跨缺测归属切换|阶段通过|',
+        f'门限候选仅由验证集排序，测试前锁定。本报告汇总{len(records[0]["noise_repeats"][0]["scene_rows"])}组场景×{len(records[0]["noise_repeats"])}组噪声；噪声重复不是新增独立场景，记录此前已使用，不是新盲测。', '',
+        '|方案|身份有效完整成功率|平均身份有效时长/s|物理漏检重捕率|已接受关联精度|正确更新覆盖率|跨缺测归属切换|阶段通过|',
         '|---|---:|---:|---:|---:|---:|---:|---|',
         f'|理想关联Huber参照|{fmt(reference["success_rate"])}|{reference["mean_all_targets_duration_s"]:.2f}|{fmt(reference["recovery_rate"])}|100%|{fmt(reference["position_evaluation_coverage"])}|0|参照|']
     for r in records:
         m,a=r['identity_tracking'],r['association']
         lines.append(f'|{r["configuration"]["label"]}{"（验证集选择）" if r["configuration"]["id"]==selected else ""}|'
-            f'{fmt(m["success_rate"])}|{m["mean_all_targets_duration_s"]:.2f}|{fmt(m["recovery_rate"])}|'
+            f'{fmt(m["success_rate"])}|{m["mean_all_targets_duration_s"]:.2f}|{fmt(r["physical_reception"]["recovery_rate"])}|'
             f'{fmt(a["precision_assigned"])}|{fmt(a["correct_update_coverage"])}|{a["identity_switches"]}|{r["acceptance"]["passed"]}|')
-    lines += ['',f'理想关联参照来自相同数据/模型/噪声的既有Huber完整运行：{baseline_origin}。已核对测量数组SHA256、场景、模型和原始数据来源。',
+    lines += ['', '## 重捕统计与剩余问题','',
+        '表中的物理漏检重捕沿用旧定义：实际扫描未得到某个物理目标的回波后，再次收到它的回波。来源只用于事后计分。',
+        '身份有效重捕还包括几何拒配和短暂错配后的恢复，事件分母大很多；不能将此约99%的数值解读为R-Net相对84%的直接提升。']
+    for r in records:
+        m,a,p=r['identity_tracking'],r['association'],r['physical_reception']
+        lines.append(f'{r["configuration"]["label"]}：物理恢复{p["recoveries"]}/{p["lost_events"]}={fmt(p["recovery_rate"])}；'
+            f'身份有效恢复{m["recoveries"]}/{m["lost_events"]}={fmt(m["recovery_rate"])}；'
+            f'实际错配更新{a["wrong"]}次；零错配且完整成功场景比例{fmt(a["zero_wrong_update_scene_success_rate"])}。')
+    lines += ['', '阶段通过不等于全程零身份错误；平均时长接近95%保留门槛，不称效果完全无损。',
+        '',f'理想关联参照来自相同数据/模型/噪声的既有Huber完整运行：{baseline_origin}。已核对测量数组SHA256、场景、模型和原始数据来源。',
         '真实GNSS参考轨迹与模拟雷达测量/SNR/异常值；仍假设同束多目标可分辨，没有加入新增杂波、随机漏检或出生消失。',
         '目前解决的是已初始化3目标的身份保持，不是未知目标数量的完整航迹起始与删除。',
         '身份切换给出跨缺测保持上次已分配标签、以及仅连续帧变化两种计数，不与早期条件审计的计数混称为同一闭环指标。',
@@ -136,11 +148,14 @@ def main(argv=None):
     parser.add_argument('--no-show',action='store_true');parser.add_argument('--apply-selected',action='store_true')
     parser.add_argument('--device',choices=('cuda','cpu'),default='cuda' if torch.cuda.is_available() else 'cpu')
     parser.add_argument('--output-root',type=Path,default=BASE/'outputs/step10_identity_closed_loop')
+    parser.add_argument('--review-run',type=Path,help='保留原仿真，另建版本补充物理重捕统计和图表')
     args=parser.parse_args(argv)
     import matplotlib
     if args.no_show:matplotlib.use('Agg')
     else:
         import matplotlib.pyplot as plt
+    if args.review_run is not None:
+        return review_saved(args.review_run,args.output_root)
     torch.set_num_threads(4)
     current=read_json(BASE/'outputs/current_journal_experiment.json');choice,_=load_tracking_choice()
     hashes={k:sha(current[k]) for k in ('nnet_checkpoint','rnet_checkpoint')}
@@ -206,7 +221,7 @@ def main(argv=None):
     chosen=next(r for r in tests if r['configuration']['id']==selected)
     result=dict(protocol=protocol,selected_configuration=chosen['configuration'],selection_record=str(selection_path.resolve()),
         selection_lock_sha256=sha(selection_path),test_results=[dict(configuration=r['configuration'],identity_tracking=r['identity_tracking'],
-            controller_tracking=r['controller_tracking'],association=r['association'],acceptance=r['acceptance']) for r in tests],
+            controller_tracking=r['controller_tracking'],association=r['association'],physical_reception=r['physical_reception'],acceptance=r['acceptance']) for r in tests],
         selected_acceptance=chosen['acceptance'],networks_and_weights_unchanged=True,
         replay_single_seed=args.apply_selected)
     write_json(root/'summary.json',result)
@@ -227,4 +242,62 @@ def main(argv=None):
     if not args.no_show:
         from .optimization_charts import show_images
         show_images([root/'test'/selected/'figures/single_trajectory_tracking.png',root/'closed_loop_comparison.png'])
+    return root
+
+
+def review_saved(original_root,output_root):
+    """Create a new review snapshot; retain old CSVs and all primary metrics."""
+    import csv
+    original_root=Path(original_root).resolve();original=read_json(original_root/'summary.json')
+    root=new_run(output_root);records=[];archives=[]
+    for name in ('protocol.json','selection_locked_before_test.json'):
+        shutil.copy2(original_root/name,root/name)
+    selected=original['selected_configuration']['id']
+    for saved in original['test_results']:
+        configuration=saved['configuration'];source=original_root/'test'/configuration['id']
+        out=root/'test'/configuration['id'];shutil.copytree(source,out)
+        record=read_json(source/'summary.json')
+        variants,_=prepare_scenes(Path(record['source']).parent,'test',[r['noise_seed'] for r in record['noise_repeats']])
+        primary_events=None
+        for repeat in record['noise_repeats']:
+            seed=repeat['noise_seed'];scenes=variants[seed][0]
+            if hashlib.sha256(scenes['measurement'].tobytes()).hexdigest()!=repeat['measurement_sha256']:
+                raise RuntimeError('重捕诊断与原仿真测量不相同')
+            with (source/f'association_events_{seed}.csv').open(encoding='utf-8-sig',newline='') as stream:
+                events=list(csv.DictReader(stream))
+            for e in events:
+                for key in ('scene_id','target_index','time_index','assigned_source_evaluation_only'):
+                    e[key]=int(e[key])
+                for key in ('hit','identity_correct'):e[key]=e[key].lower()=='true'
+                e['time_s']=float(e['time_s'])
+            repeat['physical_reception']=physical_reception_metrics(events,scenes,record['history_frames'])
+            if primary_events is None:primary_events=events
+        record['physical_reception']=aggregate_physical(record['noise_repeats'])
+        record['review_revision']=dict(source_run=str(source),source_summary_sha256=sha(source/'summary.json'),
+            controller_simulation_repeated=False,primary_tracking_and_association_metrics_unchanged=True,
+            purpose='补充原定义物理漏检重捕，避免将拒配恢复与R-Net性能改善混淆')
+        trial_figures(out,record,primary_events,variants[next(iter(variants))][0]['beam'].shape[-1],record['history_frames'],.05)
+        records.append(record)
+    reference=records[0]['ideal_huber_reference']
+    comparison(root,records,reference,selected);write_report(root,records,reference,selected,original['protocol']['reference_root'])
+    result={**original,'review_revision':True,'source_run':str(original_root),
+        'test_results':[dict(configuration=r['configuration'],identity_tracking=r['identity_tracking'],
+            controller_tracking=r['controller_tracking'],association=r['association'],physical_reception=r['physical_reception'],
+            acceptance=r['acceptance']) for r in records]}
+    write_json(root/'summary.json',result)
+    for record in records:
+        out=root/'test'/record['configuration']['id']
+        write_json(out/'summary.json',record)
+        for name in ('closed_loop_comparison.png','closed_loop_report.md'):
+            shutil.copy2(root/name,out/name)
+        prefix='v6_'+root.name.removeprefix('run_').removesuffix('_UTC')
+        archive=save_version(f'{prefix}_test_{record["configuration"]["id"]}_review',out,
+            '闭环结果复核版：不重算控制器、不改主指标和原始CSV；补充物理重捕与身份恢复的分母区别。')
+        archives.append(archive)
+        if record['configuration']['id']==selected:
+            pointer=read_json(BASE/'outputs/current_identity_closed_loop.json')
+            pointer['review_version_archive']=str(archive.resolve());pointer['review_experiment_root']=str(root.resolve())
+            write_json(BASE/'outputs/current_identity_closed_loop.json',pointer)
+        print(f'闭环复核版本：{archive.resolve()}',flush=True)
+    (output_root/'latest_complete_run.txt').write_text(root.name,encoding='utf-8')
     return root

@@ -245,3 +245,32 @@ def aggregate_association(records, maximum, targets):
         correct_update_coverage=result['correct']/(len(records)*len(records[0]['scene_rows'])*targets*maximum),
         zero_wrong_update_scene_success_rate=float(np.mean([s['zero_wrong_update_complete'] for r in records for s in r['scene_rows']])))
     return result
+
+
+def physical_reception_metrics(events,scenes,history):
+    """Offline, original beam-miss recovery definition, excluding association rejection.
+
+    In this simulator each illuminated target reports one return and there is no
+    additional random sensor miss. Thus a physical target returns iff its true
+    beam is among the occupied scan channels. This reconstruction is evaluation
+    only and must never drive controller stopping, histories, or R-Net inputs.
+    """
+    counts=np.zeros(scenes['trajectory_id'].shape,dtype=int)
+    result=dict(recoveries=0,lost_events=0,missed_target_frames=0,evaluated_target_frames=0)
+    for e in events:
+        g,t,k=e['scene_id'],e['target_index'],e['time_index']
+        occupied={int(b) for b in e['occupied_beams_1based'].split(',') if b}
+        hit=int(scenes['beam'][g,t,k]) in occupied
+        result['recoveries']+=int(hit and counts[g,t]>0)
+        result['lost_events']+=int(not hit and counts[g,t]==0)
+        result['missed_target_frames']+=int(not hit);result['evaluated_target_frames']+=1
+        counts[g,t]=0 if hit else counts[g,t]+1
+    result['recovery_rate']=result['recoveries']/result['lost_events'] if result['lost_events'] else None
+    return result
+
+
+def aggregate_physical(records):
+    result={key:sum(r['physical_reception'][key] for r in records)
+            for key in ('recoveries','lost_events','missed_target_frames','evaluated_target_frames')}
+    result['recovery_rate']=result['recoveries']/result['lost_events'] if result['lost_events'] else None
+    return result

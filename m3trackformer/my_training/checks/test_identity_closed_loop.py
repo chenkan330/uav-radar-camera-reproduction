@@ -7,7 +7,7 @@ sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 import numpy as np
 import torch
 
-from core.identity_closed_loop import RecordedRadar,simulate_anonymous,evaluate
+from core.identity_closed_loop import RecordedRadar,simulate_anonymous,evaluate,physical_reception_metrics
 from core.identity_closed_loop_experiment import acceptance,selection_key
 from core.measurement_quality import RobustMeasurementProcessor,spherical_to_cartesian
 from core.models import JournalConfig
@@ -18,7 +18,7 @@ class ToyNet(torch.nn.Module):
     def __init__(self):
         super().__init__();self.config=JournalConfig(classes=8)
     def forward(self,x,valid):
-        logits=torch.arange(8.,0.,-1.)[None,None].expand(len(x),1,-1)
+        logits=torch.arange(8.,0.,-1.)[None,None].expand(len(x),1,-1).clone()
         return {'logits':logits,'position':x[:,-1,:]}
 
 
@@ -110,6 +110,14 @@ class ClosedLoopTests(unittest.TestCase):
         b=dict(association=dict(precision_assigned=.98,correct_update_coverage=.9),
             identity_tracking=dict(success_rate=.95,mean_all_targets_duration_s=49.))
         self.assertGreater(selection_key(a),selection_key(b))
+
+    def test_association_rejections_are_not_reported_as_physical_beam_misses(self):
+        data=data_fixture();events,sensor,_=run(data,no_match)
+        scores,events=evaluate(events,sensor,data,5,.05,5)
+        self.assertGreater(sum(r['lost_events'] for r in scores['target_rows']),0)
+        physical=physical_reception_metrics(events,data,5)
+        self.assertEqual(physical['lost_events'],0)
+        self.assertIsNone(physical['recovery_rate'])
 
 
 if __name__=='__main__':unittest.main()
