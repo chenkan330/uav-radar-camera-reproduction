@@ -1,0 +1,42 @@
+{
+  "version": "external_optimization_trial",
+  "public_scope": "aggregate_only",
+  "total_beams": 12,
+  "phase": "validation",
+  "alternative_prediction_network_used": false,
+  "position_metric": "original N-Net head on actual detections; methods have different coverage",
+  "external_temperature_does_not_change_per_target_ranking": true,
+  "aggregate": {
+    "scenes_with_noise_repeats": 60,
+    "unique_geometrical_scenes": 30,
+    "success_count": 44,
+    "success_rate": 0.7333333333333333,
+    "mean_all_targets_duration_s": 43.04416666666668,
+    "recoveries": 151,
+    "recovery_rate": 0.9041916167664671,
+    "position_rmse_m_on_detections": 10.132052364758048,
+    "position_evaluation_count": 154708,
+    "position_evaluation_coverage": 0.8629406514948683,
+    "filter_ms_per_detected_frame": 0.010843905936869595
+  },
+  "same_geometries_across_methods": true,
+  "configuration": {
+    "id": "imm_3_24",
+    "family": "imm",
+    "label": "鲁棒双模型IMM",
+    "processor": {
+      "kind": "imm",
+      "low_acceleration": 3.0,
+      "high_acceleration": 24.0
+    },
+    "temperature": 1.0
+  },
+  "targets": 3,
+  "test_records_used_previously": true,
+  "temperature_objective": "closed-loop validation selection, not test calibration",
+  "dt": 0.05,
+  "models_source_sha256": "43972fb03a96a01c94a914e763440943933ca28f024bbb5156e0e164d7ba925f",
+  "maximum_evaluated_duration_s": 49.800000000000004,
+  "networks_and_weights_unchanged": true,
+  "wall_time_s": 9.169158299991977
+}
