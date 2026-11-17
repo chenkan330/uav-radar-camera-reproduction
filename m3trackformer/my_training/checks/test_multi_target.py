@@ -48,6 +48,56 @@ def scene(labels):
 
 
 class MultiTargetTests(unittest.TestCase):
+    def test_raw_mode_preserves_default_and_inputs(self):
+        data = scene([[1]*9, [1]*9])
+        original = data['measurement'].copy()
+        a = simulate(FixedNNet(), None, NORMALIZATION, data, torch.device('cpu'), .05, 3, 'joint')
+        b = simulate(FixedNNet(), None, NORMALIZATION, data, torch.device('cpu'), .05, 3, 'joint', quality_mode='raw')
+        self.assertEqual(a[:4], b[:4])
+        np.testing.assert_array_equal(data['measurement'], original)
+
+    def test_robust_processor_never_reads_missed_measurements_or_outlier_labels(self):
+        data = scene([[1]*12, [1]*5+[8]*7])
+        data['measurement'][:] = [100., 0., 1.2]
+        data['measurement_sigma'] = np.broadcast_to([1., .01, .01], data['measurement'].shape).copy()
+        data['outlier_mask'] = np.zeros(data['beam'].shape, bool)
+        changed = {k: v.copy() for k, v in data.items()}
+        changed['measurement'][0, 1, 5:] = np.nan
+        changed['measurement_sigma'][0, 1, 5:] = np.nan
+        changed['outlier_mask'][:] = True
+        models = [FixedNNet(), FixedNNet()]
+        results = [simulate(model, None, NORMALIZATION, value, torch.device('cpu'), .05, 4,
+                            'joint', quality_mode='robust')
+                   for model, value in zip(models, (data, changed))]
+        # Feedback/R-Net failures remain facts about scanned beams, not robust weights.
+        self.assertEqual(results[0][:2], results[1][:2])
+        self.assertEqual(results[0][3], results[1][3])
+        for e1, e2 in zip(results[0][2], results[1][2]):
+            self.assertEqual({k: v for k, v in e1.items() if k != 'measurement_outlier'},
+                             {k: v for k, v in e2.items() if k != 'measurement_outlier'})
+        for (x1, v1), (x2, v2) in zip(models[0].inputs, models[1].inputs):
+            np.testing.assert_array_equal(x1, x2)
+            np.testing.assert_array_equal(v1, v2)
+
+    def test_robust_updates_reduce_an_isolated_outlier_without_altering_hit_feedback(self):
+        from core.measurement_quality import spherical_to_cartesian
+        data = scene([[1]*12])
+        data['measurement'][:] = [100., 0., 1.2]
+        data['measurement_sigma'] = np.broadcast_to([1., .01, .01], data['measurement'].shape).copy()
+        data['position'] = spherical_to_cartesian(data['measurement'])
+        data['measurement'][0, 0, 6, 0] += 80
+        updates = []
+        model = FixedNNet()
+        result = simulate(model, None, NORMALIZATION, {k: v for k, v in data.items() if k != 'position'},
+                          torch.device('cpu'), .05, 3, 'joint', quality_mode='robust',
+                          measurement_updates=updates)
+        self.assertTrue(all(e['hit'] for e in result[2]))
+        corrupted = next(row for row in updates if row['time_index'] == 6)
+        self.assertLess(corrupted['weight'], .2)
+        self.assertLess(abs(model.inputs[2][0][0, -1, 0]-100.), 80.)
+        self.assertEqual(result[1][0]['lost_events'], 0)
+        self.assertEqual(data['measurement'][0, 0, 6, 0], 180.)
+
     def test_probabilities_are_summed_not_logits(self):
         logits = torch.tensor([[[4., 1., 0.], [0., 1., 4.]]])
         shifted = logits + torch.tensor([[[1000.], [-3000.]]])

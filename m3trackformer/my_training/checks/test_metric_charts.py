@@ -41,6 +41,8 @@ class MetricChartsTests(unittest.TestCase):
             self.assertAlmostEqual(values["joint"]["missed_target_block_rate"], 5/30)
             self.assertEqual(values["joint"]["evaluated_target_blocks"], 30)
             self.assertEqual(values["joint"]["detected_target_blocks"], 25)
+            self.assertEqual(values["joint"]["potential_target_blocks"], 80)
+            self.assertAlmostEqual(values["joint"]["position_evaluation_coverage"], 25/80)
             self.assertIsNone(values["joint"]["mean_unique_beams"])
 
     def test_resource_use_distinguishes_slots_from_directions(self):

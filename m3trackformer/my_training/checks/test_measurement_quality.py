@@ -3,6 +3,7 @@ import sys
 import unittest
 import csv
 import tempfile
+from unittest.mock import patch
 from dataclasses import replace
 from pathlib import Path
 
@@ -147,9 +148,13 @@ class MeasurementQualityTests(unittest.TestCase):
         scenes, metadata = perturb_scenes(source, replace(NoiseConfig(), outlier_probability=.5))
         cache = Path(__file__).resolve().parents[2]/'.cache'
         cache.mkdir(exist_ok=True)
+        import matplotlib
+        matplotlib.use('Agg')
+        import matplotlib.pyplot  # Already initialized backend must be respected.
         with tempfile.TemporaryDirectory(dir=cache, prefix='measurement_quality_check_') as directory:
             self.assertTrue(Path(directory).resolve().is_relative_to(cache.resolve()))
-            result = render_noise_diagnostics(scenes, directory)
+            with patch('matplotlib.use', side_effect=AssertionError('Helper must preserve initialized backend')):
+                result = render_noise_diagnostics(scenes, directory)
             self.assertGreater(Path(result['figure']).stat().st_size, 1000)
             with Path(result['bins_csv']).open(encoding='utf-8-sig', newline='') as handle:
                 rows = list(csv.DictReader(handle))

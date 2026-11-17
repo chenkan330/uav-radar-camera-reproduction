@@ -51,11 +51,15 @@ def _prediction(nnet, rnet, x, valid, failed, counts):
 
 
 def simulate(nnet, rnet, checkpoint, scenes, device, dt, budget, policy,
-             record_events=True):
+             record_events=True, quality_mode='raw', measurement_updates=None,
+             filter_timing=None):
     """同场景任一目标连续失跟达到阈值即终止；未失败的同伴记为截尾。"""
     if policy not in POLICIES:
         raise ValueError('未知多目标策略')
-    measured, beams = scenes['measurement'], scenes['beam'] - 1
+    if quality_mode not in ('raw', 'robust'):
+        raise ValueError('Unknown measurement quality mode')
+    original_measurement, beams = scenes['measurement'], scenes['beam'] - 1
+    measured = original_measurement.copy() if quality_mode == 'robust' else original_measurement
     groups, targets, steps = beams.shape
     c = nnet.config
     h, failure_limit = c.history, c.failure_limit
@@ -65,6 +69,19 @@ def simulate(nnet, rnet, checkpoint, scenes, device, dt, budget, policy,
         raise ValueError('采样、轨迹长度、失败阈值或波束预算不合法')
     if measured.shape != (*beams.shape, 3) or np.any(beams < 0) or np.any(beams >= c.classes):
         raise ValueError('测量或1-based码本标签不合法')
+    processor = None
+    if filter_timing is not None:
+        filter_timing.update(total_ms=0., initialization_ms=0., detected_target_frames=0)
+    if quality_mode == 'robust':
+        from .measurement_quality import RobustMeasurementProcessor
+        if 'measurement_sigma' not in scenes:
+            raise ValueError('Robust mode requires reported measurement sigmas')
+        filter_started = time.perf_counter()
+        processor = RobustMeasurementProcessor(original_measurement[..., :h, :],
+                                               scenes['measurement_sigma'][..., :h, :], dt)
+        measured[..., :h, :] = processor.filtered_initial_history
+        if filter_timing is not None:
+            filter_timing['initialization_ms'] = (time.perf_counter()-filter_started)*1000
     valid = np.zeros_like(beams, dtype=bool)
     valid[:, :, :h] = True
     active = np.ones(groups, dtype=bool)
@@ -116,6 +133,40 @@ def simulate(nnet, rnet, checkpoint, scenes, device, dt, budget, policy,
 
             # 真值仅在选束结束后用于模拟环境。独立基线只使用分配给本目标的扫描反馈。
             hit = (feedback == beams[live, :, step, None]).any(-1)
+            # Filtering happens only AFTER causal beam selection and actual hit feedback.
+            # A low robust weight never becomes failed-beam evidence for R-Net.
+            weights, nis = np.ones((groups, targets)), np.full((groups, targets), np.nan)
+            if processor is not None:
+                observed = np.zeros((groups, targets), dtype=bool)
+                observed[live] = hit
+                filter_started = time.perf_counter()
+                filtered, diagnostics = processor.step(step, observed,
+                    original_measurement[..., step, :], scenes['measurement_sigma'][..., step, :])
+                measured[..., step, :][observed] = filtered[observed]
+                weights, nis = diagnostics['weight'], diagnostics['nis']
+                if filter_timing is not None:
+                    filter_timing['total_ms'] += (time.perf_counter()-filter_started)*1000
+                    filter_timing['detected_target_frames'] += int(hit.sum())
+            if measurement_updates is not None:
+                from .measurement_quality import spherical_to_cartesian
+                for local_scene, target in zip(*np.nonzero(hit)):
+                    scene = live[local_scene]
+                    row = {'policy': policy, 'scene_id': int(scene), 'target_index': int(target),
+                           'trajectory_id': int(scenes['trajectory_id'][scene, target]),
+                           'time_index': step, 'weight': float(weights[scene, target]),
+                           'nis': float(nis[scene, target]) if np.isfinite(nis[scene, target]) else None,
+                           'outlier_label_evaluation_only': bool(scenes['outlier_mask'][scene, target, step])
+                               if 'outlier_mask' in scenes else None,
+                           'snr_db': float(scenes['snr_db'][scene, target, step]) if 'snr_db' in scenes else None,
+                           'raw_measurement_squared_error_m2': None,
+                           'processed_measurement_squared_error_m2': None}
+                    if 'position' in scenes:
+                        truth = scenes['position'][scene, target, step]
+                        raw_xyz = spherical_to_cartesian(original_measurement[scene, target, step])
+                        processed_xyz = spherical_to_cartesian(measured[scene, target, step])
+                        row['raw_measurement_squared_error_m2'] = float(((raw_xyz-truth)**2).sum())
+                        row['processed_measurement_squared_error_m2'] = float(((processed_xyz-truth)**2).sum())
+                    measurement_updates.append(row)
             recovered = hit & (prior > 0)
             recoveries[live] += recovered
             delay_blocks[live] += np.where(recovered, prior, 0)
@@ -205,6 +256,27 @@ def summarize(scene_rows, target_rows, timings, dt, budget, targets, policy):
             'latency_scope': 'beam_prediction_and_selection_only_excludes_position_regression_and_IO'}
 
 
+def summarize_measurement_updates(rows, timing):
+    """Diagnostics use only acquired frames; labels enter scoring after the update."""
+    count = len(rows)
+    normal = [r for r in rows if r['outlier_label_evaluation_only'] is False]
+    outliers = [r for r in rows if r['outlier_label_evaluation_only'] is True]
+    def rmse(key):
+        values = [r[key] for r in rows if r[key] is not None]
+        return float(np.sqrt(np.mean(values))) if values else None
+    return {'measurement_update_count': count,
+            'measurement_raw_rmse_m_on_detections': rmse('raw_measurement_squared_error_m2'),
+            'measurement_processed_rmse_m_on_detections': rmse('processed_measurement_squared_error_m2'),
+            'measurement_mean_weight': float(np.mean([r['weight'] for r in rows])) if rows else None,
+            'measurement_downweighted_fraction': sum(r['weight'] < .999999 for r in rows)/count if count else None,
+            'measurement_normal_downweighted_fraction': sum(r['weight'] < .999999 for r in normal)/len(normal) if normal else None,
+            'measurement_outlier_downweighted_fraction': sum(r['weight'] < .999999 for r in outliers)/len(outliers) if outliers else None,
+            'measurement_observed_outlier_count': len(outliers),
+            'filter_timing': {**timing, 'mean_ms_per_acquired_target_frame': timing.get('total_ms', 0.)/count if count else None,
+                              'scope': 'CPU_measurement_processor_only_excludes_neural_inference_and_logging'},
+            'measurement_metric_scope': 'acquired_frames_only_with_method_dependent_coverage; not neural_position_RMSE'}
+
+
 def save_plots(out, results, events, targets, dt, maximum, show, failure_limit=5):
     import matplotlib
     if not show:
@@ -284,13 +356,28 @@ def main(argv=None):
     p.add_argument('--seed', type=int, default=20261115)
     p.add_argument('--split', choices=['validation', 'test'], default='test')
     p.add_argument('--rnet-checkpoint', '--checkpoint', dest='checkpoint', type=Path)
+    p.add_argument('--nnet-checkpoint', type=Path,
+                   help='Override the N-Net path embedded in the R-Net checkpoint when relocating the project')
     p.add_argument('--data', type=Path)
     p.add_argument('--device', choices=['auto', 'cpu', 'cuda'], default='auto')
     p.add_argument('--no-show', action='store_true')
     p.add_argument('--measurement-regime', choices=['original', 'stress'], default='original')
     p.add_argument('--noise-seed', type=int, default=20261116)
+    p.add_argument('--quality-mode', choices=['raw', 'robust'], default='raw')
+    p.add_argument('--archive-version', help='Archive name under experiments; defaults to a fresh timestamped version')
     p.add_argument('--output-root', type=Path, default=BASE/'outputs/step10_multi_target')
     a = p.parse_args(argv)
+    if a.archive_version and (BASE/'experiments'/a.archive_version/'manifest.json').exists():
+        p.error('归档版本已存在，请使用新版本名；旧版本不可覆盖')
+    import matplotlib
+    if a.no_show:
+        matplotlib.use('Agg')
+    else:
+        # Initialize the interactive backend before headless-only diagnostic helpers.
+        import matplotlib.pyplot as plt
+        plt.get_backend()
+    if a.quality_mode == 'robust' and a.measurement_regime != 'stress':
+        p.error('--quality-mode robust requires --measurement-regime stress')
     if a.targets < 1 or a.total_beams <= a.targets:
         p.error('按原文设置：目标数为正，且总波束数须大于目标数')
     if a.checkpoint is None:
@@ -306,7 +393,8 @@ def main(argv=None):
     saved = torch.load(a.checkpoint, map_location=device, weights_only=False)
     if saved.get('format') != 'journal_equations_v1':
         p.error('多目标模式须使用正式版单目标网络权重，不能使用旧教学版权重')
-    nnet, ck = load_nnet(saved['nnet_checkpoint'], device)
+    nnet_path = a.nnet_checkpoint or Path(saved['nnet_checkpoint'])
+    nnet, ck = load_nnet(nnet_path, device)
     if saved['model_config'] != ck['model_config']:
         p.error('N-Net与R-Net模型配置不一致')
     if a.total_beams > nnet.config.classes:
@@ -334,6 +422,8 @@ def main(argv=None):
         np.savez_compressed(out/'measurement_realization.npz', **{
             key: scenes[key] for key in ('measurement', 'measurement_sigma', 'snr_db', 'outlier_mask')})
         write_json(out/'noise_config.json', noise_metadata)
+        from .measurement_quality import render_noise_diagnostics
+        render_noise_diagnostics(scenes, out)
     print(f'多目标：{len(indices)}个场景 × {a.targets}个目标，总预算{a.total_beams}束；设备{device}', flush=True)
     # 预热只访问初始化历史，不写入闭环状态，不计入时延统计。
     h = nnet.config.history
@@ -347,20 +437,26 @@ def main(argv=None):
         for _ in range(3):
             nnet(warm_x, warm_v)
             rnet(nnet, warm_x, warm_v, warm_failed, torch.ones(1, dtype=torch.long, device=device))
-    results, summaries, all_events, all_scans = {}, {}, [], []
+    results, summaries, all_events, all_scans, all_updates = {}, {}, [], [], []
     for policy in POLICIES:
         print(f'正在运行：{LABELS[policy]}', flush=True)
-        result = simulate(nnet, rnet, ck, scenes, device, cfg['dt'], a.total_beams, policy)
+        updates, filter_timing = [], {}
+        result = simulate(nnet, rnet, ck, scenes, device, cfg['dt'], a.total_beams, policy,
+                          quality_mode=a.quality_mode, measurement_updates=updates,
+                          filter_timing=filter_timing)
         results[policy] = result
         summaries[policy] = summarize(result[0], result[1], result[4], cfg['dt'], a.total_beams, a.targets, policy)
+        summaries[policy].update(summarize_measurement_updates(updates, filter_timing))
         write_rows(out/f'{policy}_scenes.csv', result[0])
         write_rows(out/f'{policy}_targets.csv', result[1])
         all_events.extend(result[2]); all_scans.extend(result[3])
+        all_updates.extend(updates)
         print(summaries[policy], flush=True)
     if before != (state_digest(nnet), state_digest(rnet)):
         raise RuntimeError('推理过程意外修改了网络权重')
     write_rows(out/'tracking_events.csv', all_events)
     write_rows(out/'beam_scans.csv', all_scans)
+    write_rows(out/'measurement_updates.csv', all_updates)
     maximum = (scenes['beam'].shape[-1]-h)*cfg['dt']
     figures = save_plots(out, results, all_events, a.targets, cfg['dt'], maximum,
                          not a.no_show, nnet.config.failure_limit)
@@ -370,32 +466,61 @@ def main(argv=None):
         '本实现主指标为所有目标同时持续跟踪时长：任一目标连续5次失败即终止场景；其余目标记同伴失败截尾，不能当成自身失败或独立完整跟踪时长。',
         '轨迹在当前分区内无放回组合；拼成同步时间轴的仿真场景，不代表原始记录实际同时采集。',
         '只在选束完成后用正确波束判定命中；只有命中测量进入历史；身份关联和同束目标可分辨性是理想假设。',
-        '测量仍是轨迹加高斯误差代理，未实现完整OFDM回波、检测器、杂波或新目标出现。',
+        ('测量为轨迹加距离/SNR相关高斯误差与异常值的代理，未实现完整OFDM回波、检测器、杂波或新目标出现。'
+         if noise_metadata is not None else
+         '测量仍是轨迹加高斯误差代理，未实现完整OFDM回波、检测器、杂波或新目标出现。'),
         '复用现有单目标模型，保留JOURNAL_ALIGNMENT.txt中码本/角距损失、模型参数量及数据限制；不是全文数值严格复现。',
         'CUDA预热后计时；批次时延与摊销单场景时延分开，不能据此声称复现论文的独立单场景时延。',
     ]
+    if noise_metadata is not None:
+        notes.extend(noise_metadata['limitations'])
+        notes.append('距离/SNR相关误差和异常值为显式代理实验设定；固定噪声种子，未据测试结果调整滤波参数。')
+    if a.quality_mode == 'robust':
+        notes.append('转换测量的匀速卡尔曼滤波采用一阶协方差传播和Huber信息降权，属于近似处理；不是真实接收机质量估计器。')
     record = {'split': a.split, 'targets': a.targets, 'total_beams': a.total_beams, 'seed': a.seed,
               'dt': cfg['dt'], 'history': h, 'failure_limit': nnet.config.failure_limit,
               'maximum_evaluated_duration_s': maximum, 'source': str(source.resolve()),
               'source_sha256': hashlib.sha256(source.read_bytes()).hexdigest(),
-              'rnet_checkpoint': str(a.checkpoint.resolve()), 'nnet_checkpoint': saved['nnet_checkpoint'],
+              'rnet_checkpoint': str(a.checkpoint.resolve()), 'nnet_checkpoint': str(nnet_path.resolve()),
               'scene_membership': scenes['trajectory_id'].tolist(), 'unused_trajectory_ids': unused,
               'partition_audit': partition, 'weights_unchanged': True,
               'measurement_regime': a.measurement_regime,
-              'quality_mode': 'raw', 'noise_seed': a.noise_seed,
+              'quality_mode': a.quality_mode, 'noise_seed': a.noise_seed,
+              'measurement_realization_sha256': hashlib.sha256(
+                  scenes['measurement'].tobytes()+scenes.get('measurement_sigma', np.empty(0)).tobytes()
+                  +scenes.get('snr_db', np.empty(0)).tobytes()+scenes.get('outlier_mask', np.empty(0)).tobytes()).hexdigest(),
+              'quality_config': {'method': 'converted_measurement_CV_Kalman_with_Huber_information_weight',
+                                 'huber_threshold': 3.0, 'acceleration_std_m_s2': 12.0,
+                                 'initial_velocity_std_m_s': 35.0,
+                                 'hard_rejection': False, 'uses_ground_truth_or_outlier_labels': False,
+                                 'reported_nominal_covariance_is_idealized_receiver_metadata': True}
+                                if a.quality_mode == 'robust' else None,
               'noise_metadata': noise_metadata,
               'test_is_new_blind_set': not cfg.get('test_records_used_previously', False),
               'results': summaries, 'limitations': cfg.get('limitations', [])+notes,
               'fully_reproduced_paper_numerical_results': False}
     write_json(out/'summary.json', record)
+    from .metric_charts import render_run_dashboard
+    chart_label = ('距离/SNR与异常值 + 鲁棒处理' if a.quality_mode == 'robust'
+                   else '距离/SNR与异常值，未优化' if noise_metadata is not None else '原始多目标')
+    render_run_dashboard(out, out/'figures', label=chart_label)
     lines = ['原文多目标核心流程测试', f'{len(indices)}个场景，每场景{a.targets}目标，总预算{a.total_beams}束。']
     for policy, summary in summaries.items():
         lines.append(f'{LABELS[policy]}：整组成功率{summary["success_rate"]:.2%}，同时跟踪时长{summary["mean_all_targets_duration_s"]:.4f}秒，恢复{summary["recoveries"]}次。')
     (out/'report.txt').write_text('\n'.join(lines+['']+notes)+'\n', encoding='utf-8')
+    if a.quality_mode == 'robust':
+        with (out/'report.txt').open('a', encoding='utf-8') as stream:
+            stream.write('\n鲁棒处理：转换测量的匀速卡尔曼滤波 + Huber信息降权；只处理实际命中的测量。\n'
+                         '波束预测耗时不包含测量处理，处理开销单独列在summary.json的filter_timing。\n'
+                         '名义协方差为理想化接收机质量信息；异常真值标签仅用于事后计分。\n')
     (a.output_root/'latest_run.txt').write_text(out.name, encoding='utf-8')
     print('\n'.join(lines), flush=True)
     print(f'结果目录：{out.resolve()}', flush=True)
     print('图片：tracking_status.png、tracking_survival.png', flush=True)
+    from .versions import save_version
+    archived = save_version(a.archive_version or ('v_'+out.name), out,
+                            f'{chart_label}；{a.targets}目标/{a.total_beams}束；固定模型权重和噪声种子。')
+    print(f'源代码与结果归档：{archived.resolve()}', flush=True)
     from .plots import finish_tracking_plots
     finish_tracking_plots(figures, show=not a.no_show)
     return out

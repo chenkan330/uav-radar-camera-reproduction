@@ -1,6 +1,7 @@
 """Prepare reviewed public GitHub payloads; no credentials or network access."""
 import argparse
 import base64
+import hashlib
 import json
 import re
 import zipfile
@@ -48,6 +49,10 @@ def export(version):
                 data = buffer.getvalue().encode('utf-8-sig')
             entries[prefix+path.relative_to(root).as_posix()] = data
     public_manifest = portable(manifest)
+    public_manifest['local_result_sha256'] = public_manifest.pop('result_sha256')
+    public_manifest['published_results_sha256'] = {
+        path.removeprefix(prefix): hashlib.sha256(content).hexdigest()
+        for path, content in entries.items() if path.startswith(prefix+'results/')}
     public_manifest['public_export_note'] = '原始飞行数据、权重、逐帧大文件及本机路径配置不上传；本地保留完整结果。source.zip保留源代码快照，external_assets用SHA256核对。'
     entries[prefix+'manifest.json'] = json.dumps(public_manifest, ensure_ascii=False, indent=2).encode('utf-8')
     entries['m3trackformer/AGENTS.md'] = (
@@ -67,7 +72,7 @@ def export(version):
         '本项目使用雷达距离/角度测量和 Transformer 波束跟踪。3目标共享12束，51条轨迹组成17场景，'
         '每场景49.8秒；任一目标连续漏检5次则整组停止。检测帧位置RMSE的样本覆盖不同，请结合成功率和时长判断。\n\n'
         '原始GNSS数据、训练权重和本机绝对路径配置未上传。下载后需准备已有正式版N-Net/R-Net权重及'
-        '4个分区NPZ，使用 `--rnet-checkpoint`、`--data` 指定；R-Net checkpoint中引用的N-Net路径需指向本地权重。'
+        '4个分区NPZ，使用 `--rnet-checkpoint`、`--nnet-checkpoint`、`--data` 指定本地权重及数据。'
         '项目环境位于仓库工作目录的 `.venv` 时会自动选择。\n\n'
         '原始：`python my_training/step10_single_target_tracking.py --no-show`\n\n'
         '扰动未优化：同一命令加 `--measurement-regime stress`；鲁棒版再加 `--quality-mode robust`（V3起）。\n\n'

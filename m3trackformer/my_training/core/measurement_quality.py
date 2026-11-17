@@ -7,6 +7,7 @@ The processor receives observed spherical measurements and reported sigmas only.
 from dataclasses import asdict, dataclass
 import csv
 from pathlib import Path
+import sys
 
 import numpy as np
 
@@ -179,7 +180,8 @@ def render_noise_diagnostics(scenes, out, base_station=(0., 0., 10.)):
     so tracking exposure/survivorship does not affect these diagnostic plots.
     """
     import matplotlib
-    matplotlib.use('Agg')
+    if 'matplotlib.pyplot' not in sys.modules:
+        matplotlib.use('Agg')
     import matplotlib.pyplot as plt
     from matplotlib.ticker import MaxNLocator
 
