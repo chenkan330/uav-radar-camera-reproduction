@@ -1,5 +1,14 @@
 第1～10步与原文多目标运行说明
 
+真实轨迹多方案优化比较（原N-Net/R-Net不改、不重新训练）：
+  第10步加 --optimize-real --no-show：验证集选参并锁定方案，再对照测试。
+  第10步加 --best-real --no-show：读取outputs/current_optimized_tracking.json，运行已锁定最优外围配置。
+  候选包括普通卡尔曼、Huber、Student-t式降权、自适应过程噪声、鲁棒双模型IMM、外部概率温度调整。
+  先按验证集完整跟踪成功率、平均跟踪时间、检测覆盖率排序；测试集不参与选参或改选。
+  验证集2个噪声种子，测试集3个噪声种子；同一分区各方法严格共享轨迹、扰动、预算和权重。
+  每个候选独立归档，包含真实N-Net轨迹图；所有旧版本均保留。
+  同样的17个测试场景重复添加噪声不等于增加独立场景数；测试记录已用过，属于复测。
+
 2026-11-17 数据选择更新：后续主线采用真实飞行GNSS轨迹。
   原始压缩包位于datasets/idf_ds/，Speedybee DataSet.zip和Holybro Pixhawk.zip均保留。
   自行查看可先打开Speedybee DataSet.zip内的processed/GPS/Lap001_gps.csv。

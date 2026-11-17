@@ -21,6 +21,13 @@ if __name__ == '__main__':
         print(f'自动使用项目环境：{project_python}', flush=True)
         raise SystemExit(subprocess.run([str(project_python), '-X', 'utf8',
                                         str(Path(__file__).resolve()), *sys.argv[1:]]).returncode)
+    if '--optimize-real' in sys.argv[1:] or '--best-real' in sys.argv[1:]:
+        from core.optimization_experiment import main as optimization_main
+        parameters = [value for value in sys.argv[1:] if value not in ('--optimize-real', '--best-real')]
+        if '--best-real' in sys.argv[1:]:
+            parameters.append('--apply-selected')
+        optimization_main(parameters)
+        raise SystemExit(0)
     if '--real-trajectories' in sys.argv[1:]:
         from core.real_tracking_batch import main as real_main
         real_main([value for value in sys.argv[1:] if value != '--real-trajectories'])

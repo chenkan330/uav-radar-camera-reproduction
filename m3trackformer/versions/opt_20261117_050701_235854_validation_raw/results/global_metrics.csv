@@ -1,0 +1,12 @@
+aggregate_metric,value
+aggregate.scenes_with_noise_repeats,60
+aggregate.unique_geometrical_scenes,30
+aggregate.success_count,10
+aggregate.success_rate,0.16666666666666666
+aggregate.mean_all_targets_duration_s,22.825833333333332
+aggregate.recoveries,271
+aggregate.recovery_rate,0.8338461538461538
+aggregate.position_rmse_m_on_detections,19.09754319199133
+aggregate.position_evaluation_count,81542
+aggregate.position_evaluation_coverage,0.45483043284248104
+aggregate.filter_ms_per_detected_frame,0.0

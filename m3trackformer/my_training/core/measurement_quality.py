@@ -283,7 +283,9 @@ class RobustMeasurementProcessor:
     This first-order converted-measurement filter is approximate, not exact EKF.
     """
     def __init__(self, measurement_init, sigma_init, dt, base_station=(0., 0., 10.),
-                 huber_threshold=3.0, acceleration_std=12.0, initial_velocity_std=35.0):
+                 huber_threshold=3.0, acceleration_std=12.0, initial_velocity_std=35.0,
+                 robust_loss='huber', student_df=4., adaptive_process=False,
+                 adaptive_max_scale=16., adaptation_length=3):
         z, sig = np.asarray(measurement_init, dtype=float), np.asarray(sigma_init, dtype=float)
         if z.ndim != 4 or z.shape != sig.shape or z.shape[-1] != 3 or z.shape[-2] < 1:
             raise ValueError('Initialization requires [scene, target, history, 3] measurements and sigmas')
@@ -292,6 +294,13 @@ class RobustMeasurementProcessor:
         parameters = (dt, huber_threshold, acceleration_std, initial_velocity_std)
         if not (all(np.isfinite(v) for v in parameters) and all(v > 0 for v in parameters)):
             raise ValueError('Filter parameters must be finite and positive')
+        if (robust_loss not in ('none', 'huber', 'student') or not np.isfinite(student_df)
+                or student_df <= 0 or not np.isfinite(adaptive_max_scale) or adaptive_max_scale < 1
+                or adaptation_length < 2 or int(adaptation_length) != adaptation_length):
+            raise ValueError('Invalid robust or adaptive filter configuration')
+        self.robust_loss, self.student_df = robust_loss, float(student_df)
+        self.adaptive_process = bool(adaptive_process)
+        self.adaptive_max_scale, self.adaptation_length = float(adaptive_max_scale), int(adaptation_length)
         self.shape, self.dt, self.base_station = z.shape[:2], float(dt), np.asarray(base_station, dtype=float)
         if self.base_station.shape != (3,) or not np.isfinite(self.base_station).all():
             raise ValueError('Base station must contain three finite coordinates')
@@ -309,6 +318,9 @@ class RobustMeasurementProcessor:
         self.filtered_initial_history = np.empty_like(z, dtype=np.float32)
         self.filtered_initial_history[..., 0, :] = z[..., 0, :]
         self.initial_weights = np.ones(z.shape[:-1])
+        self.process_scale = np.ones(self.shape)
+        self.innovation_direction = np.zeros((*self.shape, 3))
+        self.innovation_run = np.zeros(self.shape, dtype=int)
         for t in range(1, z.shape[-2]):
             filtered, diagnostics = self.step(t, np.ones(self.shape, bool), z[..., t, :], sig[..., t, :])
             self.filtered_initial_history[..., t, :] = filtered
@@ -329,7 +341,11 @@ class RobustMeasurementProcessor:
             raise ValueError('Observed measurements must be finite and sigmas positive')
         f = self.transition
         self.state = self.state @ f.T
-        self.covariance = f @ self.covariance @ f.T + self.process_covariance
+        if self.adaptive_process:
+            self.covariance = f @ self.covariance @ f.T + self.process_covariance*self.process_scale[..., None, None]
+            self.process_scale = np.maximum(1., self.process_scale*.9)
+        else:
+            self.covariance = f @ self.covariance @ f.T + self.process_covariance
         self.time_index = int(step_index)
         weights = np.full(self.shape, np.nan)
         nis = np.full(self.shape, np.nan)
@@ -340,7 +356,13 @@ class RobustMeasurementProcessor:
             s = p[:, :3, :3] + r
             solved = np.linalg.solve(s, residual[..., None])[..., 0]
             local_nis = np.maximum(np.einsum('bi,bi->b', residual, solved), 0.)
-            weight = np.minimum(1., self.huber_threshold/np.maximum(np.sqrt(local_nis), 1e-12))
+            if self.robust_loss == 'none':
+                weight = np.ones_like(local_nis)
+            elif self.robust_loss == 'student':
+                # One-pass innovation information weight; not an exact Student-t Bayes filter.
+                weight = np.minimum(1., (self.student_df+3)/(self.student_df+local_nis))
+            else:
+                weight = np.minimum(1., self.huber_threshold/np.maximum(np.sqrt(local_nis), 1e-12))
             # IRLS: Huber weight reduces observation information, R_eff=R/w.
             effective_r = r/np.maximum(weight[:, None, None], 1e-3)
             se = p[:, :3, :3]+effective_r
@@ -353,5 +375,16 @@ class RobustMeasurementProcessor:
             self.state[observed] = x
             self.covariance[observed] = (updated + np.swapaxes(updated, -1, -2))/2
             weights[observed], nis[observed] = weight, local_nis
+            if self.adaptive_process:
+                direction = residual/np.maximum(np.sqrt(np.diagonal(s, axis1=-2, axis2=-1)), 1e-9)
+                direction /= np.maximum(np.linalg.norm(direction, axis=-1, keepdims=True), 1e-9)
+                aligned = (direction*self.innovation_direction[observed]).sum(-1) > .6
+                large = local_nis > 9.
+                run = np.where(large, np.where(aligned, self.innovation_run[observed]+1, 1), 0)
+                self.innovation_run[observed] = run
+                self.innovation_direction[observed] = direction
+                target_scale = np.clip(local_nis/3, 1., self.adaptive_max_scale)
+                self.process_scale[observed] = np.where(run >= self.adaptation_length,
+                    np.maximum(self.process_scale[observed], target_scale), self.process_scale[observed])
         filtered = cartesian_to_spherical(self.state[..., :3], self.base_station).astype(np.float32)
         return filtered, {'weight': weights, 'nis': nis}

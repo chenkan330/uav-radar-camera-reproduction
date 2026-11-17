@@ -28,7 +28,9 @@ def find_maneuver_test():
     return root/pointer.read_text(encoding='utf-8').strip()/'data/test.npz'
 
 
-def run_original_nr(nnet, rnet, checkpoint, scenes, device, *, quality_mode, dt, budget, plot_id):
+def run_original_nr(nnet, rnet, checkpoint, scenes, device, *, quality_mode, dt, budget, plot_id,
+                    measurement_processor_factory=None, logit_temperature=1.,
+                    record_events=True, collect_probability=True, collect_updates=True):
     """Use the original routing; hooks count real calls without changing outputs."""
     audit = {'nnet_forward_calls': 0, 'nnet_target_frames': 0,
              'rnet_forward_calls': 0, 'rnet_target_frames': 0}
@@ -45,13 +47,15 @@ def run_original_nr(nnet, rnet, checkpoint, scenes, device, *, quality_mode, dt,
     trace, updates, timing, probability_rows = [], [], {}, []
     try:
         result = simulate(nnet, rnet, checkpoint, scenes, device, dt, budget, 'joint',
-            quality_mode=quality_mode, measurement_updates=updates, filter_timing=timing,
+            quality_mode=quality_mode, measurement_updates=updates if collect_updates else None, filter_timing=timing,
             beam_predictor=None, trajectory_trace=trace, trace_trajectory_id=plot_id,
-            trajectory_estimator='nnet', beam_probability_metrics=probability_rows)
+            trajectory_estimator='nnet', beam_probability_metrics=probability_rows if collect_probability else None,
+            measurement_processor_factory=measurement_processor_factory, logit_temperature=logit_temperature,
+            record_events=record_events)
     finally:
         for hook in hooks:
             hook.remove()
-    expected_r = sum(row['prior_misses'] > 0 for row in result[2])
+    expected_r = sum(r['missed_blocks']-int(r['lost_events'] > r['recoveries']) for r in result[1])
     if audit['rnet_target_frames'] != expected_r:
         raise RuntimeError('实际R-Net调用与失跟目标数不一致')
     audit.update(expected_rnet_target_frames=expected_r, original_nr_routing_verified=True,

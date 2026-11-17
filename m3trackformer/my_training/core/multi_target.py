@@ -54,7 +54,8 @@ def simulate(nnet, rnet, checkpoint, scenes, device, dt, budget, policy,
              record_events=True, quality_mode='raw', measurement_updates=None,
              filter_timing=None, beam_predictor=None, trajectory_trace=None,
              trace_trajectory_id=None, trajectory_estimator='auto',
-             beam_probability_metrics=None):
+             beam_probability_metrics=None, measurement_processor_factory=None,
+             logit_temperature=1.):
     """同场景任一目标连续失跟达到阈值即终止；未失败的同伴记为截尾。"""
     if policy not in POLICIES:
         raise ValueError('未知多目标策略')
@@ -64,6 +65,10 @@ def simulate(nnet, rnet, checkpoint, scenes, device, dt, budget, policy,
         raise ValueError('Unknown trajectory estimator')
     if beam_probability_metrics is not None and policy != 'joint':
         raise ValueError('Beam probability diagnostics require joint selection')
+    if not np.isfinite(logit_temperature) or logit_temperature <= 0:
+        raise ValueError('External probability temperature must be positive')
+    if measurement_processor_factory is not None and quality_mode != 'robust':
+        raise ValueError('Measurement processor requires robust preprocessing mode')
     original_measurement, beams = scenes['measurement'], scenes['beam'] - 1
     measured = original_measurement.copy() if quality_mode == 'robust' else original_measurement
     groups, targets, steps = beams.shape
@@ -83,7 +88,8 @@ def simulate(nnet, rnet, checkpoint, scenes, device, dt, budget, policy,
         if 'measurement_sigma' not in scenes:
             raise ValueError('Robust mode requires reported measurement sigmas')
         filter_started = time.perf_counter()
-        processor = RobustMeasurementProcessor(original_measurement[..., :h, :],
+        factory = measurement_processor_factory or RobustMeasurementProcessor
+        processor = factory(original_measurement[..., :h, :],
                                                scenes['measurement_sigma'][..., :h, :], dt)
         measured[..., :h, :] = processor.filtered_initial_history
         if filter_timing is not None:
@@ -166,6 +172,8 @@ def simulate(nnet, rnet, checkpoint, scenes, device, dt, budget, policy,
             if policy == 'joint':
                 logits = custom_logits if custom_logits is not None else _prediction(nnet, rnet, x.flatten(0, 1), v.flatten(0, 1),
                                      f.flatten(0, 1), ct.flatten()).reshape(len(live), targets, -1)
+                if logit_temperature != 1.:
+                    logits = logits/logit_temperature
                 chosen = joint_beams(logits, budget).cpu().numpy()
                 feedback = np.broadcast_to(chosen[:, None], (len(live), targets, budget)).copy()
                 swept = chosen
