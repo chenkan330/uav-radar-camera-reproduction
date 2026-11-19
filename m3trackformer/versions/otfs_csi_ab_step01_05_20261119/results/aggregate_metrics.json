@@ -1,0 +1,136 @@
+{
+  "step02": {
+    "window_count": 8,
+    "captured_beam_slots": 156,
+    "captured_beam_slots_with_peak": 98,
+    "observation_shape": [
+      13,
+      12,
+      96,
+      256
+    ],
+    "channel_label_shape": [
+      8,
+      1024
+    ],
+    "max_complex_response_error": 7.11431226040132e-16
+  },
+  "step03": {
+    "single_target_count": 8,
+    "single_target_geometry_matches": 8,
+    "codebook_size": 1024,
+    "scan_budget": 12,
+    "controlled_three_terminal_cases_passed": 2
+  },
+  "step04": {
+    "window_counts": {
+      "train": 756,
+      "validation": 288,
+      "test": 288
+    },
+    "original_flight_group_counts": {
+      "train": 14,
+      "validation": 2,
+      "test": 2
+    },
+    "test_metrics": {
+      "last_observation": {
+        "windows": 288,
+        "phase_aligned_nmse": 0.0013810407578209736,
+        "channel_coherence": 0.9986230245340191,
+        "mean_beam_gain_loss_db": 0.0,
+        "p95_beam_gain_loss_db": 0.0,
+        "oracle_beam_in_top12_rate": 1.0
+      },
+      "constant_velocity": {
+        "windows": 288,
+        "phase_aligned_nmse": 0.00026658662058439336,
+        "channel_coherence": 0.999733760143815,
+        "mean_beam_gain_loss_db": 0.0,
+        "p95_beam_gain_loss_db": 0.0,
+        "oracle_beam_in_top12_rate": 1.0
+      },
+      "learned_measurement": {
+        "windows": 288,
+        "phase_aligned_nmse": 0.00021385338398577817,
+        "channel_coherence": 0.9997864803874005,
+        "mean_beam_gain_loss_db": 0.0,
+        "p95_beam_gain_loss_db": 0.0,
+        "oracle_beam_in_top12_rate": 1.0
+      },
+      "learned_iq": {
+        "windows": 288,
+        "phase_aligned_nmse": 0.0002723514816837273,
+        "channel_coherence": 0.9997280278613161,
+        "mean_beam_gain_loss_db": 0.0,
+        "p95_beam_gain_loss_db": 0.0,
+        "oracle_beam_in_top12_rate": 1.0
+      }
+    },
+    "models": {
+      "learned_measurement": {
+        "best_epoch": 46,
+        "validation_loss": 0.00035288085928186774,
+        "trainable_parameters": 16051
+      },
+      "learned_iq": {
+        "best_epoch": 1,
+        "validation_loss": 0.00036008728784509003,
+        "trainable_parameters": 20659
+      }
+    },
+    "pretrained_execution": false
+  },
+  "step05": {
+    "scope": "固定阵列、单径、17 组三目标 OTFS 仿真，同一测试分区",
+    "paired_target_frames": 42762,
+    "all_scenes": 17,
+    "mean_gain_loss_db": {
+      "a": 0.04314955351487208,
+      "b": 0.02115368348367069
+    },
+    "p95_gain_loss_db": {
+      "a": 0.0777658821443917,
+      "b": 0.0781914578021522
+    },
+    "mean_b_minus_a_gain_db": 0.021995870031201393,
+    "tracking": {
+      "a": {
+        "identity_success_count": 14,
+        "identity_success_rate": 0.8235294117647058,
+        "identity_mean_duration_s": 42.17352941176471,
+        "identity_recoveries": 2,
+        "identity_lost_events": 5,
+        "identity_recovery_rate": 0.4,
+        "physical_recoveries": 0,
+        "physical_lost_events": 2,
+        "physical_recovery_rate": 0.0,
+        "position_rmse_m_on_detections": 8.675028161518819,
+        "position_evaluation_count": 43000,
+        "position_evaluation_coverage": 0.8465233482951413
+      },
+      "b": {
+        "identity_success_count": 15,
+        "identity_success_rate": 0.8823529411764706,
+        "identity_mean_duration_s": 45.0735294117647,
+        "identity_recoveries": 3,
+        "identity_lost_events": 5,
+        "identity_recovery_rate": 0.6,
+        "physical_recoveries": 0,
+        "physical_lost_events": 1,
+        "physical_recovery_rate": 0.0,
+        "position_rmse_m_on_detections": 10.299508215572727,
+        "position_evaluation_count": 45962,
+        "position_evaluation_coverage": 0.9048350263800299
+      }
+    },
+    "warmup_frames_verified": 85,
+    "n_targets_using_csi": 45713,
+    "changed_complete_tracking_scenes": 1,
+    "common_correct_association_post_warmup_rmse_m": {
+      "matched_frames": 42748,
+      "a": 8.582684243360974,
+      "b": 8.581660901466407
+    }
+  }
+}

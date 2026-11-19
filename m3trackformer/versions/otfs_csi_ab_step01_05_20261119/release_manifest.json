@@ -1,0 +1,239 @@
+{
+  "experiment": "OTFS CSI A/B steps 1-5",
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "82d4ec79cff5622d7daeafa963f1e1c7df8f42ea4e906cd277135acdbeb4550d",
+      "git_blob_sha1": "cf6e3c04045d0686551dbe22981e231b6b4734df",
+      "bytes": 3026
+    },
+    {
+      "path": "my_training/checks/test_isac_csi_predictor.py",
+      "sha256": "37f1cea52c9ec4bbc7a0d0ab587051e3dff18afbab11e55dd8d783067c654486",
+      "git_blob_sha1": "970d12e54789b7af59cdf5b6e7634ee62e4ee39d",
+      "bytes": 2282
+    },
+    {
+      "path": "my_training/checks/test_isac_otfs.py",
+      "sha256": "a2e3993c82a4b39548330e896a23c04ae09a639f30f105adbf7f13cf4d757ae4",
+      "git_blob_sha1": "36a7e164f4b9e4f1b1c63d94891adfef154a3f53",
+      "bytes": 4230
+    },
+    {
+      "path": "my_training/core/__init__.py",
+      "sha256": "f1b6eeb98c135229978bdcdf619cad2a4f4ed69e7bd5364f46fb4fc79a0fa261",
+      "git_blob_sha1": "b1e3a68923cd555fcd199808fb9261249531e758",
+      "bytes": 70
+    },
+    {
+      "path": "my_training/core/beam_identity.py",
+      "sha256": "c6cbd28ee17ad87de608534e151d2fb169e6c8ad7f8ac6577f7847aaf3f97d91",
+      "git_blob_sha1": "c8e2d9ee8294c268b9d684a0572b4b8dc7394990",
+      "bytes": 11969
+    },
+    {
+      "path": "my_training/core/common.py",
+      "sha256": "f4eeabfaa75f1e0927250c64eee9aa5097026d2dd6d9402436a710b3fc620d21",
+      "git_blob_sha1": "88c39291536d432ed151d24d53d42cee4b7e0c9c",
+      "bytes": 4761
+    },
+    {
+      "path": "my_training/core/identity_closed_loop.py",
+      "sha256": "fc191596fd1e2293dae666834c60040d4f8dc5378ed54337e5b79964d0c1ef92",
+      "git_blob_sha1": "2f7ac1596465eee5935cd42595580cc0cf6d01db",
+      "bytes": 19019
+    },
+    {
+      "path": "my_training/core/isac_b_beam_validation.py",
+      "sha256": "81f7b9f6bf468f8fd7fca638c30432205b9bda6962070b4796bfbd6edffa6395",
+      "git_blob_sha1": "b751d4fa864939e0d631ec46b37f0f117afbbfb9",
+      "bytes": 11022
+    },
+    {
+      "path": "my_training/core/isac_b_closed_loop_comparison.py",
+      "sha256": "959c5a60621f16c54a2f655952b2b15e91c503ad109e432a10aa6427f025e3a3",
+      "git_blob_sha1": "f47c72116ec8489f580f8fed193e5854e49e4c9f",
+      "bytes": 12005
+    },
+    {
+      "path": "my_training/core/isac_b_csi_predictor.py",
+      "sha256": "bfc6f285fbda567695ca13c5cad96a7546f2cac479644ec4b3312e1b6dc42dea",
+      "git_blob_sha1": "f2ad4f5ad0248bead48968b12918f963aa403377",
+      "bytes": 18699
+    },
+    {
+      "path": "my_training/core/isac_b_csi_samples.py",
+      "sha256": "afcb2ef8388d232cd3b2c3393854fa4ad3ff89973980ce077e1c8e1a68cebe93",
+      "git_blob_sha1": "67dfcfe644c3c30a1cfd8d04f0b59cf4c406cdf4",
+      "bytes": 10809
+    },
+    {
+      "path": "my_training/core/isac_b_csi_training_data.py",
+      "sha256": "2e20f44dd1983df99e3a6adf2a4fa3d290d22d955123b4e78ac9acb16586b774",
+      "git_blob_sha1": "bb803e68e2ee9b752f9c203e1b36e2c39f0e267b",
+      "bytes": 11494
+    },
+    {
+      "path": "my_training/core/isac_b_paired_metrics.py",
+      "sha256": "3a53ce39ab82aea10d14c4c617852cb15cdd529408f42153696f8455d1a90d29",
+      "git_blob_sha1": "886110a6ce3eb009a23aa09f7dce9f943e981334",
+      "bytes": 15297
+    },
+    {
+      "path": "my_training/core/isac_beam_selection.py",
+      "sha256": "cf1e78871ff2e8d2dc0f208f19ca28cc42faaa506cace39330eebfbe49899338",
+      "git_blob_sha1": "2da40b5f07ee59c147ea0b3c5211851be310d215",
+      "bytes": 13373
+    },
+    {
+      "path": "my_training/core/isac_echo.py",
+      "sha256": "f815b66f8557eb2b12da993bb69e66aae2eb9dc201f5150416a2e40ae2f90603",
+      "git_blob_sha1": "f18871af6c1af958787db373f95b5394505e6245",
+      "bytes": 15878
+    },
+    {
+      "path": "my_training/core/isac_multi_target.py",
+      "sha256": "27f6592c57e28aaf04dc8d65c5d929fd0f3d27d8b7081d69c0a417314968af60",
+      "git_blob_sha1": "355c8f961840ca16d7f70f1142a429220c705f81",
+      "bytes": 19838
+    },
+    {
+      "path": "my_training/core/isac_otfs.py",
+      "sha256": "6e7899d60538061591e75fe3e01b312a29c7081a9a9a857ee8499ada4fa64997",
+      "git_blob_sha1": "c4b502ab34fe43c4cb9332ea57980d5f22461c3a",
+      "bytes": 5454
+    },
+    {
+      "path": "my_training/core/maneuver_nnet_rnet.py",
+      "sha256": "f153df4134c8ce607a755931f10e6655e2304038cb66219aa365641c05478d12",
+      "git_blob_sha1": "4ac3f4a3c2cab2999d34969d16af6fc456e89570",
+      "bytes": 16851
+    },
+    {
+      "path": "my_training/core/measurement_quality.py",
+      "sha256": "ad36218577b3fb3bd147e4d457a5844da571701cb2d8b098e7198009c271ee40",
+      "git_blob_sha1": "22428746d4cebcb4ed35318ef7da68dcd161feed",
+      "bytes": 24119
+    },
+    {
+      "path": "my_training/core/metric_charts.py",
+      "sha256": "4924ed92703e3863a209d73dc7337b25d542a7ffdcf3573a7b39133dfeac141e",
+      "git_blob_sha1": "a06817d517545d1c816d8b5f7f612c5496b2463d",
+      "bytes": 26432
+    },
+    {
+      "path": "my_training/core/models.py",
+      "sha256": "43972fb03a96a01c94a914e763440943933ca28f024bbb5156e0e164d7ba925f",
+      "git_blob_sha1": "698d14e496c7f74ddffd10ff376382dc957743cc",
+      "bytes": 8042
+    },
+    {
+      "path": "my_training/core/multi_target.py",
+      "sha256": "ad08929a38aae4810620da4f0d4988cfa14cf49fe5898296c75e2800cca4105b",
+      "git_blob_sha1": "48455e9ea802b67d1cbba2e27f7956ec81169ccf",
+      "bytes": 42990
+    },
+    {
+      "path": "my_training/core/optimization_charts.py",
+      "sha256": "4a9d68d62f73659963241f163dcab98feb7bc208e5181920da97b7b8599929a7",
+      "git_blob_sha1": "0f3da84e45883e880e2ead44ba6c70a0ba2b1542",
+      "bytes": 8891
+    },
+    {
+      "path": "my_training/core/optimization_experiment.py",
+      "sha256": "eb4e26f312e0da42e6a7d7a2034af570e468f46444f5a62bc7a4fe7613204ad0",
+      "git_blob_sha1": "1aab21672005973bbd5c9d5f089fcfe898db7866",
+      "bytes": 17415
+    },
+    {
+      "path": "my_training/core/optimization_processors.py",
+      "sha256": "5caa89365494353e1c073ae3ed950baec43f51d6fe17b571789679ba3bc483d9",
+      "git_blob_sha1": "cfb0e7f7fa9041308413dc00c6ea66772b55d6e3",
+      "bytes": 6062
+    },
+    {
+      "path": "my_training/core/plots.py",
+      "sha256": "d14f4784f471ea5d1685000add2abfdaee02ccf1f64ca8de7c84359948400cac",
+      "git_blob_sha1": "f101919e91fe05548dbd385e784de78eaa3ae03f",
+      "bytes": 7745
+    },
+    {
+      "path": "my_training/core/real_data_audit.py",
+      "sha256": "e8cc981e1c5a53a51316ff9dc9c12c6134e2253532700e53a70d6fc340771c99",
+      "git_blob_sha1": "44020a7a4c5013c46373150a2616fbf71786caa5",
+      "bytes": 4673
+    },
+    {
+      "path": "my_training/core/trajectory_figure.py",
+      "sha256": "e715aad62ca43e85a6b9521ed7cc6147739352146f07c102f6f03f2b87f21c91",
+      "git_blob_sha1": "5a63419ee30beac452893fb075ea3a455a6194dc",
+      "bytes": 15444
+    },
+    {
+      "path": "my_training/core/versions.py",
+      "sha256": "a196d5745cea362c6d41aa3881979e3582f5247ecc690c07929956f7c5a386c0",
+      "git_blob_sha1": "ca5025242d6fbd29536ad98327948712a39eac32",
+      "bytes": 2849
+    },
+    {
+      "path": "my_training/isac/b_group_step01_protocol.json",
+      "sha256": "2ecc2604da0c5dca9472b3caf1b5638160c13977f63a3714508280a31f2fa6d7",
+      "git_blob_sha1": "33f43227e8c674aa6aba166367db05111d02d3f8",
+      "bytes": 2369
+    },
+    {
+      "path": "my_training/isac/step02_b_group_csi_samples.py",
+      "sha256": "52e15d2da3c650f69ba1f2bf2ebafcc0e4d1c78bbe4e4aaa3e42a51b8633490d",
+      "git_blob_sha1": "15387b673444a597a201b76c76d1b0d55566cd48",
+      "bytes": 645
+    },
+    {
+      "path": "my_training/isac/step03_b_group_beam_validation.py",
+      "sha256": "b507f124b2229dd46c6cdf28adff61449ae8efb3f8833e54f14ded8a1cb5334a",
+      "git_blob_sha1": "8f4dce3b6606e387c23a7ff8fbe21cb260020c7d",
+      "bytes": 640
+    },
+    {
+      "path": "my_training/isac/step03_v6_otfs_tracking.py",
+      "sha256": "d442dabf8f5e04819236f70245d6dbf10c56484e7f70e413f1b0f055fc77c677",
+      "git_blob_sha1": "a8ba49473b7c0dc5659acfd36b2368678db15eb5",
+      "bytes": 608
+    },
+    {
+      "path": "my_training/isac/step04_b_group_csi_predictor.py",
+      "sha256": "7a8bffd42d5365d30fc5337894b89b311952e9ac1ca5eb09c80d879fe3928b1c",
+      "git_blob_sha1": "c1b3c4b5839395c7902d13e630906c74b736c14a",
+      "bytes": 644
+    },
+    {
+      "path": "my_training/isac/step05_b_group_closed_loop_comparison.py",
+      "sha256": "c18319bcbe9d1fdc9bcf55d5114b9026296774ddadd6c73aedd9a34a80aa6205",
+      "git_blob_sha1": "6aa3b1e5916b2f86270afc724ef47ee5cd54d1cc",
+      "bytes": 649
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "679508b69694861826b91d3654f275cf2036d9393c575d73885b9cae42e94799",
+      "git_blob_sha1": "c9c547a8b7a9183fa4b2f7668275fd07ddab3a39",
+      "bytes": 187
+    },
+    {
+      "path": "results/aggregate_metrics.json",
+      "sha256": "cdc2ec7f994c5376af8fd7b01e9bac977c7baf5f965483f21c96043a11a1c73d",
+      "git_blob_sha1": "375d81e35cf8d690e687a568bb2ba12358b90739",
+      "bytes": 4001
+    },
+    {
+      "path": "results/csi_prediction_metrics.png",
+      "sha256": "ec0ade6c18b64251b2729c51094b675c95268abfd82e4334e2970072e9de635b",
+      "git_blob_sha1": "253e4b0116c98b7ba2955aa93521959a9e1b40d1",
+      "bytes": 103325
+    },
+    {
+      "path": "results/stage05_ab_comparison.png",
+      "sha256": "1e8d177c8fd1aa4fc9ab0d79422c4d526141352633a9dd64d1e34b0c31bae44a",
+      "git_blob_sha1": "ec2716a40d2001f7799ca45002348bb4fd173b59",
+      "bytes": 90984
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "stage": 1,
+  "purpose": "B 组预测对象、观测截止时刻和下行波束生效时刻",
+  "scenario": {
+    "tracking_targets": 3,
+    "communication_receivers_per_target": 1,
+    "receive_antennas_per_receiver": 1,
+    "radar_and_downlink_transmitter_colocated": true,
+    "station_xyz_m": [0.0, 0.0, 10.0],
+    "downlink_model": "几何连续演化的单程视距窄带仿真",
+    "reference_range_m": 150.0,
+    "carrier_hz": 28000000000
+  },
+  "observation": {
+    "waveform": "CP-OTFS",
+    "subcarrier_spacing_hz": 120000,
+    "subcarriers": 256,
+    "cp_samples_per_symbol": 192,
+    "symbols_per_beam": 96,
+    "sample_rate_hz": 30720000,
+    "history_frames": 5,
+    "input": "本组实际已扫波束收到的复数基带回波，连同波束编号、采集时隙和有效掩码",
+    "allowed_frame_indices": "t-4 ... t",
+    "availability_rule": "预测输入仅使用第 t 帧采集截止前已接收的观测"
+  },
+  "timing": {
+    "frame_period_s": 0.05,
+    "beams_per_frame": 12,
+    "burst_duration_s": 0.0014,
+    "slot_start_relative_to_frame_start": "slot_index * burst_duration_s，时隙编号从 0 开始",
+    "last_scan_end_offset_s": 0.0168,
+    "next_frame_first_beam_offset_s": 0.05,
+    "lead_time_from_scan_end_s": 0.0332,
+    "predicted_frame_offset": 1,
+    "label_reference": "第 t+1 帧首束实际发射时刻",
+    "scheduled_beam_gain_reference": "评估时按各选中波束实际发射的时隙起点计算真实下行增益"
+  },
+  "channel_label": {
+    "quantity": "每个终端在载频上的单程下行复数信道列向量 h",
+    "units": "归一化复数振幅",
+    "per_terminal_complex_elements": 1024,
+    "antenna_array_shape_yx": [32, 32],
+    "element_spacing_wavelengths": 0.5,
+    "element_order": "C-order [y,x]，x 变化最快",
+    "beam_id_rule": "b = 32 * b_y + b_x，内部编号从 0 开始",
+    "direction_cosines": "u、v 分别为终端相对阵列的 x、y 方向余弦",
+    "distance": "d 为阵列相位中心到终端的单程距离",
+    "steering": "a[y,x] = exp(j*pi*(x*u + y*v))/32",
+    "one_way_path": "alpha = (reference_range_m/d) * exp(-j*2*pi*carrier_hz*d/c)",
+    "column_convention": "h = conj(alpha) * a",
+    "beam_response": "h^H w_b = alpha * a^H w_b，w_b 为单位范数 DFT 码字",
+    "truth_usage": "下行信道真值用于监督标签和离线评价"
+  }
+}
