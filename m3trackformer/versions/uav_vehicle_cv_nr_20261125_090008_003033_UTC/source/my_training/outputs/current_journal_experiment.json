@@ -1,0 +1,4 @@
+{
+  "nnet_checkpoint": "outputs/user_models/normal.pth",
+  "rnet_checkpoint": "outputs/user_models/recovery.pth"
+}

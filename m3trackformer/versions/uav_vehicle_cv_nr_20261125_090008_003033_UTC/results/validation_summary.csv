@@ -1,0 +1,3 @@
+﻿weights,method,num_scenes,completed,completion_rate,mean_valid_s,detection_rate,attempted_hit_rate,recovery_rate,position_rmse_m,normal_hit_rate,r_hit_rate,scheduled,hits,attempts,lost_events,recoveries,normal_attempts,normal_hits,r_attempts,r_hits,squared_error_sum
+original,cv_rnet,50,49,0.98,9.965,0.9956,0.999096838936277,0.8,5.423974193874763,0.9994978407150749,0.5,10000,9956,9965,5,4,9957,9952,8,4,292900.5027317378
+original,nrnet,50,40,0.8,8.966000000000001,0.8879,0.9902966763328128,0.6363636363636364,18.77926709332932,0.9962883815093915,0.28,10000,8879,8966,33,21,8891,8858,75,21,3131275.8874833384

@@ -1,0 +1,104 @@
+{
+  "version": "uav_vehicle_cv_nr_20261125_090008_003033_UTC",
+  "scope": "Curved-flight UAV sensing a single constant-speed ground vehicle at 80 km/h",
+  "entry": "source/my_training/isac/run_uav_vehicle.py",
+  "verification": "Six regression tests passed. An isolated local replay reproduced both aggregate CSVs byte-for-byte.",
+  "checksums": {
+    "README.md": {
+      "bytes": 5144,
+      "sha256": "37cca76e4dd64f4fad8013bcbbab6d204e855e747fe2871966b0d20902a7a3f9"
+    },
+    "results/config.json": {
+      "bytes": 1550,
+      "sha256": "1a705040f81c56626929f321a521e2109e36778b93e4bc31e86dbe84ba6ef900"
+    },
+    "results/figures/paired_tracking_comparison.png": {
+      "bytes": 97946,
+      "sha256": "7bdbab076b01b802b5e241d2118ce530091c1cc632c656e89d1fce2f0e993dea"
+    },
+    "results/figures/single_trajectory_tracking.png": {
+      "bytes": 151991,
+      "sha256": "97c3671c9f12f61c37730923692414893100d18fdb43d95695ea08b391b26c07"
+    },
+    "results/selection.json": {
+      "bytes": 1490,
+      "sha256": "11d2870f6ccee3c83bcd84229eb535597a08e0da524914df056ca5834361a147"
+    },
+    "results/summary.json": {
+      "bytes": 6162,
+      "sha256": "df68046c230bcb6002f150266c53f0b0d3278f68e06efa7e3cdf7a946e7fadad"
+    },
+    "results/test_summary.csv": {
+      "bytes": 636,
+      "sha256": "cc0f3a34fc75407b54f743774cd7e56da531ca3e9b42675831a8b22ab4b119b4"
+    },
+    "results/validation_summary.csv": {
+      "bytes": 616,
+      "sha256": "bd3f478edf6c3f7435c43bc98f1bb605c4930bbfbb83202b60394cde486c73b5"
+    },
+    "source.zip": {
+      "bytes": 29587,
+      "sha256": "62509a57d2c5f4bd2ac322d1d367d5df2fac147f8ed7b8d3b4ae9cb762cacbb2"
+    },
+    "source/my_training/checks/test_uav_vehicle_scene.py": {
+      "bytes": 2961,
+      "sha256": "b87deb4ddab558370235889264c05d55302c384be4f1d41e51351ef62402f5a5"
+    },
+    "source/my_training/checks/test_uav_vehicle_tracking.py": {
+      "bytes": 6293,
+      "sha256": "fd8bf4ee715e0390fae163962815414211f78716ca7359931abbebcb94e97baa"
+    },
+    "source/my_training/core/__init__.py": {
+      "bytes": 70,
+      "sha256": "f1b6eeb98c135229978bdcdf619cad2a4f4ed69e7bd5364f46fb4fc79a0fa261"
+    },
+    "source/my_training/core/common.py": {
+      "bytes": 4761,
+      "sha256": "f4eeabfaa75f1e0927250c64eee9aa5097026d2dd6d9402436a710b3fc620d21"
+    },
+    "source/my_training/core/dft_codebook.py": {
+      "bytes": 762,
+      "sha256": "f394d876a57f8fc574825ae7a8a0403ca9c219ea5dd3efd32881efcc0674f6eb"
+    },
+    "source/my_training/core/journal_training_loss.py": {
+      "bytes": 1271,
+      "sha256": "fc137089880ff0f78fa8abc75bd7daf6ac089651eca6e2c9c6a9291ffcf407e6"
+    },
+    "source/my_training/core/models.py": {
+      "bytes": 8042,
+      "sha256": "43972fb03a96a01c94a914e763440943933ca28f024bbb5156e0e164d7ba925f"
+    },
+    "source/my_training/core/uav_vehicle_adapt.py": {
+      "bytes": 8410,
+      "sha256": "a40084d01b3b8e7d90903d74f7dea41749b918ddf4790261a4a81988dae2ff70"
+    },
+    "source/my_training/core/uav_vehicle_experiment.py": {
+      "bytes": 10434,
+      "sha256": "5ffd8f7a4d4ed8930bae1dc8f3a49905b8a35e4e759d0a76fa68f9913dba02d3"
+    },
+    "source/my_training/core/uav_vehicle_plots.py": {
+      "bytes": 10906,
+      "sha256": "0be3d32830b767789882271649edd876ed7728c4641c6c2a93d0a2ed7aea3fc2"
+    },
+    "source/my_training/core/uav_vehicle_scene.py": {
+      "bytes": 3752,
+      "sha256": "c53af463a9ab0f473f0aad82baffd38d72f54a3e0506bc32a2331ba7dea49c99"
+    },
+    "source/my_training/core/uav_vehicle_tracking.py": {
+      "bytes": 10385,
+      "sha256": "66afff2360f267842ea57670e4d55609e91d9faca40d2a7af8bd3b2ddd7af830"
+    },
+    "source/my_training/core/versions.py": {
+      "bytes": 2849,
+      "sha256": "a196d5745cea362c6d41aa3881979e3582f5247ecc690c07929956f7c5a386c0"
+    },
+    "source/my_training/isac/run_uav_vehicle.py": {
+      "bytes": 711,
+      "sha256": "b19f72d8ff87fba47aed2bd127f3477d80faddde94a2a89440cffb48d1899c6b"
+    },
+    "source/my_training/outputs/current_journal_experiment.json": {
+      "bytes": 119,
+      "sha256": "1e9f5cfdd93cde698cffb689a6bd1a62f164e3789eff201b0c1492029b36148c"
+    }
+  }
+}

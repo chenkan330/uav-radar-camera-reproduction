@@ -1,0 +1,49 @@
+{
+  "scene_counts": {
+    "train": 384,
+    "r_train": 128,
+    "validation": 50,
+    "test": 50
+  },
+  "default_counts": true,
+  "first_seeds": {
+    "train": 110000,
+    "r_train": 210000,
+    "validation": 310000,
+    "test": 410000
+  },
+  "frames": 205,
+  "dt_s": 0.05,
+  "flight_integration_dt_s": 0.005,
+  "initial_observations": 5,
+  "evaluation_duration_s": 10.0,
+  "uav_altitude_m": 60.0,
+  "vehicle_speed_kmh": 80.0,
+  "platform": "Level curved flight with variable speed; fixed array attitude; exact past navigation and preissued next step.",
+  "target": "One ground vehicle moving in a straight line at constant speed; noisily observed on hits.",
+  "method_names": [
+    "cv_rnet",
+    "nrnet"
+  ],
+  "beam_budget_per_frame": 4,
+  "failure_limit": 5,
+  "model_config": {
+    "history": 5,
+    "future": 5,
+    "d_model": 256,
+    "heads": 8,
+    "encoder_layers": 4,
+    "decoder_layers": 2,
+    "dropout": 0.1,
+    "classes": 1024,
+    "failure_limit": 5,
+    "position_weight": 0.001,
+    "angular_weight": 0.1,
+    "angular_grid": "upstream_64x16"
+  },
+  "model_seed": 20261125,
+  "device": "cuda",
+  "adaptation_trigger": "N+R validation completion < 0.5 or either method has 10+ loss episodes and zero recoveries",
+  "selection_rule": "Maximize N+R validation completion rate, then all-scheduled-frame detection coverage. Exact tie keeps original.",
+  "paired_comparison": "Identical test scenes, noise, beam budget, detection/stop rules, and N/R checkpoint pair for both methods."
+}
